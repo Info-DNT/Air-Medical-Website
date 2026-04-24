@@ -5,7 +5,90 @@
 
 <head>
   <meta charset="utf-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KG4BQ6SM');</script>
+<!-- End Google Tag Manager -->
+    
+    <title>Air Ambulance Service in Belgium by Air Medical 24X7</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Air Medical 24X7" name="keywords">
+    <meta content="Air Medical 24X7" name="description">
 
+    <!-- Favicon -->
+    <link href="../img/airmedicallogo.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&amp;family=Roboto:wght@400;700&amp;display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link rel="canonical" href="https://airmedical24x7.com/countries/air-ambulance-belgium.html">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Air Ambulance Service in Belgium",
+  "description": "24/7 emergency air ambulance, medical evacuation, and ICU patient transfer services in Belgium provided by Air Medical 24X7.",
+  "provider": {
+    "@type": "MedicalOrganization",
+    "name": "Air Medical 24X7",
+    "url": "https://airmedical24x7.com/",
+    "logo": "https://airmedical24x7.com/img/air-medical-logo.png"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Belgium"
+  },
+  "serviceType": "Emergency Medical Transport",
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "https://airmedical24x7.com/contact.html",
+    "servicePhone": "+971565542001"
+  }
+}
+</script>
+</head>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG4BQ6SM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+        
+
+
+<!-- Navbar Start -->
+<div class="container-fluid sticky-top bg-white shadow-sm">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
+
+            <!-- Logo -->
+            <a class="navbar-brand" href="../index.html">
+                <img src="../img/air-medical-logo.png" alt="Air Medical 24X7" class="logo-img">
+            </a>
+
+            
+
+            <!-- Mobile Call + WhatsApp (ONLY mobile/tablet) -->
+            
 
             <!-- Bootstrap Menu Button -->
             <button class="navbar-toggler" type="button"
@@ -610,18 +693,12 @@
 <script src="../js/main.js"></script>
 
 
-  
 
-
-  
-  <!-- Mobile Menu Backdrop -->
-  <div class="menu-backdrop" id="menuBackdrop"></div>
-
+  <!-- Mobile Side Menu Logic -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const toggler = document.querySelector('.navbar-toggler');
       const navbarCollapse = document.querySelector('.navbar-collapse');
-      const backdrop = document.getElementById('menuBackdrop');
 
       // Add contact links to mobile menu if not present
       if (navbarCollapse) {
@@ -630,10 +707,10 @@
             const contactLinks = document.createElement('div');
             contactLinks.className = 'mobile-contact-links d-lg-none mt-4 border-top pt-4';
             contactLinks.innerHTML = `
-                <a href="tel:+971565542001" class="btn btn-primary w-100 mb-3 py-3">
+                <a href="tel:+971565542001" class="btn btn-primary w-100 mb-3 py-3" style="display: flex; align-items: center; justify-content: center; background-color: #1d2a4d; border: none; font-weight: 700; border-radius: 8px; color: #fff;">
                     <i class="bi bi-telephone me-2"></i> Call Now
                 </a>
-                <a href="https://wa.me/971565542001" target="_blank" class="btn btn-success w-100 py-3" style="background-color: #25D366; border: none;">
+                <a href="https://wa.me/971565542001" target="_blank" class="btn btn-success w-100 py-3" style="display: flex; align-items: center; justify-content: center; background-color: #25D366; border: none; font-weight: 700; border-radius: 8px; color: #fff;">
                     <i class="fab fa-whatsapp me-2"></i> WhatsApp
                 </a>
             `;
@@ -641,24 +718,32 @@
         }
       }
 
-      if (toggler && navbarCollapse && backdrop) {
-        toggler.addEventListener('click', function() {
+      if (toggler && navbarCollapse) {
+        toggler.addEventListener('click', function(e) {
+          e.stopPropagation();
           navbarCollapse.classList.toggle('show');
-          backdrop.classList.toggle('show');
-          document.body.classList.toggle('menu-open');
           document.body.style.overflow = navbarCollapse.classList.contains('show') ? 'hidden' : '';
         });
 
-        backdrop.addEventListener('click', function() {
-          navbarCollapse.classList.remove('show');
-          backdrop.classList.remove('show');
-          document.body.classList.remove('menu-open');
-          document.body.style.overflow = '';
+        // Close on click outside
+        document.addEventListener('click', function(event) {
+          if (!navbarCollapse.contains(event.target) && !toggler.contains(event.target) && navbarCollapse.classList.contains('show')) {
+            navbarCollapse.classList.remove('show');
+            document.body.style.overflow = '';
+          }
+        });
+
+        // Close on link click
+        const navLinks = navbarCollapse.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navbarCollapse.classList.remove('show');
+                document.body.style.overflow = '';
+            });
         });
       }
     });
   </script>
-
 
 </body>
 

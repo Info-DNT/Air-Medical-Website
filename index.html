@@ -230,11 +230,12 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
 
 
-
+  
   <title>Trusted Air Ambulance Globally | Air Medical 24X7</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="Air Medical 24X7" name="keywords">
-  <meta name="description" content="Air Medical 24X7 - Worldwide. Trusted by 17,000+ families.">
+  <meta name="description"
+    content="Air Medical 24X7 - Worldwide. Trusted by 17,000+ families.">
   <meta name="robots" content="index, follow">
 
   <meta property="og:type" content="website">
@@ -283,7 +284,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-
+  
 
 
   <!-- Navbar Start -->
@@ -297,7 +298,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         </a>
 
 
-
+        <!-- Mobile Call + WhatsApp (ONLY mobile/tablet) -->
+        
 
         <!-- Bootstrap Menu Button -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -325,17 +327,13 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 <a href="services/custom-medical-packages.html" class="dropdown-item">Custom Medical Packages</a>
               </div>
             </div>
-
+          
 
             <a href="blog.html" class="nav-item nav-link">Blog</a>
             <a href="career.html" class="nav-item nav-link">Career</a>
             <a href="contact.html" class="nav-item nav-link">Contact</a>
-            <a href="https://wa.me/971565542001"
-              class="btn btn-whatsapp-icon d-none d-lg-inline-flex align-items-center justify-content-center ms-3"
-              target="_blank" title="Chat on WhatsApp">
-              <i class="fab fa-whatsapp"></i>
-            </a>
-
+          
+          
           </div>
         </div>
 
@@ -364,18 +362,17 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
 
 
-
-
-
-
-
-
+    
+    
+  
+    
+  
+  
 
 
 
   <!-- Hero Start -->
-  <div class="container-fluid bg-primary py-5 mb-5 hero-header" role="img"
-    aria-label="Air Ambulance Service and Medical Evacuation worldwide with ICU-equipped aircraft">
+  <div class="container-fluid bg-primary py-5 mb-5 hero-header" role="img" aria-label="Air Ambulance Service and Medical Evacuation worldwide with ICU-equipped aircraft">
     <div class="container py-4 py-lg-5">
       <div class="row justify-content-start">
         <div class="col-lg-9 text-center text-lg-start">
@@ -384,7 +381,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
           </div>
           <h1 class="display-1 text-white mb-3" style="font-weight: 800; line-height: 1.1;">
             Air Ambulance & <span class="text-red">Medical</span> <br>
-            <span class="text-red">Evacuation Services</span>
+            <span class="text-red">Evacuation Services.</span>
           </h1>
           <p class="text-white fs-5 mb-4" style="max-width: 600px;">
             ICU-Equipped Air Ambulances | Bed-to-Bed Transfers Across India & Internationally | CAMTS & ISO Certified.
@@ -811,13 +808,11 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
       container.innerHTML = data.map(b => `
     <div class="col-xl-4 col-lg-6">
       <div class="premium-card p-0 overflow-hidden h-100">
-        <a href="blog-detail.html?slug=${b.slug}" class="d-block">
-          <img class="img-fluid w-100" src="${b.featured_image || 'img/blog1.jpg'}" style="height: 220px; object-fit: cover;">
-        </a>
+        <img class="img-fluid w-100" src="${b.featured_image || 'img/blog1.jpg'}" style="height: 220px; object-fit: cover;">
         <div class="p-4">
           <a class="h4 d-block mb-3 text-dark fw-bold"
              href="blog-detail.html?slug=${b.slug}" style="text-decoration: none; line-height: 1.4;">
-              ${b.title}
+             ${b.title}
           </a>
           <p class="m-0 text-muted" style="font-size: 14px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
             ${b.excerpt || ""}
@@ -848,8 +843,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
               </div>
               <h4 class="cert-title">CAMTS ACCREDITED</h4>
             </div>
-            <p class="cert-desc">The global gold standard in air medical transport. CAMTS accreditation ensures strict
-              protocols for aircraft, crew training, and patient care - trusted worldwide.</p>
+            <p class="cert-desc">The global gold standard in air medical transport. CAMTS accreditation ensures strict protocols for aircraft, crew training, and patient care - trusted worldwide.</p>
           </div>
         </div>
         <!-- ISO -->
@@ -861,8 +855,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
               </div>
               <h4 class="cert-title">ISO 9001:2015 CERTIFIED</h4>
             </div>
-            <p class="cert-desc">Internationally recognized quality management certification, ensuring consistent
-              processes, safety standards, and reliable patient handling across every mission.</p>
+            <p class="cert-desc">Internationally recognized quality management certification, ensuring consistent processes, safety standards, and reliable patient handling across every mission.</p>
           </div>
         </div>
         <!-- FAA -->
@@ -874,8 +867,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
               </div>
               <h4 class="cert-title">FAA-APPROVED MEDICAL EQUIPMENT</h4>
             </div>
-            <p class="cert-desc">All onboard medical equipment is approved for in-flight use-ensuring safety,
-              reliability, and performance even at high altitudes.</p>
+            <p class="cert-desc">All onboard medical equipment is approved for in-flight use-ensuring safety, reliability, and performance even at high altitudes.</p>
           </div>
         </div>
         <!-- DGCA -->
@@ -887,8 +879,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
               </div>
               <h4 class="cert-title">DGCA-COMPLIANT OPERATIONS</h4>
             </div>
-            <p class="cert-desc">Fully compliant with aviation regulations for medical flights, ensuring every transfer
-              meets required safety, legal, and operational standards.</p>
+            <p class="cert-desc">Fully compliant with aviation regulations for medical flights, ensuring every transfer meets required safety, legal, and operational standards.</p>
           </div>
         </div>
       </div>
@@ -1434,8 +1425,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         <div class="col-md-6 text-center text-md-start">
           <p class="mb-0">
             © <a href="index.html" class="text-primary">Air Medical 24X7</a>. All Rights Reserved.
-          </p>
-        </div>
+            </p>
+          </div>
 
         <!-- Payment Methods -->
         <div class="col-md-6 text-center text-md-end">
@@ -1468,18 +1459,12 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   <script src="js/main.js"></script>
 
 
-  
 
-
-  
-  <!-- Mobile Menu Backdrop -->
-  <div class="menu-backdrop" id="menuBackdrop"></div>
-
+  <!-- Mobile Side Menu Logic -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const toggler = document.querySelector('.navbar-toggler');
       const navbarCollapse = document.querySelector('.navbar-collapse');
-      const backdrop = document.getElementById('menuBackdrop');
 
       // Add contact links to mobile menu if not present
       if (navbarCollapse) {
@@ -1488,10 +1473,10 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             const contactLinks = document.createElement('div');
             contactLinks.className = 'mobile-contact-links d-lg-none mt-4 border-top pt-4';
             contactLinks.innerHTML = `
-                <a href="tel:+971565542001" class="btn btn-primary w-100 mb-3 py-3">
+                <a href="tel:+971565542001" class="btn btn-primary w-100 mb-3 py-3" style="display: flex; align-items: center; justify-content: center; background-color: #1d2a4d; border: none; font-weight: 700; border-radius: 8px; color: #fff;">
                     <i class="bi bi-telephone me-2"></i> Call Now
                 </a>
-                <a href="https://wa.me/971565542001" target="_blank" class="btn btn-success w-100 py-3" style="background-color: #25D366; border: none;">
+                <a href="https://wa.me/971565542001" target="_blank" class="btn btn-success w-100 py-3" style="display: flex; align-items: center; justify-content: center; background-color: #25D366; border: none; font-weight: 700; border-radius: 8px; color: #fff;">
                     <i class="fab fa-whatsapp me-2"></i> WhatsApp
                 </a>
             `;
@@ -1499,26 +1484,37 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         }
       }
 
-      if (toggler && navbarCollapse && backdrop) {
-        toggler.addEventListener('click', function() {
+      if (toggler && navbarCollapse) {
+        toggler.addEventListener('click', function(e) {
+          e.stopPropagation();
           navbarCollapse.classList.toggle('show');
-          backdrop.classList.toggle('show');
-          document.body.classList.toggle('menu-open');
           document.body.style.overflow = navbarCollapse.classList.contains('show') ? 'hidden' : '';
         });
 
-        backdrop.addEventListener('click', function() {
-          navbarCollapse.classList.remove('show');
-          backdrop.classList.remove('show');
-          document.body.classList.remove('menu-open');
-          document.body.style.overflow = '';
+        // Close on click outside
+        document.addEventListener('click', function(event) {
+          if (!navbarCollapse.contains(event.target) && !toggler.contains(event.target) && navbarCollapse.classList.contains('show')) {
+            navbarCollapse.classList.remove('show');
+            document.body.style.overflow = '';
+          }
+        });
+
+        // Close on link click
+        const navLinks = navbarCollapse.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navbarCollapse.classList.remove('show');
+                document.body.style.overflow = '';
+            });
         });
       }
     });
   </script>
 
-
 </body>
 
 
 </html>
+
+
+

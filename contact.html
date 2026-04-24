@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 
@@ -765,18 +765,12 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <script src="js/main.js"></script>
 
 
-  
 
-
-  
-  <!-- Mobile Menu Backdrop -->
-  <div class="menu-backdrop" id="menuBackdrop"></div>
-
+  <!-- Mobile Side Menu Logic -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const toggler = document.querySelector('.navbar-toggler');
       const navbarCollapse = document.querySelector('.navbar-collapse');
-      const backdrop = document.getElementById('menuBackdrop');
 
       // Add contact links to mobile menu if not present
       if (navbarCollapse) {
@@ -785,10 +779,10 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             const contactLinks = document.createElement('div');
             contactLinks.className = 'mobile-contact-links d-lg-none mt-4 border-top pt-4';
             contactLinks.innerHTML = `
-                <a href="tel:+971565542001" class="btn btn-primary w-100 mb-3 py-3">
+                <a href="tel:+971565542001" class="btn btn-primary w-100 mb-3 py-3" style="display: flex; align-items: center; justify-content: center; background-color: #1d2a4d; border: none; font-weight: 700; border-radius: 8px; color: #fff;">
                     <i class="bi bi-telephone me-2"></i> Call Now
                 </a>
-                <a href="https://wa.me/971565542001" target="_blank" class="btn btn-success w-100 py-3" style="background-color: #25D366; border: none;">
+                <a href="https://wa.me/971565542001" target="_blank" class="btn btn-success w-100 py-3" style="display: flex; align-items: center; justify-content: center; background-color: #25D366; border: none; font-weight: 700; border-radius: 8px; color: #fff;">
                     <i class="fab fa-whatsapp me-2"></i> WhatsApp
                 </a>
             `;
@@ -796,24 +790,32 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         }
       }
 
-      if (toggler && navbarCollapse && backdrop) {
-        toggler.addEventListener('click', function() {
+      if (toggler && navbarCollapse) {
+        toggler.addEventListener('click', function(e) {
+          e.stopPropagation();
           navbarCollapse.classList.toggle('show');
-          backdrop.classList.toggle('show');
-          document.body.classList.toggle('menu-open');
           document.body.style.overflow = navbarCollapse.classList.contains('show') ? 'hidden' : '';
         });
 
-        backdrop.addEventListener('click', function() {
-          navbarCollapse.classList.remove('show');
-          backdrop.classList.remove('show');
-          document.body.classList.remove('menu-open');
-          document.body.style.overflow = '';
+        // Close on click outside
+        document.addEventListener('click', function(event) {
+          if (!navbarCollapse.contains(event.target) && !toggler.contains(event.target) && navbarCollapse.classList.contains('show')) {
+            navbarCollapse.classList.remove('show');
+            document.body.style.overflow = '';
+          }
+        });
+
+        // Close on link click
+        const navLinks = navbarCollapse.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navbarCollapse.classList.remove('show');
+                document.body.style.overflow = '';
+            });
         });
       }
     });
   </script>
-
 
 </body>
 
