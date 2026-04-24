@@ -297,15 +297,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         </a>
 
 
-        <!-- Mobile Call + WhatsApp (ONLY mobile/tablet) -->
-        <div class="mobile-header-actions d-lg-none">
-          <a href="tel:+971565542001" class="mobile-icon call">
-            <i class="bi bi-telephone"></i>
-          </a>
-          <a href="https://wa.me/971565542001" target="_blank" class="mobile-icon whatsapp">
-            <i class="fab fa-whatsapp"></i>
-          </a>
-        </div>
+
 
         <!-- Bootstrap Menu Button -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -1475,6 +1467,52 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   <!-- Template Javascript -->
   <script src="js/main.js"></script>
 
+
+  
+
+
+  <!-- Mobile Menu Backdrop -->
+  <div class="menu-backdrop" id="menuBackdrop"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggler = document.querySelector('.navbar-toggler');
+      const navbarCollapse = document.querySelector('.navbar-collapse');
+      const backdrop = document.getElementById('menuBackdrop');
+
+      // Add contact links to mobile menu if not present
+      if (navbarCollapse) {
+        const navNav = navbarCollapse.querySelector('.navbar-nav');
+        if (navNav && !navNav.querySelector('.mobile-contact-links')) {
+            const contactLinks = document.createElement('div');
+            contactLinks.className = 'mobile-contact-links d-lg-none mt-4 border-top pt-4';
+            contactLinks.innerHTML = `
+                <a href="tel:+971565542001" class="btn btn-primary w-100 mb-3 py-3">
+                    <i class="bi bi-telephone me-2"></i> Call Now
+                </a>
+                <a href="https://wa.me/971565542001" target="_blank" class="btn btn-success w-100 py-3" style="background-color: #25D366; border: none;">
+                    <i class="fab fa-whatsapp me-2"></i> WhatsApp
+                </a>
+            `;
+            navNav.appendChild(contactLinks);
+        }
+      }
+
+      if (toggler && navbarCollapse && backdrop) {
+        toggler.addEventListener('click', function() {
+          navbarCollapse.classList.toggle('show');
+          backdrop.classList.toggle('show');
+          document.body.style.overflow = navbarCollapse.classList.contains('show') ? 'hidden' : '';
+        });
+
+        backdrop.addEventListener('click', function() {
+          navbarCollapse.classList.remove('show');
+          backdrop.classList.remove('show');
+          document.body.style.overflow = '';
+        });
+      }
+    });
+  </script>
 
 </body>
 

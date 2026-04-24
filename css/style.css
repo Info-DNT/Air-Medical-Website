@@ -509,7 +509,18 @@ h6 {
 
 @media (max-width: 768px) {
     .navbar-brand img.logo-img {
-        height: 45px;
+        height: 42px;
+    }
+
+    .navbar {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .navbar-brand img.logo-img {
+        height: 36px;
     }
 }
 
@@ -878,42 +889,95 @@ h6 {
 
 /* ================= MOBILE HEADER ACTIONS ================= */
 .mobile-header-actions {
-    display: flex;
-    gap: 10px;
-    margin-right: 10px;
+    display: none !important;
 }
 
-.mobile-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-}
+/* --- Premium Mobile Side Drawer (Right to Left) --- */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: #ffffff !important;
+        opacity: 1 !important;
+        z-index: 1060;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 80px 25px 30px 25px;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+        display: block !important;
+        overflow-y: auto;
+    }
 
-.mobile-icon.call {
-    background: #008cff;
-}
+    .navbar-collapse.show {
+        right: 0;
+    }
 
-.mobile-icon.whatsapp {
-    background: #25D366;
-}
+    .navbar-nav {
+        flex-direction: column !important;
+    }
 
-/* Hide mobile actions on desktop */
-@media (min-width: 992px) {
-    .mobile-header-actions {
+    .nav-item.nav-link {
+        padding: 15px 0 !important;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 16px;
+        font-weight: 600;
+        color: #1d2a4d !important;
+    }
+
+    .nav-item.dropdown .dropdown-menu {
+        position: static;
+        border: none;
+        background: #f8f9fa;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+
+    /* Backdrop for Menu */
+    .menu-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1055;
         display: none;
+    }
+
+    .menu-backdrop.show {
+        display: block;
     }
 }
 
 /* Clean toggler */
+.navbar-toggler {
+    border: none !important;
+    padding: 0 !important;
+}
+
 .navbar-toggler:focus {
     box-shadow: none;
 }
+
+/* Reposition SOS for Mobile */
+@media (max-width: 991.98px) {
+    #sos-btn {
+        bottom: 30px !important;
+        right: 20px !important;
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 12px !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50% !important;
+        padding: 0 !important;
+        box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4) !important;
+    }
+}
+
 
 
 
@@ -1605,6 +1669,72 @@ h6 {
 
     .transport-options {
         gap: 10px;
+    }
+}
+
+/* Hero Section Mobile Readability Revamp */
+@media (max-width: 768px) {
+    .hero-header {
+        position: relative;
+        overflow: hidden;
+        min-height: 300px !important;
+        background-position: center !important;
+    }
+
+    /* Dark Overlay for better contrast */
+    .hero-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+        z-index: 1;
+    }
+
+    .hero-header .container {
+        position: relative;
+        z-index: 2;
+        padding-top: 60px !important;
+    }
+
+    .hero-header h1 {
+        font-size: 1.7rem !important;
+        line-height: 1.1 !important;
+        margin-bottom: 10px !important;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-header h1 br {
+        display: none !important;
+    }
+
+    .hero-header h1 span {
+        display: inline !important;
+        font-size: 1.7rem !important;
+        color: #ff3c3c !important;
+    }
+
+    .hero-header p {
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 25px !important;
+    }
+
+    .hero-header .btn {
+        width: 100% !important;
+        margin-bottom: 10px !important;
+        padding: 14px 20px !important;
+        font-size: 14px !important;
+        border-radius: 8px !important;
+    }
+
+    /* Fixed spacing for top badge */
+    .hero-badge {
+        font-size: 10px !important;
+        padding: 6px 12px !important;
+        margin-bottom: 12px !important;
     }
 }
 
