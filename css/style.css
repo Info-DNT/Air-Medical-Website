@@ -211,7 +211,9 @@ h6 {
 
 @media (min-width: 992px) {
     .hero-header h1 {
-        font-size: 4.5rem;
+        font-size: 4.5rem !important;
+        font-weight: 900 !important;
+        line-height: 1.0 !important;
     }
 }
 
@@ -918,10 +920,11 @@ h6 {
         width: 280px !important;
         height: 100vh !important;
         background: #ffffff !important;
-        z-index: 9999 !important; /* Above everything */
+        z-index: 9999 !important;
+        /* Above everything */
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
         padding: 60px 20px 30px 20px !important;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1) !important;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1) !important;
         display: block !important;
         margin: 0 !important;
         overflow-y: auto !important;
@@ -931,7 +934,7 @@ h6 {
         right: 0 !important;
     }
 
-    .navbar-nav .nav-link, 
+    .navbar-nav .nav-link,
     .navbar-nav .dropdown-item {
         padding: 12px 0 !important;
         border-bottom: 1px solid #f0f0f0 !important;
@@ -1710,7 +1713,8 @@ h6 {
         left: 0 !important;
         width: 100% !important;
         height: 100% !important;
-        background: rgba(0, 0, 0, 0.4) !important; /* Lightened overlay */
+        background: rgba(0, 0, 0, 0.4) !important;
+        /* Lightened overlay */
         z-index: 1 !important;
     }
 
@@ -1778,19 +1782,20 @@ h6 {
         display: none !important;
     }
 }
-    .container-fluid {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-    }
 
-    .display-1 {
-        font-size: 1.8rem !important;
-    }
+.container-fluid {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
 
-    .cta-button-group .btn {
-        padding: 12px 20px !important;
-        font-size: 14px;
-    }
+.display-1 {
+    font-size: 1.8rem !important;
+}
+
+.cta-button-group .btn {
+    padding: 12px 20px !important;
+    font-size: 14px;
+}
 }
 
 /* Navbar WhatsApp Button */
