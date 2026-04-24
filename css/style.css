@@ -612,9 +612,11 @@ h6 {
     0% {
         box-shadow: 0 0 0 0 rgba(251, 15, 12, 0.7);
     }
+
     70% {
         box-shadow: 0 0 0 15px rgba(251, 15, 12, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(251, 15, 12, 0);
     }
@@ -1366,7 +1368,8 @@ h6 {
 
 .premium-card:hover .service-icon {
     transform: rotate(10deg) scale(1.1);
-    background: #FB0F0C !important; /* Switch to brand red on hover for dynamic feel */
+    background: #FB0F0C !important;
+    /* Switch to brand red on hover for dynamic feel */
 }
 
 
@@ -1442,7 +1445,7 @@ h6 {
 .cert-card {
     background: #fff;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     padding: 30px;
     height: 100%;
     transition: all 0.3s ease;
@@ -1453,13 +1456,24 @@ h6 {
 
 .cert-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
 }
 
-.cert-card.camts { border-top-color: #1A346B; }
-.cert-card.iso { border-top-color: #00a651; }
-.cert-card.faa { border-top-color: #f7941d; }
-.cert-card.dgca { border-top-color: #c1272d; }
+.cert-card.camts {
+    border-top-color: #1A346B;
+}
+
+.cert-card.iso {
+    border-top-color: #00a651;
+}
+
+.cert-card.faa {
+    border-top-color: #f7941d;
+}
+
+.cert-card.dgca {
+    border-top-color: #c1272d;
+}
 
 .cert-header {
     display: flex;
@@ -1511,6 +1525,7 @@ h6 {
     .cta-button-group {
         flex-direction: column;
     }
+
     .cta-button-group .btn {
         width: 100%;
         margin-right: 0 !important;
@@ -1523,8 +1538,9 @@ h6 {
    ============================================================ */
 
 @media (max-width: 768px) {
+
     /* Reduce global section spacing */
-    .container-fluid.py-5, 
+    .container-fluid.py-5,
     .container-fluid.my-5 {
         padding-top: 2rem !important;
         padding-bottom: 2rem !important;
@@ -1533,9 +1549,16 @@ h6 {
     }
 
     /* Fix Headings Sizing */
-    .display-1 { font-size: 2.2rem !important; }
-    .display-2 { font-size: 1.8rem !important; }
-    .about-heading, .testimonial-title {
+    .display-1 {
+        font-size: 2.2rem !important;
+    }
+
+    .display-2 {
+        font-size: 1.8rem !important;
+    }
+
+    .about-heading,
+    .testimonial-title {
         font-size: 1.6rem !important;
         letter-spacing: -0.5px !important;
     }
@@ -1545,7 +1568,7 @@ h6 {
         padding: 20px !important;
         margin-bottom: 20px;
     }
-    
+
     .premium-card h4 {
         font-size: 1.2rem;
     }
@@ -1570,7 +1593,8 @@ h6 {
     }
 
     /* Spacing between stacked items */
-    .row.g-5, .row.gx-5 {
+    .row.g-5,
+    .row.gx-5 {
         --bs-gutter-y: 2rem;
     }
 
@@ -1591,10 +1615,60 @@ h6 {
         padding-right: 15px !important;
     }
 
-    .display-1 { font-size: 1.8rem !important; }
-    
+    .display-1 {
+        font-size: 1.8rem !important;
+    }
+
     .cta-button-group .btn {
         padding: 12px 20px !important;
         font-size: 14px;
     }
+}
+
+/* Navbar WhatsApp Button */
+.btn-nav-whatsapp {
+    background-color: #25D366;
+    color: #FFFFFF !important;
+    font-weight: 600;
+    padding: 8px 20px;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 14px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+}
+
+.btn-nav-whatsapp:hover {
+    background-color: #128C7E;
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+}
+
+.btn-nav-whatsapp i {
+    font-size: 18px;
+}
+
+/* Navbar WhatsApp Icon Button */
+.btn-whatsapp-icon {
+    background-color: #25D366;
+    color: #FFFFFF !important;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding: 0;
+    transition: all 0.3s ease;
+    border: none;
+    margin-top: 17px;
+    box-shadow: 0 2px 10px rgba(37, 211, 102, 0.2);
+}
+
+.btn-whatsapp-icon:hover {
+    background-color: #128C7E;
+    color: #FFFFFF !important;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp-icon i {
+    font-size: 20px;
 }
