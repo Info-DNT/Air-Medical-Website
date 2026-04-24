@@ -1126,7 +1126,7 @@ h6 {
 /* Mobile spacing (prevents sticking to header) */
 @media (max-width: 991px) {
     .country-search-section {
-        margin-top: 110px;
+        margin-top: 30px;
     }
 
     .country-search-input {
@@ -1544,3 +1544,84 @@ h6 {
     }
 }
 
+
+/* ============================================================
+   COMPREHENSIVE MOBILE UI FIXES (Responsive Overrides)
+   ============================================================ */
+
+@media (max-width: 768px) {
+    /* Reduce global section spacing */
+    .container-fluid.py-5, 
+    .container-fluid.my-5 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* Fix Headings Sizing */
+    .display-1 { font-size: 2.2rem !important; }
+    .display-2 { font-size: 1.8rem !important; }
+    .about-heading, .testimonial-title {
+        font-size: 1.6rem !important;
+        letter-spacing: -0.5px !important;
+    }
+
+    /* Card Optimization */
+    .premium-card {
+        padding: 20px !important;
+        margin-bottom: 20px;
+    }
+    
+    .premium-card h4 {
+        font-size: 1.2rem;
+    }
+
+    .premium-card p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    /* Form Optimization */
+    .bg-white.rounded.p-5 {
+        padding: 1.5rem !important;
+    }
+
+    /* SOS Button Mobile Placement */
+    #sos-btn {
+        bottom: 25px;
+        right: 15px;
+        padding: 10px 18px;
+        font-size: 13px;
+        box-shadow: 0 4px 15px rgba(251, 15, 12, 0.5);
+    }
+
+    /* Spacing between stacked items */
+    .row.g-5, .row.gx-5 {
+        --bs-gutter-y: 2rem;
+    }
+
+    /* Fix Transport Cards */
+    .transport-card img {
+        height: 140px;
+    }
+
+    .transport-options {
+        gap: 10px;
+    }
+}
+
+/* Extra small devices (phones) */
+@media (max-width: 480px) {
+    .container-fluid {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    .display-1 { font-size: 1.8rem !important; }
+    
+    .cta-button-group .btn {
+        padding: 12px 20px !important;
+        font-size: 14px;
+    }
+}
