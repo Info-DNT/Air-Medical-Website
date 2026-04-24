@@ -20,41 +20,50 @@
 {
   "@context": "https://schema.org",
   "@graph": [
-
     {
-      "@type": "Organization",
+      "@type": [
+        "Organization",
+        "MedicalOrganization"
+      ],
       "@id": "https://airmedical24x7.com/#organization",
       "name": "Air Medical 24X7",
       "alternateName": "Air Medical 24X7 Global Air Ambulance",
       "url": "https://airmedical24x7.com/",
       "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
-      "image": "https://airmedical24x7.com/img/about-us.png",
-      "description": "Air Medical 24X7 - Worldwide patient transfers.",
+      "description": "Air Medical 24X7 - Worldwide air ambulance, medical evacuation, flight medical escort and critical care patient transport services.",
       "sameAs": [
         "https://www.facebook.com/airmedical24x7/",
         "https://x.com/airmedical24x7",
         "https://in.linkedin.com/company/airmedical24x7",
         "https://www.instagram.com/airmedical24x7/"
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+971565542001",
+          "contactType": "Emergency Medical Transport",
+          "areaServed": "Worldwide",
+          "availableLanguage": [
+            "en",
+            "hi",
+            "ar",
+            "fr",
+            "es",
+            "ru"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+918800028727",
+          "contactType": "Emergency Medical Transport",
+          "areaServed": "IN",
+          "availableLanguage": [
+            "en",
+            "hi"
+          ]
+        }
       ]
     },
-
-    {
-      "@type": "MedicalOrganization",
-      "@id": "https://airmedical24x7.com/#medicalorganization",
-      "name": "Air Medical 24X7",
-      "parentOrganization": {
-        "@id": "https://airmedical24x7.com/#organization"
-      },
-      "medicalSpecialty": [
-        "Air Ambulance",
-        "Medical Evacuation",
-        "Critical Care Transport",
-        "Neonatal Transport",
-        "Flight Medical Escort"
-      ],
-      "areaServed": "Worldwide"
-    },
-
     {
       "@type": "LocalBusiness",
       "@id": "https://airmedical24x7.com/#dubai",
@@ -71,7 +80,6 @@
         "@id": "https://airmedical24x7.com/#organization"
       }
     },
-
     {
       "@type": "LocalBusiness",
       "@id": "https://airmedical24x7.com/#india",
@@ -89,7 +97,6 @@
         "@id": "https://airmedical24x7.com/#organization"
       }
     },
-
     {
       "@type": "AboutPage",
       "@id": "https://airmedical24x7.com/about.html",
@@ -100,19 +107,27 @@
         "@id": "https://airmedical24x7.com/#organization"
       }
     },
-
     {
       "@type": "BreadcrumbList",
       "@id": "https://airmedical24x7.com/about.html#breadcrumb",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://airmedical24x7.com/" },
-        { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://airmedical24x7.com/about.html" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://airmedical24x7.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About Us",
+          "item": "https://airmedical24x7.com/about.html"
+        }
       ]
     }
-
   ]
 }
-</script>
+  </script>
 
 
 
