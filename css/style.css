@@ -206,6 +206,13 @@ h6 {
 
 .hero-header h1 {
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    max-width: 850px;
+}
+
+@media (min-width: 992px) {
+    .hero-header h1 {
+        font-size: 4.5rem;
+    }
 }
 
 .hero-badge {
