@@ -4,6 +4,7 @@
 
 
 <head>
+  <meta charset="utf-8">
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
@@ -103,7 +104,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
       "@id": "https://airmedical24x7.com/contact#medicalbusiness",
       "name": "Air Medical 24X7 Contact Services",
       "url": "https://airmedical24x7.com/contact",
-      "description": "Contact page for Air Medical 24X7 â€“ Commercial flight stretcher, air ambulance, and medical escort services. Fill out the form or reach us via phone, WhatsApp, or email.",
+      "description": "Contact page for Air Medical 24X7 – Commercial flight stretcher, air ambulance, and medical escort services. Fill out the form or reach us via phone, WhatsApp, or email.",
       "address": [
         { "@id": "https://airmedical24x7.com/#dubai" },
         { "@id": "https://airmedical24x7.com/#india" }
@@ -147,7 +148,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
 
 
-    <meta charset="utf-8">
+    
     <title>Contact Air Medical 24X7 Globally</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="description"
@@ -161,7 +162,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
     <meta property="og:type" content="website">
     <meta property="og:title"
-        content="Contact Air Medical 24X7 â€“ Commercial Flight Stretcher & Patient Transfer Enquiry">
+        content="Contact Air Medical 24X7 – Commercial Flight Stretcher & Patient Transfer Enquiry">
     <meta property="og:description"
         content="Reach Air Medical 24X7 - Worldwide commercial flight stretcher services, ICU-trained medical escorts, and bed-to-bed patient transfers. Our team is available 24x7.">
     <meta property="og:url" content="https://airmedical24x7.com/contact">
@@ -169,7 +170,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title"
-        content="Contact Air Medical 24X7 â€“ Commercial Flight Stretcher & Patient Transfer Enquiry">
+        content="Contact Air Medical 24X7 – Commercial Flight Stretcher & Patient Transfer Enquiry">
     <meta name="twitter:description"
         content="Connect with Air Medical 24X7 - Worldwide. Available 24x7.">
     <meta name="twitter:image" content="https://airmedical24x7.com/img/contact-og.jpg">
@@ -297,20 +298,29 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     </div>
     <!-- Navbar End -->
 
-    <!--ðŸš¨ SOS Emergency Button -->
-    <div id="sos-btn" onclick="toggleSOS()">ðŸš¨SOS</div>
+  <!-- SOS Emergency Button -->
+  <div id="sos-btn" onclick="toggleSOS()">🚨 SOS</div>
 
-    <!--ðŸš¨ SOS Popup -->
-    <div id="sos-popup">
-        <div class="sos-content">
-            <span class="close-sos" onclick="toggleSOS()">Ã—</span>
-            <h3>Emergency Assistance</h3>
-            <a href="tel:+971565542001" class="sos-link call">ðŸ“ž Call Now</a>
-            <a href="https://wa.me/971565542001" target="_blank" class="sos-link whatsapp">ðŸ’¬ WhatsApp Chat</a>
-            <a href="mailto:info@airmedical24x7.com" class="sos-link email">âœ‰ï¸ Email Support</a>
-            <p class="sos-note">Available 24Ã—7 Worldwide</p>
-        </div>
+  <!-- SOS Popup -->
+  <div id="sos-popup">
+    <div class="sos-content">
+      <span class="close-sos" onclick="toggleSOS()">×</span>
+      <h3>Emergency Assistance</h3>
+
+      <a href="tel:+971565542001" class="sos-link call">📞 Call Now</a>
+      <a href="https://wa.me/971565542001" target="_blank" class="sos-link whatsapp">💬 WhatsApp Chat</a>
+      <a href="mailto:info@airmedical24x7.com" class="sos-link email">✉️ Email Support</a>
+
+      <p class="sos-note">Available 24X7 Worldwide</p>
     </div>
+  </div>
+  <!-- SOS Popup -->
+
+    
+    
+
+    
+    
 
     <!-- Contact Header Start -->
     <div class="container-fluid py-5">
@@ -576,9 +586,9 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             const supabase = window.supabaseClient;
 
             form.addEventListener("submit", async function (e) {
-                e.preventDefault(); // ðŸš¨ STOPS URL REDIRECT
+                e.preventDefault(); // 🚨 STOPS URL REDIRECT
 
-                console.log("ðŸš€ Form submission intercepted");
+                console.log("🚀 Form submission intercepted");
 
                 const fullPhone =
                     document.getElementById("countryCode").value +
@@ -599,7 +609,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                     payload.transport = transportInput.value;
                 }
 
-                console.log("ðŸ“¦ Payload:", payload);
+                console.log("📦 Payload:", payload);
 
                 const { error } = await supabase
                     .from("appointments")
@@ -633,7 +643,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         Services,
                         delivering compassionate and patient-focused care every step of the journey.</p>
                     <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>310, Garhoud Community, Near
-                        Dubai International Airport Terminal-1, P.O. Box : 29086 Dubai ï¿½ (U.A.E)</p>
+                        Dubai International Airport Terminal-1, P.O. Box : 29086 Dubai © (U.A.E)</p>
                     <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>1111, 11th Floor, Padma Tower
                         1, Rajendra Place, New Delhi - 110008, (INDIA)</p>
                     <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>info@airmedical24x7.com</p>
@@ -741,7 +751,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 <!-- Copyright -->
                 <div class="col-md-6 text-center text-md-start">
                     <p class="mb-0">
-                        ï¿½ <a href="index.html" class="text-primary">Air Medical 24X7</a>. All Rights Reserved.
+                        © <a href="index.html" class="text-primary">Air Medical 24X7</a>. All Rights Reserved.
                     </p>
                 </div>
 
