@@ -18,90 +18,111 @@
 
     <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-
-    {
-      "@type": "Organization",
-      "@id": "https://airmedical24x7.com/#organization",
-      "name": "Air Medical 24X7",
-      "url": "https://airmedical24x7.com/",
-      "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
-      "sameAs": [
-        "https://www.facebook.com/airmedical24x7/",
-        "https://x.com/airmedical24x7",
-        "https://in.linkedin.com/company/airmedical24x7",
-        "https://www.instagram.com/airmedical24x7/"
-      ]
-    },
-
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://airmedical24x7.com/#dubai",
-      "name": "Air Medical 24X7 Dubai",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "310, Garhoud Community, Near Dubai International Airport Terminal-1",
-        "addressLocality": "Dubai",
-        "postalCode": "29086",
-        "addressCountry": "AE"
-      },
+  "@type": "Organization",
+  "@id": "https://airmedical24x7.com/#organization",
+  "name": "Air Medical 24X7",
+  "url": "https://airmedical24x7.com/",
+  "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
+  "sameAs": [
+    "https://www.facebook.com/airmedical24x7/",
+    "https://x.com/airmedical24x7",
+    "https://in.linkedin.com/company/airmedical24x7",
+    "https://www.instagram.com/airmedical24x7/"
+  ],
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "LocalBusiness",
+  "@id": "https://airmedical24x7.com/#dubai",
+  "name": "Air Medical 24X7 Dubai",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "310, Garhoud Community, Near Dubai International Airport Terminal-1",
+    "addressLocality": "Dubai",
+    "postalCode": "29086",
+    "addressCountry": "AE"
+  },
+  "telephone": "+971565542001",
+  "parentOrganization": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "MedicalBusiness",
+  "@id": "https://airmedical24x7.com/second-opinion-services#medicalbusiness",
+  "name": "Medical Second Opinion Services",
+  "url": "https://airmedical24x7.com/second-opinion-services",
+  "image": "https://airmedical24x7.com/img/second-opinion.png",
+  "description": "Global online medical second opinion service providing expert review of diagnosis, test reports and treatment plans by international specialists.",
+  "provider": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "medicalSpecialty": [
+    "Oncology",
+    "Cardiology",
+    "Neurology",
+    "Orthopedics",
+    "Critical Care",
+    "Rare Diseases"
+  ],
+  "areaServed": "Worldwide",
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "MedicalService",
+  "@id": "https://airmedical24x7.com/second-opinion-services#service",
+  "name": "Online Medical Second Opinion",
+  "description": "Specialist doctors evaluate medical records, scans and diagnoses to provide independent expert second opinions and treatment guidance.",
+  "provider": {
+    "@id": "https://airmedical24x7.com/second-opinion-services#medicalbusiness"
+  },
+  "areaServed": "Worldwide",
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "servicePhone": {
+      "@type": "ContactPoint",
       "telephone": "+971565542001",
-      "parentOrganization": { "@id": "https://airmedical24x7.com/#organization" }
-    },
-
-    {
-      "@type": "MedicalBusiness",
-      "@id": "https://airmedical24x7.com/second-opinion-services#medicalbusiness",
-      "name": "Medical Second Opinion Services",
-      "url": "https://airmedical24x7.com/second-opinion-services",
-      "image": "https://airmedical24x7.com/img/second-opinion.png",
-      "description": "Global online medical second opinion service providing expert review of diagnosis, test reports and treatment plans by international specialists.",
-      "provider": { "@id": "https://airmedical24x7.com/#organization" },
-      "medicalSpecialty": [
-        "Oncology",
-        "Cardiology",
-        "Neurology",
-        "Orthopedics",
-        "Critical Care",
-        "Rare Diseases"
-      ],
-      "areaServed": "Worldwide"
-    },
-
-    {
-      "@type": "MedicalService",
-      "@id": "https://airmedical24x7.com/second-opinion-services#service",
-      "name": "Online Medical Second Opinion",
-      "description": "Specialist doctors evaluate medical records, scans and diagnoses to provide independent expert second opinions and treatment guidance.",
-      "provider": { "@id": "https://airmedical24x7.com/second-opinion-services#medicalbusiness" },
-      "areaServed": "Worldwide",
-      "availableChannel": {
-        "@type": "ServiceChannel",
-        "servicePhone": {
-          "@type": "ContactPoint",
-          "telephone": "+971565542001",
-          "contactType": "Medical Consultation",
-          "availableLanguage": ["en","hi","ar"]
-        }
-      }
-    },
-
-    {
-      "@type": "WebPage",
-      "@id": "https://airmedical24x7.com/second-opinion-services#webpage",
-      "url": "https://airmedical24x7.com/second-opinion-services",
-      "name": "Online Medical Second Opinion – Air Medical 24X7",
-      "description": "Get expert second medical opinions from top international doctors for cancer, surgery, heart disease, and complex medical cases.",
-      "about": { "@id": "https://airmedical24x7.com/second-opinion-services#service" },
-      "isPartOf": { "@id": "https://airmedical24x7.com/#organization" },
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": ["h1","h2",".display-4",".text-primary"]
-      }
+      "contactType": "Medical Consultation",
+      "availableLanguage": [
+        "en",
+        "hi",
+        "ar"
+      ]
     }
-
-  ]
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "WebPage",
+  "@id": "https://airmedical24x7.com/second-opinion-services#webpage",
+  "url": "https://airmedical24x7.com/second-opinion-services",
+  "name": "Online Medical Second Opinion \u2013 Air Medical 24X7",
+  "description": "Get expert second medical opinions from top international doctors for cancer, surgery, heart disease, and complex medical cases.",
+  "about": {
+    "@id": "https://airmedical24x7.com/second-opinion-services#service"
+  },
+  "isPartOf": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      "h2",
+      ".display-4",
+      ".text-primary"
+    ]
+  },
+  "@context": "https://schema.org"
 }
 </script>
 

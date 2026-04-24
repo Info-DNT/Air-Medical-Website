@@ -55,164 +55,178 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
   <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
+  "@type": "MedicalOrganization",
+  "@id": "https://airmedical24x7.com/#organization",
+  "name": "Air Medical 24X7",
+  "alternateName": "Air Medical 24X7 Global Air Ambulance",
+  "url": "https://airmedical24x7.com/",
+  "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
+  "description": "Air Medical 24X7 - Worldwide air ambulance, medical evacuation, flight medical escort and critical care patient transport services.",
+  "sameAs": [
+    "https://www.facebook.com/airmedical24x7/",
+    "https://x.com/airmedical24x7",
+    "https://in.linkedin.com/company/airmedical24x7",
+    "https://www.instagram.com/airmedical24x7/"
+  ],
+  "contactPoint": [
     {
-      "@type": [
-        "Organization",
-        "MedicalOrganization"
-      ],
-      "@id": "https://airmedical24x7.com/#organization",
-      "name": "Air Medical 24X7",
-      "alternateName": "Air Medical 24X7 Global Air Ambulance",
-      "url": "https://airmedical24x7.com/",
-      "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
-      "description": "Air Medical 24X7 - Worldwide air ambulance, medical evacuation, flight medical escort and critical care patient transport services.",
-      "sameAs": [
-        "https://www.facebook.com/airmedical24x7/",
-        "https://x.com/airmedical24x7",
-        "https://in.linkedin.com/company/airmedical24x7",
-        "https://www.instagram.com/airmedical24x7/"
-      ],
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "telephone": "+971565542001",
-          "contactType": "Emergency Medical Transport",
-          "areaServed": "Worldwide",
-          "availableLanguage": [
-            "en",
-            "hi",
-            "ar",
-            "fr",
-            "es",
-            "ru"
-          ]
-        },
-        {
-          "@type": "ContactPoint",
-          "telephone": "+918800028727",
-          "contactType": "Emergency Medical Transport",
-          "areaServed": "IN",
-          "availableLanguage": [
-            "en",
-            "hi"
-          ]
-        }
+      "@type": "ContactPoint",
+      "telephone": "+971565542001",
+      "contactType": "Emergency Medical Transport",
+      "areaServed": "Worldwide",
+      "availableLanguage": [
+        "en",
+        "hi",
+        "ar",
+        "fr",
+        "es",
+        "ru"
       ]
     },
     {
-      "@type": "LocalBusiness",
-      "@id": "https://airmedical24x7.com/#dubai",
-      "name": "Air Medical 24X7 Dubai",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "310, Garhoud Community, Near Dubai International Airport Terminal-1",
-        "addressLocality": "Dubai",
-        "addressRegion": "Dubai",
-        "postalCode": "29086",
-        "addressCountry": "AE"
-      },
-      "telephone": "+971565542001",
-      "openingHours": "Mo-Su 00:00-23:59",
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 25.2401499,
-        "longitude": 55.3469789
-      },
-      "parentOrganization": {
-        "@id": "https://airmedical24x7.com/#organization"
-      }
-    },
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://airmedical24x7.com/#india",
-      "name": "Air Medical 24X7 India",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Padma Tower 1, Rajendra Place",
-        "addressLocality": "New Delhi",
-        "postalCode": "110008",
-        "addressCountry": "IN"
-      },
+      "@type": "ContactPoint",
       "telephone": "+918800028727",
-      "parentOrganization": {
-        "@id": "https://airmedical24x7.com/#organization"
-      }
-    },
-    {
-      "@type": "Service",
-      "@id": "https://airmedical24x7.com/#airambulanceservice",
-      "name": "Air Ambulance & Medical Evacuation",
-      "serviceType": [
-        "Air Ambulance",
-        "Medical Evacuation",
-        "Flight Medical Escort",
-        "Commercial Flight Stretcher",
-        "ECMO Transfer"
-      ],
-      "provider": {
-        "@id": "https://airmedical24x7.com/#organization"
-      },
-      "areaServed": "Worldwide"
-    },
-    {
-      "@type": "MedicalProcedure",
-      "@id": "https://airmedical24x7.com/#ecmo",
-      "name": "ECMO Air Transport",
-      "procedureType": "Critical Care",
-      "howPerformed": "Patient transported on ECMO life support onboard ICU-equipped aircraft with doctors and perfusionists",
-      "status": "Active"
-    },
-    {
-      "@type": "Physician",
-      "@id": "https://airmedical24x7.com/#medicalteam",
-      "name": "Air Medical 24X7 Critical Care Flight Doctors",
-      "medicalSpecialty": [
-        "Emergency Medicine",
-        "Critical Care",
-        "Aviation Medicine"
-      ],
-      "worksFor": {
-        "@id": "https://airmedical24x7.com/#organization"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://airmedical24x7.com/#website",
-      "url": "https://airmedical24x7.com/",
-      "name": "Air Medical 24X7",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://airmedical24x7.com/?s={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://airmedical24x7.com/#homepage",
-      "url": "https://airmedical24x7.com/",
-      "name": "Air Medical 24X7 - Worldwide Air Ambulance & Medical Evacuation",
-      "description": "24x7 global air ambulance, ECMO transport, medical evacuation, and flight medical escort services by Air Medical 24X7.",
-      "about": {
-        "@id": "https://airmedical24x7.com/#organization"
-      },
-      "isPartOf": {
-        "@id": "https://airmedical24x7.com/#website"
-      },
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": [
-          "h1",
-          "h2",
-          ".display-4",
-          ".hero-text"
-        ]
-      }
+      "contactType": "Emergency Medical Transport",
+      "areaServed": "IN",
+      "availableLanguage": [
+        "en",
+        "hi"
+      ]
     }
-  ]
+  ],
+  "@context": "https://schema.org"
 }
-  </script>
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "LocalBusiness",
+  "@id": "https://airmedical24x7.com/#dubai",
+  "name": "Air Medical 24X7 Dubai",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "310, Garhoud Community, Near Dubai International Airport Terminal-1",
+    "addressLocality": "Dubai",
+    "addressRegion": "Dubai",
+    "postalCode": "29086",
+    "addressCountry": "AE"
+  },
+  "telephone": "+971565542001",
+  "openingHours": "Mo-Su 00:00-23:59",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 25.2401499,
+    "longitude": 55.3469789
+  },
+  "parentOrganization": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "LocalBusiness",
+  "@id": "https://airmedical24x7.com/#india",
+  "name": "Air Medical 24X7 India",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Padma Tower 1, Rajendra Place",
+    "addressLocality": "New Delhi",
+    "postalCode": "110008",
+    "addressCountry": "IN"
+  },
+  "telephone": "+918800028727",
+  "parentOrganization": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "Service",
+  "@id": "https://airmedical24x7.com/#airambulanceservice",
+  "name": "Air Ambulance & Medical Evacuation",
+  "serviceType": [
+    "Air Ambulance",
+    "Medical Evacuation",
+    "Flight Medical Escort",
+    "Commercial Flight Stretcher",
+    "ECMO Transfer"
+  ],
+  "provider": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "areaServed": "Worldwide",
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "MedicalProcedure",
+  "@id": "https://airmedical24x7.com/#ecmo",
+  "name": "ECMO Air Transport",
+  "procedureType": "Critical Care",
+  "howPerformed": "Patient transported on ECMO life support onboard ICU-equipped aircraft with doctors and perfusionists",
+  "status": "Active",
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "Physician",
+  "@id": "https://airmedical24x7.com/#medicalteam",
+  "name": "Air Medical 24X7 Critical Care Flight Doctors",
+  "medicalSpecialty": [
+    "Emergency Medicine",
+    "Critical Care",
+    "Aviation Medicine"
+  ],
+  "worksFor": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "WebSite",
+  "@id": "https://airmedical24x7.com/#website",
+  "url": "https://airmedical24x7.com/",
+  "name": "Air Medical 24X7",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://airmedical24x7.com/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "WebPage",
+  "@id": "https://airmedical24x7.com/#homepage",
+  "url": "https://airmedical24x7.com/",
+  "name": "Air Medical 24X7 - Worldwide Air Ambulance & Medical Evacuation",
+  "description": "24x7 global air ambulance, ECMO transport, medical evacuation, and flight medical escort services by Air Medical 24X7.",
+  "about": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://airmedical24x7.com/#website"
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      "h2",
+      ".display-4",
+      ".hero-text"
+    ]
+  },
+  "@context": "https://schema.org"
+}
+</script>
 
 
 
@@ -228,14 +242,14 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   <meta property="og:title" content="Global Air Ambulance & Medical Evacuation – Air Medical 24X7">
   <meta property="og:description"
     content="24x7 ICU-equipped air ambulance, ECMO transfer, and worldwide patient evacuation from Dubai & India.">
-  <meta property="og:url" content="https://www.airmedical24x7.com/">
-  <meta property="og:image" content="https://www.airmedical24x7.com/img/flight-medical.jpg">
+  <meta property="og:url" content="https://airmedical24x7.com/">
+  <meta property="og:image" content="https://airmedical24x7.com/img/flight-medical.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Air Medical 24X7 – Global Air Ambulance">
   <meta name="twitter:description"
     content="Worldwide medical evacuation, ICU air ambulance, and emergency repatriation.">
-  <meta name="twitter:image" content="https://www.airmedical24x7.com/img/flight-medical.jpg">
+  <meta name="twitter:image" content="https://airmedical24x7.com/img/flight-medical.jpg">
   <link rel="canonical" href="https://airmedical24x7.com/index.html">
 
 

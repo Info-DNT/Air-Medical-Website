@@ -18,153 +18,181 @@
 
     <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-
-    {
-      "@type": "Organization",
-      "@id": "https://airmedical24x7.com/#organization",
-      "name": "Air Medical 24X7",
-      "alternateName": "Air Medical 24X7 Global Air Ambulance",
-      "url": "https://airmedical24x7.com/",
-      "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
-      "description": "Air Medical 24X7 is a globally trusted provider of 24/7 air ambulance, medical evacuation, and critical care flight services.",
-      "sameAs": [
-        "https://www.facebook.com/airmedical24x7/",
-        "https://x.com/airmedical24x7",
-        "https://in.linkedin.com/company/airmedical24x7",
-        "https://www.instagram.com/airmedical24x7/"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+971565542001",
-        "contactType": "Emergency Air Ambulance",
-        "areaServed": "Worldwide",
-        "availableLanguage": ["en","hi","ar"]
-      }
-    },
-
-    {
-      "@type": "MedicalOrganization",
-      "@id": "https://airmedical24x7.com/#medicalorganization",
-      "name": "Air Medical 24X7",
-      "url": "https://airmedical24x7.com/",
-      "parentOrganization": {
-        "@id": "https://airmedical24x7.com/#organization"
-      },
-      "medicalSpecialty": [
-        "Emergency Medicine",
-        "Critical Care",
-        "Neonatology",
-        "Aviation Medicine"
-      ],
-      "areaServed": "Worldwide"
-    },
-
-    {
-      "@type": "Physician",
-      "@id": "https://airmedical24x7.com/#flightmedicalteam",
-      "name": "Air Medical 24X7 Flight Medical Team",
-      "medicalSpecialty": [
-        "Emergency Medicine",
-        "Critical Care",
-        "Neonatology",
-        "Aviation Medicine"
-      ],
-      "worksFor": {
-        "@id": "https://airmedical24x7.com/#medicalorganization"
-      }
-    },
-
-    {
-      "@type": "MedicalProcedure",
-      "@id": "https://airmedical24x7.com/air-ambulance.html#airambulanceprocedure",
-      "name": "Air Ambulance & Medical Evacuation",
-      "procedureType": "Emergency",
-      "howPerformed": "ICU-equipped aircraft with doctors, nurses, ventilators, cardiac monitors and life support systems onboard",
-      "status": "Active"
-    },
-
-    {
-      "@type": "MedicalProcedure",
-      "@id": "https://airmedical24x7.com/air-ambulance.html#neonatal",
-      "name": "Neonatal Air Ambulance",
-      "procedureType": "Critical Care",
-      "howPerformed": "Newborn transported in neonatal incubator with ventilator and pediatric specialists onboard",
-      "status": "Active"
-    },
-
-    {
-      "@type": "MedicalService",
-      "@id": "https://airmedical24x7.com/air-ambulance.html#medicalservice",
-      "name": "24/7 Emergency Air Ambulance Services",
-      "description": "Worldwide 24/7 emergency air ambulance services including ICU flights, neonatal evacuation, and international medical evacuation.",
-      "provider": {
-        "@id": "https://airmedical24x7.com/#medicalorganization"
-      },
-      "availableChannel": {
-        "@type": "ServiceChannel",
-        "serviceLocation": {
-          "@type": "Place",
-          "name": "Worldwide"
-        }
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Air Ambulance Services",
-        "itemListElement": [
-          { "@id": "https://airmedical24x7.com/air-ambulance.html#airambulanceprocedure" },
-          { "@id": "https://airmedical24x7.com/air-ambulance.html#neonatal" }
-        ]
-      }
-    },
-
-    {
-      "@type": "WebPage",
-      "@id": "https://airmedical24x7.com/air-ambulance.html",
-      "url": "https://airmedical24x7.com/air-ambulance.html",
-      "name": "24/7 Emergency Air Ambulance Worldwide",
-      "isPartOf": {
-        "@id": "https://airmedical24x7.com/#organization"
-      },
-      "about": {
-        "@id": "https://airmedical24x7.com/air-ambulance.html#medicalservice"
-      }
-    },
-
-    {
-      "@type": "FAQPage",
-      "@id": "https://airmedical24x7.com/air-ambulance.html#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is an air ambulance?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "An air ambulance is a medically equipped aircraft used to transport critically ill or injured patients with doctors and medical equipment onboard."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is Air Medical 24X7 - Worldwide?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, Air Medical 24X7 - Worldwide."
-          }
-        }
-      ]
-    },
-
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://airmedical24x7.com/air-ambulance.html#breadcrumb",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://airmedical24x7.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Air Ambulance", "item": "https://airmedical24x7.com/air-ambulance.html" }
-      ]
+  "@type": "Organization",
+  "@id": "https://airmedical24x7.com/#organization",
+  "name": "Air Medical 24X7",
+  "alternateName": "Air Medical 24X7 Global Air Ambulance",
+  "url": "https://airmedical24x7.com/",
+  "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
+  "description": "Air Medical 24X7 is a globally trusted provider of 24/7 air ambulance, medical evacuation, and critical care flight services.",
+  "sameAs": [
+    "https://www.facebook.com/airmedical24x7/",
+    "https://x.com/airmedical24x7",
+    "https://in.linkedin.com/company/airmedical24x7",
+    "https://www.instagram.com/airmedical24x7/"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+971565542001",
+    "contactType": "Emergency Air Ambulance",
+    "areaServed": "Worldwide",
+    "availableLanguage": [
+      "en",
+      "hi",
+      "ar"
+    ]
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "MedicalOrganization",
+  "@id": "https://airmedical24x7.com/#medicalorganization",
+  "name": "Air Medical 24X7",
+  "url": "https://airmedical24x7.com/",
+  "parentOrganization": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "medicalSpecialty": [
+    "Emergency Medicine",
+    "Critical Care",
+    "Neonatology",
+    "Aviation Medicine"
+  ],
+  "areaServed": "Worldwide",
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "Physician",
+  "@id": "https://airmedical24x7.com/#flightmedicalteam",
+  "name": "Air Medical 24X7 Flight Medical Team",
+  "medicalSpecialty": [
+    "Emergency Medicine",
+    "Critical Care",
+    "Neonatology",
+    "Aviation Medicine"
+  ],
+  "worksFor": {
+    "@id": "https://airmedical24x7.com/#medicalorganization"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "MedicalProcedure",
+  "@id": "https://airmedical24x7.com/air-ambulance.html#airambulanceprocedure",
+  "name": "Air Ambulance & Medical Evacuation",
+  "procedureType": "Emergency",
+  "howPerformed": "ICU-equipped aircraft with doctors, nurses, ventilators, cardiac monitors and life support systems onboard",
+  "status": "Active",
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "MedicalProcedure",
+  "@id": "https://airmedical24x7.com/air-ambulance.html#neonatal",
+  "name": "Neonatal Air Ambulance",
+  "procedureType": "Critical Care",
+  "howPerformed": "Newborn transported in neonatal incubator with ventilator and pediatric specialists onboard",
+  "status": "Active",
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "MedicalService",
+  "@id": "https://airmedical24x7.com/air-ambulance.html#medicalservice",
+  "name": "24/7 Emergency Air Ambulance Services",
+  "description": "Worldwide 24/7 emergency air ambulance services including ICU flights, neonatal evacuation, and international medical evacuation.",
+  "provider": {
+    "@id": "https://airmedical24x7.com/#medicalorganization"
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceLocation": {
+      "@type": "Place",
+      "name": "Worldwide"
     }
-
-  ]
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Air Ambulance Services",
+    "itemListElement": [
+      {
+        "@id": "https://airmedical24x7.com/air-ambulance.html#airambulanceprocedure"
+      },
+      {
+        "@id": "https://airmedical24x7.com/air-ambulance.html#neonatal"
+      }
+    ]
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "WebPage",
+  "@id": "https://airmedical24x7.com/air-ambulance.html",
+  "url": "https://airmedical24x7.com/air-ambulance.html",
+  "name": "24/7 Emergency Air Ambulance Worldwide",
+  "isPartOf": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "about": {
+    "@id": "https://airmedical24x7.com/air-ambulance.html#medicalservice"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "FAQPage",
+  "@id": "https://airmedical24x7.com/air-ambulance.html#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an air ambulance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An air ambulance is a medically equipped aircraft used to transport critically ill or injured patients with doctors and medical equipment onboard."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Air Medical 24X7 - Worldwide?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Air Medical 24X7 - Worldwide."
+      }
+    }
+  ],
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "BreadcrumbList",
+  "@id": "https://airmedical24x7.com/air-ambulance.html#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://airmedical24x7.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Air Ambulance",
+      "item": "https://airmedical24x7.com/air-ambulance.html"
+    }
+  ],
+  "@context": "https://schema.org"
 }
 </script>
 

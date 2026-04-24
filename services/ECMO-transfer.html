@@ -20,129 +20,145 @@
 
   <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-
-    {
-      "@type": "Organization",
-      "@id": "https://airmedical24x7.com/#organization",
-      "name": "Air Medical 24X7",
-      "url": "https://airmedical24x7.com/",
-      "logo": "https://airmedical24x7.com/images/logo.png",
-      "sameAs": [
-        "https://www.facebook.com/airmedical24x7",
-        "https://www.linkedin.com/company/airmedical24x7"
-      ]
-    },
-
-    {
-      "@type": "MedicalOrganization",
-      "@id": "https://airmedical24x7.com/#medicalorganization",
-      "name": "Air Medical 24X7",
-      "url": "https://airmedical24x7.com/",
-      "parentOrganization": {
-        "@id": "https://airmedical24x7.com/#organization"
-      },
-      "medicalSpecialty": [
-        "Air Ambulance",
-        "Critical Care Transport",
-        "ECMO Transport",
-        "Emergency Medicine"
-      ],
-      "areaServed": "Worldwide"
-    },
-
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://airmedical24x7.com/#localbusiness",
-      "name": "Air Medical 24X7",
-      "url": "https://airmedical24x7.com/",
-      "telephone": "+91-00000-00000",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "India Operations",
-        "addressLocality": "New Delhi",
-        "addressRegion": "DL",
-        "addressCountry": "IN"
-      },
-      "parentOrganization": {
-        "@id": "https://airmedical24x7.com/#organization"
-      }
-    },
-
-    {
-      "@type": "Physician",
-      "@id": "https://airmedical24x7.com/#ecmoteam",
-      "name": "Air Medical 24X7 ECMO Medical Team",
-      "medicalSpecialty": [
-        "Critical Care",
-        "Cardiology",
-        "Pulmonology",
-        "Perfusion",
-        "Emergency Medicine"
-      ],
-      "worksFor": {
-        "@id": "https://airmedical24x7.com/#medicalorganization"
-      }
-    },
-
-    {
-      "@type": "MedicalProcedure",
-      "@id": "https://airmedical24x7.com/ecmo-transfer.html#ecmo",
-      "name": "ECMO Transfer",
-      "alternateName": "Extracorporeal Membrane Oxygenation Transport",
-      "procedureType": "Critical Care",
-      "howPerformed": "Patient is connected to ECMO machine providing cardiac and respiratory life support while transported via ICU equipped air ambulance",
-      "bodyLocation": ["Heart", "Lungs"],
-      "status": "Active"
-    },
-
-    {
-      "@type": "MedicalService",
-      "@id": "https://airmedical24x7.com/ecmo-transfer.html#ecmoservice",
-      "name": "ECMO Air Ambulance Transfer",
-      "description": "Worldwide ECMO air ambulance transfer service for critically ill cardiac and respiratory patients requiring life support during medical evacuation.",
-      "provider": {
-        "@id": "https://airmedical24x7.com/#medicalorganization"
-      },
-      "areaServed": "Worldwide",
-      "availableChannel": {
-        "@type": "ServiceChannel",
-        "serviceLocation": {
-          "@type": "Place",
-          "name": "Worldwide"
-        }
-      },
-      "hasMedicalProcedure": {
-        "@id": "https://airmedical24x7.com/ecmo-transfer.html#ecmo"
-      }
-    },
-
-    {
-      "@type": "WebSite",
-      "@id": "https://airmedical24x7.com/#website",
-      "url": "https://airmedical24x7.com/",
-      "name": "Air Medical 24X7"
-    },
-
-    {
-      "@type": "WebPage",
-      "@id": "https://airmedical24x7.com/ecmo-transfer.html",
-      "url": "https://airmedical24x7.com/ecmo-transfer.html",
-      "name": "ECMO Air Ambulance Transfer – Air Medical 24X7",
-      "isPartOf": {
-        "@id": "https://airmedical24x7.com/#website"
-      },
-      "about": {
-        "@id": "https://airmedical24x7.com/ecmo-transfer.html#ecmoservice"
-      },
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": ["h1","h2",".display-4",".text-primary"]
-      }
+  "@type": "Organization",
+  "@id": "https://airmedical24x7.com/#organization",
+  "name": "Air Medical 24X7",
+  "url": "https://airmedical24x7.com/",
+  "logo": "https://airmedical24x7.com/images/logo.png",
+  "sameAs": [
+    "https://www.facebook.com/airmedical24x7",
+    "https://www.linkedin.com/company/airmedical24x7"
+  ],
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "MedicalOrganization",
+  "@id": "https://airmedical24x7.com/#medicalorganization",
+  "name": "Air Medical 24X7",
+  "url": "https://airmedical24x7.com/",
+  "parentOrganization": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "medicalSpecialty": [
+    "Air Ambulance",
+    "Critical Care Transport",
+    "ECMO Transport",
+    "Emergency Medicine"
+  ],
+  "areaServed": "Worldwide",
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "LocalBusiness",
+  "@id": "https://airmedical24x7.com/#localbusiness",
+  "name": "Air Medical 24X7",
+  "url": "https://airmedical24x7.com/",
+  "telephone": "+91-00000-00000",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "India Operations",
+    "addressLocality": "New Delhi",
+    "addressRegion": "DL",
+    "addressCountry": "IN"
+  },
+  "parentOrganization": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "Physician",
+  "@id": "https://airmedical24x7.com/#ecmoteam",
+  "name": "Air Medical 24X7 ECMO Medical Team",
+  "medicalSpecialty": [
+    "Critical Care",
+    "Cardiology",
+    "Pulmonology",
+    "Perfusion",
+    "Emergency Medicine"
+  ],
+  "worksFor": {
+    "@id": "https://airmedical24x7.com/#medicalorganization"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "MedicalProcedure",
+  "@id": "https://airmedical24x7.com/ecmo-transfer.html#ecmo",
+  "name": "ECMO Transfer",
+  "alternateName": "Extracorporeal Membrane Oxygenation Transport",
+  "procedureType": "Critical Care",
+  "howPerformed": "Patient is connected to ECMO machine providing cardiac and respiratory life support while transported via ICU equipped air ambulance",
+  "bodyLocation": [
+    "Heart",
+    "Lungs"
+  ],
+  "status": "Active",
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "MedicalService",
+  "@id": "https://airmedical24x7.com/ecmo-transfer.html#ecmoservice",
+  "name": "ECMO Air Ambulance Transfer",
+  "description": "Worldwide ECMO air ambulance transfer service for critically ill cardiac and respiratory patients requiring life support during medical evacuation.",
+  "provider": {
+    "@id": "https://airmedical24x7.com/#medicalorganization"
+  },
+  "areaServed": "Worldwide",
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceLocation": {
+      "@type": "Place",
+      "name": "Worldwide"
     }
-
-  ]
+  },
+  "hasMedicalProcedure": {
+    "@id": "https://airmedical24x7.com/ecmo-transfer.html#ecmo"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "WebSite",
+  "@id": "https://airmedical24x7.com/#website",
+  "url": "https://airmedical24x7.com/",
+  "name": "Air Medical 24X7",
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "WebPage",
+  "@id": "https://airmedical24x7.com/ecmo-transfer.html",
+  "url": "https://airmedical24x7.com/ecmo-transfer.html",
+  "name": "ECMO Air Ambulance Transfer \u2013 Air Medical 24X7",
+  "isPartOf": {
+    "@id": "https://airmedical24x7.com/#website"
+  },
+  "about": {
+    "@id": "https://airmedical24x7.com/ecmo-transfer.html#ecmoservice"
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      "h2",
+      ".display-4",
+      ".text-primary"
+    ]
+  },
+  "@context": "https://schema.org"
 }
 </script>
 

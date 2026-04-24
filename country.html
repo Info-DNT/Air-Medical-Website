@@ -66,117 +66,138 @@ function gtag_report_conversion(url) {
 
     <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-
+  "@type": "Organization",
+  "@id": "https://airmedical24x7.com/#organization",
+  "name": "Air Medical 24X7",
+  "url": "https://airmedical24x7.com",
+  "logo": "https://airmedical24x7.com/img/airmedicallogo.png",
+  "sameAs": [
+    "https://www.facebook.com/airmedical24x7/",
+    "https://x.com/airmedical24x7",
+    "https://www.instagram.com/airmedical24x7/",
+    "https://in.linkedin.com/company/airmedical24x7"
+  ],
+  "contactPoint": [
     {
-      "@type": "Organization",
-      "@id": "https://airmedical24x7.com/#organization",
-      "name": "Air Medical 24X7",
-      "url": "https://airmedical24x7.com",
-      "logo": "https://airmedical24x7.com/img/airmedicallogo.png",
-      "sameAs": [
-        "https://www.facebook.com/airmedical24x7/",
-        "https://x.com/airmedical24x7",
-        "https://www.instagram.com/airmedical24x7/",
-        "https://in.linkedin.com/company/airmedical24x7"
-      ],
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "telephone": "+971565542001",
-          "contactType": "Customer Service",
-          "areaServed": "AE",
-          "availableLanguage": ["en","ar"]
-        },
-        {
-          "@type": "ContactPoint",
-          "telephone": "+918800028727",
-          "contactType": "Customer Service",
-          "areaServed": "IN",
-          "availableLanguage": ["en","hi"]
-        }
-      ]
-    },
-
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://airmedical24x7.com/#dubai",
-      "name": "Air Medical 24X7 Dubai",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "310, Garhoud Community, Near Dubai International Airport Terminal-1",
-        "addressLocality": "Dubai",
-        "postalCode": "29086",
-        "addressCountry": "AE"
-      },
+      "@type": "ContactPoint",
       "telephone": "+971565542001",
-      "parentOrganization": { "@id": "https://airmedical24x7.com/#organization" }
-    },
-
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://airmedical24x7.com/#india",
-      "name": "Air Medical 24X7 India",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "1111, 11th Floor, Padma Tower 1, Rajendra Place",
-        "addressLocality": "New Delhi",
-        "postalCode": "110008",
-        "addressCountry": "IN"
-      },
-      "telephone": "+918800028727",
-      "parentOrganization": { "@id": "https://airmedical24x7.com/#organization" }
-    },
-
-    {
-      "@type": "MedicalBusiness",
-      "@id": "https://airmedical24x7.com/country#service",
-      "name": "Worldwide Air Ambulance Services",
-      "url": "https://airmedical24x7.com/country",
-      "description": "Air Medical 24X7 provides air ambulance, ICU-equipped medical transport, patient transfer, and medical escort services in 195+ countries.",
-      "provider": { "@id": "https://airmedical24x7.com/#organization" },
-      "areaServed": "Worldwide",
-      "availableService": [
-        {
-          "@type": "MedicalProcedure",
-          "name": "Air Ambulance Transport",
-          "howPerformed": "Patients are transported safely via ICU-equipped aircraft with professional medical escorts."
-        }
+      "contactType": "Customer Service",
+      "areaServed": "AE",
+      "availableLanguage": [
+        "en",
+        "ar"
       ]
     },
-
     {
-      "@type": "WebPage",
-      "@id": "https://airmedical24x7.com/country#webpage",
-      "url": "https://airmedical24x7.com/country",
-      "name": "Air Ambulance Services Worldwide – Air Medical 24X7",
-      "description": "Explore Air Medical 24X7's air ambulance and medical evacuation services across 195+ countries. Fast, safe, and reliable patient transport with expert medical support.",
-      "about": { "@id": "https://airmedical24x7.com/#organization" },
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://airmedical24x7.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Global Pages",
-            "item": "https://airmedical24x7.com/country"
-          }
-        ]
-      },
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": ["h1","h2",".display-4",".text-primary"]
-      }
+      "@type": "ContactPoint",
+      "telephone": "+918800028727",
+      "contactType": "Customer Service",
+      "areaServed": "IN",
+      "availableLanguage": [
+        "en",
+        "hi"
+      ]
     }
-
-  ]
+  ],
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "LocalBusiness",
+  "@id": "https://airmedical24x7.com/#dubai",
+  "name": "Air Medical 24X7 Dubai",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "310, Garhoud Community, Near Dubai International Airport Terminal-1",
+    "addressLocality": "Dubai",
+    "postalCode": "29086",
+    "addressCountry": "AE"
+  },
+  "telephone": "+971565542001",
+  "parentOrganization": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "LocalBusiness",
+  "@id": "https://airmedical24x7.com/#india",
+  "name": "Air Medical 24X7 India",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1111, 11th Floor, Padma Tower 1, Rajendra Place",
+    "addressLocality": "New Delhi",
+    "postalCode": "110008",
+    "addressCountry": "IN"
+  },
+  "telephone": "+918800028727",
+  "parentOrganization": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "MedicalBusiness",
+  "@id": "https://airmedical24x7.com/country#service",
+  "name": "Worldwide Air Ambulance Services",
+  "url": "https://airmedical24x7.com/country",
+  "description": "Air Medical 24X7 provides air ambulance, ICU-equipped medical transport, patient transfer, and medical escort services in 195+ countries.",
+  "provider": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "areaServed": "Worldwide",
+  "availableService": [
+    {
+      "@type": "MedicalProcedure",
+      "name": "Air Ambulance Transport",
+      "howPerformed": "Patients are transported safely via ICU-equipped aircraft with professional medical escorts."
+    }
+  ],
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "WebPage",
+  "@id": "https://airmedical24x7.com/country#webpage",
+  "url": "https://airmedical24x7.com/country",
+  "name": "Air Ambulance Services Worldwide \u2013 Air Medical 24X7",
+  "description": "Explore Air Medical 24X7's air ambulance and medical evacuation services across 195+ countries. Fast, safe, and reliable patient transport with expert medical support.",
+  "about": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://airmedical24x7.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Global Pages",
+        "item": "https://airmedical24x7.com/country"
+      }
+    ]
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      "h2",
+      ".display-4",
+      ".text-primary"
+    ]
+  },
+  "@context": "https://schema.org"
 }
 </script>
 
@@ -191,17 +212,17 @@ function gtag_report_conversion(url) {
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.airmedical24x7.com/country">
+    <meta property="og:url" content="https://airmedical24x7.com/country">
     <meta property="og:title" content="Air Ambulance Services Worldwide | Air Medical 24X7">
     <meta property="og:description" content="Air Medical 24X7 provides fast, reliable Air Ambulance and Medical Evacuation services in 195+ countries. Expert medical escort, 24x7 support, global coverage.">
-    <meta property="og:image" content="https://www.airmedical24x7.com/img/airmedicallogo.png">
+    <meta property="og:image" content="https://airmedical24x7.com/img/airmedicallogo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.airmedical24x7.com/country">
+    <meta property="twitter:url" content="https://airmedical24x7.com/country">
     <meta property="twitter:title" content="Air Ambulance Services Worldwide | Air Medical 24X7">
     <meta property="twitter:description" content="Air Medical 24X7 provides fast, reliable Air Ambulance and Medical Evacuation services in 195+ countries. Expert medical escort, 24x7 support, global coverage.">
-    <meta property="twitter:image" content="https://www.airmedical24x7.com/img/airmedicallogo.png">
+    <meta property="twitter:image" content="https://airmedical24x7.com/img/airmedicallogo.png">
 
 
 

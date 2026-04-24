@@ -18,83 +18,98 @@
 
     <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-
-    {
-      "@type": "Organization",
-      "@id": "https://airmedical24x7.com/#organization",
-      "name": "Air Medical 24X7",
-      "url": "https://airmedical24x7.com",
-      "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
-      "sameAs": [
-        "https://www.facebook.com/airmedical24x7/",
-        "https://x.com/airmedical24x7",
-        "https://in.linkedin.com/company/airmedical24x7",
-        "https://www.instagram.com/airmedical24x7/",
-        "https://www.youtube.com/@air.medical24X7"
-      ]
+  "@type": "Organization",
+  "@id": "https://airmedical24x7.com/#organization",
+  "name": "Air Medical 24X7",
+  "url": "https://airmedical24x7.com",
+  "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
+  "sameAs": [
+    "https://www.facebook.com/airmedical24x7/",
+    "https://x.com/airmedical24x7",
+    "https://in.linkedin.com/company/airmedical24x7",
+    "https://www.instagram.com/airmedical24x7/",
+    "https://www.youtube.com/@air.medical24X7"
+  ],
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "LocalBusiness",
+  "@id": "https://airmedical24x7.com/#dubai",
+  "name": "Air Medical 24X7 Dubai",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "310, Garhoud Community, Near Dubai International Airport Terminal-1",
+    "addressLocality": "Dubai",
+    "postalCode": "29086",
+    "addressCountry": "AE"
+  },
+  "telephone": "+971565542001",
+  "parentOrganization": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "MedicalBusiness",
+  "@id": "https://airmedical24x7.com/commercial-flight-stretcher#medicalbusiness",
+  "name": "Commercial Flight Stretcher Services",
+  "url": "https://airmedical24x7.com/commercial-flight-stretcher",
+  "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
+  "image": "https://airmedical24x7.com/img/commercial-airlines-medical-transfer-services.jpg",
+  "description": "Air Medical 24X7 - Worldwide commercial flight stretcher services with ICU-trained medical escorts, FAA-approved equipment, and bed-to-bed patient care.",
+  "medicalSpecialty": [
+    "Medical Escort",
+    "Critical Care Transport",
+    "Commercial Airline Stretcher Transfer",
+    "Patient Air Transfer"
+  ],
+  "address": {
+    "@id": "https://airmedical24x7.com/#dubai"
+  },
+  "availableService": {
+    "@type": "MedicalService",
+    "@id": "https://airmedical24x7.com/commercial-flight-stretcher#service",
+    "name": "Commercial Flight Stretcher Service",
+    "provider": {
+      "@id": "https://airmedical24x7.com/commercial-flight-stretcher#medicalbusiness"
     },
-
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://airmedical24x7.com/#dubai",
-      "name": "Air Medical 24X7 Dubai",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "310, Garhoud Community, Near Dubai International Airport Terminal-1",
-        "addressLocality": "Dubai",
-        "postalCode": "29086",
-        "addressCountry": "AE"
-      },
-      "telephone": "+971565542001",
-      "parentOrganization": { "@id": "https://airmedical24x7.com/#organization" }
-    },
-
-    {
-      "@type": "MedicalBusiness",
-      "@id": "https://airmedical24x7.com/commercial-flight-stretcher#medicalbusiness",
-      "name": "Commercial Flight Stretcher Services",
-      "url": "https://airmedical24x7.com/commercial-flight-stretcher",
-      "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
-      "image": "https://airmedical24x7.com/img/commercial-airlines-medical-transfer-services.jpg",
-      "description": "Air Medical 24X7 - Worldwide commercial flight stretcher services with ICU-trained medical escorts, FAA-approved equipment, and bed-to-bed patient care.",
-      "medicalSpecialty": [
-        "Medical Escort",
-        "Critical Care Transport",
-        "Commercial Airline Stretcher Transfer",
-        "Patient Air Transfer"
-      ],
-      "address": { "@id": "https://airmedical24x7.com/#dubai" },
-      "availableService": {
-        "@type": "MedicalService",
-        "@id": "https://airmedical24x7.com/commercial-flight-stretcher#service",
-        "name": "Commercial Flight Stretcher Service",
-        "provider": { "@id": "https://airmedical24x7.com/commercial-flight-stretcher#medicalbusiness" },
-        "areaServed": "Worldwide",
-        "serviceType": "International Patient Transfer via Commercial Airline",
-        "audience": {
-          "@type": "MedicalAudience",
-          "audienceType": "Patients Requiring Air Medical Transfer"
-        }
-      }
-    },
-
-    {
-      "@type": "WebPage",
-      "@id": "https://airmedical24x7.com/commercial-flight-stretcher#webpage",
-      "url": "https://airmedical24x7.com/commercial-flight-stretcher",
-      "name": "Commercial Flight Stretcher Services – Air Medical 24X7",
-      "about": { "@id": "https://airmedical24x7.com/commercial-flight-stretcher#medicalbusiness" },
-      "isPartOf": { "@id": "https://airmedical24x7.com/#organization" },
-      "inLanguage": "en",
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": ["h1", "h2", ".display-4", ".text-primary"]
-      }
+    "areaServed": "Worldwide",
+    "serviceType": "International Patient Transfer via Commercial Airline",
+    "audience": {
+      "@type": "MedicalAudience",
+      "audienceType": "Patients Requiring Air Medical Transfer"
     }
-
-  ]
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "WebPage",
+  "@id": "https://airmedical24x7.com/commercial-flight-stretcher#webpage",
+  "url": "https://airmedical24x7.com/commercial-flight-stretcher",
+  "name": "Commercial Flight Stretcher Services \u2013 Air Medical 24X7",
+  "about": {
+    "@id": "https://airmedical24x7.com/commercial-flight-stretcher#medicalbusiness"
+  },
+  "isPartOf": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "inLanguage": "en",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      "h2",
+      ".display-4",
+      ".text-primary"
+    ]
+  },
+  "@context": "https://schema.org"
 }
 </script>
 

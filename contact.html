@@ -49,99 +49,124 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
     <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-
+  "@type": "Organization",
+  "@id": "https://airmedical24x7.com/#organization",
+  "name": "Air Medical 24X7",
+  "url": "https://airmedical24x7.com",
+  "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
+  "sameAs": [
+    "https://www.facebook.com/airmedical24x7/",
+    "https://x.com/airmedical24x7",
+    "https://in.linkedin.com/company/airmedical24x7",
+    "https://www.instagram.com/airmedical24x7/",
+    "https://www.youtube.com/@air.medical24X7"
+  ],
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "LocalBusiness",
+  "@id": "https://airmedical24x7.com/#dubai",
+  "name": "Air Medical 24X7 Dubai",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "310, Garhoud Community, Near Dubai International Airport Terminal-1",
+    "addressLocality": "Dubai",
+    "postalCode": "29086",
+    "addressCountry": "AE"
+  },
+  "telephone": "+971565542001",
+  "email": "info@airmedical24x7.com",
+  "parentOrganization": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "LocalBusiness",
+  "@id": "https://airmedical24x7.com/#india",
+  "name": "Air Medical 24X7 India",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1111, 11th Floor, Padma Tower 1, Rajendra Place",
+    "addressLocality": "New Delhi",
+    "postalCode": "110008",
+    "addressCountry": "IN"
+  },
+  "telephone": "+918800028727",
+  "email": "info@airmedical24x7.com",
+  "parentOrganization": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "MedicalBusiness",
+  "@id": "https://airmedical24x7.com/contact#medicalbusiness",
+  "name": "Air Medical 24X7 Contact Services",
+  "url": "https://airmedical24x7.com/contact",
+  "description": "Contact page for Air Medical 24X7 \u2013 Commercial flight stretcher, air ambulance, and medical escort services. Fill out the form or reach us via phone, WhatsApp, or email.",
+  "address": [
     {
-      "@type": "Organization",
-      "@id": "https://airmedical24x7.com/#organization",
-      "name": "Air Medical 24X7",
-      "url": "https://airmedical24x7.com",
-      "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
-      "sameAs": [
-        "https://www.facebook.com/airmedical24x7/",
-        "https://x.com/airmedical24x7",
-        "https://in.linkedin.com/company/airmedical24x7",
-        "https://www.instagram.com/airmedical24x7/",
-        "https://www.youtube.com/@air.medical24X7"
-      ]
+      "@id": "https://airmedical24x7.com/#dubai"
     },
-
     {
-      "@type": "LocalBusiness",
-      "@id": "https://airmedical24x7.com/#dubai",
-      "name": "Air Medical 24X7 Dubai",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "310, Garhoud Community, Near Dubai International Airport Terminal-1",
-        "addressLocality": "Dubai",
-        "postalCode": "29086",
-        "addressCountry": "AE"
-      },
-      "telephone": "+971565542001",
-      "email": "info@airmedical24x7.com",
-      "parentOrganization": { "@id": "https://airmedical24x7.com/#organization" }
-    },
-
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://airmedical24x7.com/#india",
-      "name": "Air Medical 24X7 India",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "1111, 11th Floor, Padma Tower 1, Rajendra Place",
-        "addressLocality": "New Delhi",
-        "postalCode": "110008",
-        "addressCountry": "IN"
-      },
-      "telephone": "+918800028727",
-      "email": "info@airmedical24x7.com",
-      "parentOrganization": { "@id": "https://airmedical24x7.com/#organization" }
-    },
-
-    {
-      "@type": "MedicalBusiness",
-      "@id": "https://airmedical24x7.com/contact#medicalbusiness",
-      "name": "Air Medical 24X7 Contact Services",
-      "url": "https://airmedical24x7.com/contact",
-      "description": "Contact page for Air Medical 24X7 – Commercial flight stretcher, air ambulance, and medical escort services. Fill out the form or reach us via phone, WhatsApp, or email.",
-      "address": [
-        { "@id": "https://airmedical24x7.com/#dubai" },
-        { "@id": "https://airmedical24x7.com/#india" }
-      ],
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "telephone": "+971565542001",
-          "contactType": "Customer Support / Emergency",
-          "areaServed": "AE",
-          "availableLanguage": ["en", "ar"]
-        },
-        {
-          "@type": "ContactPoint",
-          "telephone": "+918800028727",
-          "contactType": "Customer Support / Emergency",
-          "areaServed": "IN",
-          "availableLanguage": ["en", "hi"]
-        }
-      ]
-    },
-
-    {
-      "@type": "ContactPage",
-      "@id": "https://airmedical24x7.com/contact#contactpage",
-      "url": "https://airmedical24x7.com/contact",
-      "name": "Contact Air Medical 24X7",
-      "about": { "@id": "https://airmedical24x7.com/#organization" },
-      "description": "Get in touch with Air Medical 24X7 for air ambulance, commercial flight stretcher, ICU-trained medical escort, and patient transfer services.",
-      "isPartOf": { "@id": "https://airmedical24x7.com/#organization" },
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": ["h1", "h2", ".display-4", ".text-primary"]
-      }
+      "@id": "https://airmedical24x7.com/#india"
     }
-
-  ]
+  ],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+971565542001",
+      "contactType": "Customer Support / Emergency",
+      "areaServed": "AE",
+      "availableLanguage": [
+        "en",
+        "ar"
+      ]
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "+918800028727",
+      "contactType": "Customer Support / Emergency",
+      "areaServed": "IN",
+      "availableLanguage": [
+        "en",
+        "hi"
+      ]
+    }
+  ],
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "ContactPage",
+  "@id": "https://airmedical24x7.com/contact#contactpage",
+  "url": "https://airmedical24x7.com/contact",
+  "name": "Contact Air Medical 24X7",
+  "about": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "description": "Get in touch with Air Medical 24X7 for air ambulance, commercial flight stretcher, ICU-trained medical escort, and patient transfer services.",
+  "isPartOf": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      "h2",
+      ".display-4",
+      ".text-primary"
+    ]
+  },
+  "@context": "https://schema.org"
 }
 </script>
 

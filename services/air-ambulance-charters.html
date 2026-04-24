@@ -18,133 +18,152 @@
 
     <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-
-    {
-      "@type": "MedicalOrganization",
-      "@id": "https://airmedical24x7.com/#medicalorganization",
-      "name": "Air Medical 24X7",
-      "url": "https://airmedical24x7.com/",
-      "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
-      "description": "Air Medical 24X7 - Worldwide air ambulance charter services with ICU-equipped aircraft, critical care medical teams, and rapid global medical evacuation.",
-      "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "Worldwide"
-      },
-      "availableLanguage": "All",
-      "knowsLanguage": [
-        "en","hi","ar","fr","de","es","it","ru","zh","ja","ko","pt","tr","th","id","ms","bn","ur"
-      ],
-      "medicalSpecialty": [
-        "Emergency Medical Transport",
-        "Air Ambulance Charter",
-        "Medical Evacuation",
-        "Critical Care Transport",
-        "Neonatal Transport",
-        "Organ Transport"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+971565542001",
-        "contactType": "Emergency Air Ambulance Charter",
-        "areaServed": "Worldwide",
-        "availableLanguage": "All"
-      }
-    },
-
-    {
-      "@type": "MedicalService",
-      "@id": "https://airmedical24x7.com/air-ambulance-charters.html#medicalservice",
-      "name": "Air Ambulance Charter Services",
-      "description": "24/7 worldwide air ambulance charter services with ICU aircraft, ventilators, advanced life support, and experienced doctors for emergency and international medical evacuation.",
-      "provider": {
-        "@id": "https://airmedical24x7.com/#medicalorganization"
-      },
-      "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "Worldwide"
-      },
-      "availableChannel": {
-        "@type": "ServiceChannel",
-        "serviceLocation": {
-          "@type": "Place",
-          "name": "Global"
-        }
-      }
-    },
-
-    {
-      "@type": "WebPage",
-      "@id": "https://airmedical24x7.com/air-ambulance-charters.html",
-      "url": "https://airmedical24x7.com/air-ambulance-charters.html",
-      "name": "24/7 Air Ambulance Charter | ICU Medical Flights Worldwide",
-      "description": "Book 24/7 worldwide air ambulance charter services with ICU-equipped aircraft and expert medical teams. Emergency and international medical evacuation available globally.",
-      "inLanguage": "x-default",
-      "about": {
-        "@id": "https://airmedical24x7.com/#medicalorganization"
-      }
-    },
-
-    {
-      "@type": "FAQPage",
-      "@id": "https://airmedical24x7.com/air-ambulance-charters.html#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is an air ambulance charter?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "An air ambulance charter is a private aircraft equipped with ICU medical facilities and staffed with doctors and paramedics to transport critically ill or injured patients safely."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is Air Medical 24X7 - Worldwide?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, Air Medical 24X7 - Worldwide air ambulance charter services across all countries with full international coordination."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How fast can an air ambulance be arranged?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Air ambulance charters can typically be activated within 2 to 6 hours after confirmation, depending on medical and flight clearances."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you provide ICU-level care during flights?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, all air ambulance charter flights are equipped with ICU-grade medical equipment including ventilators, monitors, oxygen systems, and emergency medications."
-          }
-        }
-      ]
-    },
-
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://airmedical24x7.com/air-ambulance-charters.html#breadcrumb",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://airmedical24x7.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Air Ambulance Charter",
-          "item": "https://airmedical24x7.com/air-ambulance-charters.html"
-        }
-      ]
+  "@type": "MedicalOrganization",
+  "@id": "https://airmedical24x7.com/#medicalorganization",
+  "name": "Air Medical 24X7",
+  "url": "https://airmedical24x7.com/",
+  "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
+  "description": "Air Medical 24X7 - Worldwide air ambulance charter services with ICU-equipped aircraft, critical care medical teams, and rapid global medical evacuation.",
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Worldwide"
+  },
+  "availableLanguage": "All",
+  "knowsLanguage": [
+    "en",
+    "hi",
+    "ar",
+    "fr",
+    "de",
+    "es",
+    "it",
+    "ru",
+    "zh",
+    "ja",
+    "ko",
+    "pt",
+    "tr",
+    "th",
+    "id",
+    "ms",
+    "bn",
+    "ur"
+  ],
+  "medicalSpecialty": [
+    "Emergency Medical Transport",
+    "Air Ambulance Charter",
+    "Medical Evacuation",
+    "Critical Care Transport",
+    "Neonatal Transport",
+    "Organ Transport"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+971565542001",
+    "contactType": "Emergency Air Ambulance Charter",
+    "areaServed": "Worldwide",
+    "availableLanguage": "All"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "MedicalService",
+  "@id": "https://airmedical24x7.com/air-ambulance-charters.html#medicalservice",
+  "name": "Air Ambulance Charter Services",
+  "description": "24/7 worldwide air ambulance charter services with ICU aircraft, ventilators, advanced life support, and experienced doctors for emergency and international medical evacuation.",
+  "provider": {
+    "@id": "https://airmedical24x7.com/#medicalorganization"
+  },
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Worldwide"
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceLocation": {
+      "@type": "Place",
+      "name": "Global"
     }
-
-  ]
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "WebPage",
+  "@id": "https://airmedical24x7.com/air-ambulance-charters.html",
+  "url": "https://airmedical24x7.com/air-ambulance-charters.html",
+  "name": "24/7 Air Ambulance Charter | ICU Medical Flights Worldwide",
+  "description": "Book 24/7 worldwide air ambulance charter services with ICU-equipped aircraft and expert medical teams. Emergency and international medical evacuation available globally.",
+  "inLanguage": "x-default",
+  "about": {
+    "@id": "https://airmedical24x7.com/#medicalorganization"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "FAQPage",
+  "@id": "https://airmedical24x7.com/air-ambulance-charters.html#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an air ambulance charter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An air ambulance charter is a private aircraft equipped with ICU medical facilities and staffed with doctors and paramedics to transport critically ill or injured patients safely."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Air Medical 24X7 - Worldwide?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Air Medical 24X7 - Worldwide air ambulance charter services across all countries with full international coordination."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast can an air ambulance be arranged?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Air ambulance charters can typically be activated within 2 to 6 hours after confirmation, depending on medical and flight clearances."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide ICU-level care during flights?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, all air ambulance charter flights are equipped with ICU-grade medical equipment including ventilators, monitors, oxygen systems, and emergency medications."
+      }
+    }
+  ],
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "BreadcrumbList",
+  "@id": "https://airmedical24x7.com/air-ambulance-charters.html#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://airmedical24x7.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Air Ambulance Charter",
+      "item": "https://airmedical24x7.com/air-ambulance-charters.html"
+    }
+  ],
+  "@context": "https://schema.org"
 }
 </script>
 

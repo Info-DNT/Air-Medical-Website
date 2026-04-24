@@ -18,106 +18,129 @@
 
     <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-
+  "@type": "Organization",
+  "@id": "https://airmedical24x7.com/#organization",
+  "name": "Air Medical 24X7",
+  "url": "https://airmedical24x7.com/",
+  "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
+  "sameAs": [
+    "https://www.facebook.com/airmedical24x7/",
+    "https://x.com/airmedical24x7",
+    "https://in.linkedin.com/company/airmedical24x7",
+    "https://www.instagram.com/airmedical24x7/"
+  ],
+  "contactPoint": [
     {
-      "@type": "Organization",
-      "@id": "https://airmedical24x7.com/#organization",
-      "name": "Air Medical 24X7",
-      "url": "https://airmedical24x7.com/",
-      "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
-      "sameAs": [
-        "https://www.facebook.com/airmedical24x7/",
-        "https://x.com/airmedical24x7",
-        "https://in.linkedin.com/company/airmedical24x7",
-        "https://www.instagram.com/airmedical24x7/"
-      ],
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "telephone": "+971565542001",
-          "contactType": "Customer Service",
-          "areaServed": "AE",
-          "availableLanguage": ["en","ar"]
-        },
-        {
-          "@type": "ContactPoint",
-          "telephone": "+918800028727",
-          "contactType": "Customer Service",
-          "areaServed": "IN",
-          "availableLanguage": ["en","hi"]
-        }
+      "@type": "ContactPoint",
+      "telephone": "+971565542001",
+      "contactType": "Customer Service",
+      "areaServed": "AE",
+      "availableLanguage": [
+        "en",
+        "ar"
       ]
     },
-
     {
-      "@type": "LocalBusiness",
-      "@id": "https://airmedical24x7.com/#dubai",
-      "name": "Air Medical 24X7 Dubai",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "310, Garhoud Community, Near Dubai International Airport Terminal-1",
-        "addressLocality": "Dubai",
-        "postalCode": "29086",
-        "addressCountry": "AE"
-      },
-      "telephone": "+971565542001",
-      "parentOrganization": { "@id": "https://airmedical24x7.com/#organization" }
-    },
-
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://airmedical24x7.com/#india",
-      "name": "Air Medical 24X7 India",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "1111, 11th Floor, Padma Tower 1, Rajendra Place",
-        "addressLocality": "New Delhi",
-        "postalCode": "110008",
-        "addressCountry": "IN"
-      },
+      "@type": "ContactPoint",
       "telephone": "+918800028727",
-      "parentOrganization": { "@id": "https://airmedical24x7.com/#organization" }
-    },
-
-    {
-      "@type": "MedicalBusiness",
-      "@id": "https://airmedical24x7.com/flight-medical-escort-service#service",
-      "name": "Flight Medical Escort Services",
-      "url": "https://airmedical24x7.com/flight-medical-escort-service",
-      "image": "https://airmedical24x7.com/img/flight-medical-escort-services.jpg",
-      "description": "Worldwide flight medical escort services with doctors and nurses accompanying patients on commercial flights or air ambulance with ICU-level monitoring, oxygen, and emergency care.",
-      "provider": { "@id": "https://airmedical24x7.com/#organization" },
-      "medicalSpecialty": [
-        "Medical Escort",
-        "Critical Care Transport",
-        "Emergency Medicine",
-        "Aviation Medicine"
-      ],
-      "availableService": {
-        "@type": "MedicalProcedure",
-        "name": "In-Flight Medical Escort",
-        "howPerformed": "A certified doctor or nurse accompanies the patient during air travel, providing continuous medical monitoring, oxygen, medications, and emergency interventions when required."
-      }
-    },
-
-    {
-      "@type": "WebPage",
-      "@id": "https://airmedical24x7.com/flight-medical-escort-service#webpage",
-      "url": "https://airmedical24x7.com/flight-medical-escort-service",
-      "name": "Flight Medical Escort Services – Air Medical 24X7",
-      "description": "International flight medical escort services with trained doctors and nurses providing in-flight care, oxygen support, and emergency response worldwide.",
-      "about": { "@id": "https://airmedical24x7.com/flight-medical-escort-service#service" },
-      "isPartOf": { "@id": "https://airmedical24x7.com/#organization" },
-      "inLanguage": "en",
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": ["h1","h2",".display-4",".text-primary"]
-      }
+      "contactType": "Customer Service",
+      "areaServed": "IN",
+      "availableLanguage": [
+        "en",
+        "hi"
+      ]
     }
-
-  ]
+  ],
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "LocalBusiness",
+  "@id": "https://airmedical24x7.com/#dubai",
+  "name": "Air Medical 24X7 Dubai",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "310, Garhoud Community, Near Dubai International Airport Terminal-1",
+    "addressLocality": "Dubai",
+    "postalCode": "29086",
+    "addressCountry": "AE"
+  },
+  "telephone": "+971565542001",
+  "parentOrganization": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "LocalBusiness",
+  "@id": "https://airmedical24x7.com/#india",
+  "name": "Air Medical 24X7 India",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1111, 11th Floor, Padma Tower 1, Rajendra Place",
+    "addressLocality": "New Delhi",
+    "postalCode": "110008",
+    "addressCountry": "IN"
+  },
+  "telephone": "+918800028727",
+  "parentOrganization": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "MedicalBusiness",
+  "@id": "https://airmedical24x7.com/flight-medical-escort-service#service",
+  "name": "Flight Medical Escort Services",
+  "url": "https://airmedical24x7.com/flight-medical-escort-service",
+  "image": "https://airmedical24x7.com/img/flight-medical-escort-services.jpg",
+  "description": "Worldwide flight medical escort services with doctors and nurses accompanying patients on commercial flights or air ambulance with ICU-level monitoring, oxygen, and emergency care.",
+  "provider": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "medicalSpecialty": [
+    "Medical Escort",
+    "Critical Care Transport",
+    "Emergency Medicine",
+    "Aviation Medicine"
+  ],
+  "availableService": {
+    "@type": "MedicalProcedure",
+    "name": "In-Flight Medical Escort",
+    "howPerformed": "A certified doctor or nurse accompanies the patient during air travel, providing continuous medical monitoring, oxygen, medications, and emergency interventions when required."
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "WebPage",
+  "@id": "https://airmedical24x7.com/flight-medical-escort-service#webpage",
+  "url": "https://airmedical24x7.com/flight-medical-escort-service",
+  "name": "Flight Medical Escort Services \u2013 Air Medical 24X7",
+  "description": "International flight medical escort services with trained doctors and nurses providing in-flight care, oxygen support, and emergency response worldwide.",
+  "about": {
+    "@id": "https://airmedical24x7.com/flight-medical-escort-service#service"
+  },
+  "isPartOf": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "inLanguage": "en",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      "h2",
+      ".display-4",
+      ".text-primary"
+    ]
+  },
+  "@context": "https://schema.org"
 }
 </script>
 

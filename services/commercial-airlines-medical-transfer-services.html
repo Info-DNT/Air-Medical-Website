@@ -18,101 +18,110 @@
 
   <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-
-    {
-      "@type": "Organization",
-      "@id": "https://airmedical24x7.com/#organization",
-      "name": "Air Medical 24X7",
-      "url": "https://airmedical24x7.com/",
-      "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
-      "sameAs": [
-        "https://www.facebook.com/airmedical24x7",
-        "https://www.linkedin.com/company/airmedical24x7",
-        "https://www.instagram.com/airmedical24x7"
-      ]
-    },
-
-    {
-      "@type": "MedicalOrganization",
-      "@id": "https://airmedical24x7.com/#medicalorganization",
-      "name": "Air Medical 24X7",
-      "url": "https://airmedical24x7.com/",
-      "parentOrganization": {
-        "@id": "https://airmedical24x7.com/#organization"
-      },
-      "medicalSpecialty": [
-        "Medical Escort",
-        "Commercial Airline Patient Transfer",
-        "Critical Care Transport",
-        "Air Ambulance"
-      ],
-      "areaServed": "Worldwide"
-    },
-
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://airmedical24x7.com/#dubai",
-      "name": "Air Medical 24X7 Dubai",
-      "url": "https://airmedical24x7.com/",
-      "telephone": "+971565542001",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Dubai",
-        "addressCountry": "AE"
-      },
-      "parentOrganization": {
-        "@id": "https://airmedical24x7.com/#organization"
-      }
-    },
-
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://airmedical24x7.com/#india",
-      "name": "Air Medical 24X7 India",
-      "url": "https://airmedical24x7.com/",
-      "telephone": "+918800028727",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "New Delhi",
-        "addressCountry": "IN"
-      },
-      "parentOrganization": {
-        "@id": "https://airmedical24x7.com/#organization"
-      }
-    },
-
-    {
-      "@type": "MedicalService",
-      "@id": "https://airmedical24x7.com/commercial-flight-stretcher#service",
-      "name": "Commercial Airline Medical Transfer",
-      "description": "International patient transfer via commercial airlines with medical escorts, ICU monitoring, and hospital coordination.",
-      "provider": {
-        "@id": "https://airmedical24x7.com/#medicalorganization"
-      },
-      "areaServed": "Worldwide",
-      "serviceType": "International Patient Transfer via Commercial Airline"
-    },
-
-    {
-      "@type": "WebPage",
-      "@id": "https://airmedical24x7.com/commercial-flight-stretcher#webpage",
-      "url": "https://airmedical24x7.com/commercial-flight-stretcher",
-      "name": "Commercial Airline Medical Transfer Services – Air Medical 24X7",
-      "about": {
-        "@id": "https://airmedical24x7.com/commercial-flight-stretcher#service"
-      },
-      "isPartOf": {
-        "@id": "https://airmedical24x7.com/#website"
-      },
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": ["h1","h2",".display-4",".text-primary"]
-      }
-    }
-
-  ]
+  "@type": "Organization",
+  "@id": "https://airmedical24x7.com/#organization",
+  "name": "Air Medical 24X7",
+  "url": "https://airmedical24x7.com/",
+  "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
+  "sameAs": [
+    "https://www.facebook.com/airmedical24x7",
+    "https://www.linkedin.com/company/airmedical24x7",
+    "https://www.instagram.com/airmedical24x7"
+  ],
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "MedicalOrganization",
+  "@id": "https://airmedical24x7.com/#medicalorganization",
+  "name": "Air Medical 24X7",
+  "url": "https://airmedical24x7.com/",
+  "parentOrganization": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "medicalSpecialty": [
+    "Medical Escort",
+    "Commercial Airline Patient Transfer",
+    "Critical Care Transport",
+    "Air Ambulance"
+  ],
+  "areaServed": "Worldwide",
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "LocalBusiness",
+  "@id": "https://airmedical24x7.com/#dubai",
+  "name": "Air Medical 24X7 Dubai",
+  "url": "https://airmedical24x7.com/",
+  "telephone": "+971565542001",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Dubai",
+    "addressCountry": "AE"
+  },
+  "parentOrganization": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "LocalBusiness",
+  "@id": "https://airmedical24x7.com/#india",
+  "name": "Air Medical 24X7 India",
+  "url": "https://airmedical24x7.com/",
+  "telephone": "+918800028727",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "New Delhi",
+    "addressCountry": "IN"
+  },
+  "parentOrganization": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "MedicalService",
+  "@id": "https://airmedical24x7.com/commercial-flight-stretcher#service",
+  "name": "Commercial Airline Medical Transfer",
+  "description": "International patient transfer via commercial airlines with medical escorts, ICU monitoring, and hospital coordination.",
+  "provider": {
+    "@id": "https://airmedical24x7.com/#medicalorganization"
+  },
+  "areaServed": "Worldwide",
+  "serviceType": "International Patient Transfer via Commercial Airline",
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "WebPage",
+  "@id": "https://airmedical24x7.com/commercial-flight-stretcher#webpage",
+  "url": "https://airmedical24x7.com/commercial-flight-stretcher",
+  "name": "Commercial Airline Medical Transfer Services \u2013 Air Medical 24X7",
+  "about": {
+    "@id": "https://airmedical24x7.com/commercial-flight-stretcher#service"
+  },
+  "isPartOf": {
+    "@id": "https://airmedical24x7.com/#website"
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      "h2",
+      ".display-4",
+      ".text-primary"
+    ]
+  },
+  "@context": "https://schema.org"
 }
 </script>
 

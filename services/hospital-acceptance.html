@@ -18,88 +18,109 @@
 
     <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-
-    {
-      "@type": "Organization",
-      "@id": "https://airmedical24x7.com/#organization",
-      "name": "Air Medical 24X7",
-      "url": "https://airmedical24x7.com/",
-      "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
-      "sameAs": [
-        "https://www.facebook.com/airmedical24x7/",
-        "https://x.com/airmedical24x7",
-        "https://in.linkedin.com/company/airmedical24x7",
-        "https://www.instagram.com/airmedical24x7/"
-      ]
-    },
-
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://airmedical24x7.com/#dubai",
-      "name": "Air Medical 24X7 Dubai",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "310, Garhoud Community, Near Dubai International Airport Terminal-1",
-        "addressLocality": "Dubai",
-        "postalCode": "29086",
-        "addressCountry": "AE"
-      },
+  "@type": "Organization",
+  "@id": "https://airmedical24x7.com/#organization",
+  "name": "Air Medical 24X7",
+  "url": "https://airmedical24x7.com/",
+  "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
+  "sameAs": [
+    "https://www.facebook.com/airmedical24x7/",
+    "https://x.com/airmedical24x7",
+    "https://in.linkedin.com/company/airmedical24x7",
+    "https://www.instagram.com/airmedical24x7/"
+  ],
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "LocalBusiness",
+  "@id": "https://airmedical24x7.com/#dubai",
+  "name": "Air Medical 24X7 Dubai",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "310, Garhoud Community, Near Dubai International Airport Terminal-1",
+    "addressLocality": "Dubai",
+    "postalCode": "29086",
+    "addressCountry": "AE"
+  },
+  "telephone": "+971565542001",
+  "parentOrganization": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "MedicalBusiness",
+  "@id": "https://airmedical24x7.com/hospital-acceptance#medicalbusiness",
+  "name": "International Hospital Acceptance Services",
+  "url": "https://airmedical24x7.com/hospital-acceptance",
+  "image": "https://airmedical24x7.com/img/hospitalacceptance.jpg",
+  "description": "International hospital acceptance and medical bed booking service for ICU, critical care, and specialty treatment worldwide.",
+  "provider": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "medicalSpecialty": [
+    "Hospital Admission",
+    "ICU Bed Booking",
+    "Critical Care Coordination",
+    "International Patient Services"
+  ],
+  "areaServed": "Worldwide",
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "MedicalService",
+  "@id": "https://airmedical24x7.com/hospital-acceptance#service",
+  "name": "International Hospital Acceptance & Bed Booking",
+  "description": "We arrange ICU and hospital bed confirmations, specialist doctor acceptance, and patient admission across global hospitals before medical travel.",
+  "provider": {
+    "@id": "https://airmedical24x7.com/hospital-acceptance#medicalbusiness"
+  },
+  "areaServed": "Worldwide",
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "servicePhone": {
+      "@type": "ContactPoint",
       "telephone": "+971565542001",
-      "parentOrganization": { "@id": "https://airmedical24x7.com/#organization" }
-    },
-
-    {
-      "@type": "MedicalBusiness",
-      "@id": "https://airmedical24x7.com/hospital-acceptance#medicalbusiness",
-      "name": "International Hospital Acceptance Services",
-      "url": "https://airmedical24x7.com/hospital-acceptance",
-      "image": "https://airmedical24x7.com/img/hospitalacceptance.jpg",
-      "description": "International hospital acceptance and medical bed booking service for ICU, critical care, and specialty treatment worldwide.",
-      "provider": { "@id": "https://airmedical24x7.com/#organization" },
-      "medicalSpecialty": [
-        "Hospital Admission",
-        "ICU Bed Booking",
-        "Critical Care Coordination",
-        "International Patient Services"
-      ],
-      "areaServed": "Worldwide"
-    },
-
-    {
-      "@type": "MedicalService",
-      "@id": "https://airmedical24x7.com/hospital-acceptance#service",
-      "name": "International Hospital Acceptance & Bed Booking",
-      "description": "We arrange ICU and hospital bed confirmations, specialist doctor acceptance, and patient admission across global hospitals before medical travel.",
-      "provider": { "@id": "https://airmedical24x7.com/hospital-acceptance#medicalbusiness" },
-      "areaServed": "Worldwide",
-      "availableChannel": {
-        "@type": "ServiceChannel",
-        "servicePhone": {
-          "@type": "ContactPoint",
-          "telephone": "+971565542001",
-          "contactType": "Hospital Coordination",
-          "availableLanguage": ["en","hi","ar"]
-        }
-      }
-    },
-
-    {
-      "@type": "WebPage",
-      "@id": "https://airmedical24x7.com/hospital-acceptance#webpage",
-      "url": "https://airmedical24x7.com/hospital-acceptance",
-      "name": "International Hospital Acceptance & ICU Bed Booking – Air Medical 24X7",
-      "description": "Get hospital acceptance letters, ICU bed confirmation, and doctor approvals worldwide for international patient transfer and treatment.",
-      "about": { "@id": "https://airmedical24x7.com/hospital-acceptance#service" },
-      "isPartOf": { "@id": "https://airmedical24x7.com/#organization" },
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": ["h1","h2",".display-4",".text-primary"]
-      }
+      "contactType": "Hospital Coordination",
+      "availableLanguage": [
+        "en",
+        "hi",
+        "ar"
+      ]
     }
-
-  ]
+  },
+  "@context": "https://schema.org"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@type": "WebPage",
+  "@id": "https://airmedical24x7.com/hospital-acceptance#webpage",
+  "url": "https://airmedical24x7.com/hospital-acceptance",
+  "name": "International Hospital Acceptance & ICU Bed Booking \u2013 Air Medical 24X7",
+  "description": "Get hospital acceptance letters, ICU bed confirmation, and doctor approvals worldwide for international patient transfer and treatment.",
+  "about": {
+    "@id": "https://airmedical24x7.com/hospital-acceptance#service"
+  },
+  "isPartOf": {
+    "@id": "https://airmedical24x7.com/#organization"
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      "h2",
+      ".display-4",
+      ".text-primary"
+    ]
+  },
+  "@context": "https://schema.org"
 }
 </script>
 
