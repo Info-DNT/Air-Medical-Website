@@ -186,7 +186,7 @@ h6 {
 }
 
 .hero-header {
-    background: url(../img/home-banner.jpg) center right no-repeat;
+    background: url(../img/home-banner-hq.png) center right no-repeat;
     background-size: cover;
     min-height: 600px;
     /* Added to give image more vertical space */
@@ -778,16 +778,6 @@ h6 {
 
 
 
-/* ================= TOPBAR RED ================= */
-.container-fluid.py-2.border-bottom {
-    background-color: #FB0F0C;
-}
-
-.container-fluid.py-2.border-bottom a,
-.container-fluid.py-2.border-bottom i,
-.container-fluid.py-2.border-bottom span {
-    color: #fff !important;
-}
 
 
 
