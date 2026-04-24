@@ -186,7 +186,7 @@ h6 {
 }
 
 .hero-header {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/herorr.png) center center no-repeat;
+    background: url(../img/home-banner.png) center right no-repeat;
     background-size: cover;
     min-height: 600px;
     /* Added to give image more vertical space */
@@ -1209,7 +1209,7 @@ h6 {
     .hero-header {
         min-height: 400px !important;
         /* Sensible mobile height */
-        background-position: center center !important;
+        background-position: right center !important;
         background-size: cover !important;
         padding: 60px 0 !important;
         display: flex;
