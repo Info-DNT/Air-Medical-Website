@@ -186,7 +186,7 @@ h6 {
 }
 
 .hero-header {
-    background: url(../img/home-banner.png) center right no-repeat;
+    background: url(../img/home-banner.jpg) center right no-repeat;
     background-size: cover;
     min-height: 600px;
     /* Added to give image more vertical space */
