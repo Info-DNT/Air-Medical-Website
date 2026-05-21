@@ -4,8 +4,8 @@
 
 
 <head>
-  <script>
-    (function() {
+    <script>
+    (function () {
       var pathname = window.location.pathname;
       var cleanPath = pathname;
       if (cleanPath.endsWith('.html')) {
@@ -14,8 +14,22 @@
       if (cleanPath.endsWith('/index')) {
         cleanPath = cleanPath.slice(0, -6);
       }
-      if (cleanPath.endsWith('/') && cleanPath !== '/') {
-        cleanPath = cleanPath.slice(0, -1);
+      var basePath = '';
+      if (window.location.hostname.indexOf('.github.io') !== -1) {
+        var segments = pathname.split('/');
+        if (segments.length > 1 && segments[1]) {
+          basePath = '/' + segments[1];
+        }
+      }
+      var isDirRoot = (cleanPath === basePath || cleanPath === basePath + '/' || cleanPath === basePath + '/countries' || cleanPath === '/countries' || cleanPath === '/');
+      if (isDirRoot) {
+        if (!cleanPath.endsWith('/')) {
+          cleanPath += '/';
+        }
+      } else {
+        if (cleanPath.endsWith('/') && cleanPath !== '/') {
+          cleanPath = cleanPath.slice(0, -1);
+        }
       }
       if (cleanPath === '') {
         cleanPath = '/';
