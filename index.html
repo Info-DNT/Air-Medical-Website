@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <script>
+      <script>
     (function () {
       var pathname = window.location.pathname;
       var cleanPath = pathname;
@@ -35,6 +35,8 @@
       if (cleanPath !== pathname) {
         window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
       }
+      var baseHref = window.location.origin + basePath + '/' + '';
+      document.write('<base href="' + baseHref + '">');
     })();
   </script>
   <meta charset="utf-8">
