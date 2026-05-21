@@ -1,9 +1,30 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 
 
 <head>
+  <script>
+    (function() {
+      var pathname = window.location.pathname;
+      var cleanPath = pathname;
+      if (cleanPath.endsWith('.html')) {
+        cleanPath = cleanPath.slice(0, -5);
+      }
+      if (cleanPath.endsWith('/index')) {
+        cleanPath = cleanPath.slice(0, -6);
+      }
+      if (cleanPath.endsWith('/') && cleanPath !== '/') {
+        cleanPath = cleanPath.slice(0, -1);
+      }
+      if (cleanPath === '') {
+        cleanPath = '/';
+      }
+      if (cleanPath !== pathname) {
+        window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
   <meta charset="utf-8">
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -12,7 +33,7 @@
                     new Date().getTime(), event: 'gtm.js'
             }); var f = d.getElementsByTagName(s)[0],
                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm5445.html?id=' + i + dl; f.parentNode.insertBefore(j, f);
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-KG4BQ6SM');</script>
     <!-- End Google Tag Manager -->
 
@@ -70,7 +91,7 @@
   <script type="application/ld+json">
 {
   "@type": "MedicalService",
-  "@id": "https://airmedical24x7.com/air-ambulance-charters.html#medicalservice",
+  "@id": "https://airmedical24x7.com/air-ambulance-charters#medicalservice",
   "name": "Air Ambulance Charter Services",
   "description": "24/7 worldwide air ambulance charter services with ICU aircraft, ventilators, advanced life support, and experienced doctors for emergency and international medical evacuation.",
   "provider": {
@@ -93,8 +114,8 @@
   <script type="application/ld+json">
 {
   "@type": "WebPage",
-  "@id": "https://airmedical24x7.com/air-ambulance-charters.html",
-  "url": "https://airmedical24x7.com/air-ambulance-charters.html",
+  "@id": "https://airmedical24x7.com/air-ambulance-charters",
+  "url": "https://airmedical24x7.com/air-ambulance-charters",
   "name": "24/7 Air Ambulance Charter | ICU Medical Flights Worldwide",
   "description": "Book 24/7 worldwide air ambulance charter services with ICU-equipped aircraft and expert medical teams. Emergency and international medical evacuation available globally.",
   "inLanguage": "x-default",
@@ -107,7 +128,7 @@
   <script type="application/ld+json">
 {
   "@type": "FAQPage",
-  "@id": "https://airmedical24x7.com/air-ambulance-charters.html#faq",
+  "@id": "https://airmedical24x7.com/air-ambulance-charters#faq",
   "mainEntity": [
     {
       "@type": "Question",
@@ -148,7 +169,7 @@
   <script type="application/ld+json">
 {
   "@type": "BreadcrumbList",
-  "@id": "https://airmedical24x7.com/air-ambulance-charters.html#breadcrumb",
+  "@id": "https://airmedical24x7.com/air-ambulance-charters#breadcrumb",
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -160,7 +181,7 @@
       "@type": "ListItem",
       "position": 2,
       "name": "Air Ambulance Charter",
-      "item": "https://airmedical24x7.com/air-ambulance-charters.html"
+      "item": "https://airmedical24x7.com/air-ambulance-charters"
     }
   ],
   "@context": "https://schema.org"
@@ -169,14 +190,14 @@
 
 
     
-    <title>24/7 Air Ambulance Charter | ICU Medical Flights Worldwide – Air Medical 24X7</title>
+    <title>24/7 Air Ambulance Charter | ICU Medical Flights Worldwide - Air Medical 24X7</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="description"
         content="Book 24/7 worldwide air ambulance charter services with ICU-equipped aircraft, doctors, and critical care teams. Emergency medical evacuation, neonatal, organ transfer & international medical flights by Air Medical 24X7.">
     <meta name="keywords"
         content="air ambulance charter, private air ambulance, ICU medical flights, medical evacuation flights, international air ambulance, emergency air ambulance, neonatal air ambulance, organ transport flight">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="air-ambulance-charters.html" />
+    <link rel="canonical" href="air-ambulance-charters" />
     <meta name="author" content="Air Medical 24X7">
 
     <meta property="og:type" content="website">
@@ -232,7 +253,7 @@
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
 
                 <!-- Logo -->
-                <a class="navbar-brand" href="../index.html">
+                <a class="navbar-brand" href="../">
                     <img src="../img/air-medical-logo.png" alt="Air Medical 24X7" class="logo-img">
                 </a>
 
@@ -249,29 +270,29 @@
                 <!-- Menu -->
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="../index.html" class="nav-item nav-link">Home</a>
-                        <a href="../about.html" class="nav-item nav-link">About</a>
+                        <a href="../" class="nav-item nav-link">Home</a>
+                        <a href="../about-us" class="nav-item nav-link">About Us</a>
 
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Service</a>
                             <div class="dropdown-menu m-0">
-                                <a href="air-ambulance.html" class="dropdown-item">Air Ambulance</a>
-                                <a href="air-ambulance-charters.html" class="dropdown-item">Air Ambulance Charter</a>
-                                <a href="commercial-flight-stretcher.html" class="dropdown-item">Commercial Flight
+                                <a href="air-ambulance" class="dropdown-item">Air Ambulance</a>
+                                <a href="air-ambulance-charters" class="dropdown-item">Air Ambulance Charter</a>
+                                <a href="commercial-flight-stretcher" class="dropdown-item">Commercial Flight
                                     Stretcher</a>
-                                <a href="flight-medical-escort-service.html" class="dropdown-item">Flight Medical Escort
+                                <a href="flight-medical-escort-service" class="dropdown-item">Flight Medical Escort
                                     Services</a>
-                                <a href="hospital-acceptance.html" class="dropdown-item">Hospital Acceptance</a>
-                                <a href="doctor-appointment.html" class="dropdown-item">Doctor Appointment</a>
-                                <a href="second-opinion-services.html" class="dropdown-item">Second Opinion Services</a>
-                                <a href="custom-medical-packages.html" class="dropdown-item">Custom Medical Packages</a>
+                                <a href="hospital-acceptance" class="dropdown-item">Hospital Acceptance</a>
+                                <a href="doctor-appointment" class="dropdown-item">Doctor Appointment</a>
+                                <a href="second-opinion-services" class="dropdown-item">Second Opinion Services</a>
+                                <a href="custom-medical-packages" class="dropdown-item">Custom Medical Packages</a>
                             </div>
                         </div>
           
 
-                        <a href="../blog.html" class="nav-item nav-link">Blog</a>
-                        <a href="../career.html" class="nav-item nav-link">Career</a>
-                        <a href="../contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="../blog" class="nav-item nav-link">Blog</a>
+                        <a href="../career" class="nav-item nav-link">Career</a>
+                        <a href="../contact" class="nav-item nav-link">Contact</a>
                     </div>
                 </div>
 
@@ -286,7 +307,7 @@
   <!-- SOS Popup -->
   <div id="sos-popup">
     <div class="sos-content">
-      <span class="close-sos" onclick="toggleSOS()">×</span>
+      <span class="close-sos" onclick="toggleSOS()">&times;</span>
       <h3>Emergency Assistance</h3>
 
       <a href="tel:+971565542001" class="sos-link call">📞 Call Now</a>
@@ -546,13 +567,13 @@
             </p>
 
             <p><strong>2. How much does an air ambulance charter cost?</strong><br>
-                The cost of an air ambulance in the UAE typically ranges from â‚¹1.5 lakhs to â‚¹25 lakhs. The final price
+                The cost of an air ambulance in the UAE typically ranges from ₹1.5 lakhs to ₹25 lakhs. The final price
                 depends on several factors, including:
             </p>
             <ul>
                 <li>Distance to be covered</li>
                 <li>Type of aircraft used</li>
-                <li>Medical complexity of the patient’s condition</li>
+                <li>Medical complexity of the patient's condition</li>
                 <li>Services included</li>
             </ul>
 
@@ -583,7 +604,7 @@
                         Services,
                         delivering compassionate and patient-focused care every step of the journey.</p>
                     <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>310, Garhoud Community, Near
-                        Dubai International Airport Terminal-1, P.O. Box : 29086 Dubai © (U.A.E)</p>
+                        Dubai International Airport Terminal-1, P.O. Box : 29086 Dubai - (U.A.E)</p>
                     <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>1111, 11th Floor, Padma Tower
                         1, Rajendra Place, New Delhi - 110008, (INDIA)</p>
                     <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>info@airmedical24x7.com</p>
@@ -613,17 +634,17 @@
                     <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
                         Quick Links</h4>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-light mb-2" href="../index.html"><i class="fa fa-angle-right me-2"></i>Home</a>
-                        <a class="text-light mb-2" href="../about.html"><i class="fa fa-angle-right me-2"></i>About
+                        <a class="text-light mb-2" href="../"><i class="fa fa-angle-right me-2"></i>Home</a>
+                        <a class="text-light mb-2" href="../about-us"><i class="fa fa-angle-right me-2"></i>About
                             Us</a>
                         <a class="text-light mb-2" href="#!"><i class="fa fa-angle-right me-2"></i>Career</a>
-                        <a class="text-light mb-2" href="../blog.html"><i class="fa fa-angle-right me-2"></i>Latest
+                        <a class="text-light mb-2" href="../blog"><i class="fa fa-angle-right me-2"></i>Latest
                             Blog</a>
-                        <a class="text-light mb-2" href="../countries/index.html"><i
+                        <a class="text-light mb-2" href="../countries/"><i
                                 class="fa fa-angle-right me-2"></i>Global Pages</a>
-                        <a class="text-light mb-2" href="../terms-and-conditions.html"><i
+                        <a class="text-light mb-2" href="../terms-and-conditions"><i
                                 class="fa fa-angle-right me-2"></i>Terms & Condition</a>
-                        <a class="text-light mb-2" href="../privacy-policy.html"><i
+                        <a class="text-light mb-2" href="../privacy-policy"><i
                                 class="fa fa-angle-right me-2"></i>Privacy Policy</a>
                     </div>
                 </div>
@@ -632,21 +653,21 @@
                     <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
                         Popular Links</h4>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-light mb-2" href="air-ambulance.html"><i class="fa fa-angle-right me-2"></i>Air
+                        <a class="text-light mb-2" href="air-ambulance"><i class="fa fa-angle-right me-2"></i>Air
                             Ambulance</a>
-                        <a class="text-light mb-2" href="air-ambulance-charters.html"><i
+                        <a class="text-light mb-2" href="air-ambulance-charters"><i
                                 class="fa fa-angle-right me-2"></i>Air Ambulance Charter</a>
-                        <a class="text-light mb-2" href="commercial-flight-stretcher.html"><i
+                        <a class="text-light mb-2" href="commercial-flight-stretcher"><i
                                 class="fa fa-angle-right me-2"></i>Commercial Flight Stretcher</a>
-                        <a class="text-light mb-2" href="flight-medical-escort-service.html"><i
+                        <a class="text-light mb-2" href="flight-medical-escort-service"><i
                                 class="fa fa-angle-right me-2"></i>Flight Medical Escort Services</a>
-                        <a class="text-light mb-2" href="hospital-acceptance.html"><i
+                        <a class="text-light mb-2" href="hospital-acceptance"><i
                                 class="fa fa-angle-right me-2"></i>Hospital Acceptance</a>
-                        <a class="text-light mb-2" href="doctor-appointment.html"><i
+                        <a class="text-light mb-2" href="doctor-appointment"><i
                                 class="fa fa-angle-right me-2"></i>Doctor Appointment</a>
-                        <a class="text-light mb-2" href="second-opinion-services.html"><i
+                        <a class="text-light mb-2" href="second-opinion-services"><i
                                 class="fa fa-angle-right me-2"></i>Second Opinion Services</a>
-                        <a class="text-light mb-2" href="custom-medical-packages.html"><i
+                        <a class="text-light mb-2" href="custom-medical-packages"><i
                                 class="fa fa-angle-right me-2"></i>Custom Medical Packages</a>
                     </div>
                 </div>
@@ -693,7 +714,7 @@
                 <!-- Copyright -->
                 <div class="col-md-6 text-center text-md-start">
                     <p class="mb-0">
-                        © <a href="../index.html" class="text-primary">Air Medical 24X7</a>. All Rights Reserved.
+                        &copy; <a href="../" class="text-primary">Air Medical 24X7</a>. All Rights Reserved.
                     </p>
                 </div>
 
@@ -788,5 +809,11 @@
 
 
 </html>
+
+
+
+
+
+
 
 

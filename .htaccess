@@ -1,6 +1,13 @@
 # Air Medical 24X7 - 301 Redirects for Restructured Folders
 RewriteEngine On
+# --- Clean URLs (remove .html) ---
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.+)$ $1.html [L]
 
+# Redirect .html requests to clean URLs
+RewriteCond %{THE_REQUEST} \s/([^.]+)\.html [NC]
+RewriteRule ^ /%1 [R=301,L]
 # --- Redirect Country Pages ---
 Redirect 301 /air-ambulance-afghanistan.html /countries/air-ambulance-afghanistan.html
 Redirect 301 /air-ambulance-albania.html /countries/air-ambulance-albania.html
@@ -48,3 +55,8 @@ Redirect 301 /flight-medical-escort-service.html /services/flight-medical-escort
 Redirect 301 /hospital-acceptance.html /services/hospital-acceptance.html
 Redirect 301 /medical-tourism-services.html /services/medical-tourism-services.html
 Redirect 301 /second-opinion-services.html /services/second-opinion-services.html
+
+# --- Redirect legacy about pages ---
+Redirect 301 /about /about-us
+Redirect 301 /about.html /about-us
+

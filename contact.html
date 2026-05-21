@@ -1,9 +1,30 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 
 
 <head>
+  <script>
+    (function() {
+      var pathname = window.location.pathname;
+      var cleanPath = pathname;
+      if (cleanPath.endsWith('.html')) {
+        cleanPath = cleanPath.slice(0, -5);
+      }
+      if (cleanPath.endsWith('/index')) {
+        cleanPath = cleanPath.slice(0, -6);
+      }
+      if (cleanPath.endsWith('/') && cleanPath !== '/') {
+        cleanPath = cleanPath.slice(0, -1);
+      }
+      if (cleanPath === '') {
+        cleanPath = '/';
+      }
+      if (cleanPath !== pathname) {
+        window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
   <meta charset="utf-8">
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -12,7 +33,7 @@
                     new Date().getTime(), event: 'gtm.js'
             }); var f = d.getElementsByTagName(s)[0],
                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm5445.html?id=' + i + dl; f.parentNode.insertBefore(j, f);
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-KG4BQ6SM');</script>
     <!-- End Google Tag Manager -->
 
@@ -177,27 +198,27 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <title>Contact Air Medical 24X7 Globally</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="description"
-        content="Get in touch with Air Medical 24X7 - Worldwide patient transfers. Contact our 24x7 medical support team for a prompt response.">
+        content="Get in touch with Air Medical 24X7 - Worldwide patient transfers. Contact our 24X7 medical support team for a prompt response.">
     <meta name="keywords"
         content="Contact Air Medical 24X7, commercial flight stretcher inquiry, patient transfer assistance, air ambulance contact, medical escort services, emergency medical contact">
 
     <meta name="author" content="Air Medical 24X7">
-    <link rel="canonical" href="https://airmedical24x7.com/contact.html">
+    <link rel="canonical" href="https://airmedical24x7.com/contact">
     <meta name="robots" content="index, follow">
 
     <meta property="og:type" content="website">
     <meta property="og:title"
-        content="Contact Air Medical 24X7 – Commercial Flight Stretcher & Patient Transfer Enquiry">
+        content="Contact Air Medical 24X7 - Commercial Flight Stretcher & Patient Transfer Enquiry">
     <meta property="og:description"
-        content="Reach Air Medical 24X7 - Worldwide commercial flight stretcher services, ICU-trained medical escorts, and bed-to-bed patient transfers. Our team is available 24x7.">
+        content="Reach Air Medical 24X7 - Worldwide commercial flight stretcher services, ICU-trained medical escorts, and bed-to-bed patient transfers. Our team is available 24X7.">
     <meta property="og:url" content="https://airmedical24x7.com/contact">
     <meta property="og:image" content="https://airmedical24x7.com/img/contact-og.jpg">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title"
-        content="Contact Air Medical 24X7 – Commercial Flight Stretcher & Patient Transfer Enquiry">
+        content="Contact Air Medical 24X7 - Commercial Flight Stretcher & Patient Transfer Enquiry">
     <meta name="twitter:description"
-        content="Connect with Air Medical 24X7 - Worldwide. Available 24x7.">
+        content="Connect with Air Medical 24X7 - Worldwide. Available 24X7.">
     <meta name="twitter:image" content="https://airmedical24x7.com/img/contact-og.jpg">
 
 
@@ -236,7 +257,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <div class="container-fluid sticky-top bg-white shadow-sm">
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="./">
                     <img src="img/air-medical-logo.png" alt="Air Medical 24X7" class="logo-img">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -244,31 +265,31 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="./" class="nav-item nav-link">Home</a>
+                        <a href="about-us" class="nav-item nav-link">About Us</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Service</a>
                             <div class="dropdown-menu m-0">
-                                <a href="services/air-ambulance.html" class="dropdown-item">Air Ambulance</a>
-                                <a href="services/air-ambulance-charters.html" class="dropdown-item">Air Ambulance
+                                <a href="services/air-ambulance" class="dropdown-item">Air Ambulance</a>
+                                <a href="services/air-ambulance-charters" class="dropdown-item">Air Ambulance
                                     Charter</a>
-                                <a href="services/commercial-flight-stretcher.html" class="dropdown-item">Commercial
+                                <a href="services/commercial-flight-stretcher" class="dropdown-item">Commercial
                                     Flight Stretcher</a>
-                                <a href="services/flight-medical-escort-service.html" class="dropdown-item">Flight
+                                <a href="services/flight-medical-escort-service" class="dropdown-item">Flight
                                     Medical Escort Services</a>
-                                <a href="services/hospital-acceptance.html" class="dropdown-item">Hospital
+                                <a href="services/hospital-acceptance" class="dropdown-item">Hospital
                                     Acceptance</a>
-                                <a href="services/doctor-appointment.html" class="dropdown-item">Doctor Appointment</a>
-                                <a href="services/second-opinion-services.html" class="dropdown-item">Second Opinion
+                                <a href="services/doctor-appointment" class="dropdown-item">Doctor Appointment</a>
+                                <a href="services/second-opinion-services" class="dropdown-item">Second Opinion
                                     Services</a>
-                                <a href="services/custom-medical-packages.html" class="dropdown-item">Custom Medical
+                                <a href="services/custom-medical-packages" class="dropdown-item">Custom Medical
                                     Packages</a>
                             </div>
                         </div>
           
-                        <a href="blog.html" class="nav-item nav-link">Blog</a>
-                        <a href="career.html" class="nav-item nav-link">Career</a>
-                        <a href="contact.html" class="nav-item nav-link active">Contact</a>
+                        <a href="blog" class="nav-item nav-link">Blog</a>
+                        <a href="career" class="nav-item nav-link">Career</a>
+                        <a href="contact" class="nav-item nav-link active">Contact</a>
                     </div>
                 </div>
             </nav>
@@ -282,7 +303,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   <!-- SOS Popup -->
   <div id="sos-popup">
     <div class="sos-content">
-      <span class="close-sos" onclick="toggleSOS()">×</span>
+      <span class="close-sos" onclick="toggleSOS()">&times;</span>
       <h3>Emergency Assistance</h3>
 
       <a href="tel:+971565542001" class="sos-link call">📞 Call Now</a>
@@ -412,7 +433,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         <div class="col-12" style="height: 500px;">
             <div class="position-relative h-100">
                 <iframe class="position-relative w-100 h-100"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.904246388504!2d55.346978899999996!3d25.2401499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6b25c067358f%3A0x76882f8f062143d9!2sAir%20Ambulance%20-%20Worldwide%20Air%20Medical%2024x7!5e0!3m2!1sen!2sin!4v1765015907766!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.904246388504!2d55.346978899999996!3d25.2401499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6b25c067358f%3A0x76882f8f062143d9!2sAir%20Ambulance%20-%20Worldwide%20Air%20Medical%2024X7!5e0!3m2!1sen!2sin!4v1765015907766!5m2!1sen!2sin"
                     frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
@@ -553,7 +574,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <script>
         window.addEventListener("load", function () {
 
-            console.log("âœ… Supabase script loaded");
+            console.log("✅ Supabase script loaded");
 
             const form = document.getElementById("quoteForm");
             if (!form) {
@@ -564,9 +585,9 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             const supabase = window.supabaseClient;
 
             form.addEventListener("submit", async function (e) {
-                e.preventDefault(); // 🚨 STOPS URL REDIRECT
+                e.preventDefault(); // ?? STOPS URL REDIRECT
 
-                console.log("🚀 Form submission intercepted");
+                console.log("?? Form submission intercepted");
 
                 const fullPhone =
                     document.getElementById("countryCode").value +
@@ -587,17 +608,17 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                     payload.transport = transportInput.value;
                 }
 
-                console.log("📦 Payload:", payload);
+                console.log("?? Payload:", payload);
 
                 const { error } = await supabase
                     .from("appointments")
                     .insert([payload]);
 
                 if (error) {
-                    console.error("âŒ Supabase error:", error);
+                    console.error("❌ Supabase error:", error);
                     alert("Error: " + error.message);
                 } else {
-                    alert("âœ… Thank you! Our team will contact you soon.");
+                    alert("✅ Thank you! Our team will contact you soon.");
                     form.reset();
                 }
             });
@@ -621,7 +642,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         Services,
                         delivering compassionate and patient-focused care every step of the journey.</p>
                     <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>310, Garhoud Community, Near
-                        Dubai International Airport Terminal-1, P.O. Box : 29086 Dubai © (U.A.E)</p>
+                        Dubai International Airport Terminal-1, P.O. Box : 29086 Dubai - (U.A.E)</p>
                     <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>1111, 11th Floor, Padma Tower
                         1, Rajendra Place, New Delhi - 110008, (INDIA)</p>
                     <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>info@airmedical24x7.com</p>
@@ -651,16 +672,16 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                     <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
                         Quick Links</h4>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-light mb-2" href="index.html"><i class="fa fa-angle-right me-2"></i>Home</a>
-                        <a class="text-light mb-2" href="about.html"><i class="fa fa-angle-right me-2"></i>About Us</a>
+                        <a class="text-light mb-2" href="./"><i class="fa fa-angle-right me-2"></i>Home</a>
+                        <a class="text-light mb-2" href="about-us"><i class="fa fa-angle-right me-2"></i>About Us</a>
                         <a class="text-light mb-2" href="#!"><i class="fa fa-angle-right me-2"></i>Career</a>
-                        <a class="text-light mb-2" href="blog.html"><i class="fa fa-angle-right me-2"></i>Latest
+                        <a class="text-light mb-2" href="blog"><i class="fa fa-angle-right me-2"></i>Latest
                             Blog</a>
-                        <a class="text-light mb-2" href="countries/index.html"><i
+                        <a class="text-light mb-2" href="countries/"><i
                                 class="fa fa-angle-right me-2"></i>Global Pages</a>
-                        <a class="text-light mb-2" href="terms-and-conditions.html"><i
+                        <a class="text-light mb-2" href="terms-and-conditions"><i
                                 class="fa fa-angle-right me-2"></i>Terms & Condition</a>
-                        <a class="text-light mb-2" href="privacy-policy.html"><i
+                        <a class="text-light mb-2" href="privacy-policy"><i
                                 class="fa fa-angle-right me-2"></i>Privacy Policy</a>
                     </div>
                 </div>
@@ -669,21 +690,21 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                     <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
                         Popular Links</h4>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-light mb-2" href="services/air-ambulance.html"><i
+                        <a class="text-light mb-2" href="services/air-ambulance"><i
                                 class="fa fa-angle-right me-2"></i>Air Ambulance</a>
-                        <a class="text-light mb-2" href="services/air-ambulance-charters.html"><i
+                        <a class="text-light mb-2" href="services/air-ambulance-charters"><i
                                 class="fa fa-angle-right me-2"></i>Air Ambulance Charter</a>
-                        <a class="text-light mb-2" href="services/commercial-flight-stretcher.html"><i
+                        <a class="text-light mb-2" href="services/commercial-flight-stretcher"><i
                                 class="fa fa-angle-right me-2"></i>Commercial Flight Stretcher</a>
-                        <a class="text-light mb-2" href="services/flight-medical-escort-service.html"><i
+                        <a class="text-light mb-2" href="services/flight-medical-escort-service"><i
                                 class="fa fa-angle-right me-2"></i>Flight Medical Escort Services</a>
-                        <a class="text-light mb-2" href="services/hospital-acceptance.html"><i
+                        <a class="text-light mb-2" href="services/hospital-acceptance"><i
                                 class="fa fa-angle-right me-2"></i>Hospital Acceptance</a>
-                        <a class="text-light mb-2" href="services/doctor-appointment.html"><i
+                        <a class="text-light mb-2" href="services/doctor-appointment"><i
                                 class="fa fa-angle-right me-2"></i>Doctor Appointment</a>
-                        <a class="text-light mb-2" href="services/second-opinion-services.html"><i
+                        <a class="text-light mb-2" href="services/second-opinion-services"><i
                                 class="fa fa-angle-right me-2"></i>Second Opinion Services</a>
-                        <a class="text-light mb-2" href="services/custom-medical-packages.html"><i
+                        <a class="text-light mb-2" href="services/custom-medical-packages"><i
                                 class="fa fa-angle-right me-2"></i>Custom Medical Packages</a>
                     </div>
                 </div>
@@ -729,7 +750,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 <!-- Copyright -->
                 <div class="col-md-6 text-center text-md-start">
                     <p class="mb-0">
-                        © <a href="index.html" class="text-primary">Air Medical 24X7</a>. All Rights Reserved.
+                        &copy; <a href="./" class="text-primary">Air Medical 24X7</a>. All Rights Reserved.
                     </p>
                 </div>
 
@@ -822,5 +843,11 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
 
 </html>
+
+
+
+
+
+
 
 

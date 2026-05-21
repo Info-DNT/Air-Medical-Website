@@ -225,3 +225,18 @@ function filterCountries() {
     });
 }
 
+// Local development helper: Service Worker to handle extensionless URLs on VS Code Live Server
+if ('serviceWorker' in navigator && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+    navigator.serviceWorker.register('/sw.js')
+        .then(function(reg) {
+            console.log('Local URL Router Service Worker registered successfully.');
+        })
+        .catch(function(err) {
+            console.error('Service Worker registration failed:', err);
+        });
+}
+
+
+
+
+
