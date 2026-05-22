@@ -35,10 +35,22 @@
       var lastSegment = cleanRelPath.substring(cleanRelPath.lastIndexOf('/') + 1);
       if (cleanRelPath !== '/' && cleanRelPath !== '' && !lastSegment.includes('.')) {
         var targetUrl;
-        if (cleanRelPath === '/countries') {
+        if (cleanRelPath === '/country') {
           targetUrl = basePath + '/countries/index.html' + search + hash;
+        } else if (lastSegment.indexOf('air-ambulance-') === 0 && lastSegment !== 'air-ambulance-charters') {
+          targetUrl = basePath + '/countries/' + lastSegment + '.html' + search + hash;
         } else {
-          targetUrl = basePath + cleanRelPath + '.html' + search + hash;
+          var services = [
+            'air-ambulance', 'air-ambulance-charters', 'ECMO-transfer', 
+            'commercial-airlines-medical-transfer-services', 'commercial-flight-stretcher', 
+            'custom-medical-packages', 'doctor-appointment', 'flight-medical-escort-service', 
+            'hospital-acceptance', 'medical-tourism-services', 'second-opinion-services'
+          ];
+          if (services.indexOf(lastSegment) !== -1) {
+            targetUrl = basePath + '/services/' + lastSegment + '.html' + search + hash;
+          } else {
+            targetUrl = basePath + cleanRelPath + '.html' + search + hash;
+          }
         }
         window.location.replace(targetUrl);
       }

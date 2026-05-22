@@ -19,7 +19,17 @@
           basePath = '/' + segments[1];
         }
       }
-      var isDirRoot = (cleanPath === basePath || cleanPath === basePath + '/' || cleanPath === basePath + '/countries' || cleanPath === '/countries' || cleanPath === '/');
+      var countriesPrefix = basePath + '/countries/';
+      var servicesPrefix = basePath + '/services/';
+      if (cleanPath.startsWith(countriesPrefix) && cleanPath.length > countriesPrefix.length) {
+        cleanPath = basePath + '/' + cleanPath.substring(countriesPrefix.length);
+      } else if (cleanPath.startsWith(servicesPrefix) && cleanPath.length > servicesPrefix.length) {
+        cleanPath = basePath + '/' + cleanPath.substring(servicesPrefix.length);
+      }
+      if (cleanPath === basePath + '/countries/index' || cleanPath === basePath + '/countries') {
+        cleanPath = basePath + '/country';
+      }
+      var isDirRoot = (cleanPath === basePath || cleanPath === basePath + '/' || cleanPath === basePath + '/countries/' || cleanPath === '/');
       if (isDirRoot) {
         if (!cleanPath.endsWith('/')) {
           cleanPath += '/';
@@ -351,16 +361,16 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <div class="nav-item dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Our Services</a>
               <div class="dropdown-menu m-0">
-                <a href="services/air-ambulance.html" class="dropdown-item">Air Ambulance</a>
-                <a href="services/air-ambulance-charters.html" class="dropdown-item">Air Ambulance Charter</a>
-                <a href="services/commercial-flight-stretcher.html" class="dropdown-item">Commercial Flight
+                <a href="air-ambulance.html" class="dropdown-item">Air Ambulance</a>
+                <a href="air-ambulance-charters.html" class="dropdown-item">Air Ambulance Charter</a>
+                <a href="commercial-flight-stretcher.html" class="dropdown-item">Commercial Flight
                   Stretcher</a>
-                <a href="services/flight-medical-escort-service.html" class="dropdown-item">Flight Medical Escort
+                <a href="flight-medical-escort-service.html" class="dropdown-item">Flight Medical Escort
                   Services</a>
-                <a href="services/hospital-acceptance.html" class="dropdown-item">Hospital Acceptance</a>
-                <a href="services/doctor-appointment.html" class="dropdown-item">Doctor Appointment</a>
-                <a href="services/second-opinion-services.html" class="dropdown-item">Second Opinion Services</a>
-                <a href="services/custom-medical-packages.html" class="dropdown-item">Custom Medical Packages</a>
+                <a href="hospital-acceptance.html" class="dropdown-item">Hospital Acceptance</a>
+                <a href="doctor-appointment.html" class="dropdown-item">Doctor Appointment</a>
+                <a href="second-opinion-services.html" class="dropdown-item">Second Opinion Services</a>
+                <a href="custom-medical-packages.html" class="dropdown-item">Custom Medical Packages</a>
               </div>
             </div>
 
@@ -507,7 +517,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <p class="m-0">Air Medical 24X7 provides 24X7 air ambulance charter services, commercial flight stretcher
               services,
               and worldwide patient transfer for emergency medical evacuation.</p>
-            <a class="btn btn-lg btn-primary rounded-pill" href="services/air-ambulance.html">
+            <a class="btn btn-lg btn-primary rounded-pill" href="air-ambulance.html">
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>
@@ -522,7 +532,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <p class="m-0">Air Medical 24X7 offers unrivaled convenience and luxury with our Executive Charter Services.
               Specifically designed for corporate executives, our skilled flight medics ensure a seamless
               experience and first-class travel.</p>
-            <a class="btn btn-lg btn-primary rounded-pill" href="services/air-ambulance-charters.html">
+            <a class="btn btn-lg btn-primary rounded-pill" href="air-ambulance-charters.html">
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>
@@ -538,7 +548,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
               medical
               evacuation services via commercial airlines and private air ambulances.</p>
             <a class="btn btn-lg btn-primary rounded-pill"
-              href="services/commercial-airlines-medical-transfer-services.html">
+              href="commercial-airlines-medical-transfer-services.html">
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>
@@ -552,7 +562,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <p class="m-0">Medical Tourism and Patient Transfer
               Air Medical 24X7 supports global medical tourism through safe and seamless air ambulance and medical
               evacuation services.</p>
-            <a class="btn btn-lg btn-primary rounded-pill" href="services/medical-tourism-services.html">
+            <a class="btn btn-lg btn-primary rounded-pill" href="medical-tourism-services.html">
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>
@@ -566,7 +576,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <p class="m-0">Air Medical 24X7 provides trusted flight medical escort and air ambulance services for
               patients who
               need professional medical care during travel.</p>
-            <a class="btn btn-lg btn-primary rounded-pill" href="services/flight-medical-escort-service.html">
+            <a class="btn btn-lg btn-primary rounded-pill" href="flight-medical-escort-service.html">
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>
@@ -581,7 +591,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
               services,
               which are designed to offer immediate specialist care for critically ill patients requiring advanced
               support for their hearts and lungs.</p>
-            <a class="btn btn-lg btn-primary rounded-pill" href="services/ECMO-transfer.html">
+            <a class="btn btn-lg btn-primary rounded-pill" href="ECMO-transfer.html">
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>
@@ -1392,7 +1402,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <a class="text-light mb-2" href="about-us.html"><i class="fa fa-angle-right me-2"></i>About Us</a>
             <a class="text-light mb-2" href="#!"><i class="fa fa-angle-right me-2"></i>Career</a>
             <a class="text-light mb-2" href="blog.html"><i class="fa fa-angle-right me-2"></i>Latest Blog</a>
-            <a class="text-light mb-2" href="countries/index.html"><i class="fa fa-angle-right me-2"></i>Global
+            <a class="text-light mb-2" href="country.html"><i class="fa fa-angle-right me-2"></i>Global
               Pages</a>
             <a class="text-light mb-2" href="terms-and-conditions.html"><i class="fa fa-angle-right me-2"></i>Terms &
               Condition</a>
@@ -1405,21 +1415,21 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
           <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
             Popular Links</h4>
           <div class="d-flex flex-column justify-content-start">
-            <a class="text-light mb-2" href="services/air-ambulance.html"><i class="fa fa-angle-right me-2"></i>Air
+            <a class="text-light mb-2" href="air-ambulance.html"><i class="fa fa-angle-right me-2"></i>Air
               Ambulance</a>
-            <a class="text-light mb-2" href="services/air-ambulance-charters.html"><i
+            <a class="text-light mb-2" href="air-ambulance-charters.html"><i
                 class="fa fa-angle-right me-2"></i>Air Ambulance Charter</a>
-            <a class="text-light mb-2" href="services/commercial-flight-stretcher.html"><i
+            <a class="text-light mb-2" href="commercial-flight-stretcher.html"><i
                 class="fa fa-angle-right me-2"></i>Commercial Flight Stretcher</a>
-            <a class="text-light mb-2" href="services/flight-medical-escort-service.html"><i
+            <a class="text-light mb-2" href="flight-medical-escort-service.html"><i
                 class="fa fa-angle-right me-2"></i>Flight Medical Escort Services</a>
-            <a class="text-light mb-2" href="services/hospital-acceptance.html"><i
+            <a class="text-light mb-2" href="hospital-acceptance.html"><i
                 class="fa fa-angle-right me-2"></i>Hospital Acceptance</a>
-            <a class="text-light mb-2" href="services/doctor-appointment.html"><i
+            <a class="text-light mb-2" href="doctor-appointment.html"><i
                 class="fa fa-angle-right me-2"></i>Doctor Appointment</a>
-            <a class="text-light mb-2" href="services/second-opinion-services.html"><i
+            <a class="text-light mb-2" href="second-opinion-services.html"><i
                 class="fa fa-angle-right me-2"></i>Second Opinion Services</a>
-            <a class="text-light mb-2" href="services/custom-medical-packages.html"><i
+            <a class="text-light mb-2" href="custom-medical-packages.html"><i
                 class="fa fa-angle-right me-2"></i>Custom Medical Packages</a>
           </div>
         </div>

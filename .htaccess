@@ -1,62 +1,38 @@
-# Air Medical 24X7 - 301 Redirects for Restructured Folders
+# Air Medical 24X7 - Clean URL Rewrites & Redirects
 RewriteEngine On
-# --- Clean URLs (remove .html) ---
+RewriteBase /
+
+# 1. Redirect legacy/physical subdirectory paths to clean root-level URLs
+# Use %{ENV:REDIRECT_STATUS} to avoid redirect loops on internal rewrites
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^countries/index(?:\.html)?$ /country [R=301,L,NC]
+
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^countries/(.+?)(?:\.html)?$ /$1 [R=301,L,NC]
+
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^services/(.+?)(?:\.html)?$ /$1 [R=301,L,NC]
+
+# Redirect legacy about.html and contact.html
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^about(?:\.html)?$ /about-us [R=301,L,NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^contact(?:\.html)?$ /contact-us [R=301,L,NC]
+
+# 2. Redirect root-level .html requests to clean URLs
+RewriteCond %{THE_REQUEST} \s/([^/]+)\.html [NC]
+RewriteRule ^([^/]+)\.html$ /$1 [R=301,L]
+
+# 3. Internal Rewrite: Route clean root URLs to their physical subdirectory paths
+# Check in countries/ folder
+RewriteCond %{DOCUMENT_ROOT}/countries/$1.html -f
+RewriteRule ^([^/]+)$ countries/$1.html [L]
+
+# Check in services/ folder
+RewriteCond %{DOCUMENT_ROOT}/services/$1.html -f
+RewriteRule ^([^/]+)$ services/$1.html [L]
+
+# Check in root folder
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^(.+)$ $1.html [L]
-
-# Redirect .html requests to clean URLs
-RewriteCond %{THE_REQUEST} \s/([^.]+)\.html [NC]
-RewriteRule ^ /%1 [R=301,L]
-# --- Redirect Country Pages ---
-Redirect 301 /air-ambulance-afghanistan.html /countries/air-ambulance-afghanistan.html
-Redirect 301 /air-ambulance-albania.html /countries/air-ambulance-albania.html
-Redirect 301 /air-ambulance-algeria.html /countries/air-ambulance-algeria.html
-Redirect 301 /air-ambulance-andorra.html /countries/air-ambulance-andorra.html
-Redirect 301 /air-ambulance-angola.html /countries/air-ambulance-angola.html
-Redirect 301 /air-ambulance-antigua-and-barbuda.html /countries/air-ambulance-antigua-and-barbuda.html
-Redirect 301 /air-ambulance-argentina.html /countries/air-ambulance-argentina.html
-Redirect 301 /air-ambulance-armenia.html /countries/air-ambulance-armenia.html
-Redirect 301 /air-ambulance-australia.html /countries/air-ambulance-australia.html
-Redirect 301 /air-ambulance-austria.html /countries/air-ambulance-austria.html
-Redirect 301 /air-ambulance-azerbaijan.html /countries/air-ambulance-azerbaijan.html
-Redirect 301 /air-ambulance-bahamas.html /countries/air-ambulance-bahamas.html
-Redirect 301 /air-ambulance-bahrain.html /countries/air-ambulance-bahrain.html
-Redirect 301 /air-ambulance-bangladesh.html /countries/air-ambulance-bangladesh.html
-Redirect 301 /air-ambulance-barbados.html /countries/air-ambulance-barbados.html
-Redirect 301 /air-ambulance-belarus.html /countries/air-ambulance-belarus.html
-Redirect 301 /air-ambulance-belgium.html /countries/air-ambulance-belgium.html
-Redirect 301 /air-ambulance-belize.html /countries/air-ambulance-belize.html
-Redirect 301 /air-ambulance-benin.html /countries/air-ambulance-benin.html
-Redirect 301 /air-ambulance-bhutan.html /countries/air-ambulance-bhutan.html
-Redirect 301 /air-ambulance-bolivia.html /countries/air-ambulance-bolivia.html
-Redirect 301 /air-ambulance-bosnia-and-herzegovina.html /countries/air-ambulance-bosnia-and-herzegovina.html
-Redirect 301 /air-ambulance-ethiopia.html /countries/air-ambulance-ethiopia.html
-Redirect 301 /air-ambulance-indonesia.html /countries/air-ambulance-indonesia.html
-Redirect 301 /air-ambulance-kuwait.html /countries/air-ambulance-kuwait.html
-Redirect 301 /air-ambulance-oman.html /countries/air-ambulance-oman.html
-Redirect 301 /air-ambulance-qatar.html /countries/air-ambulance-qatar.html
-Redirect 301 /air-ambulance-saudi-arabia.html /countries/air-ambulance-saudi-arabia.html
-Redirect 301 /air-ambulance-seychelles.html /countries/air-ambulance-seychelles.html
-Redirect 301 /air-ambulance-uae.html /countries/air-ambulance-uae.html
-
-# --- Redirect Country Listing ---
-Redirect 301 /country.html /countries/index.html
-
-# --- Redirect Service Pages ---
-Redirect 301 /air-ambulance.html /services/air-ambulance.html
-Redirect 301 /air-ambulance-charters.html /services/air-ambulance-charters.html
-Redirect 301 /commercial-airlines-medical-transfer-services.html /services/commercial-airlines-medical-transfer-services.html
-Redirect 301 /commercial-flight-stretcher.html /services/commercial-flight-stretcher.html
-Redirect 301 /custom-medical-packages.html /services/custom-medical-packages.html
-Redirect 301 /doctor-appointment.html /services/doctor-appointment.html
-Redirect 301 /ECMO-transfer.html /services/ECMO-transfer.html
-Redirect 301 /flight-medical-escort-service.html /services/flight-medical-escort-service.html
-Redirect 301 /hospital-acceptance.html /services/hospital-acceptance.html
-Redirect 301 /medical-tourism-services.html /services/medical-tourism-services.html
-Redirect 301 /second-opinion-services.html /services/second-opinion-services.html
-
-# --- Redirect legacy about pages ---
-Redirect 301 /about /about-us
-Redirect 301 /about.html /about-us
-
+RewriteRule ^([^/]+)$ $1.html [L]

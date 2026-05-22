@@ -21,7 +21,17 @@
           basePath = '/' + segments[1];
         }
       }
-      var isDirRoot = (cleanPath === basePath || cleanPath === basePath + '/' || cleanPath === basePath + '/countries' || cleanPath === '/countries' || cleanPath === '/');
+      var countriesPrefix = basePath + '/countries/';
+      var servicesPrefix = basePath + '/services/';
+      if (cleanPath.startsWith(countriesPrefix) && cleanPath.length > countriesPrefix.length) {
+        cleanPath = basePath + '/' + cleanPath.substring(countriesPrefix.length);
+      } else if (cleanPath.startsWith(servicesPrefix) && cleanPath.length > servicesPrefix.length) {
+        cleanPath = basePath + '/' + cleanPath.substring(servicesPrefix.length);
+      }
+      if (cleanPath === basePath + '/countries/index' || cleanPath === basePath + '/countries') {
+        cleanPath = basePath + '/country';
+      }
+      var isDirRoot = (cleanPath === basePath || cleanPath === basePath + '/' || cleanPath === basePath + '/countries/' || cleanPath === '/');
       if (isDirRoot) {
         if (!cleanPath.endsWith('/')) {
           cleanPath += '/';
@@ -323,7 +333,7 @@ function gtag_report_conversion(url) {
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Our Services</a>
                         <div class="dropdown-menu m-0">
                             <a href="air-ambulance.html" class="dropdown-item">Air Ambulance</a>
-                            <a href="countries/air-ambulance-charters.html" class="dropdown-item">Air Ambulance Charter</a>
+                            <a href="air-ambulance-charters.html" class="dropdown-item">Air Ambulance Charter</a>
                             <a href="commercial-flight-stretcher.html" class="dropdown-item">Commercial Flight Stretcher</a>
                             <a href="flight-medical-escort-service.html" class="dropdown-item">Flight Medical Escort Services</a>
                             <a href="hospital-acceptance.html" class="dropdown-item">Hospital Acceptance</a>
@@ -669,7 +679,7 @@ window.addEventListener("load", function () {
 
 
         <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-afghanistan.html" class="country-card">
+            <a href="air-ambulance-afghanistan.html" class="country-card">
                 <img src="img/afghanistan-country.png" alt="Air Ambulance in Afghanistan">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -679,7 +689,7 @@ window.addEventListener("load", function () {
         </div>
 
         <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-albania.html" class="country-card">
+            <a href="air-ambulance-albania.html" class="country-card">
                 <img src="img/albania-country.png" alt="Air Ambulance in Albania">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -689,7 +699,7 @@ window.addEventListener("load", function () {
         </div>
 
         <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-algeria.html" class="country-card">
+            <a href="air-ambulance-algeria.html" class="country-card">
                 <img src="img/algeria-country.jpg" alt="Air Ambulance in Algeria">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -699,7 +709,7 @@ window.addEventListener("load", function () {
         </div>
 
         <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-andorra.html" class="country-card">
+            <a href="air-ambulance-andorra.html" class="country-card">
                 <img src="img/andorra-country.jpg" alt="Air Ambulance in Andorra">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -709,7 +719,7 @@ window.addEventListener("load", function () {
         </div>
 
         <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-angola.html" class="country-card">
+            <a href="air-ambulance-angola.html" class="country-card">
                 <img src="img/angola-country.png" alt="Air Ambulance in Angola">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -719,7 +729,7 @@ window.addEventListener("load", function () {
         </div>
 
         <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-antigua-and-barbuda.html" class="country-card">
+            <a href="air-ambulance-antigua-and-barbuda.html" class="country-card">
                 <img src="img/antigua-barbuda-country.jpg" alt="Air Ambulance in Antigua and Barbuda">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -729,7 +739,7 @@ window.addEventListener("load", function () {
         </div>
 
         <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-argentina.html" class="country-card">
+            <a href="air-ambulance-argentina.html" class="country-card">
                 <img src="img/argentina-country.png" alt="Air Ambulance in Argentina">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -740,7 +750,7 @@ window.addEventListener("load", function () {
 
 
               <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-armenia.html" class="country-card">
+            <a href="air-ambulance-armenia.html" class="country-card">
                 <img src="img/armenia-country.png" alt="Air Ambulance in Armenia">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -758,7 +768,7 @@ window.addEventListener("load", function () {
         <!-- New 1 8 Blocks -->
 
          <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-australia.html" class="country-card">
+            <a href="air-ambulance-australia.html" class="country-card">
                 <img src="img/australia-country.png" alt="Air Ambulance in Australia">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -768,7 +778,7 @@ window.addEventListener("load", function () {
         </div>
 
          <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-austria.html" class="country-card">
+            <a href="air-ambulance-austria.html" class="country-card">
                 <img src="img/austria-country.png" alt="Air Ambulance in Austria">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -779,7 +789,7 @@ window.addEventListener("load", function () {
 
 
         <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-azerbaijan.html" class="country-card">
+            <a href="air-ambulance-azerbaijan.html" class="country-card">
                 <img src="img/azerbaijan-country.png" alt="Air Ambulance in Azerbaijan">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -790,7 +800,7 @@ window.addEventListener("load", function () {
 
 
         <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-bahamas.html" class="country-card">
+            <a href="air-ambulance-bahamas.html" class="country-card">
                 <img src="img/bahamas-country.png" alt="Air Ambulance in Bahamas">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -800,7 +810,7 @@ window.addEventListener("load", function () {
         </div>
 
         <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-bahrain.html" class="country-card">
+            <a href="air-ambulance-bahrain.html" class="country-card">
                 <img src="img/bahrain-country.jpg" alt="Air Ambulance in Bahrain">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -810,7 +820,7 @@ window.addEventListener("load", function () {
         </div>
 
          <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-bangladesh.html" class="country-card">
+            <a href="air-ambulance-bangladesh.html" class="country-card">
                 <img src="img/bangladesh-country.png" alt="Air Ambulance in Bangladesh">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -820,7 +830,7 @@ window.addEventListener("load", function () {
         </div>
 
         <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-barbados.html" class="country-card">
+            <a href="air-ambulance-barbados.html" class="country-card">
                 <img src="img/barbados-country.png" alt="Air Ambulance in Barbados">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -830,7 +840,7 @@ window.addEventListener("load", function () {
         </div>
 
          <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-belarus.html" class="country-card">
+            <a href="air-ambulance-belarus.html" class="country-card">
                 <img src="img/belarus-country.png" alt="Air Ambulance in Belarus">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -852,7 +862,7 @@ window.addEventListener("load", function () {
        <!-- New 2 8 Blocks -->
 
          <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-belgium.html" class="country-card">
+            <a href="air-ambulance-belgium.html" class="country-card">
                 <img src="img/belgium-country.png" alt="Air Ambulance in Belgium">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -862,7 +872,7 @@ window.addEventListener("load", function () {
         </div>
 
          <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-belize.html" class="country-card">
+            <a href="air-ambulance-belize.html" class="country-card">
                 <img src="img/belize-country.png" alt="Air Ambulance in Belize">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -873,7 +883,7 @@ window.addEventListener("load", function () {
 
 
         <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-benin.html" class="country-card">
+            <a href="air-ambulance-benin.html" class="country-card">
                 <img src="img/benin-country.png" alt="Air Ambulance in Benin">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -884,7 +894,7 @@ window.addEventListener("load", function () {
 
 
         <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-bhutan.html" class="country-card">
+            <a href="air-ambulance-bhutan.html" class="country-card">
                 <img src="img/bhutan-country.png" alt="Air Ambulance in Bhutan">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -894,7 +904,7 @@ window.addEventListener("load", function () {
         </div>
 
         <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-bolivia.html" class="country-card">
+            <a href="air-ambulance-bolivia.html" class="country-card">
                 <img src="img/bolivia-country.png" alt="Air Ambulance in Bolivia">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -904,7 +914,7 @@ window.addEventListener("load", function () {
         </div>
 
          <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-bosnia-and-herzegovina.html" class="country-card">
+            <a href="air-ambulance-bosnia-and-herzegovina.html" class="country-card">
                 <img src="img/bosnia-herzegovina-country.png" alt="Air Ambulance in Bosnia and Herzegovina">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -950,7 +960,7 @@ window.addEventListener("load", function () {
         
 
          <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-ethiopia.html" class="country-card">
+            <a href="air-ambulance-ethiopia.html" class="country-card">
                 <img src="img/ethiopia-country.jpg" alt="Air Ambulance in Ethiopia">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -961,7 +971,7 @@ window.addEventListener("load", function () {
 
 
         <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-indonesia.html" class="country-card">
+            <a href="air-ambulance-indonesia.html" class="country-card">
                 <img src="img/indonesia-country.jpg" alt="Air Ambulance in Indonesia">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -972,7 +982,7 @@ window.addEventListener("load", function () {
 
 
         <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-kuwait.html" class="country-card">
+            <a href="air-ambulance-kuwait.html" class="country-card">
                 <img src="img/kuwait-country.jpg" alt="Air Ambulance in Kuwait">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -982,7 +992,7 @@ window.addEventListener("load", function () {
         </div>
 
         <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-oman.html" class="country-card">
+            <a href="air-ambulance-oman.html" class="country-card">
                 <img src="img/oman-country.jpg" alt="Air Ambulance in Oman">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -992,7 +1002,7 @@ window.addEventListener("load", function () {
         </div>
 
          <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-qatar.html" class="country-card">
+            <a href="air-ambulance-qatar.html" class="country-card">
                 <img src="img/qatar-country.jpg" alt="Air Ambulance in Qatar">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -1002,7 +1012,7 @@ window.addEventListener("load", function () {
         </div>
 
         <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-seychelles.html" class="country-card">
+            <a href="air-ambulance-seychelles.html" class="country-card">
                 <img src="img/seychelles-country.jpg" alt="Air Ambulance in Seychelles">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -1012,7 +1022,7 @@ window.addEventListener("load", function () {
         </div>
 
          <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-saudi-arabia.html" class="country-card">
+            <a href="air-ambulance-saudi-arabia.html" class="country-card">
                 <img src="img/saudi-arabia-country.jpg" alt="Air Ambulance in Saudi Arabia">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -1022,7 +1032,7 @@ window.addEventListener("load", function () {
         </div>
 
          <div class="col-lg-3 col-md-6 col-12">
-            <a href="countries/air-ambulance-uae.html" class="country-card">
+            <a href="air-ambulance-uae.html" class="country-card">
                 <img src="img/uae-country.jpg" alt="Air Ambulance in UAE">
                 <div class="overlay">
                     <span>Air Ambulance in</span>
@@ -1091,7 +1101,7 @@ window.addEventListener("load", function () {
                         Popular Links</h4>
                     <div class="d-flex flex-column justify-content-start">
                         <a class="text-light mb-2" href="air-ambulance.html"><i class="fa fa-angle-right me-2"></i>Air Ambulance</a>
-                        <a class="text-light mb-2" href="countries/air-ambulance-charters.html"><i class="fa fa-angle-right me-2"></i>Air Ambulance Charter</a>
+                        <a class="text-light mb-2" href="air-ambulance-charters.html"><i class="fa fa-angle-right me-2"></i>Air Ambulance Charter</a>
                         <a class="text-light mb-2" href="commercial-flight-stretcher.html"><i class="fa fa-angle-right me-2"></i>Commercial Flight Stretcher</a>
                         <a class="text-light mb-2" href="flight-medical-escort-service.html"><i class="fa fa-angle-right me-2"></i>Flight Medical Escort Services</a>
                         <a class="text-light mb-2" href="hospital-acceptance.html"><i class="fa fa-angle-right me-2"></i>Hospital Acceptance</a>
