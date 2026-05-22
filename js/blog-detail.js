@@ -41,19 +41,20 @@ async function loadBlog() {
     return;
   }
 
-  titleEl.innerText = data.title;
+  const sanitizedTitle = window.sanitize24X7(data.title);
+  titleEl.innerText = sanitizedTitle;
 
   imageEl.src = data.featured_image || "img/airmedicallogo.png";
-  imageEl.alt = data.title;
+  imageEl.alt = sanitizedTitle;
 
-  contentEl.innerHTML = data.content;
+  contentEl.innerHTML = window.sanitize24X7(data.content);
 
-  document.title = data.meta_title || data.title;
+  document.title = window.sanitize24X7(data.meta_title || data.title);
   document
     .querySelector('meta[name="description"]')
     ?.setAttribute(
       "content",
-      data.meta_description || data.excerpt || ""
+      window.sanitize24X7(data.meta_description || data.excerpt || "")
     );
 
   currentBlogId = data.id;
@@ -101,20 +102,24 @@ async function loadComments(blogId) {
     const div = document.createElement("div");
     div.className = "mb-4";
 
+    const name = window.sanitize24X7(c.name);
+    const message = window.sanitize24X7(c.message);
+    const adminReply = window.sanitize24X7(c.admin_reply);
+
     div.innerHTML = `
       <div class="mb-1">
-        <strong>${c.name}</strong>
+        <strong>${name}</strong>
         <small class="text-muted">
           • ${new Date(c.created_at).toDateString()}
         </small>
       </div>
 
       <div class="mb-2">
-        ${c.message}
+        ${message}
       </div>
 
       ${
-        c.admin_reply
+        adminReply
           ? `
           <div style="
             margin-left: 15px;
@@ -124,7 +129,7 @@ async function loadComments(blogId) {
             font-size: 14px;
           ">
             <strong>Air Medical 24X7:</strong><br>
-            ${c.admin_reply}
+            ${adminReply}
           </div>
         `
           : ""
@@ -213,10 +218,11 @@ async function loadRecentPosts() {
   container.innerHTML = "";
 
   data.forEach(post => {
+    const title = window.sanitize24X7(post.title);
     container.innerHTML += `
       <a class="d-block mb-2"
          href="/blog-detail.html?slug=${post.slug}">
-        ${post.title}
+        ${title}
       </a>
     `;
   });

@@ -45,24 +45,28 @@ async function loadBlogs(reset = false) {
     const blogCard = document.createElement("div");
     blogCard.className = "col-xl-4 col-lg-6";
 
+    const title = window.sanitize24X7(blog.title);
+    const excerpt = window.sanitize24X7(blog.excerpt || "");
+    const author = window.sanitize24X7(blog.author || "Air Medical 24X7");
+
     blogCard.innerHTML = `
       <div class="premium-card p-0 overflow-hidden h-100">
         <a href="blog-detail.html?slug=${blog.slug}" class="d-block">
           <img class="img-fluid w-100"
                src="${blog.featured_image || "img/airmedicallogo.png"}"
-               alt="${blog.title}" style="height: 220px; object-fit: cover;">
+               alt="${title}" style="height: 220px; object-fit: cover;">
         </a>
         <div class="p-4">
           <a class="h4 d-block mb-3 text-dark fw-bold"
              href="blog-detail.html?slug=${blog.slug}" style="text-decoration: none; line-height: 1.4;">
-            ${blog.title}
+            ${title}
           </a>
           <p class="m-0 text-muted" style="font-size: 14px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
-            ${blog.excerpt || ""}
+            ${excerpt}
           </p>
         </div>
         <div class="mt-auto border-top p-4">
-          <small class="text-primary fw-bold"><i class="far fa-user me-2"></i>${blog.author || "Air Medical 24X7"}</small>
+          <small class="text-primary fw-bold"><i class="far fa-user me-2"></i>${author}</small>
         </div>
       </div>
     `;

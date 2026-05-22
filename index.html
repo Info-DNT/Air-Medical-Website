@@ -920,25 +920,30 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
       const container = document.getElementById("home-blog-list");
 
-      container.innerHTML = data.map(b => `
+      container.innerHTML = data.map(b => {
+        const title = window.sanitize24X7(b.title);
+        const excerpt = window.sanitize24X7(b.excerpt || "");
+        const author = window.sanitize24X7(b.author || "Air Medical 24X7");
+        return `
     <div class="col-xl-4 col-lg-6">
       <div class="premium-card p-0 overflow-hidden h-100">
-        <img class="img-fluid w-100" src="${b.featured_image || 'img/blog1.jpg'}" style="height: 220px; object-fit: cover;">
+        <img class="img-fluid w-100" src="${b.featured_image || 'img/blog1.jpg'}" style="height: 220px; object-fit: cover;" alt="${title}">
         <div class="p-4">
           <a class="h4 d-block mb-3 text-dark fw-bold"
              href="blog-detail?slug=${b.slug}" style="text-decoration: none; line-height: 1.4;">
-             ${b.title}
+             ${title}
           </a>
           <p class="m-0 text-muted" style="font-size: 14px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
-            ${b.excerpt || ""}
+            ${excerpt}
           </p>
         </div>
         <div class="mt-auto border-top p-4">
-          <small class="text-primary fw-bold"><i class="far fa-user me-2"></i>${b.author || "Air Medical 24X7"}</small>
+          <small class="text-primary fw-bold"><i class="far fa-user me-2"></i>${author}</small>
         </div>
       </div>
     </div>
-  `).join("");
+  `;
+      }).join("");
     }
 
     document.addEventListener("DOMContentLoaded", loadHomeBlogs);
