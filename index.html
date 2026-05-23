@@ -28,9 +28,9 @@
         cleanPath = basePath + '/' + cleanPath.substring(servicesPrefix.length);
       }
       if (cleanPath === basePath + '/countries/index' || cleanPath === basePath + '/countries') {
-        cleanPath = basePath + '/country';
+        cleanPath = basePath + '/countries';
       }
-      var isDirRoot = (cleanPath === basePath || cleanPath === basePath + '/' || cleanPath === basePath + '/countries/' || cleanPath === '/');
+      var isDirRoot = (cleanPath === basePath || cleanPath === basePath + '/' || cleanPath === '/');
       if (isDirRoot) {
         if (!cleanPath.endsWith('/')) {
           cleanPath += '/';
@@ -74,7 +74,7 @@
           }
           
           var targetPath = '';
-          if (cleanHref === 'country') {
+          if (cleanHref === 'countries') {
             targetPath = 'countries/index.html';
           } else if (cleanHref.startsWith('air-ambulance-') && cleanHref !== 'air-ambulance-charters') {
             targetPath = 'countries/' + cleanHref + '.html';
@@ -82,7 +82,7 @@
             var services = [
               'air-ambulance', 'air-ambulance-charters', 'ECMO-transfer', 
               'commercial-airlines-medical-transfer-services', 'commercial-flight-stretcher', 
-              'custom-medical-packages', 'doctor-appointment', 'flight-medical-escort-service', 
+              'custom-medical-packages', 'doctor-appointment', 'flight-medical-escort-services', 
               'hospital-acceptance', 'medical-tourism-services', 'second-opinion-services'
             ];
             if (services.indexOf(cleanHref) !== -1) {
@@ -109,6 +109,13 @@
             } else {
               finalUrl = '../' + targetPath;
             }
+          }
+          
+          var target = anchor.getAttribute('target');
+          if (target === '_blank' || e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) {
+            e.preventDefault();
+            window.open(finalUrl + queryHashPart, '_blank');
+            return;
           }
           
           e.preventDefault();
@@ -433,7 +440,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 <a href="air-ambulance-charters" class="dropdown-item">Air Ambulance Charter</a>
                 <a href="commercial-flight-stretcher" class="dropdown-item">Commercial Flight
                   Stretcher</a>
-                <a href="flight-medical-escort-service" class="dropdown-item">Flight Medical Escort
+                <a href="flight-medical-escort-services" class="dropdown-item">Flight Medical Escort
                   Services</a>
                 <a href="hospital-acceptance" class="dropdown-item">Hospital Acceptance</a>
                 <a href="doctor-appointment" class="dropdown-item">Doctor Appointment</a>
@@ -443,7 +450,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             </div>
 
 
-            <a href="blog" class="nav-item nav-link">Blog</a>
+            <a href="blogs" class="nav-item nav-link">Blogs</a>
             <a href="career" class="nav-item nav-link">Career</a>
             <a href="contact-us" class="nav-item nav-link">Contact Us</a>
 
@@ -644,7 +651,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <p class="m-0">Air Medical 24X7 provides trusted flight medical escort and air ambulance services for
               patients who
               need professional medical care during travel.</p>
-            <a class="btn btn-lg btn-primary rounded-pill" href="flight-medical-escort-service">
+            <a class="btn btn-lg btn-primary rounded-pill" href="flight-medical-escort-services">
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>
@@ -930,7 +937,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         <img class="img-fluid w-100" src="${b.featured_image || 'img/blog1.jpg'}" style="height: 220px; object-fit: cover;" alt="${title}">
         <div class="p-4">
           <a class="h4 d-block mb-3 text-dark fw-bold"
-             href="blog-detail?slug=${b.slug}" style="text-decoration: none; line-height: 1.4;">
+             href="blogs-detail?slug=${b.slug}" style="text-decoration: none; line-height: 1.4;">
              ${title}
           </a>
           <p class="m-0 text-muted" style="font-size: 14px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
@@ -1474,8 +1481,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <a class="text-light mb-2" href="./"><i class="fa fa-angle-right me-2"></i>Home</a>
             <a class="text-light mb-2" href="about-us"><i class="fa fa-angle-right me-2"></i>About Us</a>
             <a class="text-light mb-2" href="career"><i class="fa fa-angle-right me-2"></i>Career</a>
-            <a class="text-light mb-2" href="blog"><i class="fa fa-angle-right me-2"></i>Latest Blog</a>
-            <a class="text-light mb-2" href="country"><i class="fa fa-angle-right me-2"></i>Global
+            <a class="text-light mb-2" href="blogs"><i class="fa fa-angle-right me-2"></i>Latest Blogs</a>
+            <a class="text-light mb-2" href="countries"><i class="fa fa-angle-right me-2"></i>Global
               Pages</a>
             <a class="text-light mb-2" href="terms-and-conditions"><i class="fa fa-angle-right me-2"></i>Terms &
               Condition</a>
@@ -1494,7 +1501,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 class="fa fa-angle-right me-2"></i>Air Ambulance Charter</a>
             <a class="text-light mb-2" href="commercial-flight-stretcher"><i
                 class="fa fa-angle-right me-2"></i>Commercial Flight Stretcher</a>
-            <a class="text-light mb-2" href="flight-medical-escort-service"><i
+            <a class="text-light mb-2" href="flight-medical-escort-services"><i
                 class="fa fa-angle-right me-2"></i>Flight Medical Escort Services</a>
             <a class="text-light mb-2" href="hospital-acceptance"><i
                 class="fa fa-angle-right me-2"></i>Hospital Acceptance</a>

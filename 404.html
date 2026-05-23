@@ -27,23 +27,40 @@
         return;
       }
       
+      // Handle legacy singular redirects
       var cleanRelPath = relPath;
       if (cleanRelPath.endsWith('/') && cleanRelPath !== '/') {
         cleanRelPath = cleanRelPath.slice(0, -1);
+      }
+      if (cleanRelPath === '/country' || cleanRelPath === '/country.html') {
+        window.location.replace(basePath + '/countries' + search + hash);
+        return;
+      }
+      if (cleanRelPath === '/blog' || cleanRelPath === '/blog.html') {
+        window.location.replace(basePath + '/blogs' + search + hash);
+        return;
+      }
+      if (cleanRelPath === '/blog-detail' || cleanRelPath === '/blog-detail.html') {
+        window.location.replace(basePath + '/blogs-detail' + search + hash);
+        return;
+      }
+      if (cleanRelPath === '/flight-medical-escort-service' || cleanRelPath === '/flight-medical-escort-service.html') {
+        window.location.replace(basePath + '/flight-medical-escort-services' + search + hash);
+        return;
       }
       
       var lastSegment = cleanRelPath.substring(cleanRelPath.lastIndexOf('/') + 1);
       if (cleanRelPath !== '/' && cleanRelPath !== '' && !lastSegment.includes('.')) {
         var targetUrl;
-        if (cleanRelPath === '/country') {
-          targetUrl = basePath + '/countries/index.html' + search + hash;
+        if (cleanRelPath === '/countries') {
+          targetUrl = basePath + '/countries.html' + search + hash;
         } else if (lastSegment.indexOf('air-ambulance-') === 0 && lastSegment !== 'air-ambulance-charters') {
           targetUrl = basePath + '/countries/' + lastSegment + '.html' + search + hash;
         } else {
           var services = [
             'air-ambulance', 'air-ambulance-charters', 'ECMO-transfer', 
             'commercial-airlines-medical-transfer-services', 'commercial-flight-stretcher', 
-            'custom-medical-packages', 'doctor-appointment', 'flight-medical-escort-service', 
+            'custom-medical-packages', 'doctor-appointment', 'flight-medical-escort-services', 
             'hospital-acceptance', 'medical-tourism-services', 'second-opinion-services'
           ];
           if (services.indexOf(lastSegment) !== -1) {

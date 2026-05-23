@@ -23,7 +23,7 @@ self.addEventListener('fetch', event => {
         
         let targetUrl;
         if (cleanPath === '/countries') {
-          targetUrl = '/countries/index.html' + url.search;
+          targetUrl = '/countries.html' + url.search;
         } else {
           targetUrl = cleanPath + '.html' + url.search;
         }

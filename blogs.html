@@ -30,9 +30,9 @@
         cleanPath = basePath + '/' + cleanPath.substring(servicesPrefix.length);
       }
       if (cleanPath === basePath + '/countries/index' || cleanPath === basePath + '/countries') {
-        cleanPath = basePath + '/country';
+        cleanPath = basePath + '/countries';
       }
-      var isDirRoot = (cleanPath === basePath || cleanPath === basePath + '/' || cleanPath === basePath + '/countries/' || cleanPath === '/');
+      var isDirRoot = (cleanPath === basePath || cleanPath === basePath + '/' || cleanPath === '/');
       if (isDirRoot) {
         if (!cleanPath.endsWith('/')) {
           cleanPath += '/';
@@ -76,7 +76,7 @@
           }
           
           var targetPath = '';
-          if (cleanHref === 'country') {
+          if (cleanHref === 'countries') {
             targetPath = 'countries/index.html';
           } else if (cleanHref.startsWith('air-ambulance-') && cleanHref !== 'air-ambulance-charters') {
             targetPath = 'countries/' + cleanHref + '.html';
@@ -84,7 +84,7 @@
             var services = [
               'air-ambulance', 'air-ambulance-charters', 'ECMO-transfer', 
               'commercial-airlines-medical-transfer-services', 'commercial-flight-stretcher', 
-              'custom-medical-packages', 'doctor-appointment', 'flight-medical-escort-service', 
+              'custom-medical-packages', 'doctor-appointment', 'flight-medical-escort-services', 
               'hospital-acceptance', 'medical-tourism-services', 'second-opinion-services'
             ];
             if (services.indexOf(cleanHref) !== -1) {
@@ -111,6 +111,13 @@
             } else {
               finalUrl = '../' + targetPath;
             }
+          }
+          
+          var target = anchor.getAttribute('target');
+          if (target === '_blank' || e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) {
+            e.preventDefault();
+            window.open(finalUrl + queryHashPart, '_blank');
+            return;
           }
           
           e.preventDefault();
@@ -166,22 +173,22 @@
   <script type="application/ld+json">
 {
   "@type": "Blog",
-  "@id": "https://airmedical24x7.com/blog#blog",
-  "url": "https://airmedical24x7.com/blog",
-  "name": "Air Medical 24X7 Blog",
+  "@id": "https://airmedical24x7.com/blogs#blog",
+  "url": "https://airmedical24x7.com/blogs",
+  "name": "Air Medical 24X7 Blogs",
   "description": "Latest updates, tips, and insights on air ambulance services, commercial flight patient transfers, medical tourism, and healthcare travel.",
   "publisher": {
     "@id": "https://airmedical24x7.com/#organization"
   },
-  "mainEntityOfPage": "https://airmedical24x7.com/blog",
+  "mainEntityOfPage": "https://airmedical24x7.com/blogs",
   "@context": "https://schema.org"
 }
 </script>
   <script type="application/ld+json">
 {
   "@type": "BlogPosting",
-  "@id": "https://airmedical24x7.com/blog#blogposting1",
-  "url": "https://airmedical24x7.com/blog",
+  "@id": "https://airmedical24x7.com/blogs#blogposting1",
+  "url": "https://airmedical24x7.com/blogs",
   "headline": "Our Latest Medical Blog Posts",
   "image": "https://airmedical24x7.com/img/blog-1.jpg",
   "author": {
@@ -193,18 +200,18 @@
   },
   "datePublished": "2026-01-14",
   "dateModified": "2026-01-14",
-  "mainEntityOfPage": "https://airmedical24x7.com/blog",
+  "mainEntityOfPage": "https://airmedical24x7.com/blogs",
   "@context": "https://schema.org"
 }
 </script>
   <script type="application/ld+json">
 {
   "@type": "WebPage",
-  "@id": "https://airmedical24x7.com/blog#webpage",
-  "url": "https://airmedical24x7.com/blog",
-  "name": "Air Medical 24X7 Blog \u2013 Air Ambulance & Medical Tourism Updates",
+  "@id": "https://airmedical24x7.com/blogs#webpage",
+  "url": "https://airmedical24x7.com/blogs",
+  "name": "Air Medical 24X7 Blogs \u2013 Air Ambulance & Medical Tourism Updates",
   "about": {
-    "@id": "https://airmedical24x7.com/blog#blog"
+    "@id": "https://airmedical24x7.com/blogs#blog"
   },
   "isPartOf": {
     "@id": "https://airmedical24x7.com/#organization"
@@ -232,17 +239,17 @@
   <meta name="keywords"
     content="Air Medical blog, air ambulance news, patient transfer updates, medical tourism tips, healthcare travel insights, international patient care, Air Medical 24X7 blog">
   <meta name="author" content="Air Medical 24X7">
-  <link rel="canonical" href="https://airmedical24x7.com/blog">
+  <link rel="canonical" href="https://airmedical24x7.com/blogs">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Air Medical 24X7 Blog - Air Ambulance & Patient Transfer Insights">
+  <meta property="og:title" content="Air Medical 24X7 Blogs - Air Ambulance & Patient Transfer Insights">
   <meta property="og:description"
     content="Read Air Medical 24X7 blog for latest updates, tips, and insights on air ambulance services, commercial flight stretcher transfers, medical tourism, and healthcare travel.">
-  <meta property="og:url" content="https://airmedical24x7.com/blog">
+  <meta property="og:url" content="https://airmedical24x7.com/blogs">
   <meta property="og:image" content="https://airmedical24x7.com/img/blog-og.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Air Medical 24X7 Blog - Air Ambulance & Patient Transfer Insights">
+  <meta name="twitter:title" content="Air Medical 24X7 Blogs - Air Ambulance & Patient Transfer Insights">
   <meta name="twitter:description"
     content="Air Medical 24X7 - Worldwide.">
   <meta name="twitter:image" content="https://airmedical24x7.com/img/blog-og.jpg">
@@ -315,7 +322,7 @@
                 <a href="air-ambulance-charters" class="dropdown-item">Air Ambulance Charter</a>
                 <a href="commercial-flight-stretcher" class="dropdown-item">Commercial Flight
                   Stretcher</a>
-                <a href="flight-medical-escort-service" class="dropdown-item">Flight Medical Escort
+                <a href="flight-medical-escort-services" class="dropdown-item">Flight Medical Escort
                   Services</a>
                 <a href="hospital-acceptance" class="dropdown-item">Hospital Acceptance</a>
                 <a href="doctor-appointment" class="dropdown-item">Doctor Appointment</a>
@@ -325,7 +332,7 @@
             </div>
           
 
-            <a href="blog" class="nav-item nav-link">Blog</a>
+            <a href="blogs" class="nav-item nav-link">Blogs</a>
             <a href="career" class="nav-item nav-link">Career</a>
             <a href="contact-us" class="nav-item nav-link">Contact Us</a>
           
@@ -447,8 +454,8 @@
             <a class="text-light mb-2" href="./"><i class="fa fa-angle-right me-2"></i>Home</a>
             <a class="text-light mb-2" href="about-us"><i class="fa fa-angle-right me-2"></i>About Us</a>
             <a class="text-light mb-2" href="career"><i class="fa fa-angle-right me-2"></i>Career</a>
-            <a class="text-light mb-2" href="blog"><i class="fa fa-angle-right me-2"></i>Latest Blog</a>
-            <a class="text-light mb-2" href="country"><i class="fa fa-angle-right me-2"></i>Global
+            <a class="text-light mb-2" href="blogs"><i class="fa fa-angle-right me-2"></i>Latest Blogs</a>
+            <a class="text-light mb-2" href="countries"><i class="fa fa-angle-right me-2"></i>Global
               Pages</a>
             <a class="text-light mb-2" href="terms-and-conditions"><i class="fa fa-angle-right me-2"></i>Terms &
               Condition</a>
@@ -467,7 +474,7 @@
                 class="fa fa-angle-right me-2"></i>Air Ambulance Charter</a>
             <a class="text-light mb-2" href="commercial-flight-stretcher"><i
                 class="fa fa-angle-right me-2"></i>Commercial Flight Stretcher</a>
-            <a class="text-light mb-2" href="flight-medical-escort-service"><i
+            <a class="text-light mb-2" href="flight-medical-escort-services"><i
                 class="fa fa-angle-right me-2"></i>Flight Medical Escort Services</a>
             <a class="text-light mb-2" href="hospital-acceptance"><i
                 class="fa fa-angle-right me-2"></i>Hospital Acceptance</a>
@@ -556,7 +563,7 @@
   <script src="js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/config.js"></script>
-  <script src="js/blog.js"></script>
+  <script src="js/blogs.js"></script>
 
 
 

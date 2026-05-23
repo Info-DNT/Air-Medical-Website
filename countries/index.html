@@ -30,9 +30,9 @@
         cleanPath = basePath + '/' + cleanPath.substring(servicesPrefix.length);
       }
       if (cleanPath === basePath + '/countries/index' || cleanPath === basePath + '/countries') {
-        cleanPath = basePath + '/country';
+        cleanPath = basePath + '/countries';
       }
-      var isDirRoot = (cleanPath === basePath || cleanPath === basePath + '/' || cleanPath === basePath + '/countries/' || cleanPath === '/');
+      var isDirRoot = (cleanPath === basePath || cleanPath === basePath + '/' || cleanPath === '/');
       if (isDirRoot) {
         if (!cleanPath.endsWith('/')) {
           cleanPath += '/';
@@ -76,7 +76,7 @@
           }
           
           var targetPath = '';
-          if (cleanHref === 'country') {
+          if (cleanHref === 'countries') {
             targetPath = 'countries/index.html';
           } else if (cleanHref.startsWith('air-ambulance-') && cleanHref !== 'air-ambulance-charters') {
             targetPath = 'countries/' + cleanHref + '.html';
@@ -84,7 +84,7 @@
             var services = [
               'air-ambulance', 'air-ambulance-charters', 'ECMO-transfer', 
               'commercial-airlines-medical-transfer-services', 'commercial-flight-stretcher', 
-              'custom-medical-packages', 'doctor-appointment', 'flight-medical-escort-service', 
+              'custom-medical-packages', 'doctor-appointment', 'flight-medical-escort-services', 
               'hospital-acceptance', 'medical-tourism-services', 'second-opinion-services'
             ];
             if (services.indexOf(cleanHref) !== -1) {
@@ -111,6 +111,13 @@
             } else {
               finalUrl = '../' + targetPath;
             }
+          }
+          
+          var target = anchor.getAttribute('target');
+          if (target === '_blank' || e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) {
+            e.preventDefault();
+            window.open(finalUrl + queryHashPart, '_blank');
+            return;
           }
           
           e.preventDefault();
@@ -264,9 +271,9 @@ function gtag_report_conversion(url) {
   <script type="application/ld+json">
 {
   "@type": "MedicalBusiness",
-  "@id": "https://airmedical24x7.com/country#service",
+  "@id": "https://airmedical24x7.com/countries#service",
   "name": "Worldwide Air Ambulance Services",
-  "url": "https://airmedical24x7.com/country",
+  "url": "https://airmedical24x7.com/countries",
   "description": "Air Medical 24X7 provides air ambulance, ICU-equipped medical transport, patient transfer, and medical escort services in 195+ countries.",
   "provider": {
     "@id": "https://airmedical24x7.com/#organization"
@@ -285,8 +292,8 @@ function gtag_report_conversion(url) {
   <script type="application/ld+json">
 {
   "@type": "WebPage",
-  "@id": "https://airmedical24x7.com/country#webpage",
-  "url": "https://airmedical24x7.com/country",
+  "@id": "https://airmedical24x7.com/countries#webpage",
+  "url": "https://airmedical24x7.com/countries",
   "name": "Air Ambulance Services Worldwide \u2013 Air Medical 24X7",
   "description": "Explore Air Medical 24X7's air ambulance and medical evacuation services across 195+ countries. Fast, safe, and reliable patient transport with expert medical support.",
   "about": {
@@ -305,7 +312,7 @@ function gtag_report_conversion(url) {
         "@type": "ListItem",
         "position": 2,
         "name": "Global Pages",
-        "item": "https://airmedical24x7.com/country"
+        "item": "https://airmedical24x7.com/countries"
       }
     ]
   },
@@ -333,14 +340,14 @@ function gtag_report_conversion(url) {
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://airmedical24x7.com/country">
+    <meta property="og:url" content="https://airmedical24x7.com/countries">
     <meta property="og:title" content="Air Ambulance Services Worldwide | Air Medical 24X7">
     <meta property="og:description" content="Air Medical 24X7 provides fast, reliable Air Ambulance and Medical Evacuation services in 195+ countries. Expert medical escort, 24X7 support, global coverage.">
     <meta property="og:image" content="https://airmedical24x7.com/img/airmedicallogo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://airmedical24x7.com/country">
+    <meta property="twitter:url" content="https://airmedical24x7.com/countries">
     <meta property="twitter:title" content="Air Ambulance Services Worldwide | Air Medical 24X7">
     <meta property="twitter:description" content="Air Medical 24X7 provides fast, reliable Air Ambulance and Medical Evacuation services in 195+ countries. Expert medical escort, 24X7 support, global coverage.">
     <meta property="twitter:image" content="https://airmedical24x7.com/img/airmedicallogo.png">
@@ -409,7 +416,7 @@ function gtag_report_conversion(url) {
                             <a href="air-ambulance" class="dropdown-item">Air Ambulance</a>
                             <a href="air-ambulance-charters" class="dropdown-item">Air Ambulance Charter</a>
                             <a href="commercial-flight-stretcher" class="dropdown-item">Commercial Flight Stretcher</a>
-                            <a href="flight-medical-escort-service" class="dropdown-item">Flight Medical Escort Services</a>
+                            <a href="flight-medical-escort-services" class="dropdown-item">Flight Medical Escort Services</a>
                             <a href="hospital-acceptance" class="dropdown-item">Hospital Acceptance</a>
                             <a href="doctor-appointment" class="dropdown-item">Doctor Appointment</a>
                             <a href="second-opinion-services" class="dropdown-item">Second Opinion Services</a>
@@ -418,7 +425,7 @@ function gtag_report_conversion(url) {
                     </div>
           
 
-                    <a href="blog" class="nav-item nav-link">Blog</a>
+                    <a href="blogs" class="nav-item nav-link">Blogs</a>
                     <a href="career" class="nav-item nav-link">Career</a>
                     <a href="contact-us" class="nav-item nav-link">Contact Us</a>
                 </div>
@@ -1160,8 +1167,8 @@ window.addEventListener("load", function () {
                         <a class="text-light mb-2" href="../"><i class="fa fa-angle-right me-2"></i>Home</a>
                         <a class="text-light mb-2" href="about-us"><i class="fa fa-angle-right me-2"></i>About Us</a>
                         <a class="text-light mb-2" href="career"><i class="fa fa-angle-right me-2"></i>Career</a>
-                        <a class="text-light mb-2" href="blog"><i class="fa fa-angle-right me-2"></i>Latest Blog</a>
-                       <a class="text-light mb-2" href="country"><i class="fa fa-angle-right me-2"></i>Global Pages</a>
+                        <a class="text-light mb-2" href="blogs"><i class="fa fa-angle-right me-2"></i>Latest Blogs</a>
+                       <a class="text-light mb-2" href="countries"><i class="fa fa-angle-right me-2"></i>Global Pages</a>
                       <a class="text-light mb-2" href="terms-and-conditions"><i class="fa fa-angle-right me-2"></i>Terms & Condition</a>
                         <a class="text-light mb-2" href="privacy-policy"><i class="fa fa-angle-right me-2"></i>Privacy Policy</a>
                     </div>
@@ -1174,7 +1181,7 @@ window.addEventListener("load", function () {
                         <a class="text-light mb-2" href="air-ambulance"><i class="fa fa-angle-right me-2"></i>Air Ambulance</a>
                         <a class="text-light mb-2" href="air-ambulance-charters"><i class="fa fa-angle-right me-2"></i>Air Ambulance Charter</a>
                         <a class="text-light mb-2" href="commercial-flight-stretcher"><i class="fa fa-angle-right me-2"></i>Commercial Flight Stretcher</a>
-                        <a class="text-light mb-2" href="flight-medical-escort-service"><i class="fa fa-angle-right me-2"></i>Flight Medical Escort Services</a>
+                        <a class="text-light mb-2" href="flight-medical-escort-services"><i class="fa fa-angle-right me-2"></i>Flight Medical Escort Services</a>
                         <a class="text-light mb-2" href="hospital-acceptance"><i class="fa fa-angle-right me-2"></i>Hospital Acceptance</a>
                         <a class="text-light mb-2" href="doctor-appointment"><i class="fa fa-angle-right me-2"></i>Doctor Appointment</a>
                         <a class="text-light mb-2" href="second-opinion-services"><i class="fa fa-angle-right me-2"></i>Second Opinion Services</a>

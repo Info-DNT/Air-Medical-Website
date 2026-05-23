@@ -30,9 +30,9 @@
         cleanPath = basePath + '/' + cleanPath.substring(servicesPrefix.length);
       }
       if (cleanPath === basePath + '/countries/index' || cleanPath === basePath + '/countries') {
-        cleanPath = basePath + '/country';
+        cleanPath = basePath + '/countries';
       }
-      var isDirRoot = (cleanPath === basePath || cleanPath === basePath + '/' || cleanPath === basePath + '/countries/' || cleanPath === '/');
+      var isDirRoot = (cleanPath === basePath || cleanPath === basePath + '/' || cleanPath === '/');
       if (isDirRoot) {
         if (!cleanPath.endsWith('/')) {
           cleanPath += '/';
@@ -76,7 +76,7 @@
           }
           
           var targetPath = '';
-          if (cleanHref === 'country') {
+          if (cleanHref === 'countries') {
             targetPath = 'countries/index.html';
           } else if (cleanHref.startsWith('air-ambulance-') && cleanHref !== 'air-ambulance-charters') {
             targetPath = 'countries/' + cleanHref + '.html';
@@ -84,7 +84,7 @@
             var services = [
               'air-ambulance', 'air-ambulance-charters', 'ECMO-transfer', 
               'commercial-airlines-medical-transfer-services', 'commercial-flight-stretcher', 
-              'custom-medical-packages', 'doctor-appointment', 'flight-medical-escort-service', 
+              'custom-medical-packages', 'doctor-appointment', 'flight-medical-escort-services', 
               'hospital-acceptance', 'medical-tourism-services', 'second-opinion-services'
             ];
             if (services.indexOf(cleanHref) !== -1) {
@@ -111,6 +111,13 @@
             } else {
               finalUrl = '../' + targetPath;
             }
+          }
+          
+          var target = anchor.getAttribute('target');
+          if (target === '_blank' || e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) {
+            e.preventDefault();
+            window.open(finalUrl + queryHashPart, '_blank');
+            return;
           }
           
           e.preventDefault();
@@ -369,7 +376,7 @@
                 <a href="air-ambulance" class="dropdown-item">Air Ambulance</a>
                 <a href="air-ambulance-charters" class="dropdown-item">Air Ambulance Charter</a>
                 <a href="commercial-flight-stretcher" class="dropdown-item">Commercial Flight Stretcher</a>
-                <a href="flight-medical-escort-service" class="dropdown-item">Flight Medical Escort Services</a>
+                <a href="flight-medical-escort-services" class="dropdown-item">Flight Medical Escort Services</a>
                 <a href="hospital-acceptance" class="dropdown-item">Hospital Acceptance</a>
                 <a href="doctor-appointment" class="dropdown-item">Doctor Appointment</a>
                 <a href="second-opinion-services" class="dropdown-item">Second Opinion Services</a>
@@ -378,7 +385,7 @@
             </div>
           
 
-            <a href="blog" class="nav-item nav-link">Blog</a>
+            <a href="blogs" class="nav-item nav-link">Blogs</a>
             <a href="career" class="nav-item nav-link">Career</a>
             <a href="contact-us" class="nav-item nav-link">Contact Us</a>
           </div>
@@ -711,8 +718,8 @@
             <a class="text-light mb-2" href="../"><i class="fa fa-angle-right me-2"></i>Home</a>
             <a class="text-light mb-2" href="about-us"><i class="fa fa-angle-right me-2"></i>About Us</a>
             <a class="text-light mb-2" href="career"><i class="fa fa-angle-right me-2"></i>Career</a>
-            <a class="text-light mb-2" href="blog"><i class="fa fa-angle-right me-2"></i>Latest Blog</a>
-            <a class="text-light mb-2" href="country"><i class="fa fa-angle-right me-2"></i>Global
+            <a class="text-light mb-2" href="blogs"><i class="fa fa-angle-right me-2"></i>Latest Blogs</a>
+            <a class="text-light mb-2" href="countries"><i class="fa fa-angle-right me-2"></i>Global
               Pages</a>
             <a class="text-light mb-2" href="terms-and-conditions"><i class="fa fa-angle-right me-2"></i>Terms &
               Condition</a>
@@ -730,7 +737,7 @@
               Ambulance Charter</a>
             <a class="text-light mb-2" href="commercial-flight-stretcher"><i
                 class="fa fa-angle-right me-2"></i>Commercial Flight Stretcher</a>
-            <a class="text-light mb-2" href="flight-medical-escort-service"><i
+            <a class="text-light mb-2" href="flight-medical-escort-services"><i
                 class="fa fa-angle-right me-2"></i>Flight Medical Escort Services</a>
             <a class="text-light mb-2" href="hospital-acceptance"><i class="fa fa-angle-right me-2"></i>Hospital
               Acceptance</a>
