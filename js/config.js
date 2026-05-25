@@ -12,6 +12,7 @@ const turnstileSiteKey = "0x4AAAAAADTA3gG7SVL4awln";
 document.addEventListener("DOMContentLoaded", () => {
   const forms = [
     document.getElementById("quoteForm"),
+    document.getElementById("quoteFormPopup"),
     document.getElementById("careerForm")
   ].filter(Boolean);
 
@@ -41,9 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
   script.defer = true;
   document.head.appendChild(script);
 
-  // 3. Intercept form submissions to validate Captcha status
+  // 3. Intercept form submissions to validate Captcha status and route to Edge Function
   forms.forEach(form => {
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", async function (e) {
       if (typeof turnstile === "undefined") {
         e.preventDefault();
         e.stopImmediatePropagation();
@@ -58,7 +59,83 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Please complete the Cloudflare Turnstile verification.");
         return;
       }
-    }, true); // Use capture phase so this check runs before the main form submission scripts
+
+      // Route quotation forms to secure Edge Function instead of direct DB insertion
+      if (form.id === "quoteForm" || form.id === "quoteFormPopup") {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        const btn = form.querySelector('button[type="submit"]');
+        if (btn) {
+          btn.disabled = true;
+          btn.setAttribute("data-orig-text", btn.textContent);
+          btn.textContent = "Submitting...";
+        }
+
+        try {
+          const isPopup = form.id === "quoteFormPopup";
+          const nameId = isPopup ? "popupName" : "name";
+          const emailId = isPopup ? "popupEmail" : "email";
+          const codeId = isPopup ? "popupCountryCode" : "countryCode";
+          const phoneId = isPopup ? "popupPhone" : "phone";
+          const serviceId = isPopup ? "popupService" : "service";
+
+          const codeVal = document.getElementById(codeId)?.value || "";
+          const phoneVal = document.getElementById(phoneId)?.value || "";
+          const fullPhone = codeVal + phoneVal;
+
+          const payload = {
+            name: document.getElementById(nameId)?.value || "",
+            email: document.getElementById(emailId)?.value || "",
+            full_phone: fullPhone,
+            service: document.getElementById(serviceId)?.value || "",
+            token: response
+          };
+
+          // Include optional transport selection if exists
+          const transportInput = form.querySelector('input[name="transport"]:checked');
+          if (transportInput) {
+            payload.transport = transportInput.value;
+          }
+
+          const res = await fetch(
+            'https://dtiirdimtbmkvryvqten.supabase.co/functions/v1/submit-main-page',
+            {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            }
+          );
+
+          const result = await res.json();
+
+          if (result.success) {
+            alert("✅ Thank you! Our team will contact you soon.");
+            form.reset();
+            if (isPopup && typeof window.closeQuoteModal === "function") {
+              window.closeQuoteModal();
+            }
+          } else {
+            alert("Error: " + (result.error || "Submission failed."));
+            if (btn) {
+              btn.disabled = false;
+              btn.textContent = btn.getAttribute("data-orig-text") || "Get a Free Quotation";
+            }
+          }
+        } catch (err) {
+          console.error("Submission error:", err);
+          alert("Something went wrong. Please try again.");
+          if (btn) {
+            btn.disabled = false;
+            btn.textContent = btn.getAttribute("data-orig-text") || "Get a Free Quotation";
+          }
+        } finally {
+          if (window.turnstile) {
+            window.turnstile.reset();
+          }
+        }
+      }
+    }, true); // Use capture phase so this check runs before standard form handlers
   });
 });
 
