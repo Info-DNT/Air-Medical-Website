@@ -870,7 +870,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         console.log("📦 Payload:", payload);
 
         const { error } = await supabase
-          .from("appointments")
+          .from("main_page")
           .insert([payload]);
 
         if (error) {

@@ -773,7 +773,7 @@
         console.log("📦 Payload:", payload);
 
         const { error } = await supabase
-          .from("appointments")
+          .from("main_page")
           .insert([payload]);
 
         if (error) {
