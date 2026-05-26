@@ -1071,27 +1071,14 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
 
 
-  <!-- Appointment End -->
-
-
-
-
-
-  <!-- Blog Start -->
-  <div class="container-fluid py-4 py-lg-5">
+    <!-- Blog Start -->
+  <div class="container-fluid py-4 py-lg-5" id="home-blog-section">
     <div class="container">
       <div class="text-center mx-auto mb-5">
         <h2 class="about-heading">Our Latest Blog Posts</h2>
         <div class="testimonial-underline"></div>
       </div>
-      <div class="row g-5">
-
-
-        <div class="row g-5" id="home-blog-list"></div>
-
-
-
-      </div>
+      <div class="row g-5" id="home-blog-list"></div>
     </div>
   </div>
   <!-- Blog End -->
@@ -1100,44 +1087,62 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     const supabaseClient = window.supabaseClient;
 
     async function loadHomeBlogs() {
-      const { data, error } = await supabaseClient
-        .from("blogs")
-        .select("title, slug, excerpt, featured_image, author")
-        .eq("status", "published")
-        .order("created_at", { ascending: false })
-        .limit(3);
+      try {
+        const { data, error } = await supabaseClient
+          .from("blogs")
+          .select("title, slug, excerpt, featured_image, author")
+          .eq("status", "published")
+          .order("created_at", { ascending: false })
+          .limit(3);
 
-      if (error) return;
+        const section = document.getElementById("home-blog-section");
+        if (error || !data || data.length === 0) {
+          if (section) {
+            section.style.setProperty('display', 'none', 'important');
+          }
+          return;
+        }
 
-      const container = document.getElementById("home-blog-list");
+        if (section) {
+          section.style.display = 'block';
+        }
 
-      container.innerHTML = data.map(b => {
-        const title = window.sanitize24X7(b.title);
-        const excerpt = window.sanitize24X7(b.excerpt || "");
-        const author = window.sanitize24X7(b.author || "Air Medical 24X7");
-        return `
-    <div class="col-xl-4 col-lg-6">
-      <div class="premium-card p-0 overflow-hidden h-100">
-        <img class="img-fluid w-100" src="${b.featured_image || 'img/blog1.jpg'}" style="height: 220px; object-fit: cover;" alt="${title}">
-        <div class="p-4">
-          <a class="h4 d-block mb-3 text-dark fw-bold"
-             href="blogs-detail?slug=${b.slug}" style="text-decoration: none; line-height: 1.4;">
-             ${title}
-          </a>
-          <p class="m-0 text-muted" style="font-size: 14px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
-            ${excerpt}
-          </p>
-        </div>
-        <div class="mt-auto border-top p-4">
-          <small class="text-primary fw-bold"><i class="far fa-user me-2"></i>${author}</small>
+        const container = document.getElementById("home-blog-list");
+        container.innerHTML = data.map(b => {
+          const title = window.sanitize24X7(b.title);
+          const excerpt = window.sanitize24X7(b.excerpt || "");
+          const author = window.sanitize24X7(b.author || "Air Medical 24X7");
+          return `
+      <div class="col-xl-4 col-lg-6">
+        <div class="premium-card p-0 overflow-hidden h-100">
+          <img class="img-fluid w-100" src="${b.featured_image || 'img/blog1.jpg'}" style="height: 220px; object-fit: cover;" alt="${title}">
+          <div class="p-4">
+            <a class="h4 d-block mb-3 text-dark fw-bold"
+               href="blogs-detail?slug=${b.slug}" style="text-decoration: none; line-height: 1.4;">
+               ${title}
+             </a>
+            <p class="m-0 text-muted" style="font-size: 14px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+              ${excerpt}
+            </p>
+          </div>
+          <div class="mt-auto border-top p-4">
+            <small class="text-primary fw-bold"><i class="far fa-user me-2"></i>${author}</small>
+          </div>
         </div>
       </div>
-    </div>
-  `;
-      }).join("");
+    `;
+        }).join("");
+      } catch (err) {
+        console.error("Error loading home blogs:", err);
+        const section = document.getElementById("home-blog-section");
+        if (section) {
+          section.style.setProperty('display', 'none', 'important');
+        }
+      }
     }
 
     document.addEventListener("DOMContentLoaded", loadHomeBlogs);
+  </script>oaded", loadHomeBlogs);
   </script>
 
 
@@ -1501,38 +1506,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   </section>
   <!-- Testimonials End -->
 
-  <!-- Partners Start -->
-  <section class="partners-section">
-    <div class="container">
-      <div class="text-center mb-4">
-        <h5 class="text-uppercase text-primary fw-bold" style="font-size: 13px; letter-spacing: 2px;">Accredited &
-          Trusted Global Associations</h5>
-      </div>
-      <div class="row align-items-center justify-content-center g-4 text-center">
-        <div class="col-4 col-md-2">
-          <div class="partner-logo-container">
-            <img src="img/camts-logo.png" alt="CAMTS Partner Network">
-          </div>
-        </div>
-        <div class="col-4 col-md-2">
-          <div class="partner-logo-container">
-            <img src="img/dgca-logo.png" alt="DGCA Partner Network">
-          </div>
-        </div>
-        <div class="col-4 col-md-2">
-          <div class="partner-logo-container">
-            <img src="img/faa-logo.png" alt="FAA Approved Network">
-          </div>
-        </div>
-        <div class="col-4 col-md-2">
-          <div class="partner-logo-container">
-            <img src="img/issso.png" alt="ISO Certification Network">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Partners End -->
+
 
   <!-- FAQs Section Start -->
   <div class="container-fluid py-4 py-lg-5">
