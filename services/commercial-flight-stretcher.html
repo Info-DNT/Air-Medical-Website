@@ -311,7 +311,8 @@
                 
 
                 <!-- Bootstrap Menu Button -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <!-- Mobile Quote Button (ONLY phone view) -->
+                <a href="../contact-us.html#quoteForm" class="btn btn-request btn-header-quote ms-auto me-2">Get a free quotation</a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -778,6 +779,36 @@
       }
     });
   </script>
+
+
+
+  <!-- Mobile Sticky bottom CTA Bar -->
+  <div class="mobile-sticky-cta d-lg-none">
+    <!-- 3-button layout for tablet view (>= 768px and < 992px) -->
+    <div class="d-none d-md-flex row g-2">
+      <div class="col-4">
+        <a href="tel:+971565542001" class="btn btn-call w-100 py-2.5 text-center">
+          <i class="fas fa-phone-alt me-1"></i> Call
+        </a>
+      </div>
+      <div class="col-4">
+        <a href="https://wa.me/971565542001" target="_blank" class="btn btn-whatsapp w-100 py-2.5 text-center">
+          <i class="fab fa-whatsapp me-1"></i> WhatsApp
+        </a>
+      </div>
+      <div class="col-4">
+        <a href="../contact-us.html#quoteForm" class="btn btn-quote w-100 py-2.5 text-center">
+          <i class="fas fa-file-invoice-dollar me-1"></i> Quote
+        </a>
+      </div>
+    </div>
+    <!-- Single button layout for mobile/phone view (< 768px) -->
+    <div class="d-flex d-md-none">
+      <a href="../contact-us.html#quoteForm" class="btn btn-quote w-100 py-3 text-center" style="background-color: #FB0F0C; color: #ffffff !important; font-weight: 700; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 15px; text-transform: uppercase; border: none; width: 100%;">
+        <i class="fas fa-phone-alt me-2"></i> Request a call back
+      </a>
+    </div>
+  </div>
 
 </body>
 

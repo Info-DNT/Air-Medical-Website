@@ -2095,3 +2095,40 @@ h6 {
     margin-bottom: 25px;
     text-align: center;
 }
+
+/* Mobile-only header quote button and SOS hide */
+.btn-header-quote {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    #sos-btn {
+        display: none !important;
+    }
+    
+    .btn-header-quote {
+        display: inline-block !important;
+        background-color: #FB0F0C !important;
+        color: #ffffff !important;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        padding: 8px 12px !important;
+        border-radius: 4px !important;
+        text-transform: uppercase !important;
+        border: none !important;
+        white-space: nowrap !important;
+        box-shadow: 0 2px 5px rgba(251, 15, 12, 0.3) !important;
+        transition: background-color 0.3s !important;
+    }
+    
+    .btn-header-quote:hover {
+        background-color: #d40d0a !important;
+    }
+}
+
+@media (max-width: 380px) {
+    .btn-header-quote {
+        font-size: 9.5px !important;
+        padding: 6px 8px !important;
+    }
+}
