@@ -1,5 +1,5 @@
-// Supabase is now initialized in js/config.js as window.supabaseClient
-const supabaseClient = window.supabaseClient;
+// Blogs & comments are fetched from window.blogsSupabaseClient configured in js/config.js
+const supabaseClient = window.blogsSupabaseClient;
 
 /***************** STATE *****************/
 const PAGE_SIZE = 3;
@@ -23,6 +23,33 @@ async function loadBlogs(reset = false) {
 
   const from = page * PAGE_SIZE;
   const to = from + PAGE_SIZE - 1;
+
+  if (page === 0) {
+    const localBlogCard = document.createElement("div");
+    localBlogCard.className = "col-xl-4 col-lg-6";
+    localBlogCard.innerHTML = `
+      <div class="premium-card p-0 overflow-hidden h-100">
+        <a href="blogs-detail.html?slug=air-ambulance-medical-evacuation-uae" class="d-block">
+          <img class="img-fluid w-100"
+               src="img/air-ambulance-uae.jpg"
+               alt="Air Ambulance & Medical Evacuation Services in UAE - Fast, Safe, and Trusted Medical Transport" style="height: 220px; object-fit: cover;">
+        </a>
+        <div class="p-4">
+          <a class="h4 d-block mb-3 text-dark fw-bold"
+             href="blogs-detail.html?slug=air-ambulance-medical-evacuation-uae" style="text-decoration: none; line-height: 1.4;">
+            Air Ambulance & Medical Evacuation Services in UAE - Fast, Safe, and Trusted Medical Transport
+          </a>
+          <p class="m-0 text-muted" style="font-size: 14px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+            Medical emergencies do not give you time to think. Discover how Air Ambulance & Medical Evacuation Services in the UAE provide fast, safe, and trusted critical care patient transfers.
+          </p>
+        </div>
+        <div class="mt-auto border-top p-4">
+          <small class="text-primary fw-bold"><i class="far fa-user me-2"></i>Air Medical 24X7</small>
+        </div>
+      </div>
+    `;
+    blogList.appendChild(localBlogCard);
+  }
 
   const { data, error } = await supabaseClient
     .from("blogs")

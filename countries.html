@@ -528,9 +528,10 @@ function gtag_report_conversion(url) {
             <!-- RIGHT FORM (REPLACES IMAGE) -->
             <div class="col-lg-5">
                 <div class="bg-light rounded p-4 p-lg-5 shadow-sm">
-                    <h4 class="text-primary mb-4 text-center">
+                    <h4 class="text-primary mb-2 text-center">
                         Get a Free Quotation Worldwide
                     </h4>
+                    <p class="text-muted mb-4 small fw-bold text-center"><i class="far fa-clock text-red me-1"></i> Get a quotation in 30 minutes</p>
                     
                     <!-- FORM CODE START -->
 
@@ -581,6 +582,20 @@ function gtag_report_conversion(url) {
         placeholder="Enter your email"
         required
         style="height:55px">
+    </div>
+
+    <!-- Patient Location -->
+    <div class="col-12 col-sm-6">
+      <label class="fw-bold mb-1">Patient Location</label>
+      <input type="text" id="patientLocation" name="patientLocation" class="form-control bg-light border-0"
+        placeholder="City / Country" required style="height:55px">
+    </div>
+
+    <!-- Destination -->
+    <div class="col-12 col-sm-6">
+      <label class="fw-bold mb-1">Destination</label>
+      <input type="text" id="destination" name="destination" class="form-control bg-light border-0"
+        placeholder="City / Country" required style="height:55px">
     </div>
 
 
@@ -667,11 +682,15 @@ window.addEventListener("load", function () {
       document.getElementById("countryCode").value +
       document.getElementById("phone").value;
 
+    const selectedService = document.getElementById("service").value;
+    const patientLocation = document.getElementById("patientLocation").value;
+    const destination = document.getElementById("destination").value;
+
     const payload = {
       name: document.getElementById("name").value,
       email: document.getElementById("email").value,
       full_phone: fullPhone,
-      service: document.getElementById("service").value
+      service: `${selectedService} (From: ${patientLocation}, To: ${destination})`
     };
 
     // OPTIONAL transport (only if exists)
@@ -1315,6 +1334,27 @@ window.addEventListener("load", function () {
       }
     });
   </script>
+
+  <!-- Mobile Sticky bottom CTA Bar -->
+  <div class="mobile-sticky-cta d-lg-none">
+    <div class="row g-2">
+      <div class="col-4">
+        <a href="tel:+971565542001" class="btn btn-call w-100 py-2.5 text-center">
+          <i class="fas fa-phone-alt me-1"></i> Call
+        </a>
+      </div>
+      <div class="col-4">
+        <a href="https://wa.me/971565542001" target="_blank" class="btn btn-whatsapp w-100 py-2.5 text-center">
+          <i class="fab fa-whatsapp me-1"></i> WhatsApp
+        </a>
+      </div>
+      <div class="col-4">
+        <a href="#quoteForm" class="btn btn-quote w-100 py-2.5 text-center">
+          <i class="fas fa-file-invoice-dollar me-1"></i> Quote
+        </a>
+      </div>
+    </div>
+  </div>
 
 </body>
 

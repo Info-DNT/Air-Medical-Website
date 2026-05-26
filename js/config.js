@@ -2,8 +2,13 @@
 const supabaseUrl = "https://dtiirdimtbmkvryvqten.supabase.co/";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWlyZGltdGJta3ZyeXZxdGVuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYxNDQ0MzksImV4cCI6MjA5MTcyMDQzOX0.MwOkE8tsM2itUhTxNJDDHPPPAxImjRS9Ch1ACWzdTmI";
 
-// Initialize the Supabase client
+// Initialize the Supabase client for lead capture
 window.supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+// Initialize a separate Supabase client for blogs & comments (stored in original project)
+const blogsSupabaseUrl = "https://eiqpvuciihwmuznbsyob.supabase.co/";
+const blogsSupabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVpcXB2dWNpaWh3bXV6bmJzeW9iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU2MDY1MDcsImV4cCI6MjA4MTE4MjUwN30.fY2QZkNa1nUB1UQxmV8r97WTpB32ocIiVXaHo1coB-c";
+window.blogsSupabaseClient = supabase.createClient(blogsSupabaseUrl, blogsSupabaseKey);
 
 // Cloudflare Turnstile Configuration
 const turnstileSiteKey = "0x4AAAAAADTA3gG7SVL4awln";

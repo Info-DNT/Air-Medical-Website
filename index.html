@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-            <script>
+  <script>
     (function () {
       var pathname = window.location.pathname;
       var cleanPath = pathname;
@@ -19,7 +19,7 @@
           basePath = '/' + segments[1];
         }
       }
-      
+
       var countriesPrefix = basePath + '/countries/';
       var servicesPrefix = basePath + '/services/';
       if (cleanPath.startsWith(countriesPrefix) && cleanPath.length > countriesPrefix.length) {
@@ -51,28 +51,28 @@
       document.write('<base href="' + baseHref + '">');
 
       // Global Link Interceptor for Clean Extensionless Local Navigation
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function () {
         document.body.addEventListener('click', function (e) {
           var anchor = e.target.closest('a');
           if (!anchor) return;
           var href = anchor.getAttribute('href');
           if (!href) return;
-          
+
           if (href.startsWith('http') || href.startsWith('#') || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('javascript:')) {
             return;
           }
-          
+
           var parts = href.split('?');
           var cleanHref = parts[0].split('#')[0];
           var queryHashPart = href.substring(parts[0].length);
-          
+
           if (cleanHref.startsWith('/')) {
             cleanHref = cleanHref.substring(1);
           }
           if (cleanHref === '') {
             cleanHref = 'index';
           }
-          
+
           var targetPath = '';
           if (cleanHref === 'countries') {
             targetPath = 'countries/index.html';
@@ -80,9 +80,9 @@
             targetPath = 'countries/' + cleanHref + '.html';
           } else {
             var services = [
-              'air-ambulance', 'air-ambulance-charters', 'ECMO-transfer', 
-              'commercial-airlines-medical-transfer-services', 'commercial-flight-stretcher', 
-              'custom-medical-packages', 'doctor-appointment', 'flight-medical-escort-services', 
+              'air-ambulance', 'air-ambulance-charters', 'ECMO-transfer',
+              'commercial-airlines-medical-transfer-services', 'commercial-flight-stretcher',
+              'custom-medical-packages', 'doctor-appointment', 'flight-medical-escort-services',
               'hospital-acceptance', 'medical-tourism-services', 'second-opinion-services'
             ];
             if (services.indexOf(cleanHref) !== -1) {
@@ -95,7 +95,7 @@
               }
             }
           }
-          
+
           var finalUrl = targetPath;
           if (currentFolder === 'countries/') {
             if (targetPath.startsWith('countries/')) {
@@ -110,14 +110,14 @@
               finalUrl = '../' + targetPath;
             }
           }
-          
+
           var target = anchor.getAttribute('target');
           if (target === '_blank' || e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) {
             e.preventDefault();
             window.open(finalUrl + queryHashPart, '_blank');
             return;
           }
-          
+
           e.preventDefault();
           window.location.href = finalUrl + queryHashPart;
         });
@@ -499,21 +499,28 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
       <div class="row justify-content-start">
         <div class="col-lg-9 text-center text-lg-start">
           <div class="hero-badge">
-            <i class="fas fa-circle"></i> AIR AMBULANCE SERVICE AVAILABLE 24X7 – EMERGENCY MEDICAL EVACUATION WORLDWIDE
+            <i class="fas fa-circle"></i> AIR AMBULANCE SERVICE AVAILABLE 24X7
           </div>
           <h1 class="display-1 text-white mb-3" style="font-weight: 800; line-height: 1.1;">
-            Air Ambulance & <span class="text-red">Medical</span><br>
-            <span class="text-red">Evacuation Services</span>
+            Emergency Medical Evacuation <span class="text-red">Worldwide</span><br>
+            <span class="text-red">Response within Minutes</span>
           </h1>
-          <p class="text-white fs-5 mb-4" style="max-width: 600px;">
-            ICU-Equipped Air Ambulances | Bed-to-Bed Transfers Across India & Internationally | CAMTS & ISO Certified.
-          </p>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <ul class="list-unstyled text-white fs-5 mb-4 text-start" style="max-width: 600px;">
+              <li class="mb-2"><i class="fas fa-check text-red me-2"></i>Bed-to-bed transfer in 193+ countries</li>
+              <li class="mb-2"><i class="fas fa-check text-red me-2"></i>ICU-equipped air ambulance & medical escort
+              </li>
+              <li class="mb-2"><i class="fas fa-check text-red me-2"></i>Doctors and paramedics onboard</li>
+              <li class="mb-2"><i class="fas fa-check text-red me-2"></i>Fast international approvals</li>
+              <li class="mb-2"><i class="fas fa-check text-red me-2"></i>Available 24×7</li>
+            </ul>
+          </div>
           <div class="pt-2">
-            <a href="contact-us" class="btn btn-request me-3">
-              <i class="fas fa-clipboard-list me-2"></i> Request for Quotation
+            <a href="#quoteForm" class="btn btn-request me-3">
+              Get Emergency Assistance Now
             </a>
             <a href="https://wa.me/971565542001" target="_blank" class="btn btn-ghost">
-              24X7 Chat Support
+              Get Instant Quote via WhatsApp
             </a>
           </div>
         </div>
@@ -521,6 +528,86 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     </div>
   </div>
   <!-- Hero End -->
+
+  <!-- Unified Trust & Certifications Section Start -->
+  <section class="trust-certifications-section py-5 border-bottom">
+    <div class="container">
+      <!-- Stats Ribbon Row -->
+      <div class="row justify-content-center text-center mb-4 g-3">
+        <div class="col-md-4 col-sm-6">
+          <div class="trust-badge-large">
+            <i class="fas fa-users me-2"></i>
+            <span><strong>17,000+</strong> Families Served</span>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="trust-badge-large">
+            <i class="fas fa-globe me-2"></i>
+            <span><strong>173+</strong> Countries Covered</span>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <div class="trust-badge-large">
+            <i class="fas fa-clock me-2"></i>
+            <span><strong>24/7/365</strong> Emergency Bed-to-Bed Care</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Certifications Cards Row -->
+      <div class="row g-4 justify-content-center">
+        <!-- CAMTS -->
+        <div class="col-xl-3 col-md-6">
+          <div class="cert-card camts">
+            <div class="cert-header">
+              <div class="cert-icon-container">
+                <img src="img/camts-logo.png" alt="CAMTS" class="cert-icon-img">
+              </div>
+              <h4 class="cert-title">CAMTS ACCREDITED</h4>
+            </div>
+            <p class="cert-desc">The global gold standard in air medical transport. CAMTS accreditation ensures strict protocols for aircraft, crew training, and patient care - trusted worldwide.</p>
+          </div>
+        </div>
+        <!-- ISO -->
+        <div class="col-xl-3 col-md-6">
+          <div class="cert-card iso">
+            <div class="cert-header">
+              <div class="cert-icon-container">
+                <img src="img/issso.png" alt="ISO" class="cert-icon-img">
+              </div>
+              <h4 class="cert-title">ISO 9001:2015 CERTIFIED</h4>
+            </div>
+            <p class="cert-desc">Internationally recognized quality management certification, ensuring consistent processes, safety standards, and reliable patient handling across every mission.</p>
+          </div>
+        </div>
+        <!-- FAA -->
+        <div class="col-xl-3 col-md-6">
+          <div class="cert-card faa">
+            <div class="cert-header">
+              <div class="cert-icon-container">
+                <img src="img/faa-logo.png" alt="FAA" class="cert-icon-img">
+              </div>
+              <h4 class="cert-title">FAA-APPROVED MEDICAL EQUIPMENT</h4>
+            </div>
+            <p class="cert-desc">All onboard medical equipment is approved for in-flight use-ensuring safety, reliability, and performance even at high altitudes.</p>
+          </div>
+        </div>
+        <!-- DGCA -->
+        <div class="col-xl-3 col-md-6">
+          <div class="cert-card dgca">
+            <div class="cert-header">
+              <div class="cert-icon-container">
+                <img src="img/dgca-logo.png" alt="DGCA" class="cert-icon-img">
+              </div>
+              <h4 class="cert-title">DGCA-COMPLIANT OPERATIONS</h4>
+            </div>
+            <p class="cert-desc">Fully compliant with aviation regulations for medical flights, ensuring every transfer meets required safety, legal, and operational standards.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Unified Trust & Certifications Section End -->
 
 
   <!-- About Start -->
@@ -582,99 +669,174 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         <h2 class="about-heading">Medical Evacuation Services</h2>
         <div class="testimonial-underline"></div>
       </div>
-      <div class="row g-5">
-        <div class="col-lg-4 col-md-6">
+
+      <!-- Primary Emergency Services -->
+      <div class="row g-4 justify-content-center mb-5">
+        <!-- Air Ambulance -->
+        <div class="col-lg-3 col-md-6">
           <div class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100">
             <div class="service-icon mb-4">
               <i class="fa fa-2x fa-plane text-white"></i>
             </div>
             <h4 class="mb-3">Air Ambulance</h4>
-            <p class="m-0">Air Medical 24X7 provides 24X7 air ambulance charter services, commercial flight stretcher
-              services,
-              and worldwide patient transfer for emergency medical evacuation.</p>
+            <p class="m-0">ICU-equipped aircraft for high-speed critical care. Safe, bed-to-bed international
+              evacuations with certified doctors and medical crews onboard.</p>
             <a class="btn btn-lg btn-primary rounded-pill" href="air-ambulance">
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6">
+        <!-- Flight Medical Escort -->
+        <div class="col-lg-3 col-md-6">
           <div class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100">
             <div class="service-icon mb-4">
-              <i class="fa fa-2x fa-plane text-white"></i>
+              <i class="fa fa-2x fa-user-md text-white"></i>
             </div>
-            <h4 class="mb-3">Executive Charter Service</h4>
-            <p class="m-0">Air Medical 24X7 offers unrivaled convenience and luxury with our Executive Charter Services.
-              Specifically designed for corporate executives, our skilled flight medics ensure a seamless
-              experience and first-class travel.</p>
-            <a class="btn btn-lg btn-primary rounded-pill" href="air-ambulance-charters">
-              <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6">
-          <div class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100">
-            <div class="service-icon mb-4">
-              <i class="fa fa-2x fa-procedures text-white"></i>
-            </div>
-            <h4 class="mb-3">Commercial Airlines Medical Transfer Services</h4>
-            <p class="m-0">Commercial Airlines Medical Transfer Services Air Medical 24X7 offers affordable and reliable
-              medical
-              evacuation services via commercial airlines and private air ambulances.</p>
-            <a class="btn btn-lg btn-primary rounded-pill"
-              href="commercial-airlines-medical-transfer-services">
-              <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100">
-            <div class="service-icon mb-4">
-              <i class="fa fa-2x fa-stethoscope text-white"></i>
-            </div>
-            <h4 class="mb-3">Medical Tourism</h4>
-            <p class="m-0">Medical Tourism and Patient Transfer
-              Air Medical 24X7 supports global medical tourism through safe and seamless air ambulance and medical
-              evacuation services.</p>
-            <a class="btn btn-lg btn-primary rounded-pill" href="medical-tourism-services">
-              <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100">
-            <div class="service-icon mb-4">
-              <i class="fa fa-2x fa-ambulance text-white"></i>
-            </div>
-            <h4 class="mb-3">Flight Medical Escort</h4>
-            <p class="m-0">Air Medical 24X7 provides trusted flight medical escort and air ambulance services for
-              patients who
-              need professional medical care during travel.</p>
+            <h4 class="mb-3">Medical Escort</h4>
+            <p class="m-0">Experienced medical doctors or flight nurses accompanying patients on commercial airlines,
+              providing clinical support throughout the flight.</p>
             <a class="btn btn-lg btn-primary rounded-pill" href="flight-medical-escort-services">
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6">
+
+        <!-- Commercial Airlines Stretcher Services -->
+        <div class="col-lg-3 col-md-6">
           <div class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100">
             <div class="service-icon mb-4">
-              <i class="fa fa-2x fa-pills text-white"></i>
+              <i class="fa fa-2x fa-procedures text-white"></i>
             </div>
-            <h4 class="mb-3">ECMO Transfer</h4>
-            <p class="m-0">Air Medical 24X7 offers life-saving ECMO (Extracorporeal Membrane Oxygenation) transport
-              services,
-              which are designed to offer immediate specialist care for critically ill patients requiring advanced
-              support for their hearts and lungs.</p>
-            <a class="btn btn-lg btn-primary rounded-pill" href="ECMO-transfer">
+            <h4 class="mb-3" style="font-size: 1.15rem;">Commercial Airlines Stretcher Services</h4>
+            <p class="m-0">Stretcher installation on commercial flights for patients requiring continuous recumbent
+              travel with full medical supervision at lower costs.</p>
+            <a class="btn btn-lg btn-primary rounded-pill" href="commercial-airlines-medical-transfer-services">
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Medical Tourism -->
+        <div class="col-lg-3 col-md-6">
+          <div class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100">
+            <div class="service-icon mb-4">
+              <i class="fa fa-2x fa-globe text-white"></i>
+            </div>
+            <h4 class="mb-3">Medical Tourism</h4>
+            <p class="m-0">Seamless medical travel assistance, hospital acceptance support, and coordinated transport
+              for patients traveling abroad for treatment.</p>
+            <a class="btn btn-lg btn-primary rounded-pill" href="medical-tourism-services">
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>
         </div>
       </div>
+
+      <!-- Corporate Aviation & Specialty Care Sub-Section -->
+      <div class="corporate-specialty-section">
+        <h3 class="corporate-specialty-title">Corporate & Specialty Aviation Services</h3>
+        <div class="row g-4 justify-content-center">
+          <!-- Executive Charter -->
+          <div class="col-md-6 col-lg-5">
+            <div
+              class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100 bg-white">
+              <div class="service-icon mb-4">
+                <i class="fa fa-2x fa-user-tie text-white"></i>
+              </div>
+              <h4 class="mb-3">Executive Charter Service</h4>
+              <p class="m-0">Private charter aircraft specifically configured for corporate executives, government
+                officials, or VIPs requiring highly private, scheduled travel.</p>
+              <a class="btn btn-lg btn-primary rounded-pill mt-3" href="air-ambulance-charters">
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- ECMO Transfer -->
+          <div class="col-md-6 col-lg-5">
+            <div
+              class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100 bg-white">
+              <div class="service-icon mb-4">
+                <i class="fa fa-2x fa-heartbeat text-white"></i>
+              </div>
+              <h4 class="mb-3">ECMO Transfer</h4>
+              <p class="m-0">Life-saving Extracorporeal Membrane Oxygenation (ECMO) transportation for critically ill
+                patients requiring specialist heart and lung support.</p>
+              <a class="btn btn-lg btn-primary rounded-pill mt-3" href="ECMO-transfer">
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
   <!-- Services End -->
+
+
+  <!-- How It Works Start -->
+  <div class="container-fluid py-4 py-lg-5 bg-light">
+    <div class="container">
+      <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+        <h2 class="about-heading">How We Transfer Your Loved One</h2>
+        <p class="text-muted mt-2">A simple, transparent, and clinical-first process to reduce anxiety and ensure a
+          safe, bed-to-bed journey.</p>
+        <div class="testimonial-underline"></div>
+      </div>
+      <div class="journey-container">
+        <div class="journey-timeline-line"></div>
+        <div class="row g-4 justify-content-center">
+          <!-- Step 1 -->
+          <div class="col-lg col-md-6 col-sm-6 col-12">
+            <div class="journey-step-card">
+              <div class="journey-step-number">1</div>
+              <h5 class="fw-bold mt-2">Emergency Call</h5>
+              <p class="text-muted small mb-0">Contact our 24/7 hotline. Speak directly to a medical coordinator.</p>
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div class="col-lg col-md-6 col-sm-6 col-12">
+            <div class="journey-step-card">
+              <div class="journey-step-number">2</div>
+              <h5 class="fw-bold mt-2">Medical Assessment</h5>
+              <p class="text-muted small mb-0">Our clinical team reviews the patient's condition and flight needs within
+                minutes.</p>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div class="col-lg col-md-6 col-sm-6 col-12">
+            <div class="journey-step-card">
+              <div class="journey-step-number">3</div>
+              <h5 class="fw-bold mt-2">Clearance & Coordination</h5>
+              <p class="text-muted small mb-0">We secure fast permits, international clearances, and coordinate hospital
+                beds.</p>
+            </div>
+          </div>
+          <!-- Step 4 -->
+          <div class="col-lg col-md-6 col-sm-6 col-12">
+            <div class="journey-step-card">
+              <div class="journey-step-number">4</div>
+              <h5 class="fw-bold mt-2">Bed-to-Bed Transfer</h5>
+              <p class="text-muted small mb-0">ICU flight transfer and fully managed medical ground ambulance
+                supervision.</p>
+            </div>
+          </div>
+          <!-- Step 5 -->
+          <div class="col-lg col-md-6 col-sm-6 col-12">
+            <div class="journey-step-card">
+              <div class="journey-step-number">5</div>
+              <h5 class="fw-bold mt-2">Safe Arrival</h5>
+              <p class="text-muted small mb-0">Direct handover of the patient to the receiving hospital's medical team.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- How It Works End -->
 
 
   <!-- Appointment Start -->
@@ -713,7 +875,9 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         <!-- Right Section - New Form -->
         <div class="col-lg-6">
           <div class="bg-white text-center rounded p-4 p-lg-5">
-            <h2 class="mb-4">Get a Free Quotation</h2>
+            <h2 class="mb-2">Get a Free Quotation</h2>
+            <p class="text-muted mb-4 small fw-bold"><i class="far fa-clock text-red me-1"></i> Get a quotation in 30
+              minutes</p>
 
             <form id="quoteForm">
 
@@ -747,6 +911,20 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                   <label class="fw-bold mb-1">Email</label>
                   <input type="email" id="email" name="email" class="form-control bg-light border-0"
                     placeholder="Enter your email" required style="height:55px">
+                </div>
+
+                <!-- Patient Location -->
+                <div class="col-12 col-sm-6">
+                  <label class="fw-bold mb-1">Patient Location</label>
+                  <input type="text" id="patientLocation" name="patientLocation" class="form-control bg-light border-0"
+                    placeholder="City / Country" required style="height:55px">
+                </div>
+
+                <!-- Destination -->
+                <div class="col-12 col-sm-6">
+                  <label class="fw-bold mb-1">Destination</label>
+                  <input type="text" id="destination" name="destination" class="form-control bg-light border-0"
+                    placeholder="City / Country" required style="height:55px">
                 </div>
 
                 <!-- Transport (Optional) -->
@@ -852,11 +1030,15 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
           document.getElementById("countryCode").value +
           document.getElementById("phone").value;
 
+        const selectedService = document.getElementById("service").value;
+        const patientLocation = document.getElementById("patientLocation").value;
+        const destination = document.getElementById("destination").value;
+
         const payload = {
           name: document.getElementById("name").value,
           email: document.getElementById("email").value,
           full_phone: fullPhone,
-          service: document.getElementById("service").value
+          service: `${selectedService} (From: ${patientLocation}, To: ${destination})`
         };
 
         // OPTIONAL transport (only if exists)
@@ -957,70 +1139,19 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   </script>
 
 
-  <!-- Certifications Start -->
-  <section class="certifications-section">
-    <div class="container">
-      <div class="row g-4">
-        <!-- CAMTS -->
-        <div class="col-xl-3 col-md-6">
-          <div class="cert-card camts">
-            <div class="cert-header">
-              <div class="cert-icon-container">
-                <img src="img/camts-logo.png" alt="CAMTS" class="cert-icon-img">
-              </div>
-              <h4 class="cert-title">CAMTS ACCREDITED</h4>
-            </div>
-            <p class="cert-desc">The global gold standard in air medical transport. CAMTS accreditation ensures strict
-              protocols for aircraft, crew training, and patient care - trusted worldwide.</p>
-          </div>
-        </div>
-        <!-- ISO -->
-        <div class="col-xl-3 col-md-6">
-          <div class="cert-card iso">
-            <div class="cert-header">
-              <div class="cert-icon-container">
-                <img src="img/issso.png" alt="ISO" class="cert-icon-img">
-              </div>
-              <h4 class="cert-title">ISO 9001:2015 CERTIFIED</h4>
-            </div>
-            <p class="cert-desc">Internationally recognized quality management certification, ensuring consistent
-              processes, safety standards, and reliable patient handling across every mission.</p>
-          </div>
-        </div>
-        <!-- FAA -->
-        <div class="col-xl-3 col-md-6">
-          <div class="cert-card faa">
-            <div class="cert-header">
-              <div class="cert-icon-container">
-                <img src="img/faa-logo.png" alt="FAA" class="cert-icon-img">
-              </div>
-              <h4 class="cert-title">FAA-APPROVED MEDICAL EQUIPMENT</h4>
-            </div>
-            <p class="cert-desc">All onboard medical equipment is approved for in-flight use-ensuring safety,
-              reliability, and performance even at high altitudes.</p>
-          </div>
-        </div>
-        <!-- DGCA -->
-        <div class="col-xl-3 col-md-6">
-          <div class="cert-card dgca">
-            <div class="cert-header">
-              <div class="cert-icon-container">
-                <img src="img/dgca-logo.png" alt="DGCA" class="cert-icon-img">
-              </div>
-              <h4 class="cert-title">DGCA-COMPLIANT OPERATIONS</h4>
-            </div>
-            <p class="cert-desc">Fully compliant with aviation regulations for medical flights, ensuring every transfer
-              meets required safety, legal, and operational standards.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Certifications End -->
+
 
   <!-- Testimonials Start -->
   <section class="testimonial-section">
-    <div class="container text-center mb-5">
+    <div class="container text-center mb-4">
+      <div class="d-inline-flex align-items-center justify-content-center bg-light px-4 py-2 rounded-pill mb-3">
+        <i class="fab fa-google text-primary me-2"></i>
+        <span class="fw-bold text-dark">4.9/5 Rating (Based on 850+ Google Reviews)</span>
+        <div class="ms-2 text-red" style="font-size: 11px; letter-spacing: 2px;">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+            class="fas fa-star"></i>
+        </div>
+      </div>
       <h2 class="testimonial-title">17,000+ Families Have Trusted Us - Here Is What They Say</h2>
       <div class="testimonial-underline"></div>
     </div>
@@ -1049,15 +1180,14 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 fill="#EA4335" />
             </svg>
           </div>
-          <p class="testimonial-text">"Excellent Service and support provided by Mr Nitin and team of Worldwide Air
-            Medical 24X7 from Dubai to Kathmandu repatriation services bed to bed. I highly recommend for their services
-            as good communication, support, update at regular intervals and above all competitive cost Hghly
-            appreciated."</p>
+          <p class="testimonial-text">"Outstanding coordination and clinical support by the medical team from Dubai to
+            Kathmandu. Highly recommended for their transparency and competitive cost."</p>
           <div class="testimonial-footer">
             <div class="testimonial-avatar" style="background: #0d1b2a;">RF</div>
             <div>
               <div class="testimonial-name">Robert Ferns</div>
-              <div class="testimonial-route">Dubai to Kathmandu</div>
+              <div class="testimonial-route">Dubai (U.A.E.) → Kathmandu (Nepal)</div>
+              <div class="small text-muted fw-bold">Air Ambulance ICU Transfer | Jan 2026</div>
             </div>
           </div>
         </div>
@@ -1084,14 +1214,14 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 fill="#EA4335" />
             </svg>
           </div>
-          <p class="testimonial-text">"I would like to express my deepest gratitude to the entire Worldwide Air Medical
-            24X7 team for their exceptional service during my father's repatriation from Abu Dhabi to the Philippines.
-            Their professionalism, coordination, and compassion made the entire process smooth and reassuring."</p>
+          <p class="testimonial-text">"My deepest gratitude to the medical team for my father's repatriation. Their
+            professionalism, constant updates, and compassion made the transfer smooth."</p>
           <div class="testimonial-footer">
             <div class="testimonial-avatar" style="background: #fb0f0c;">FB</div>
             <div>
               <div class="testimonial-name">Fideliza Barraca</div>
-              <div class="testimonial-route">Abu Dhabi to Philippines</div>
+              <div class="testimonial-route">Abu Dhabi (U.A.E.) → Manila (Philippines)</div>
+              <div class="small text-muted fw-bold">Commercial Airlines Stretcher | Feb 2026</div>
             </div>
           </div>
         </div>
@@ -1118,14 +1248,14 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 fill="#EA4335" />
             </svg>
           </div>
-          <p class="testimonial-text">"Our heartfelt gratitude to the compassionate and caring staff of Air Medical
-            24X7. I can't find words to express my gratitude for making my Dad Mr Dawit Haile and my Mom feel safe
-            during their journey from hospital Jebel Ali, Dubai to Asmara, Eritrea."</p>
+          <p class="testimonial-text">"Our heartfelt gratitude. I can't find enough words to thank the team for making
+            my Dad feel safe during his critical journey from Jebel Ali to Asmara."</p>
           <div class="testimonial-footer">
             <div class="testimonial-avatar" style="background: #354f8e;">PW</div>
             <div>
               <div class="testimonial-name">Philly wall_e</div>
-              <div class="testimonial-route">Dubai to Asmara, Eritrea</div>
+              <div class="testimonial-route">Dubai (U.A.E.) → Asmara (Eritrea)</div>
+              <div class="small text-muted fw-bold">Air Ambulance ICU Evacuation | Mar 2026</div>
             </div>
           </div>
         </div>
@@ -1152,14 +1282,14 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 fill="#EA4335" />
             </svg>
           </div>
-          <p class="testimonial-text">"I am writing to express my heartfelt gratitude to Mr saif and team for your
-            exceptional care and dedication in ensuring the safe transportation of my daughter from Dubai to Nigeria.
-            Your professionalism and expertise have left a lasting impression."</p>
+          <p class="testimonial-text">"Exceptional care and dedication in ensuring the safe transportation of my
+            daughter. Your medical escort crew's expertise left a lasting impression."</p>
           <div class="testimonial-footer">
             <div class="testimonial-avatar" style="background: #1d2a4d;">AO</div>
             <div>
               <div class="testimonial-name">Aremu Olayinka</div>
-              <div class="testimonial-route">Dubai to Nigeria</div>
+              <div class="testimonial-route">Dubai (U.A.E.) → Abuja (Nigeria)</div>
+              <div class="small text-muted fw-bold">Commercial Airlines Medical Escort | Mar 2026</div>
             </div>
           </div>
         </div>
@@ -1186,14 +1316,14 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 fill="#EA4335" />
             </svg>
           </div>
-          <p class="testimonial-text">"When every second counted during my brother's critical trauma in Patna, Air
-            Medical India was the only service that provided a quote and clinical team in under 10 minutes. The
-            bed-to-bed transfer was seamless. Highly recommended."</p>
+          <p class="testimonial-text">"When every second counted during my brother's critical trauma, they mobilized the
+            clinical team and ECMO setup in under 10 minutes. Bed-to-bed transfer was seamless."</p>
           <div class="testimonial-footer">
             <div class="testimonial-avatar" style="background: #0d1b2a;">RK</div>
             <div>
               <div class="testimonial-name">Rahul K.</div>
-              <div class="testimonial-route">Patna to Delhi ECMO Mission</div>
+              <div class="testimonial-route">Patna (India) → Delhi (India)</div>
+              <div class="small text-muted fw-bold">ECMO Air Transfer Service | Apr 2026</div>
             </div>
           </div>
         </div>
@@ -1220,14 +1350,14 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 fill="#EA4335" />
             </svg>
           </div>
-          <p class="testimonial-text">"The transparency in air ambulance costs was what made us choose them. No hidden
-            fees, just clinical excellence. The doctor on board was extremely comforting to our mother during her
-            cardiac transport from Guwahati."</p>
+          <p class="testimonial-text">"Completely transparent costs and excellent clinical setup. The cardiologist
+            onboard was comforting to our mother during the cardiac transfer from Guwahati."</p>
           <div class="testimonial-footer">
             <div class="testimonial-avatar" style="background: #fb0f0c;">SB</div>
             <div>
               <div class="testimonial-name">Sneh B.</div>
-              <div class="testimonial-route">Guwahati to Chennai Transfer</div>
+              <div class="testimonial-route">Guwahati (India) → Chennai (India)</div>
+              <div class="small text-muted fw-bold">Critical Care Cardiac Transport | May 2026</div>
             </div>
           </div>
         </div>
@@ -1254,15 +1384,14 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 fill="#EA4335" />
             </svg>
           </div>
-          <p class="testimonial-text">"Excellent Service and support provided by Mr Nitin and team of Worldwide Air
-            Medical 24X7 from Dubai to Kathmandu repatriation services bed to bed. I highly recommend for their services
-            as good communication, support, update at regular intervals and above all competitive cost Hghly
-            appreciated."</p>
+          <p class="testimonial-text">"Outstanding coordination and clinical support by the medical team from Dubai to
+            Kathmandu. Highly recommended for their transparency and competitive cost."</p>
           <div class="testimonial-footer">
             <div class="testimonial-avatar" style="background: #0d1b2a;">RF</div>
             <div>
               <div class="testimonial-name">Robert Ferns</div>
-              <div class="testimonial-route">Dubai to Kathmandu</div>
+              <div class="testimonial-route">Dubai (U.A.E.) → Kathmandu (Nepal)</div>
+              <div class="small text-muted fw-bold">Air Ambulance ICU Transfer | Jan 2026</div>
             </div>
           </div>
         </div>
@@ -1288,14 +1417,14 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 fill="#EA4335" />
             </svg>
           </div>
-          <p class="testimonial-text">"I would like to express my deepest gratitude to the entire Worldwide Air Medical
-            24X7 team for their exceptional service during my father's repatriation from Abu Dhabi to the Philippines.
-            Their professionalism, coordination, and compassion made the entire process smooth and reassuring."</p>
+          <p class="testimonial-text">"My deepest gratitude to the medical team for my father's repatriation. Their
+            professionalism, constant updates, and compassion made the transfer smooth."</p>
           <div class="testimonial-footer">
             <div class="testimonial-avatar" style="background: #fb0f0c;">FB</div>
             <div>
               <div class="testimonial-name">Fideliza Barraca</div>
-              <div class="testimonial-route">Abu Dhabi to Philippines</div>
+              <div class="testimonial-route">Abu Dhabi (U.A.E.) → Manila (Philippines)</div>
+              <div class="small text-muted fw-bold">Commercial Airlines Stretcher | Feb 2026</div>
             </div>
           </div>
         </div>
@@ -1321,14 +1450,14 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 fill="#EA4335" />
             </svg>
           </div>
-          <p class="testimonial-text">"Our heartfelt gratitude to the compassionate and caring staff of Air Medical
-            24X7. I can't find words to express my gratitude for making my Dad Mr Dawit Haile and my Mom feel safe
-            during their journey from hospital Jebel Ali, Dubai to Asmara, Eritrea."</p>
+          <p class="testimonial-text">"Our heartfelt gratitude. I can't find enough words to thank the team for making
+            my Dad feel safe during his critical journey from Jebel Ali to Asmara."</p>
           <div class="testimonial-footer">
             <div class="testimonial-avatar" style="background: #354f8e;">PW</div>
             <div>
               <div class="testimonial-name">Philly wall_e</div>
-              <div class="testimonial-route">Dubai to Asmara, Eritrea</div>
+              <div class="testimonial-route">Dubai (U.A.E.) → Asmara (Eritrea)</div>
+              <div class="small text-muted fw-bold">Air Ambulance ICU Evacuation | Mar 2026</div>
             </div>
           </div>
         </div>
@@ -1354,80 +1483,14 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 fill="#EA4335" />
             </svg>
           </div>
-          <p class="testimonial-text">"I am writing to express my heartfelt gratitude to Mr saif and team for your
-            exceptional care and dedication in ensuring the safe transportation of my daughter from Dubai to Nigeria.
-            Your professionalism and expertise have left a lasting impression."</p>
+          <p class="testimonial-text">"Exceptional care and dedication in ensuring the safe transportation of my
+            daughter. Your medical escort crew's expertise left a lasting impression."</p>
           <div class="testimonial-footer">
             <div class="testimonial-avatar" style="background: #1d2a4d;">AO</div>
             <div>
               <div class="testimonial-name">Aremu Olayinka</div>
-              <div class="testimonial-route">Dubai to Nigeria</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <div class="testimonial-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <svg class="google-g" viewBox="0 0 24 24">
-              <path
-                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                fill="#4285F4" />
-              <path
-                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                fill="#34A853" />
-              <path
-                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
-                fill="#FBBC05" />
-              <path
-                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                fill="#EA4335" />
-            </svg>
-          </div>
-          <p class="testimonial-text">"When every second counted during my brother's critical trauma in Patna, Air
-            Medical India was the only service that provided a quote and clinical team in under 10 minutes. The
-            bed-to-bed transfer was seamless. Highly recommended."</p>
-          <div class="testimonial-footer">
-            <div class="testimonial-avatar" style="background: #0d1b2a;">RK</div>
-            <div>
-              <div class="testimonial-name">Rahul K.</div>
-              <div class="testimonial-route">Patna to Delhi ECMO Mission</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <div class="testimonial-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <svg class="google-g" viewBox="0 0 24 24">
-              <path
-                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                fill="#4285F4" />
-              <path
-                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                fill="#34A853" />
-              <path
-                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
-                fill="#FBBC05" />
-              <path
-                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                fill="#EA4335" />
-            </svg>
-          </div>
-          <p class="testimonial-text">"The transparency in air ambulance costs was what made us choose them. No hidden
-            fees, just clinical excellence. The doctor on board was extremely comforting to our mother during her
-            cardiac transport from Guwahati."</p>
-          <div class="testimonial-footer">
-            <div class="testimonial-avatar" style="background: #fb0f0c;">SB</div>
-            <div>
-              <div class="testimonial-name">Sneh B.</div>
-              <div class="testimonial-route">Guwahati to Chennai Transfer</div>
+              <div class="testimonial-route">Dubai (U.A.E.) → Abuja (Nigeria)</div>
+              <div class="small text-muted fw-bold">Commercial Airlines Medical Escort | Mar 2026</div>
             </div>
           </div>
         </div>
@@ -1435,6 +1498,237 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     </div>
   </section>
   <!-- Testimonials End -->
+
+  <!-- Partners Start -->
+  <section class="partners-section">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h5 class="text-uppercase text-primary fw-bold" style="font-size: 13px; letter-spacing: 2px;">Accredited &
+          Trusted Global Associations</h5>
+      </div>
+      <div class="row align-items-center justify-content-center g-4 text-center">
+        <div class="col-4 col-md-2">
+          <div class="partner-logo-container">
+            <img src="img/camts-logo.png" alt="CAMTS Partner Network">
+          </div>
+        </div>
+        <div class="col-4 col-md-2">
+          <div class="partner-logo-container">
+            <img src="img/dgca-logo.png" alt="DGCA Partner Network">
+          </div>
+        </div>
+        <div class="col-4 col-md-2">
+          <div class="partner-logo-container">
+            <img src="img/faa-logo.png" alt="FAA Approved Network">
+          </div>
+        </div>
+        <div class="col-4 col-md-2">
+          <div class="partner-logo-container">
+            <img src="img/issso.png" alt="ISO Certification Network">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Partners End -->
+
+  <!-- FAQs Section Start -->
+  <div class="container-fluid py-4 py-lg-5">
+    <div class="container">
+      <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+        <h2 class="about-heading">Frequently Asked Questions</h2>
+        <div class="testimonial-underline"></div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="accordion faq-accordion" id="faqAccordion">
+
+            <!-- FAQ 1 -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  How much does an air ambulance cost?
+                </button>
+              </h3>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  The cost of an air ambulance depends on several factors, including the flight distance, the type of
+                  aircraft required, the patient's medical condition, and required airport/landing clearances. We
+                  provide fully detailed, transparent quotes in under 30 minutes with absolutely no hidden charges.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  How quickly can an air ambulance flight be arranged?
+                </button>
+              </h3>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Emergency medical flights can often be mobilized within 2 to 4 hours after medical assessment and
+                  receiving clearances. For international evacuations, routing clearances, landing permits, and visa
+                  processing can take slightly longer, but our emergency team works 24/7 to secure approvals
+                  immediately.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Can a patient travel on a commercial flight instead of a private air ambulance?
+                </button>
+              </h3>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Yes, for patients who are medically stable but require recumbent travel or medical supervision, we can
+                  arrange commercial airlines stretcher services or flight medical escorts. This is a highly
+                  cost-effective alternative to a private air ambulance charter.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  Which countries do you operate in?
+                </button>
+              </h3>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Air Medical 24X7 provides global medical evacuation and repatriation services in over 193 countries,
+                  with primary operation hubs based in Dubai (U.A.E.) and New Delhi (India).
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  What medical equipment is onboard your aircraft?
+                </button>
+              </h3>
+              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Our private air ambulances are equipped with state-of-the-art, FAA-approved intensive care unit (ICU)
+                  equipment, including ventilators, cardiac monitors, defibrillators, IV pumps, and dedicated emergency
+                  medications.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                  Do you arrange visas and landing clearances?
+                </button>
+              </h3>
+              <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Yes, we manage the entire administrative process. Our global operations team coordinates directly with
+                  aviation authorities, customs, border control, and embassies to obtain all necessary visas, landing
+                  rights, and medical clearances.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 7 -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingSeven">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                  Can a family member accompany the patient on the flight?
+                </button>
+              </h3>
+              <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Usually, yes. Depending on the aircraft size and the patient's clinical situation, 1 or 2 family
+                  members can accompany the patient on private air ambulances. On commercial flights, we can book
+                  additional adjacent seats for relatives.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 8 -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingEight">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                  What is the difference between an air ambulance and a medical escort?
+                </button>
+              </h3>
+              <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  An air ambulance is a private, custom-retrofitted ICU aircraft dedicated solely to one patient. A
+                  medical escort is a medical professional (doctor/nurse) who travels with a patient on a standard
+                  commercial airline flight to monitor their health and administer treatment.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 9 -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingNine">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                  How does the bed-to-bed transfer work?
+                </button>
+              </h3>
+              <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Bed-to-bed transfer means we manage the entire transport journey: picking up the patient via ground
+                  ICU ambulance from their hospital bed, transferring them onto the aircraft, and taking them via ground
+                  ambulance to the destination hospital room.
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 10 -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingTen">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                  What type of medical crew is onboard the flight?
+                </button>
+              </h3>
+              <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Every mission is staffed by highly trained medical flight crews, including intensive care specialists,
+                  pediatricians, cardiologists, or ICU nurses, depending on the patient's diagnosis and medical needs.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- FAQs Section End -->
 
 
 
@@ -1497,20 +1791,20 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
           <div class="d-flex flex-column justify-content-start">
             <a class="text-light mb-2" href="air-ambulance"><i class="fa fa-angle-right me-2"></i>Air
               Ambulance</a>
-            <a class="text-light mb-2" href="air-ambulance-charters"><i
-                class="fa fa-angle-right me-2"></i>Air Ambulance Charter</a>
+            <a class="text-light mb-2" href="air-ambulance-charters"><i class="fa fa-angle-right me-2"></i>Air Ambulance
+              Charter</a>
             <a class="text-light mb-2" href="commercial-flight-stretcher"><i
                 class="fa fa-angle-right me-2"></i>Commercial Flight Stretcher</a>
             <a class="text-light mb-2" href="flight-medical-escort-services"><i
                 class="fa fa-angle-right me-2"></i>Flight Medical Escort Services</a>
-            <a class="text-light mb-2" href="hospital-acceptance"><i
-                class="fa fa-angle-right me-2"></i>Hospital Acceptance</a>
-            <a class="text-light mb-2" href="doctor-appointment"><i
-                class="fa fa-angle-right me-2"></i>Doctor Appointment</a>
-            <a class="text-light mb-2" href="second-opinion-services"><i
-                class="fa fa-angle-right me-2"></i>Second Opinion Services</a>
-            <a class="text-light mb-2" href="custom-medical-packages"><i
-                class="fa fa-angle-right me-2"></i>Custom Medical Packages</a>
+            <a class="text-light mb-2" href="hospital-acceptance"><i class="fa fa-angle-right me-2"></i>Hospital
+              Acceptance</a>
+            <a class="text-light mb-2" href="doctor-appointment"><i class="fa fa-angle-right me-2"></i>Doctor
+              Appointment</a>
+            <a class="text-light mb-2" href="second-opinion-services"><i class="fa fa-angle-right me-2"></i>Second
+              Opinion Services</a>
+            <a class="text-light mb-2" href="custom-medical-packages"><i class="fa fa-angle-right me-2"></i>Custom
+              Medical Packages</a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
@@ -1642,12 +1936,27 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     });
   </script>
 
+  <!-- Mobile Sticky bottom CTA Bar -->
+  <div class="mobile-sticky-cta d-lg-none">
+    <div class="row g-2">
+      <div class="col-4">
+        <a href="tel:+971565542001" class="btn btn-call w-100 py-2.5 text-center">
+          <i class="fas fa-phone-alt me-1"></i> Call
+        </a>
+      </div>
+      <div class="col-4">
+        <a href="https://wa.me/971565542001" target="_blank" class="btn btn-whatsapp w-100 py-2.5 text-center">
+          <i class="fab fa-whatsapp me-1"></i> WhatsApp
+        </a>
+      </div>
+      <div class="col-4">
+        <a href="#quoteForm" class="btn btn-quote w-100 py-2.5 text-center">
+          <i class="fas fa-file-invoice-dollar me-1"></i> Quote
+        </a>
+      </div>
+    </div>
+  </div>
+
 </body>
 
-
 </html>
-
-
-
-
-
