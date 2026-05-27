@@ -1928,18 +1928,18 @@ h6 {
 .mobile-sticky-cta .btn-whatsapp:hover {
     background-color: #1eaf53;
 }
-.mobile-sticky-cta .btn-quote {
-    background-color: #FB0F0C;
+.mobile-sticky-cta .btn-imessage {
+    background-color: #007AFF;
     color: #ffffff !important;
     border: none;
     transition: background 0.3s;
 }
-.mobile-sticky-cta .btn-quote:hover {
-    background-color: #d40d0a;
+.mobile-sticky-cta .btn-imessage:hover {
+    background-color: #005ecb;
 }
 .mobile-sticky-cta .btn-call,
 .mobile-sticky-cta .btn-whatsapp,
-.mobile-sticky-cta .btn-quote {
+.mobile-sticky-cta .btn-imessage {
     display: flex !important;
     align-items: center;
     justify-content: center;
@@ -1952,7 +1952,7 @@ h6 {
 }
 .mobile-sticky-cta .btn-call i,
 .mobile-sticky-cta .btn-whatsapp i,
-.mobile-sticky-cta .btn-quote i {
+.mobile-sticky-cta .btn-imessage i {
     font-size: 14px;
     margin-right: 6px;
 }
@@ -2126,41 +2126,31 @@ h6 {
     }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
     .btn-header-quote {
-        font-size: 9.5px !important;
+        font-size: 9px !important;
         padding: 6px 8px !important;
     }
 }
-
-/* Mobile sticky footer overrides for phone view */
-.mobile-sticky-cta .btn-phone-callback {
-    background-color: #1A346B;
-    color: #ffffff !important;
-    font-weight: 700;
-    border-radius: 6px;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px; /* Reduced text size */
-    text-transform: uppercase;
-    border: none;
-    height: 38px; /* Reduced height from 48px to 38px */
-    width: 100%;
-    box-shadow: 0 4px 12px rgba(26, 52, 107, 0.2);
-    transition: background-color 0.3s;
-}
-
-.mobile-sticky-cta .btn-phone-callback:hover {
-    background-color: #112246;
+@media (max-width: 340px) {
+    .btn-header-quote {
+        font-size: 8px !important;
+        padding: 4px 6px !important;
+    }
 }
 
 @media (max-width: 768px) {
     .mobile-sticky-cta {
-        padding: 8px 12px !important; /* Reduced padding from 10px 15px to 8px 12px */
+        padding: 8px 12px !important;
+    }
+    .mobile-sticky-cta .btn-call,
+    .mobile-sticky-cta .btn-whatsapp,
+    .mobile-sticky-cta .btn-imessage {
+        height: 38px !important;
+        font-size: 12px !important;
     }
     body {
-        padding-bottom: 54px !important; /* Prevent footer overlap with smaller sticky bar height */
+        padding-bottom: 54px !important;
     }
 }
 
