@@ -60,7 +60,7 @@
           var href = anchor.getAttribute('href');
           if (!href) return;
           
-          if (href.startsWith('http') || href.startsWith('#') || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('javascript:')) {
+          if (href.startsWith('http') || href.startsWith('#') || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('sms:') || href.startsWith('javascript:')) {
             return;
           }
           
@@ -251,7 +251,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <!-- Bootstrap Menu Button -->
             <!-- Mobile Quote Button (ONLY phone view) -->
-            <a href="../contact-us.html#quoteForm" class="btn btn-request btn-header-quote ms-auto me-2">Get a free Quotation in 30 min</a>
+            <a href="contact-us#quoteForm" class="btn btn-request btn-header-quote ms-auto me-2">Get a free Quotation in 30 min</a>
             <button class="navbar-toggler" type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse">

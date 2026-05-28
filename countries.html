@@ -60,7 +60,7 @@
           var href = anchor.getAttribute('href');
           if (!href) return;
           
-          if (href.startsWith('http') || href.startsWith('#') || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('javascript:')) {
+          if (href.startsWith('http') || href.startsWith('#') || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('sms:') || href.startsWith('javascript:')) {
             return;
           }
           
