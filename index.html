@@ -999,75 +999,9 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
       .catch(() => {
         document.getElementById("countryCode").value = "+1";
       });
-
-    // Combine phone on form submit
-    document.getElementById("quoteForm").addEventListener("submit", function () {
-      const code = document.getElementById("countryCode").value;
-      const phone = document.getElementById("phone").value;
-      document.getElementById("full_phone").value = code + phone;
-    });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/config.js"></script>
-
-  <script>
-    window.addEventListener("load", function () {
-
-      console.log("✅ Supabase script loaded");
-
-      const form = document.getElementById("quoteForm");
-      if (!form) {
-        console.warn("quoteForm not found on this page");
-        return;
-      }
-
-      const supabase = window.supabaseClient;
-
-      form.addEventListener("submit", async function (e) {
-        e.preventDefault(); // 🚨 STOPS URL REDIRECT
-
-        console.log("🚀 Form submission intercepted");
-
-        const fullPhone =
-          document.getElementById("countryCode").value +
-          document.getElementById("phone").value;
-
-        const selectedService = document.getElementById("service").value;
-        const patientLocation = document.getElementById("patientLocation").value;
-        const destination = document.getElementById("destination").value;
-
-        const payload = {
-          name: document.getElementById("name").value,
-          email: document.getElementById("email").value,
-          full_phone: fullPhone,
-          service: `${selectedService} (From: ${patientLocation}, To: ${destination})`
-        };
-
-        // OPTIONAL transport (only if exists)
-        const transportInput = document.querySelector(
-          'input[name="transport"]:checked'
-        );
-        if (transportInput) {
-          payload.transport = transportInput.value;
-        }
-
-        console.log("📦 Payload:", payload);
-
-        const { error } = await supabase
-          .from("main_page")
-          .insert([payload]);
-
-        if (error) {
-          console.error("âŒ Supabase error:", error);
-          alert("Error: " + error.message);
-        } else {
-          alert("✅ Thank you! Our team will contact you soon.");
-          form.reset();
-        }
-      });
-
-    });
-  </script>
 
 
 

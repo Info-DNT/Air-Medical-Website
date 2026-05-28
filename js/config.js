@@ -10,10 +10,66 @@ const blogsSupabaseUrl = "https://eiqpvuciihwmuznbsyob.supabase.co/";
 const blogsSupabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVpcXB2dWNpaWh3bXV6bmJzeW9iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU2MDY1MDcsImV4cCI6MjA4MTE4MjUwN30.fY2QZkNa1nUB1UQxmV8r97WTpB32ocIiVXaHo1coB-c";
 window.blogsSupabaseClient = supabase.createClient(blogsSupabaseUrl, blogsSupabaseKey);
 
-// Cloudflare Turnstile Configuration
-const turnstileSiteKey = "0x4AAAAAADTA3gG7SVL4awln";
-
 // Automatically inject and handle Cloudflare Turnstile Captcha
+const turnstileSiteKey = "0x4AAAAAADTA3gG7SVL4awln";
+const turnstileTestSiteKey = "1x00000000000000000000AA"; // Safe test key for localhost/file testing
+
+// Map to store widget IDs for each form
+const turnstileWidgets = new Map();
+
+// Global callback for Turnstile explicit rendering
+window.onloadTurnstileCallback = function () {
+  const forms = [
+    document.getElementById("quoteForm"),
+    document.getElementById("quoteFormPopup"),
+    document.getElementById("careerForm")
+  ].filter(Boolean);
+
+  // Auto-detect if we are running in local environment (localhost or file protocol)
+  const isLocal = window.location.hostname === "localhost" || 
+                  window.location.hostname === "127.0.0.1" || 
+                  window.location.protocol === "file:";
+  const activeSiteKey = isLocal ? turnstileTestSiteKey : turnstileSiteKey;
+
+  forms.forEach(form => {
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (!submitBtn) return;
+
+    // Create a container placeholder
+    const container = document.createElement("div");
+    container.className = "cf-turnstile-container my-3";
+    container.style.display = "flex";
+    container.style.justifyContent = "center";
+    container.style.marginBottom = "15px";
+
+    // Insert directly before the submit button
+    submitBtn.parentNode.insertBefore(container, submitBtn);
+
+    try {
+      // Explicitly render Turnstile widget
+      const widgetId = turnstile.render(container, {
+        sitekey: activeSiteKey,
+        theme: "light",
+        callback: function (token) {
+          console.log(`[Turnstile] Challenge solved for ${form.id}`);
+        },
+        "error-callback": function (code) {
+          console.error(`[Turnstile] Error in form ${form.id}:`, code);
+        },
+        "expired-callback": function () {
+          console.warn(`[Turnstile] Token expired for ${form.id}, resetting...`);
+          turnstile.reset(widgetId);
+        }
+      });
+
+      // Keep track of the widget ID for this form
+      turnstileWidgets.set(form, widgetId);
+    } catch (err) {
+      console.error("[Turnstile] Render failed:", err);
+    }
+  });
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   const forms = [
     document.getElementById("quoteForm"),
@@ -23,31 +79,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (forms.length === 0) return;
 
-  // 1. Inject the Turnstile container widget in the forms
-  forms.forEach(form => {
-    const submitBtn = form.querySelector('button[type="submit"]');
-    if (!submitBtn) return;
-
-    // Create container wrapper
-    const container = document.createElement("div");
-    container.className = "cf-turnstile my-3";
-    container.setAttribute("data-sitekey", turnstileSiteKey);
-    container.style.display = "flex";
-    container.style.justifyContent = "center";
-    container.style.marginBottom = "15px";
-
-    // Insert directly before the submit button
-    submitBtn.parentNode.insertBefore(container, submitBtn);
-  });
-
-  // 2. Load the Turnstile API script dynamically
+  // Load the Turnstile API script dynamically specifying explicit rendering callback
   const script = document.createElement("script");
-  script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+  script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback&render=explicit";
   script.async = true;
   script.defer = true;
   document.head.appendChild(script);
 
-  // 3. Intercept form submissions to validate Captcha status and route to Edge Function
+  // Intercept form submissions
   forms.forEach(form => {
     form.addEventListener("submit", async function (e) {
       if (typeof turnstile === "undefined") {
@@ -57,7 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      const response = turnstile.getResponse();
+      const widgetId = turnstileWidgets.get(form);
+      const response = widgetId ? turnstile.getResponse(widgetId) : turnstile.getResponse();
+
       if (!response) {
         e.preventDefault();
         e.stopImmediatePropagation();
@@ -97,6 +138,17 @@ document.addEventListener("DOMContentLoaded", () => {
             token: response
           };
 
+          // Capture new patient location and destination fields
+          const patientLocEl = form.querySelector('[name="patientLocation"]') || document.getElementById("patientLocation");
+          const destEl = form.querySelector('[name="destination"]') || document.getElementById("destination");
+
+          if (patientLocEl) {
+            payload.patient_location = patientLocEl.value;
+          }
+          if (destEl) {
+            payload.destination = destEl.value;
+          }
+
           // Include optional transport selection if exists
           const transportInput = form.querySelector('input[name="transport"]:checked');
           if (transportInput) {
@@ -135,12 +187,14 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.textContent = btn.getAttribute("data-orig-text") || "Get a Free Quotation";
           }
         } finally {
-          if (window.turnstile) {
+          if (widgetId) {
+            turnstile.reset(widgetId);
+          } else if (window.turnstile) {
             window.turnstile.reset();
           }
         }
       }
-    }, true); // Use capture phase so this check runs before standard form handlers
+    }, true);
   });
 });
 
@@ -165,4 +219,3 @@ window.sanitize24X7 = function(text) {
     return temp;
   }
 };
-
