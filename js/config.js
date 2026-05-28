@@ -173,6 +173,10 @@ document.addEventListener("DOMContentLoaded", () => {
           if (result.success) {
             alert("✅ Thank you! Our team will contact you soon.");
             form.reset();
+            if (btn) {
+              btn.disabled = false;
+              btn.textContent = btn.getAttribute("data-orig-text") || "Get a Free Quotation";
+            }
             if (isPopup && typeof window.closeQuoteModal === "function") {
               window.closeQuoteModal();
             }
