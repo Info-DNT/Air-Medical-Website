@@ -159,7 +159,11 @@ document.addEventListener("DOMContentLoaded", () => {
             'https://dtiirdimtbmkvryvqten.supabase.co/functions/v1/submit-main-page',
             {
               method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${supabaseKey}`,
+                'apikey': supabaseKey
+              },
               body: JSON.stringify(payload)
             }
           );

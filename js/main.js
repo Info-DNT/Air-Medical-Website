@@ -183,6 +183,7 @@ function getRandomItem(arr) {
 function showSocialProof() {
   const box = document.getElementById("social-proof");
   const text = document.getElementById("proof-text");
+  if (!box || !text) return;
 
   const region = getRandomItem(regions);
   const gender = Math.random() > 0.5 ? "male" : "female";
