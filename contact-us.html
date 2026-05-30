@@ -218,7 +218,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     "postalCode": "110008",
     "addressCountry": "IN"
   },
-  "telephone": "+918800028727",
+  "telephone": "+911171859928", "telephone2": "+919217710155",
   "email": "info@airmedical24x7.com",
   "parentOrganization": {
     "@id": "https://airmedical24x7.com/#organization"
@@ -254,7 +254,17 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     },
     {
       "@type": "ContactPoint",
-      "telephone": "+918800028727",
+      "telephone": "+911171859928",
+      "contactType": "Customer Support / Emergency",
+      "areaServed": "IN",
+      "availableLanguage": [
+        "en",
+        "hi"
+      ]
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "+919217710155",
       "contactType": "Customer Support / Emergency",
       "areaServed": "IN",
       "availableLanguage": [
@@ -400,22 +410,6 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     </div>
     <!-- Navbar End -->
 
-  <!-- SOS Emergency Button -->
-  <div id="sos-btn" onclick="toggleSOS()">🚨 SOS</div>
-
-  <!-- SOS Popup -->
-  <div id="sos-popup">
-    <div class="sos-content">
-      <span class="close-sos" onclick="toggleSOS()">&times;</span>
-      <h3>Emergency Assistance</h3>
-
-      <a href="tel:+971565542001" class="sos-link call">📞 Call Now</a>
-      <a href="https://wa.me/971565542001" target="_blank" class="sos-link whatsapp">💬 WhatsApp Chat</a>
-      <a href="mailto:info@airmedical24x7.com" class="sos-link email">✉️ Email Support</a>
-
-      <p class="sos-note">Available 24X7 Worldwide</p>
-    </div>
-  </div>
   <!-- SOS Popup -->
 
     
@@ -506,7 +500,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         </div>
                         <h5 class="mb-3">Call Us 24X7</h5>
                         <a href="tel:+971565542001" class="text-dark fw-bold mb-2">+971 56 554 2001</a>
-                        <a href="tel:+918800028727" class="text-dark mb-2">+91 88000 28727</a>
+                        <a href="tel:+911171859928" class="text-dark mb-2">+91 11 7185 9928</a>
+                        <a href="tel:+919217710155" class="text-dark mb-2">+91 9217710155</a>
                         <a href="tel:+97143230261" class="text-dark mb-0">+971 4 323 0261</a>
                     </div>
                 </div>
@@ -548,10 +543,10 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         <div class="col-lg-10">
             <div class="bg-white rounded shadow-lg p-5">
                 <div class="text-center mb-5">
-                    <h2 class="about-heading">Get a Free Quotation</h2>
+                    <h2 class="about-heading">Get a quotation in 30 minutes</h2>
+            <div class="testimonial-underline mb-4"></div>
                     <div class="testimonial-underline"></div>
-                    <p class="text-muted mb-4 small fw-bold"><i class="far fa-clock text-red me-1"></i> Get a quotation in 30 minutes</p>
-                </div>
+                    </div>
 
                 <form id="quoteForm">
                     <div class="row g-4">
@@ -625,8 +620,6 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                                 <option>Commercial Flight Stretcher Service</option>
                                 <option>Flight Medical Escort</option>
                                 <option>Medical Tourism</option>
-                                <option>Flight Wheelchair Services</option>
-                                <option>Private Medical Charter Jet</option>
                                 <option>Medical Travel Assistance</option>
                                 <option>Organ Transplant Assistance</option>
                                 <option>Overseas Medical Tourism</option>
@@ -718,12 +711,18 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         </a>
                     </p>
 
-                    <p class="mb-0">
-                        <i class="fa fa-phone-alt text-primary me-3"></i>
-                        <a href="tel:+918800028727" style="text-decoration: none; color: inherit;">
-                            +91 88000 28727
-                        </a>
-                    </p>
+                              <p class="mb-0">
+            <i class="fa fa-phone-alt text-primary me-3"></i>
+            <a href="tel:+911171859928" style="text-decoration: none; color: inherit;">
+              +91 11 7185 9928
+            </a>
+          </p>
+          <p class="mb-0">
+            <i class="fa fa-phone-alt text-primary me-3"></i>
+            <a href="tel:+919217710155" style="text-decoration: none; color: inherit;">
+              +91 9217710155
+            </a>
+          </p>
 
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -749,8 +748,6 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                     <div class="d-flex flex-column justify-content-start">
                         <a class="text-light mb-2" href="air-ambulance"><i
                                 class="fa fa-angle-right me-2"></i>Air Ambulance</a>
-                        <a class="text-light mb-2" href="air-ambulance-charters"><i
-                                class="fa fa-angle-right me-2"></i>Air Ambulance Charter</a>
                         <a class="text-light mb-2" href="commercial-flight-stretcher"><i
                                 class="fa fa-angle-right me-2"></i>Commercial Flight Stretcher</a>
                         <a class="text-light mb-2" href="flight-medical-escort-services"><i
@@ -898,7 +895,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
 
   <!-- Mobile Sticky bottom CTA Bar -->
-  <div class="mobile-sticky-cta d-lg-none">
+  <div class="mobile-sticky-cta">
     <div class="row g-2">
       <div class="col-4">
         <a href="tel:+971565542001" class="btn btn-call w-100 py-2.5 text-center">

@@ -2154,3 +2154,17 @@ h6 {
     }
 }
 
+
+/* Desktop Optimization for Bottom Sticky CTA */
+@media (min-width: 992px) {
+    .mobile-sticky-cta {
+        max-width: 650px;
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%);
+        border-radius: 15px 15px 0 0;
+        padding: 10px 20px;
+        background: #ffffff;
+        box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.15);
+    }
+}
