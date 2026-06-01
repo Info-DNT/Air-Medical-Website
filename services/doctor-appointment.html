@@ -483,80 +483,158 @@
 
     <div class="container-fluid py-5">
         <div class="container">
+            <div class="row g-5 align-items-start">
 
-            <h2 class="display-4 mb-4">Doctor Appointment</h2>
+                <!-- Left: Main Content -->
+                <div class="col-lg-7">
+                    <h2 class="display-4 mb-4">Doctor Appointment</h2>
 
-            <p>
-                At Air Medical 24X7, we make global healthcare accessible through our doctor appointment services.
-                Whether you
-                need a patient evaluation or an in-person specialist consultation globally, we help you find the right
-                doctor
-                for your medical needs no matter where you are in the world.
-            </p>
+                    <p>
+                        At Air Medical 24X7, we make global healthcare accessible through our doctor appointment services.
+                        Whether you need a patient evaluation or an in-person specialist consultation globally, we help you find the right
+                        doctor for your medical needs no matter where you are in the world.
+                    </p>
 
-            <h2 class="text-primary mt-5 mb-3">Doctor Appointment Services</h2>
+                    <h2 class="text-primary mt-5 mb-3">Doctor Appointment Services</h2>
 
-            <p>
-                Finding a competent, qualified, and trustworthy doctor can be challenging especially in another country.
-                That's where Air Medical 24X7 steps in.
-            </p>
+                    <p>
+                        Finding a competent, qualified, and trustworthy doctor can be challenging especially in another country.
+                        That's where Air Medical 24X7 steps in.
+                    </p>
 
-            <p>
-                We provide 24X7 doctor appointment booking services that connect you to verified, experienced, and
-                internationally trained medical professionals.
-            </p>
+                    <p>
+                        We provide 24X7 doctor appointment booking services that connect you to verified, experienced, and
+                        internationally trained medical professionals.
+                    </p>
 
-            <p>With Air Medical 24X7, you can:</p>
+                    <p>With Air Medical 24X7, you can:</p>
 
-            <ul>
-                <li>Book in-person appointments with top doctors worldwide.</li>
-                <li>Access a global network of trusted specialists and healthcare centers.</li>
-                <li>Receive medical guidance and second opinions from internationally certified professionals.</li>
-            </ul>
+                    <ul>
+                        <li>Book in-person appointments with top doctors worldwide.</li>
+                        <li>Access a global network of trusted specialists and healthcare centers.</li>
+                        <li>Receive medical guidance and second opinions from internationally certified professionals.</li>
+                    </ul>
 
-            <p>
-                Our worldwide professional network ensures that you're matched with the right medical expert for your
-                specific health condition whether it's cardiac care, neurosurgery, cosmetic treatment, or rehabilitation
-                therapy.
-            </p>
+                    <p>
+                        Our worldwide professional network ensures that you're matched with the right medical expert for your
+                        specific health condition whether it's cardiac care, neurosurgery, cosmetic treatment, or rehabilitation
+                        therapy.
+                    </p>
 
+                    <h2 class="text-primary mt-5 mb-3">Finding the Right Doctor Abroad</h2>
 
-            <h2 class="text-primary mt-5 mb-3">Finding the Right Doctor Abroad</h2>
+                    <p>
+                        Choosing the right doctor is critical for your treatment's success. The physician, specialist, or
+                        surgeon you select must have:
+                    </p>
 
-            <p>
-                Choosing the right doctor is critical for your treatment's success. The physician, specialist, or
-                surgeon you
-                select must have:
-            </p>
+                    <ul>
+                        <li>Verified credentials and board certification in the relevant specialty.</li>
+                        <li>Proven experience with your specific medical condition or procedure.</li>
+                        <li>Training from internationally recognized institutions.</li>
+                        <li>The ability to communicate clearly (preferably in English).</li>
+                    </ul>
 
-            <ul>
-                <li>Verified credentials and board certification in the relevant specialty.</li>
-                <li>Proven experience with your specific medical condition or procedure.</li>
-                <li>Training from internationally recognized institutions.</li>
-                <li>The ability to communicate clearly (preferably in English).</li>
-            </ul>
+                    <h2 class="text-primary mt-5 mb-3">How Air Medical 24X7 Helps You Book and Travel for Treatment:</h2>
 
+                    <ul>
+                        <li>Initial Consultation: We assess your medical needs and suggest suitable specialists or hospitals.</li>
+                        <li>Doctor Selection: Choose from verified, internationally recognized doctors.</li>
+                        <li>Appointment Booking: We arrange an in-person visit abroad.</li>
+                        <li>Medical Travel Coordination: Our team organizes visas, flights, and local transfers.</li>
+                        <li>Air Ambulance: For critical cases, we provide bed-to-bed air medical transfer.</li>
+                        <li>Ongoing Assistance: We stay connected throughout your treatment and recovery journey.</li>
+                    </ul>
 
-            <h2 class="text-primary mt-5 mb-3">How Air Medical 24X7 Helps You Book and Travel for Treatment:</h2>
+                    <h2 class="text-primary mt-5 mb-3">Book Your Doctor Appointment</h2>
 
-            <ul>
-                <li>Initial Consultation: We assess your medical needs and suggest suitable specialists or hospitals.
-                </li>
-                <li>Doctor Selection: Choose from verified, internationally recognized doctors.</li>
-                <li>Appointment Booking: We arrange an in-person visit abroad.</li>
-                <li>Medical Travel Coordination: Our team organizes visas, flights, and local transfers.</li>
-                <li>Air Ambulance: For critical cases, we provide bed-to-bed air medical transfer.</li>
-                <li>Ongoing Assistance: We stay connected throughout your treatment and recovery journey.</li>
-            </ul>
+                    <p>
+                        Let Air Medical 24X7 guide you to the right specialist and support you every step of the way from your
+                        first consultation to full recovery.
+                    </p>
+                </div>
 
+                <!-- Right: Compact Quote Form -->
+                <div class="col-lg-5">
+                    <div class="bg-white rounded shadow-lg p-4" style="position: sticky; top: 90px;">
+                        <h4 class="text-center mb-2 fw-bold">Get a Quotation in 30 Minutes</h4>
+                        <div class="form-underline mb-3"></div>
+                        <form id="quoteForm">
+                            <div class="row g-3 text-start">
+                                <!-- Full Name -->
+                                <div class="col-12">
+                                    <label class="fw-bold mb-1 small">Full Name</label>
+                                    <input type="text" id="name" name="name" class="form-control bg-light border-0"
+                                        placeholder="Enter your name" required pattern="[A-Za-z ]+"
+                                        style="height: 48px;">
+                                </div>
 
-            <h2 class="text-primary mt-5 mb-3">Book Your Doctor Appointment</h2>
+                                <!-- Phone Number -->
+                                <div class="col-12">
+                                    <label class="fw-bold mb-1 small">Phone Number</label>
+                                    <div class="input-group">
+                                        <input type="text" id="countryCode" class="form-control bg-light border-0"
+                                            style="max-width: 80px; height: 48px;">
+                                        <input type="tel" id="phone" name="phone" class="form-control bg-light border-0"
+                                            placeholder="Enter phone number" required style="height: 48px;">
+                                    </div>
+                                </div>
 
-            <p>
-                Let Air Medical 24X7 guide you to the right specialist and support you every step of the way from your
-                first consultation to full recovery.
-            </p>
+                                <!-- Email -->
+                                <div class="col-12">
+                                    <label class="fw-bold mb-1 small">Email Address</label>
+                                    <input type="email" id="email" name="email" class="form-control bg-light border-0"
+                                        placeholder="Enter your email" required style="height: 48px;">
+                                </div>
 
+                                <!-- Patient Location & Destination -->
+                                <div class="col-6">
+                                    <label class="fw-bold mb-1 small">Patient Location</label>
+                                    <input type="text" id="patientLocation" name="patientLocation"
+                                        class="form-control bg-light border-0" placeholder="City / Country" required
+                                        style="height: 48px;">
+                                </div>
+                                <div class="col-6">
+                                    <label class="fw-bold mb-1 small">Destination</label>
+                                    <input type="text" id="destination" name="destination"
+                                        class="form-control bg-light border-0" placeholder="City / Country" required
+                                        style="height: 48px;">
+                                </div>
+
+                                <!-- Service -->
+                                <div class="col-12">
+                                    <label class="fw-bold mb-1 small">Select Service</label>
+                                    <select id="service" name="service" class="form-select bg-light border-0" required
+                                        style="height: 48px;">
+                                        <option value="">Select a Service</option>
+                                        <option value="Doctor Appointment" selected>Doctor Appointment</option>
+                                        <option value="Hospital Acceptance">Hospital Acceptance</option>
+                                        <option value="Air Ambulance">Air Ambulance</option>
+                                        <option value="Airline Stretcher Services">Airline Stretcher Services</option>
+                                        <option value="Flight Medical Escort">Flight Medical Escort</option>
+                                        <option value="Medical Tourism">Medical Tourism</option>
+                                        <option value="Medical Travel Assistance">Medical Travel Assistance</option>
+                                        <option value="Organ Transplant Assistance">Organ Transplant Assistance</option>
+                                        <option value="Overseas Medical Tourism">Overseas Medical Tourism</option>
+                                        <option value="ECMO Transfer Services">ECMO Transfer Services</option>
+                                        <option value="Home Health Care">Home Health Care</option>
+                                        <option value="Second Opinion Services">Second Opinion Services</option>
+                                        <option value="Custom Medical Packages">Custom Medical Packages</option>
+                                    </select>
+                                </div>
+
+                                <!-- Submit -->
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3 fw-bold" type="submit">
+                                        Get Free Quotation
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 
@@ -799,6 +877,39 @@
       </div>
     </div>
   </div>
+
+  <!-- Country Code Auto Detect -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const countryInput = document.getElementById("countryCode");
+      if (!countryInput) return;
+
+      // Default fallback
+      countryInput.value = "+1";
+
+      // Try ipapi first
+      fetch("https://ipapi.co/json/")
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.country_calling_code) {
+            countryInput.value = data.country_calling_code;
+          }
+        })
+        .catch(() => {
+          // Try ipwho.is as backup
+          fetch("https://ipwho.is/")
+            .then(res => res.json())
+            .then(data => {
+              if (data && data.calling_code) {
+                countryInput.value = "+" + data.calling_code;
+              }
+            })
+            .catch(() => {
+              countryInput.value = "+1";
+            });
+        });
+    });
+  </script>
 
 </body>
 

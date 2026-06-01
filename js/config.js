@@ -12,7 +12,6 @@ window.blogsSupabaseClient = supabase.createClient(blogsSupabaseUrl, blogsSupaba
 
 // Automatically inject and handle Cloudflare Turnstile Captcha
 const turnstileSiteKey = "0x4AAAAAADTA3gG7SVL4awln";
-const turnstileTestSiteKey = "1x00000000000000000000AA"; // Safe test key for localhost/file testing
 
 // Map to store widget IDs for each form
 const turnstileWidgets = new Map();
@@ -25,11 +24,7 @@ window.onloadTurnstileCallback = function () {
     document.getElementById("careerForm")
   ].filter(Boolean);
 
-  // Auto-detect if we are running in local environment (localhost or file protocol)
-  const isLocal = window.location.hostname === "localhost" || 
-                  window.location.hostname === "127.0.0.1" || 
-                  window.location.protocol === "file:";
-  const activeSiteKey = isLocal ? turnstileTestSiteKey : turnstileSiteKey;
+  const activeSiteKey = turnstileSiteKey;
 
   forms.forEach(form => {
     const submitBtn = form.querySelector('button[type="submit"]');
@@ -48,7 +43,7 @@ window.onloadTurnstileCallback = function () {
     try {
       // Explicitly render Turnstile widget
       const widgetId = turnstile.render(container, {
-        sitekey: activeSiteKey,
+        sitekey: turnstileSiteKey,
         theme: "light",
         callback: function (token) {
           console.log(`[Turnstile] Challenge solved for ${form.id}`);
