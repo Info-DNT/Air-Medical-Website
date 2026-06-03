@@ -75,8 +75,8 @@ async function loadBlog() {
     </div>
     <div class="col-md-6">
         <div class="premium-card h-100 p-4" style="background: #f8fafc; border: 1px solid rgba(0, 0, 0, 0.03); border-radius: 16px;">
-            <h5 class="fw-bold text-dark"><i class="fas fa-clock text-red me-2"></i>24/7 Availability</h5>
-            <p class="mb-0 small text-muted">Medical emergencies happen at night, on weekends, and on holidays. Dedicated operations teams are on standby 24/7/365.</p>
+            <h5 class="fw-bold text-dark"><i class="fas fa-clock text-red me-2"></i>24X7 Availability</h5>
+            <p class="mb-0 small text-muted">Medical emergencies happen at night, on weekends, and on holidays. Dedicated operations teams are on standby 24X7/365.</p>
         </div>
     </div>
 </div>

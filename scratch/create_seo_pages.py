@@ -646,25 +646,25 @@ for page in pages:
                         <div class="col-sm-3 col-6">
                             <div class="premium-card text-center py-4">
                                 <i class="fa fa-3x fa-user-md premium-icon mb-3"></i>
-                                <h6 class="mb-0">Expert<small class="d-block text-primary">Medical Escort</small></h6>
+                                <h6 class="mb-0">Expert <small class="d-block text-primary">Medical Escort</small></h6>
                             </div>
                         </div>
                         <div class="col-sm-3 col-6">
                             <div class="premium-card text-center py-4">
                                 <i class="fa fa-3x fa-plane premium-icon mb-3"></i>
-                                <h6 class="mb-0">Emergency<small class="d-block text-primary">Services</small></h6>
+                                <h6 class="mb-0">Emergency <small class="d-block text-primary">Services</small></h6>
                             </div>
                         </div>
                         <div class="col-sm-3 col-6">
                             <div class="premium-card text-center py-4">
                                 <i class="fas fa-clock fa-3x premium-icon mb-3"></i>
-                                <h6 class="mb-0">24X7<small class="d-block text-primary">Support</small></h6>
+                                <h6 class="mb-0">24X7 <small class="d-block text-primary">Support</small></h6>
                             </div>
                         </div>
                         <div class="col-sm-3 col-6">
                             <div class="premium-card text-center py-4">
                                 <i class="fas fa-globe fa-3x premium-icon mb-3"></i>
-                                <h6 class="mb-0">Global<small class="d-block text-primary">Service</small></h6>
+                                <h6 class="mb-0">Global <small class="d-block text-primary">Service</small></h6>
                             </div>
                         </div>
                     </div>
