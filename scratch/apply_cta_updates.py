@@ -49,12 +49,12 @@ def process_file(filepath):
         flags=re.DOTALL
     )
 
-    # 4. Insert the new mobile header button before the navbar-toggler with the text "Get a free Quotation in 30 min"
+    # 4. Insert the new mobile header button before the navbar-toggler with the text "Get the Quotation in 30 mins"
     # Using \\1 instead of \1 in python strings to avoid f-string parsing it as octal escape character \x01!
     toggler_pattern = r'(\s*)<button class="navbar-toggler"'
     header_button_html = (
         r'\1<!-- Mobile Quote Button (ONLY phone view) -->\1'
-        f'<a href="{quote_link}" class="btn btn-request btn-header-quote ms-auto me-2">Get a free Quotation in 30 min</a>\\1'
+        f'<a href="{quote_link}" class="btn btn-request btn-header-quote ms-auto me-2">Get the Quotation in 30 mins</a>\\1'
         r'<button class="navbar-toggler"'
     )
     
