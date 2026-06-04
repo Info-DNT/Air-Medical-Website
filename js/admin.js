@@ -2,7 +2,6 @@
 const getSupabaseClient = () => window.blogsSupabaseClient;
 
 /***************** STATE MANAGEMENT *****************/
-let currentAuthType = 'local'; // 'local' or 'supabase'
 let currentSession = null;
 let featuredImageBase64 = null;
 let blogsList = [];
@@ -69,24 +68,7 @@ async function logActivity(blogId, blogTitle, action) {
 /***************** DOM LISTENERS *****************/
 function initListeners() {
   const loginForm = document.getElementById("login-form");
-  const localTabBtn = document.getElementById("local-tab-btn");
-  const supabaseTabBtn = document.getElementById("supabase-tab-btn");
   const logoutBtn = document.getElementById("logout-btn");
-
-  // Auth Type Toggle
-  localTabBtn.addEventListener("click", () => {
-    currentAuthType = 'local';
-    document.getElementById("user-label").innerText = "Username";
-    document.getElementById("login-user").placeholder = "admin";
-    document.getElementById("login-user").type = "text";
-  });
-
-  supabaseTabBtn.addEventListener("click", () => {
-    currentAuthType = 'supabase';
-    document.getElementById("user-label").innerText = "Supabase Email";
-    document.getElementById("login-user").placeholder = "admin@example.com";
-    document.getElementById("login-user").type = "email";
-  });
 
   // Handle Login Submit
   loginForm.addEventListener("submit", async (e) => {
@@ -97,35 +79,17 @@ function initListeners() {
 
     alertEl.classList.add("d-none");
 
-    if (currentAuthType === 'local') {
-      // Local check against config
-      const config = window.BLOGS_ADMIN_CONFIG;
-      const inputHash = await sha256(passVal);
-      if (userVal === config.username && inputHash === config.passwordHash) {
-        // Authenticated!
-        currentSession = { username: userVal, authType: 'local' };
-        sessionStorage.setItem("admin_session", JSON.stringify(currentSession));
-        showDashboard(userVal);
-      } else {
-        alertEl.innerText = "Invalid administrator username or password.";
-        alertEl.classList.remove("d-none");
-      }
+    // Local check against config
+    const config = window.BLOGS_ADMIN_CONFIG;
+    const inputHash = await sha256(passVal);
+    if (userVal === config.username && inputHash === config.passwordHash) {
+      // Authenticated!
+      currentSession = { username: userVal, authType: 'local' };
+      sessionStorage.setItem("admin_session", JSON.stringify(currentSession));
+      showDashboard(userVal);
     } else {
-      // Supabase Auth sign-in
-      const client = getSupabaseClient();
-      const { data, error } = await client.auth.signInWithPassword({
-        email: userVal,
-        password: passVal
-      });
-
-      if (error) {
-        alertEl.innerText = `Auth Error: ${error.message}`;
-        alertEl.classList.remove("d-none");
-      } else {
-        currentSession = { username: data.user.email, authType: 'supabase' };
-        sessionStorage.setItem("admin_session", JSON.stringify(currentSession));
-        showDashboard(data.user.email);
-      }
+      alertEl.innerText = "Invalid administrator username or password.";
+      alertEl.classList.remove("d-none");
     }
   });
 

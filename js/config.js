@@ -6,8 +6,8 @@ const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 window.supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
 // Initialize a separate Supabase client for blogs & comments (stored in original project)
-const blogsSupabaseUrl = "https://eiqpvuciihwmuznbsyob.supabase.co/";
-const blogsSupabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVpcXB2dWNpaWh3bXV6bmJzeW9iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU2MDY1MDcsImV4cCI6MjA4MTE4MjUwN30.fY2QZkNa1nUB1UQxmV8r97WTpB32ocIiVXaHo1coB-c";
+const blogsSupabaseUrl = "https://dtiirdimtbmkvryvqten.supabase.co/";
+const blogsSupabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWlyZGltdGJta3ZyeXZxdGVuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYxNDQ0MzksImV4cCI6MjA5MTcyMDQzOX0.MwOkE8tsM2itUhTxNJDDHPPPAxImjRS9Ch1ACWzdTmI";
 window.blogsSupabaseClient = supabase.createClient(blogsSupabaseUrl, blogsSupabaseKey);
 
 // Automatically inject and handle Cloudflare Turnstile Captcha
@@ -226,8 +226,8 @@ window.sanitize24X7 = function (text) {
 // Admin Configuration for Blog Editor
 window.BLOGS_ADMIN_CONFIG = {
   username: "admin",
-  // SHA-256 hash of "admin123" (lowercase sha256 hex)
-  passwordHash: "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+  // SHA-256 hash of "airmedical24X7" (lowercase sha256 hex)
+  passwordHash: "fb4a53cfc2a36b5a8d6d0c37302b0b7649b7b446067257208ed0445c302d68db",
   // Optional: Paste your Supabase Service Role Key here to bypass database RLS write restrictions
   serviceRoleKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWlyZGltdGJta3ZyeXZxdGVuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NjE0NDQzOSwiZXhwIjoyMDkxNzIwNDM5fQ.NCnB3zI0ESnhCzM19y1UOlu7Qn07Lm3LujSbAh2IzZU"
 };
