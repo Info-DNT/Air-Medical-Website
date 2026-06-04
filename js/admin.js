@@ -11,7 +11,8 @@ let deleteTargetId = null;
 /***************** INITIALIZATION *****************/
 document.addEventListener("DOMContentLoaded", () => {
   // Check active write key in session storage and rebind
-  const savedKey = sessionStorage.getItem("blogs_supabase_service_key");
+  const staticKey = window.BLOGS_ADMIN_CONFIG ? window.BLOGS_ADMIN_CONFIG.serviceRoleKey : null;
+  const savedKey = sessionStorage.getItem("blogs_supabase_service_key") || staticKey;
   if (savedKey) {
     window.rebindBlogsSupabaseClient(savedKey);
     document.getElementById("settings-write-key").value = savedKey;

@@ -227,7 +227,9 @@ window.sanitize24X7 = function(text) {
 window.BLOGS_ADMIN_CONFIG = {
   username: "admin",
   // SHA-256 hash of "admin123" (lowercase sha256 hex)
-  passwordHash: "240be518fabd2724ddb6f04eeb1da5967448d7e872c0822e585e47c3e290113e"
+  passwordHash: "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+  // Optional: Paste your Supabase Service Role Key here to bypass database RLS write restrictions
+  serviceRoleKey: ""
 };
 
 // Rebind blogsSupabaseClient with custom/service key if provided
