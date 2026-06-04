@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Sanitizer function to ensure "24X7" casing everywhere client-side
-window.sanitize24X7 = function(text) {
+window.sanitize24X7 = function (text) {
   if (!text || typeof text !== "string") return text;
   try {
     const regex = new RegExp("(?<!airmedical)(?<!airmedical-)(?<!airmedical_)(24/7|24[xX]7)", "gi");
@@ -229,11 +229,11 @@ window.BLOGS_ADMIN_CONFIG = {
   // SHA-256 hash of "admin123" (lowercase sha256 hex)
   passwordHash: "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
   // Optional: Paste your Supabase Service Role Key here to bypass database RLS write restrictions
-  serviceRoleKey: ""
+  serviceRoleKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWlyZGltdGJta3ZyeXZxdGVuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NjE0NDQzOSwiZXhwIjoyMDkxNzIwNDM5fQ.NCnB3zI0ESnhCzM19y1UOlu7Qn07Lm3LujSbAh2IzZU"
 };
 
 // Rebind blogsSupabaseClient with custom/service key if provided
-window.rebindBlogsSupabaseClient = function(serviceKey) {
+window.rebindBlogsSupabaseClient = function (serviceKey) {
   if (serviceKey) {
     window.blogsSupabaseClient = supabase.createClient(blogsSupabaseUrl, serviceKey);
   } else {
