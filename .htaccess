@@ -46,7 +46,11 @@ RewriteRule ^([^/]+)$ countries/$1.html [L]
 RewriteCond %{DOCUMENT_ROOT}/services/$1.html -f
 RewriteRule ^([^/]+)$ services/$1.html [L]
 
+# Force admin routing to lowercase admin.html (handles /admin and /Admin case-insensitively)
+RewriteRule ^[Aa]dmin$ admin.html [L]
+
 # Check in root folder
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^([^/]+)$ $1.html [L]
+

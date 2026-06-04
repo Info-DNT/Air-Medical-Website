@@ -222,3 +222,20 @@ window.sanitize24X7 = function(text) {
     return temp;
   }
 };
+
+// Admin Configuration for Blog Editor
+window.BLOGS_ADMIN_CONFIG = {
+  username: "admin",
+  // SHA-256 hash of "admin123" (lowercase sha256 hex)
+  passwordHash: "240be518fabd2724ddb6f04eeb1da5967448d7e872c0822e585e47c3e290113e"
+};
+
+// Rebind blogsSupabaseClient with custom/service key if provided
+window.rebindBlogsSupabaseClient = function(serviceKey) {
+  if (serviceKey) {
+    window.blogsSupabaseClient = supabase.createClient(blogsSupabaseUrl, serviceKey);
+  } else {
+    window.blogsSupabaseClient = supabase.createClient(blogsSupabaseUrl, blogsSupabaseKey);
+  }
+};
+
