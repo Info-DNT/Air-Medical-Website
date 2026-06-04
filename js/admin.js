@@ -46,6 +46,25 @@ async function sha256(message) {
   return hashHex;
 }
 
+/***************** AUDIT LOGGING *****************/
+async function logActivity(blogId, blogTitle, action) {
+  const client = getSupabaseClient();
+  const adminUser = currentSession ? currentSession.username : "unknown";
+  try {
+    await client
+      .from("blog_audit_logs")
+      .insert([{
+        blog_id: blogId.toString(),
+        blog_title: window.sanitize24X7(blogTitle),
+        action: action,
+        action_by: adminUser
+      }]);
+  } catch (err) {
+    console.error("Failed to write audit log:", err);
+  }
+}
+
+
 /***************** DOM LISTENERS *****************/
 function initListeners() {
   const loginForm = document.getElementById("login-form");
@@ -471,16 +490,20 @@ async function submitBlogPost(status) {
       if (error) {
         throw new Error(error.message);
       }
+      await logActivity(editId, payload.title, "updated");
       alert(`Success: Blog post "${payload.title}" updated successfully!`);
     } else {
       // Insert
-      const { error } = await client
+      const { data, error } = await client
         .from("blogs")
-        .insert([payload]);
+        .insert([payload])
+        .select();
 
       if (error) {
         throw new Error(error.message);
       }
+      const insertedId = (data && data[0]) ? data[0].id : "new-post";
+      await logActivity(insertedId, payload.title, "created");
       alert(`Success: Blog post "${payload.title}" published/saved successfully!`);
     }
 
@@ -685,6 +708,9 @@ async function executeDelete(blogId) {
   btn.disabled = true;
   btn.innerText = "Deleting...";
 
+  const blog = blogsList.find(b => b.id === blogId);
+  const blogTitle = blog ? blog.title : "Unknown Title";
+
   try {
     const { error } = await client
       .from("blogs")
@@ -693,6 +719,7 @@ async function executeDelete(blogId) {
 
     if (error) throw error;
 
+    await logActivity(blogId, blogTitle, "deleted");
     alert("Blog post successfully deleted from the system!");
     
     if (bootstrapDeleteModal) {
