@@ -225,9 +225,9 @@ window.sanitize24X7 = function (text) {
 
 // Admin Configuration for Blog Editor
 window.BLOGS_ADMIN_CONFIG = {
-  username: "admin",
-  // SHA-256 hash of "airmedical24X7" (lowercase sha256 hex)
-  passwordHash: "fb4a53cfc2a36b5a8d6d0c37302b0b7649b7b446067257208ed0445c302d68db",
+  username: "Nitin@admin@24X7@",
+  // SHA-256 hash of "@admin@24X7@Global@" (lowercase sha256 hex)
+  passwordHash: "a2bf3a92c6e4c20febc5b11f542fd5af1e10997dd65f29a4ea4627cb7642d39b",
   // Optional: Paste your Supabase Service Role Key here to bypass database RLS write restrictions
   serviceRoleKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWlyZGltdGJta3ZyeXZxdGVuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NjE0NDQzOSwiZXhwIjoyMDkxNzIwNDM5fQ.NCnB3zI0ESnhCzM19y1UOlu7Qn07Lm3LujSbAh2IzZU"
 };
