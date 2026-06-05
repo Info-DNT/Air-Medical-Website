@@ -337,14 +337,84 @@
 
       <!-- Sidebar Start -->
       <div class="col-lg-4">
-        <!-- Search Form Start -->
-        <div class="mb-5">
-          <div class="input-group">
-            <input type="text" class="form-control p-3" placeholder="Keyword">
-            <button class="btn btn-primary px-3"><i class="fa fa-search"></i></button>
-          </div>
+        <!-- Quotation Form Start -->
+        <div class="bg-white rounded shadow-lg p-4 mb-5">
+          <h4 class="text-center mb-2 fw-bold" style="color: #1d2a4d;">Get a Quotation in 30 Minutes</h4>
+          <div class="form-underline mb-3" style="height: 3px; background-color: #FB0F0C; width: 50px; margin: 0 auto;"></div>
+          <form id="quoteForm">
+            <div class="row g-3 text-start">
+              <!-- Full Name -->
+              <div class="col-12">
+                <label class="fw-bold mb-1 small" style="color: #1d2a4d;">Full Name</label>
+                <input type="text" id="name" name="name" class="form-control bg-light border-0"
+                  placeholder="Enter your name" required pattern="[A-Za-z ]+"
+                  style="height: 48px;">
+              </div>
+
+              <!-- Phone Number -->
+              <div class="col-12">
+                <label class="fw-bold mb-1 small" style="color: #1d2a4d;">Phone Number</label>
+                <div class="input-group">
+                  <input type="text" id="countryCode" class="form-control bg-light border-0"
+                    style="max-width: 80px; height: 48px;">
+                  <input type="tel" id="phone" name="phone" class="form-control bg-light border-0"
+                    placeholder="Enter phone number" required style="height: 48px;">
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="col-12">
+                <label class="fw-bold mb-1 small" style="color: #1d2a4d;">Email Address</label>
+                <input type="email" id="email" name="email" class="form-control bg-light border-0"
+                  placeholder="Enter your email" required style="height: 48px;">
+              </div>
+
+              <!-- Patient Location & Destination -->
+              <div class="col-6">
+                <label class="fw-bold mb-1 small" style="color: #1d2a4d;">Patient Location</label>
+                <input type="text" id="patientLocation" name="patientLocation"
+                  class="form-control bg-light border-0" placeholder="City / Country" required
+                  style="height: 48px;">
+              </div>
+              <div class="col-6">
+                <label class="fw-bold mb-1 small" style="color: #1d2a4d;">Destination</label>
+                <input type="text" id="destination" name="destination"
+                  class="form-control bg-light border-0" placeholder="City / Country" required
+                  style="height: 48px;">
+              </div>
+
+              <!-- Service -->
+              <div class="col-12">
+                <label class="fw-bold mb-1 small" style="color: #1d2a4d;">Select Service</label>
+                <select id="service" name="service" class="form-select bg-light border-0" required
+                  style="height: 48px;">
+                  <option value="">Select a Service</option>
+                  <option value="Air Ambulance" selected>Air Ambulance</option>
+                  <option value="Hospital Acceptance">Hospital Acceptance</option>
+                  <option value="Airline Stretcher Services">Airline Stretcher Services</option>
+                  <option value="Flight Medical Escort">Flight Medical Escort</option>
+                  <option value="Medical Tourism">Medical Tourism</option>
+                  <option value="Medical Travel Assistance">Medical Travel Assistance</option>
+                  <option value="Organ Transplant Assistance">Organ Transplant Assistance</option>
+                  <option value="Overseas Medical Tourism">Overseas Medical Tourism</option>
+                  <option value="ECMO Transfer Services">ECMO Transfer Services</option>
+                  <option value="Home Health Care">Home Health Care</option>
+                  <option value="Doctor Appointment">Doctor Appointment</option>
+                  <option value="Second Opinion Services">Second Opinion Services</option>
+                  <option value="Custom Medical Packages">Custom Medical Packages</option>
+                </select>
+              </div>
+
+              <!-- Submit -->
+              <div class="col-12">
+                <button class="btn btn-primary w-100 py-3 fw-bold" type="submit" style="background-color: #FB0F0C; border: none;">
+                  Get Free Quotation
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
-        <!-- Search Form End -->
+        <!-- Quotation Form End -->
 
         <!-- Category Start -->
         <div class="mb-5">
@@ -352,23 +422,15 @@
           <div id="category-list" class="d-flex flex-column justify-content-start">
             <!-- Categories injected by JS -->
           </div>
-
         </div>
         <!-- Category End -->
 
-
         <!-- Recent Post Start -->
         <div class="mb-5">
-          <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 mb-4">
-            Recent Post
-          </h4>
+          <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 mb-4">Recent Post</h4>
           <div id="recent-posts"></div>
         </div>
         <!-- Recent Post End -->
-
-
-
-
 
         <!-- Plain Text Start -->
         <div>
