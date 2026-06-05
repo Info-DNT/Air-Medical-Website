@@ -677,6 +677,16 @@ async function executeDelete(blogId) {
   const blogTitle = blog ? blog.title : "Unknown Title";
 
   try {
+    // Delete any comments associated with the blog post first to avoid orphans
+    const { error: commentsError } = await client
+      .from("comments")
+      .delete()
+      .eq("blog_id", blogId);
+
+    if (commentsError) {
+      console.warn("Could not delete associated comments:", commentsError.message);
+    }
+
     const { error } = await client
       .from("blogs")
       .delete()
