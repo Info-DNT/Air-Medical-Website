@@ -4,128 +4,6 @@
 
 
 <head>
-            <script>
-    (function () {
-      var pathname = window.location.pathname;
-      var cleanPath = pathname;
-      if (cleanPath.endsWith('.html')) {
-        cleanPath = cleanPath.slice(0, -5);
-      }
-      if (cleanPath.endsWith('/index')) {
-        cleanPath = cleanPath.slice(0, -6);
-      }
-      var basePath = '';
-      if (window.location.hostname.indexOf('.github.io') !== -1) {
-        var segments = pathname.split('/');
-        if (segments.length > 1 && segments[1]) {
-          basePath = '/' + segments[1];
-        }
-      }
-      
-      var countriesPrefix = basePath + '/countries/';
-      var servicesPrefix = basePath + '/services/';
-      if (cleanPath.startsWith(countriesPrefix) && cleanPath.length > countriesPrefix.length) {
-        cleanPath = basePath + '/' + cleanPath.substring(countriesPrefix.length);
-      } else if (cleanPath.startsWith(servicesPrefix) && cleanPath.length > servicesPrefix.length) {
-        cleanPath = basePath + '/' + cleanPath.substring(servicesPrefix.length);
-      }
-      if (cleanPath === basePath + '/countries/index' || cleanPath === basePath + '/countries') {
-        cleanPath = basePath + '/countries';
-      }
-      var isDirRoot = (cleanPath === basePath || cleanPath === basePath + '/' || cleanPath === '/');
-      if (isDirRoot) {
-        if (!cleanPath.endsWith('/')) {
-          cleanPath += '/';
-        }
-      } else {
-        if (cleanPath.endsWith('/') && cleanPath !== '/') {
-          cleanPath = cleanPath.slice(0, -1);
-        }
-      }
-      if (cleanPath === '') {
-        cleanPath = '/';
-      }
-      if (cleanPath !== pathname) {
-        window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
-      }
-      var currentFolder = '';
-      var baseHref = window.location.origin + basePath + '/' + currentFolder;
-      document.write('<base href="' + baseHref + '">');
-
-      // Global Link Interceptor for Clean Extensionless Local Navigation
-      document.addEventListener('DOMContentLoaded', function() {
-        document.body.addEventListener('click', function (e) {
-          var anchor = e.target.closest('a');
-          if (!anchor) return;
-          var href = anchor.getAttribute('href');
-          if (!href) return;
-          
-          if (href.startsWith('http') || href.startsWith('#') || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('sms:') || href.startsWith('javascript:')) {
-            return;
-          }
-          
-          var parts = href.split('?');
-          var cleanHref = parts[0].split('#')[0];
-          var queryHashPart = href.substring(parts[0].length);
-          
-          if (cleanHref.startsWith('/')) {
-            cleanHref = cleanHref.substring(1);
-          }
-          if (cleanHref === '') {
-            cleanHref = 'index';
-          }
-          
-          var targetPath = '';
-          if (cleanHref === 'countries') {
-            targetPath = 'countries/index.html';
-          } else if (cleanHref.startsWith('air-ambulance-') && cleanHref !== 'air-ambulance-charters') {
-            targetPath = 'countries/' + cleanHref + '.html';
-          } else {
-            var services = [
-              'air-ambulance', 'air-ambulance-charters', 'ECMO-transfer', 
-              'commercial-airlines-medical-transfer-services', 'airline-stretcher-services', 
-              'custom-medical-packages', 'doctor-appointment', 'flight-medical-escort-services', 
-              'hospital-acceptance', 'medical-tourism-services', 'second-opinion-services'
-            ];
-            if (services.indexOf(cleanHref) !== -1) {
-              targetPath = 'services/' + cleanHref + '.html';
-            } else {
-              if (cleanHref.indexOf('.') !== -1) {
-                targetPath = cleanHref;
-              } else {
-                targetPath = cleanHref + '.html';
-              }
-            }
-          }
-          
-          var finalUrl = targetPath;
-          if (currentFolder === 'countries/') {
-            if (targetPath.startsWith('countries/')) {
-              finalUrl = targetPath.substring(10);
-            } else {
-              finalUrl = '../' + targetPath;
-            }
-          } else if (currentFolder === 'services/') {
-            if (targetPath.startsWith('services/')) {
-              finalUrl = targetPath.substring(9);
-            } else {
-              finalUrl = '../' + targetPath;
-            }
-          }
-          
-          var target = anchor.getAttribute('target');
-          if (target === '_blank' || e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) {
-            e.preventDefault();
-            window.open(finalUrl + queryHashPart, '_blank');
-            return;
-          }
-          
-          e.preventDefault();
-          window.location.href = finalUrl + queryHashPart;
-        });
-      });
-    })();
-  </script>
   <meta charset="utf-8">
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -138,9 +16,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script type="application/ld+json">
 {
   "@type": "Organization",
-  "@id": "https://airmedical24x7.com/#organization",
+  "@id": "https://airmedical24x7.com/index#organization",
   "name": "Air Medical 24X7",
-  "url": "https://airmedical24x7.com",
+  "url": "https://airmedical24x7.com/",
   "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
   "sameAs": [
     "https://www.facebook.com/airmedical24x7/",
@@ -161,12 +39,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "inLanguage": "en",
   "isPartOf": {
     "@type": "WebSite",
-    "@id": "https://airmedical24x7.com/#website",
+    "@id": "https://airmedical24x7.com/index#website",
     "name": "Air Medical 24X7",
-    "url": "https://airmedical24x7.com"
+    "url": "https://airmedical24x7.com/"
   },
   "publisher": {
-    "@id": "https://airmedical24x7.com/#organization"
+    "@id": "https://airmedical24x7.com/index#organization"
   },
   "about": {
     "@type": "Thing",
@@ -178,9 +56,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
     
-    <title>Terms & Conditions | Air Medical 24X7 - Air Ambulance & Medical Evacuation</title>
+    <title>Terms & Conditions | Air Medical 24X7</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta name="description" content="Read the Terms and Conditions of Air Medical 24X7 for air ambulance, medical evacuation, flight medical escort, ECMO transfers, and global patient transportation services.">
+    <meta name="description" content="Read the Terms and Conditions of Air Medical 24X7 for air ambulance, medical evacuation, medical escorts, and global patient transportation services.">
 
     <meta name="keywords" content="Air Medical 24X7 terms, air ambulance terms, medical evacuation policy, flight medical escort terms, patient transport agreement">
 
@@ -191,13 +69,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Terms & Conditions | Air Medical 24X7">
-<meta property="og:description" content="Official Terms and Conditions for Air Medical 24X7 air ambulance, medical evacuation, and global patient transfer services.">
+<meta property="og:description" content="Read the Terms and Conditions of Air Medical 24X7 for air ambulance, medical evacuation, medical escorts, and global patient transportation services.">
 <meta property="og:url" content="https://airmedical24x7.com/terms-and-conditions">
 <meta property="og:image" content="https://airmedical24x7.com/img/air-medical-logo.png">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Terms & Conditions | Air Medical 24X7">
-<meta name="twitter:description" content="Read the legal terms governing Air Medical 24X7 air ambulance and medical evacuation services.">
+<meta name="twitter:description" content="Read the Terms and Conditions of Air Medical 24X7 for air ambulance, medical evacuation, medical escorts, and global patient transportation services.">
 <meta name="twitter:image" content="https://airmedical24x7.com/img/air-medical-logo.png">
 
 
@@ -240,7 +118,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
 
             <!-- Logo -->
-            <a class="navbar-brand" href="./">
+            <a class="navbar-brand" href="/">
                 <img src="img/air-medical-logo.png" alt="Air Medical 24X7" class="logo-img">
             </a>
 
@@ -261,19 +139,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- Menu -->
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="./" class="nav-item nav-link">Home</a>
+                    <a href="/" class="nav-item nav-link">Home</a>
                     <a href="about-us" class="nav-item nav-link">About Us</a>
 
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Our Services</a>
                         <div class="dropdown-menu m-0">
-                            <a href="air-ambulance" class="dropdown-item">Air Ambulance</a>
-                            <a href="airline-stretcher-services" class="dropdown-item">Airline Stretcher Services Worldwide</a>
-                            <a href="flight-medical-escort-services" class="dropdown-item">Flight Medical Escort Services</a>
-                            <a href="hospital-acceptance" class="dropdown-item">Hospital Acceptance</a>
-                            <a href="doctor-appointment" class="dropdown-item">Doctor Appointment</a>
-                            <a href="second-opinion-services" class="dropdown-item">Second Opinion Services</a>
-                            <a href="custom-medical-packages" class="dropdown-item">Custom Medical Packages</a>
+                            <a href="services/air-ambulance" class="dropdown-item">Air Ambulance</a>
+                            <a href="services/commercial-flight-stretcher" class="dropdown-item">Airline Stretcher Services Worldwide</a>
+                            <a href="services/flight-medical-escort-services" class="dropdown-item">Flight Medical Escort Services</a>
+                            <a href="services/hospital-acceptance" class="dropdown-item">Hospital Acceptance</a>
+                            <a href="services/doctor-appointment" class="dropdown-item">Doctor Appointment</a>
+                            <a href="services/second-opinion-services" class="dropdown-item">Second Opinion Services</a>
+                            <a href="services/custom-medical-packages" class="dropdown-item">Custom Medical Packages</a>
                         </div>
                     </div>
           
@@ -492,7 +370,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
                         Quick Links</h4>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-light mb-2" href="./"><i class="fa fa-angle-right me-2"></i>Home</a>
+                        <a class="text-light mb-2" href="/"><i class="fa fa-angle-right me-2"></i>Home</a>
                         <a class="text-light mb-2" href="about-us"><i class="fa fa-angle-right me-2"></i>About Us</a>
                         <a class="text-light mb-2" href="career"><i class="fa fa-angle-right me-2"></i>Career</a>
                         <a class="text-light mb-2" href="blogs"><i class="fa fa-angle-right me-2"></i>Latest Blogs</a>
@@ -506,13 +384,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
                         Popular Links</h4>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-light mb-2" href="air-ambulance"><i class="fa fa-angle-right me-2"></i>Air Ambulance</a>
-                        <a class="text-light mb-2" href="airline-stretcher-services"><i class="fa fa-angle-right me-2"></i>Airline Stretcher Services Worldwide</a>
-                        <a class="text-light mb-2" href="flight-medical-escort-services"><i class="fa fa-angle-right me-2"></i>Flight Medical Escort Services</a>
-                        <a class="text-light mb-2" href="hospital-acceptance"><i class="fa fa-angle-right me-2"></i>Hospital Acceptance</a>
-                        <a class="text-light mb-2" href="doctor-appointment"><i class="fa fa-angle-right me-2"></i>Doctor Appointment</a>
-                        <a class="text-light mb-2" href="second-opinion-services"><i class="fa fa-angle-right me-2"></i>Second Opinion Services</a>
-                        <a class="text-light mb-2" href="custom-medical-packages"><i class="fa fa-angle-right me-2"></i>Custom Medical Packages</a>
+                        <a class="text-light mb-2" href="services/air-ambulance"><i class="fa fa-angle-right me-2"></i>Air Ambulance</a>
+                        <a class="text-light mb-2" href="services/commercial-flight-stretcher"><i class="fa fa-angle-right me-2"></i>Airline Stretcher Services Worldwide</a>
+                        <a class="text-light mb-2" href="services/flight-medical-escort-services"><i class="fa fa-angle-right me-2"></i>Flight Medical Escort Services</a>
+                        <a class="text-light mb-2" href="services/hospital-acceptance"><i class="fa fa-angle-right me-2"></i>Hospital Acceptance</a>
+                        <a class="text-light mb-2" href="services/doctor-appointment"><i class="fa fa-angle-right me-2"></i>Doctor Appointment</a>
+                        <a class="text-light mb-2" href="services/second-opinion-services"><i class="fa fa-angle-right me-2"></i>Second Opinion Services</a>
+                        <a class="text-light mb-2" href="services/custom-medical-packages"><i class="fa fa-angle-right me-2"></i>Custom Medical Packages</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -557,7 +435,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- Copyright -->
             <div class="col-md-6 text-center text-md-start">
                 <p class="mb-0">
-                    &copy; <a href="./" class="text-primary">Air Medical 24X7</a>. All Rights Reserved.
+                    &copy; <a href="/" class="text-primary">Air Medical 24X7</a>. All Rights Reserved.
                 </p>
             </div>
 

@@ -196,7 +196,7 @@ async function loadCategories() {
   [...new Set(data.map(b => b.category))].forEach(category => {
     container.innerHTML += `
       <a class="d-block mb-2"
-         href="/blogs?category=${encodeURIComponent(category)}">
+         href="blogs?category=${encodeURIComponent(category)}">
         ${category}
       </a>
     `;
@@ -221,7 +221,7 @@ async function loadRecentPosts() {
     const title = window.sanitize24X7(post.title);
     container.innerHTML += `
       <a class="d-block mb-2"
-         href="/blogs-detail.html?slug=${post.slug}">
+         href="blogs-detail?slug=${post.slug}">
         ${title}
       </a>
     `;
@@ -242,7 +242,7 @@ async function loadTags() {
 
   container.innerHTML = tags
     .map(tag => `
-      <a href="/blogs?tag=${encodeURIComponent(tag)}"
+      <a href="blogs?tag=${encodeURIComponent(tag)}"
          class="btn btn-primary btn-sm m-1">
         ${tag}
       </a>

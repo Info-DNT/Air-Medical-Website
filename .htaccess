@@ -1,56 +1,77 @@
-# Air Medical 24X7 - Clean URL Rewrites & Redirects
+# Air Medical 24X7 - Physical URL Mappings & Legacy Clean URL Redirects
 RewriteEngine On
 RewriteBase /
 
-# Directory conflict override for countries listing
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^countries/?$ countries.html [L,NC]
+# 1. Permanent 301 redirects for legacy clean URLs to their physical counterparts
+# This protects SEO ranking and prevents 404s for indexed pages.
 
-# 1. Redirect legacy/physical subdirectory paths to clean root-level URLs
-# Use %{ENV:REDIRECT_STATUS} to avoid redirect loops on internal rewrites
+# Redirect legacy airline-stretcher-services to commercial-flight-stretcher.html
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
-RewriteRule ^countries/index(?:\.html)?$ /countries [R=301,L,NC]
-
+RewriteRule ^airline-stretcher-services(?:\.html)?$ /services/commercial-flight-stretcher.html [R=301,L,NC]
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
-RewriteRule ^countries/(.+?)(?:\.html)?$ /$1 [R=301,L,NC]
+RewriteRule ^commercial-flight-stretcher$ /services/commercial-flight-stretcher.html [R=301,L,NC]
 
+# Redirect clean core page URLs
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
-RewriteRule ^services/(.+?)(?:\.html)?$ /$1 [R=301,L,NC]
-
-# Redirect legacy about.html and contact.html
+RewriteRule ^about-us$ /about-us.html [R=301,L,NC]
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
-RewriteRule ^about(?:\.html)?$ /about-us [R=301,L,NC]
+RewriteRule ^contact-us$ /contact-us.html [R=301,L,NC]
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
-RewriteRule ^contact(?:\.html)?$ /contact-us [R=301,L,NC]
-
-# Redirect legacy singular URLs to plural
+RewriteRule ^career$ /career.html [R=301,L,NC]
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
-RewriteRule ^flight-medical-escort-service(?:\.html)?$ /flight-medical-escort-services [R=301,L,NC]
+RewriteRule ^blogs$ /blogs.html [R=301,L,NC]
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
-RewriteRule ^blog(?:\.html)?$ /blogs [R=301,L,NC]
+RewriteRule ^blogs-detail$ /blogs-detail.html [R=301,L,NC]
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
-RewriteRule ^blog-detail(?:\.html)?$ /blogs-detail [R=301,L,NC]
+RewriteRule ^countries$ /countries.html [R=301,L,NC]
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
-RewriteRule ^country(?:\.html)?$ /countries [R=301,L,NC]
+RewriteRule ^privacy-policy$ /privacy-policy.html [R=301,L,NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^terms-and-conditions$ /terms-and-conditions.html [R=301,L,NC]
 
-# 2. Redirect root-level .html requests to clean URLs
-RewriteCond %{THE_REQUEST} \s/([^/]+)\.html [NC]
-RewriteRule ^([^/]+)\.html$ /$1 [R=301,L]
+# Redirect clean service URLs to the services/ folder
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^air-ambulance$ /services/air-ambulance.html [R=301,L,NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^air-ambulance-charters$ /services/air-ambulance-charters.html [R=301,L,NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^flight-medical-escort-services$ /services/flight-medical-escort-services.html [R=301,L,NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^hospital-acceptance$ /services/hospital-acceptance.html [R=301,L,NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^doctor-appointment$ /services/doctor-appointment.html [R=301,L,NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^second-opinion-services$ /services/second-opinion-services.html [R=301,L,NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^custom-medical-packages$ /services/custom-medical-packages.html [R=301,L,NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^ecmo-transfer$ /services/ECMO-transfer.html [R=301,L,NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^commercial-airlines-medical-transfer-services$ /services/commercial-airlines-medical-transfer-services.html [R=301,L,NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^medical-tourism-services$ /services/medical-tourism-services.html [R=301,L,NC]
 
-# 3. Internal Rewrite: Route clean root URLs to their physical subdirectory paths
-# Check in countries/ folder
-RewriteCond %{DOCUMENT_ROOT}/countries/$1.html -f
-RewriteRule ^([^/]+)$ countries/$1.html [L]
+# Redirect custom root service pages
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^commercial-stretcher-service$ /commercial-stretcher-service.html [R=301,L,NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^ecmo-air-transfer$ /ecmo-air-transfer.html [R=301,L,NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^medical-escort-dubai$ /medical-escort-dubai.html [R=301,L,NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^medical-tourism-india$ /medical-tourism-india.html [R=301,L,NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^repatriation-services-dubai$ /repatriation-services-dubai.html [R=301,L,NC]
 
-# Check in services/ folder
-RewriteCond %{DOCUMENT_ROOT}/services/$1.html -f
-RewriteRule ^([^/]+)$ services/$1.html [L]
+# Redirect clean country URLs to countries/ folder
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^air-ambulance-(dubai|india|cost-dubai|to-india)$ /countries/air-ambulance-$1.html [R=301,L,NC]
 
-# Force admin routing to lowercase admin.html (handles /admin and /Admin case-insensitively)
-RewriteRule ^[Aa]dmin$ admin.html [L]
+# Generic fallback for standard country pages (air-ambulance-[country])
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteCond %{DOCUMENT_ROOT}/countries/air-ambulance-$1.html -f
+RewriteRule ^air-ambulance-([a-z\-]+)$ /countries/air-ambulance-$1.html [R=301,L,NC]
 
-# Check in root folder
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^([^/]+)$ $1.html [L]
-
+# Force admin routing to lowercase admin.html
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^[Aa]dmin$ /admin.html [R=301,L]

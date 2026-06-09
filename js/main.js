@@ -102,16 +102,29 @@
 
     // Dynamic Navbar Active State
     $(window).on('load', function() {
-        const path = window.location.pathname;
+        let path = window.location.pathname;
+        if (path === '' || path === '/index.html' || path === '/index') {
+            path = '/';
+        }
+        
         $('.navbar-nav a').each(function() {
             const href = $(this).attr('href');
             if (!href || href === '#') return;
 
             // Normalize href for comparison
             let cleanHref = href.replace('../', '');
+            if (cleanHref === '/index.html' || cleanHref === 'index.html') {
+                cleanHref = '/';
+            }
             
-            // Check if current path includes the href or vice versa
-            if (path.endsWith(cleanHref) || (path === '/' && cleanHref === 'index.html')) {
+            let match = false;
+            if (cleanHref === '/' && path === '/') {
+                match = true;
+            } else if (cleanHref !== '/' && (path.endsWith(cleanHref) || cleanHref.endsWith(path))) {
+                match = true;
+            }
+            
+            if (match) {
                 $(this).addClass('active');
                 // Also highlight parent dropdown if in a sub-menu
                 $(this).closest('.dropdown').find('.nav-link').first().addClass('active');
