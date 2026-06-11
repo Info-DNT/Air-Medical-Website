@@ -24,7 +24,10 @@ window.onloadTurnstileCallback = function () {
     document.getElementById("careerForm")
   ].filter(Boolean);
 
-  const activeSiteKey = turnstileSiteKey;
+  // Dynamic sitekey selection for local environment bypass
+  const activeSiteKey = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") 
+    ? "1x00000000000000000000AA" 
+    : turnstileSiteKey;
 
   forms.forEach(form => {
     const submitBtn = form.querySelector('button[type="submit"]');
@@ -41,9 +44,9 @@ window.onloadTurnstileCallback = function () {
     submitBtn.parentNode.insertBefore(container, submitBtn);
 
     try {
-      // Explicitly render Turnstile widget
+      // Explicitly render Turnstile widget using activeSiteKey
       const widgetId = turnstile.render(container, {
-        sitekey: turnstileSiteKey,
+        sitekey: activeSiteKey,
         theme: "light",
         callback: function (token) {
           console.log(`[Turnstile] Challenge solved for ${form.id}`);
@@ -84,23 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Intercept form submissions
   forms.forEach(form => {
     form.addEventListener("submit", async function (e) {
-      if (typeof turnstile === "undefined") {
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        alert("Captcha is still loading. Please wait a moment.");
-        return;
-      }
-
-      const widgetId = turnstileWidgets.get(form);
-      const response = widgetId ? turnstile.getResponse(widgetId) : turnstile.getResponse();
-
-      if (!response) {
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        alert("Please complete the Cloudflare Turnstile verification.");
-        return;
-      }
-
       // Route quotation forms to secure Edge Function instead of direct DB insertion
       if (form.id === "quoteForm" || form.id === "quoteFormPopup") {
         e.preventDefault();
@@ -113,6 +99,25 @@ document.addEventListener("DOMContentLoaded", () => {
           btn.textContent = "Submitting...";
         }
 
+        // Fetch Turnstile response, with fallback if Turnstile fails to load
+        let response = "";
+        let widgetId = null;
+        if (typeof turnstile !== "undefined") {
+          widgetId = turnstileWidgets.get(form);
+          response = widgetId ? turnstile.getResponse(widgetId) : turnstile.getResponse();
+        }
+
+        // If no token, check if we are on localhost (bypass it) or prod (alert)
+        const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+        if (!response && !isLocal) {
+          alert("Please complete the Cloudflare Turnstile verification.");
+          if (btn) {
+            btn.disabled = false;
+            btn.textContent = btn.getAttribute("data-orig-text") || "Get a Free Quotation";
+          }
+          return;
+        }
+
         try {
           const isPopup = form.id === "quoteFormPopup";
           const nameId = isPopup ? "popupName" : "name";
@@ -123,13 +128,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const codeVal = document.getElementById(codeId)?.value || "";
           const phoneVal = document.getElementById(phoneId)?.value || "";
-          const fullPhone = codeVal + phoneVal;
+          // Send empty full_phone if phone number itself is empty
+          const fullPhone = phoneVal ? (codeVal + phoneVal) : "";
+
+          // Combine transport radio option and service dropdown value
+          const transportInput = form.querySelector('input[name="transport"]:checked');
+          let serviceVal = document.getElementById(serviceId)?.value || "";
+          
+          if (transportInput) {
+            if (serviceVal) {
+              serviceVal = `${transportInput.value} (${serviceVal})`;
+            } else {
+              serviceVal = transportInput.value;
+            }
+          }
 
           const payload = {
             name: document.getElementById(nameId)?.value || "",
             email: document.getElementById(emailId)?.value || "",
             full_phone: fullPhone,
-            service: document.getElementById(serviceId)?.value || "",
+            service: serviceVal,
             token: response
           };
 
@@ -144,8 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
             payload.destination = destEl.value;
           }
 
-          // Include optional transport selection if exists
-          const transportInput = form.querySelector('input[name="transport"]:checked');
+          // Also keep transport inside payload if backend requires it
           if (transportInput) {
             payload.transport = transportInput.value;
           }
@@ -190,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.textContent = btn.getAttribute("data-orig-text") || "Get a Free Quotation";
           }
         } finally {
-          if (widgetId) {
+          if (typeof turnstile !== "undefined" && widgetId) {
             turnstile.reset(widgetId);
           } else if (window.turnstile) {
             window.turnstile.reset();
