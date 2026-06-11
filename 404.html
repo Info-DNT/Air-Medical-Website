@@ -84,6 +84,10 @@
     })();
   </script>
     <meta charset="utf-8">
+  <!-- Preconnect to CDNs -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://code.jquery.com" crossorigin>
     <title>Page Redirecting...</title>
     <style>
         body {
@@ -117,6 +121,56 @@
             text-decoration: underline;
         }
     </style>
+  <!-- Optimized Google Analytics and GTM Lazy Loader -->
+  <script>
+    (function() {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function() { dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+
+      var scriptsLoaded = false;
+      function loadAnalyticsScripts() {
+        if (scriptsLoaded) return;
+        scriptsLoaded = true;
+
+        // Google Tag Manager
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || []; w[l].push({
+            'gtm.start': new Date().getTime(), event: 'gtm.js'
+          });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+          var jScript = d.createElement(s);
+          jScript.async = true;
+          jScript.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(jScript, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KG4BQ6SM');
+
+        // Google Ads Tag 1
+        var g1 = document.createElement('script');
+        g1.async = true;
+        g1.src = 'https://www.googletagmanager.com/gtag/js?id=AW-16644189187';
+        document.head.appendChild(g1);
+        window.gtag('config', 'AW-16644189187');
+
+        // Google Ads Tag 2
+        var g2 = document.createElement('script');
+        g2.async = true;
+        g2.src = 'https://www.googletagmanager.com/gtag/js?id=AW-10787559741';
+        document.head.appendChild(g2);
+        window.gtag('config', 'AW-10787559741');
+      }
+
+      var interactionEvents = ['mouseover', 'keydown', 'touchstart', 'scroll', 'click'];
+      interactionEvents.forEach(function(evt) {
+        window.addEventListener(evt, loadAnalyticsScripts, { once: true, passive: true });
+      });
+
+      // Safety fallback (3.5 seconds)
+      setTimeout(loadAnalyticsScripts, 3500);
+    })();
+  </script>
+
 </head>
 <body>
     <div class="container">

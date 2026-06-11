@@ -760,7 +760,7 @@ h6 {
 /* Transport Selection */
 .transport-options {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
 }
 
@@ -2159,7 +2159,8 @@ h6 {
         padding-bottom: 54px !important;
     }
 }
-
+
+
 
 /* Desktop Optimization for Bottom Sticky CTA */
 @media (min-width: 992px) {
