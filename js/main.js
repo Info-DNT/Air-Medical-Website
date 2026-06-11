@@ -1,17 +1,22 @@
 (function ($) {
     "use strict";
     
-    // Dropdown on mouse hover
+    // BUG-06 FIX: Dropdown on mouse hover — use CSS-class toggle instead of triggering click
+    // to prevent Bootstrap's own click handler toggling the dropdown closed on hover+click.
     $(document).ready(function () {
         function toggleNavbarMethod() {
             if ($(window).width() > 992) {
-                $('.navbar .dropdown').on('mouseover', function () {
-                    $('.dropdown-toggle', this).trigger('click');
-                }).on('mouseout', function () {
-                    $('.dropdown-toggle', this).trigger('click').blur();
-                });
+                $('.navbar .dropdown')
+                  .on('mouseover.hoverMenu', function () {
+                    $(this).addClass('show');
+                    $(this).find('.dropdown-menu').addClass('show');
+                  })
+                  .on('mouseout.hoverMenu', function () {
+                    $(this).removeClass('show');
+                    $(this).find('.dropdown-menu').removeClass('show');
+                  });
             } else {
-                $('.navbar .dropdown').off('mouseover').off('mouseout');
+                $('.navbar .dropdown').off('mouseover.hoverMenu mouseout.hoverMenu');
             }
         }
         toggleNavbarMethod();
@@ -100,33 +105,33 @@
         loop: true,
     });
 
-    // Dynamic Navbar Active State
+    // BUG-05 FIX: Dynamic Navbar Active State — exact segment matching prevents false positives
     $(window).on('load', function() {
         let path = window.location.pathname;
         if (path === '' || path === '/index.html' || path === '/index') {
             path = '/';
         }
-        
+        // Normalize: remove trailing slash except root
+        if (path !== '/' && path.endsWith('/')) path = path.slice(0, -1);
+
         $('.navbar-nav a').each(function() {
             const href = $(this).attr('href');
             if (!href || href === '#') return;
 
-            // Normalize href for comparison
-            let cleanHref = href.replace('../', '');
-            if (cleanHref === '/index.html' || cleanHref === 'index.html') {
-                cleanHref = '/';
-            }
-            
+            let cleanHref = href.replace(/^\.\.\//, '').replace(/\.html$/, '');
+            if (cleanHref === 'index' || cleanHref === '/index') cleanHref = '/';
+            if (!cleanHref.startsWith('/')) cleanHref = '/' + cleanHref;
+
             let match = false;
             if (cleanHref === '/' && path === '/') {
                 match = true;
-            } else if (cleanHref !== '/' && (path.endsWith(cleanHref) || cleanHref.endsWith(path))) {
-                match = true;
+            } else if (cleanHref !== '/') {
+                // Exact match or path starts with cleanHref followed by /
+                match = path === cleanHref || path.startsWith(cleanHref + '/');
             }
-            
+
             if (match) {
                 $(this).addClass('active');
-                // Also highlight parent dropdown if in a sub-menu
                 $(this).closest('.dropdown').find('.nav-link').first().addClass('active');
             } else {
                 $(this).removeClass('active');
@@ -221,28 +226,34 @@ function showSocialProof() {
 
 /* ================= AUTO RUN ================= */
 
-setTimeout(showSocialProof, 6000);
-setInterval(showSocialProof, 18000);
+// BUG-08 FIX: Only run social proof if the element exists; clear interval if it doesn't
+setTimeout(function() {
+  const box = document.getElementById("social-proof");
+  if (!box) return;
+  showSocialProof();
+  setInterval(showSocialProof, 18000);
+}, 6000);
 
 
 
+// BUG-04 FIX: Guard against null element on pages that don't have #countrySearch
 function filterCountries() {
     const input = document.getElementById("countrySearch");
+    if (!input) return;
     const filter = input.value.toLowerCase().trim();
     const cards = document.querySelectorAll(".country-card");
 
     cards.forEach(card => {
         const text = card.innerText.toLowerCase();
-        const col = card.closest(".col-lg-3");
-
-        col.style.display = text.includes(filter) ? "" : "none";
+        const col = card.closest(".col-lg-3, .col-md-4, .col-sm-6");
+        if (col) col.style.display = text.includes(filter) ? "" : "none";
     });
 }
 
 // Local development helper: Service Worker to handle extensionless URLs on VS Code Live Server
 if ('serviceWorker' in navigator && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
     navigator.serviceWorker.register('/sw.js')
-        .then(function(reg) {
+        .then(function() {
             console.log('Local URL Router Service Worker registered successfully.');
         })
         .catch(function(err) {

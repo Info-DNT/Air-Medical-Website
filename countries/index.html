@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 
@@ -10,35 +10,10 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 <script>
 function gtag_report_conversion(url) {
   var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
+    if (typeof(url) != 'undefined') { window.location = url; }
   };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-10787559741/YQ5NCLCfnfsbEL2y9Jco',
-      'value': 1.0,
-      'currency': 'INR',
-      'event_callback': callback
-  });
-  return false;
-}
-</script>
-
-<!-- Event snippet for Click to call conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-<script>
-function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-16644189187/l7ACCInt7P8bEIPYyIA-',
-      'value': 1.0,
-      'currency': 'INR',
-      'event_callback': callback
-  });
+  gtag('event', 'conversion', {'send_to': 'AW-10787559741/YQ5NCLCfnfsbEL2y9Jco', 'value': 1.0, 'currency': 'INR', 'event_callback': callback});
+  gtag('event', 'conversion', {'send_to': 'AW-16644189187/l7ACCInt7P8bEIPYyIA-', 'value': 1.0, 'currency': 'INR'});
   return false;
 }
 </script>
@@ -51,7 +26,7 @@ function gtag_report_conversion(url) {
     <script type="application/ld+json">
 {
   "@type": "MedicalOrganization",
-  "@id": "https://airmedical24x7.com/index#organization",
+  "@id": "https://airmedical24x7.com/#organization",
   "name": "Air Medical 24X7",
   "alternateName": "Air Medical 24X7 Global Air Ambulance",
   "url": "https://airmedical24x7.com/",
@@ -105,7 +80,7 @@ function gtag_report_conversion(url) {
   <script type="application/ld+json">
 {
   "@type": "LocalBusiness",
-  "@id": "https://airmedical24x7.com/index#dubai",
+  "@id": "https://airmedical24x7.com/#dubai",
   "name": "Air Medical 24X7 Dubai",
   "address": {
     "@type": "PostalAddress",
@@ -116,7 +91,7 @@ function gtag_report_conversion(url) {
   },
   "telephone": "+971565542001",
   "parentOrganization": {
-    "@id": "https://airmedical24x7.com/index#organization"
+    "@id": "https://airmedical24x7.com/#organization"
   },
   "@context": "https://schema.org"
 }
@@ -124,7 +99,7 @@ function gtag_report_conversion(url) {
   <script type="application/ld+json">
 {
   "@type": "LocalBusiness",
-  "@id": "https://airmedical24x7.com/index#india",
+  "@id": "https://airmedical24x7.com/#india",
   "name": "Air Medical 24X7 India",
   "address": {
     "@type": "PostalAddress",
@@ -133,9 +108,9 @@ function gtag_report_conversion(url) {
     "postalCode": "110008",
     "addressCountry": "IN"
   },
-  "telephone": "+911171859928", "telephone2": "+919217710155",
+  "telephone": ["+911171859928", "+919217710155"],
   "parentOrganization": {
-    "@id": "https://airmedical24x7.com/index#organization"
+    "@id": "https://airmedical24x7.com/#organization"
   },
   "@context": "https://schema.org"
 }
@@ -148,7 +123,7 @@ function gtag_report_conversion(url) {
   "url": "https://airmedical24x7.com/countries",
   "description": "Air Medical 24X7 provides air ambulance, ICU-equipped medical transport, patient transfer, and medical escort services in 195+ countries.",
   "provider": {
-    "@id": "https://airmedical24x7.com/index#organization"
+    "@id": "https://airmedical24x7.com/#organization"
   },
   "areaServed": "Worldwide",
   "availableService": [
@@ -169,7 +144,7 @@ function gtag_report_conversion(url) {
   "name": "Air Ambulance Services Worldwide \u2013 Air Medical 24X7",
   "description": "Explore Air Medical 24X7's air ambulance and medical evacuation services across 195+ countries. Fast, safe, and reliable patient transport with expert medical support.",
   "about": {
-    "@id": "https://airmedical24x7.com/index#organization"
+    "@id": "https://airmedical24x7.com/#organization"
   },
   "breadcrumb": {
     "@type": "BreadcrumbList",
@@ -212,14 +187,14 @@ function gtag_report_conversion(url) {
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://airmedical24x7.com/countries">
+    <meta property="og:url" content="https://airmedical24x7.com/index">
     <meta property="og:title" content="Air Ambulance Services Worldwide | Air Medical 24X7">
     <meta property="og:description" content="Air Medical 24X7 provides fast, reliable Air Ambulance and Medical Evacuation services in 195+ countries. Expert medical escort, 24X7 support, global coverage.">
     <meta property="og:image" content="https://airmedical24x7.com/img/airmedicallogo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://airmedical24x7.com/countries">
+    <meta property="twitter:url" content="https://airmedical24x7.com/index">
     <meta property="twitter:title" content="Air Ambulance Services Worldwide | Air Medical 24X7">
     <meta property="twitter:description" content="Air Medical 24X7 provides fast, reliable Air Ambulance and Medical Evacuation services in 195+ countries. Expert medical escort, 24X7 support, global coverage.">
     <meta property="twitter:image" content="https://airmedical24x7.com/img/airmedicallogo.png">
@@ -227,7 +202,9 @@ function gtag_report_conversion(url) {
 
 
     <!-- Favicon -->
-    <link href="../img/airmedicallogo.png" rel="icon">
+    <link rel="icon" href="../img/favicon.ico" sizes="any">
+  <link rel="icon" href="../img/airmedicallogo.png" type="image/png">
+  <link rel="apple-touch-icon" href="../img/airmedicallogo.png">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com/">
@@ -236,19 +213,20 @@ function gtag_report_conversion(url) {
         rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
   <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet"></noscript>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
   <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet"></noscript>
 
     <!-- Libraries Stylesheet -->
-    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <noscript><link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet"></noscript>
-    <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
   <noscript><link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet"></noscript>
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <noscript><link href="../css/bootstrap.min.css" rel="stylesheet"></noscript>
 
     <!-- Template Stylesheet -->
     <link href="../css/style.css" rel="stylesheet">
@@ -1214,7 +1192,7 @@ window.addEventListener("load", function () {
                 <a href="tel:+971565542001" class="btn btn-primary w-100 mb-3 py-3" style="display: flex; align-items: center; justify-content: center; background-color: #1d2a4d; border: none; font-weight: 700; border-radius: 8px; color: #fff;">
                     <i class="bi bi-telephone me-2"></i> Call Now
                 </a>
-                <a href="https://wa.me/971565542001" target="_blank" class="btn btn-success w-100 py-3" style="display: flex; align-items: center; justify-content: center; background-color: #25D366; border: none; font-weight: 700; border-radius: 8px; color: #fff;">
+                <a href="https://wa.me/971565542001" target="_blank" rel="noopener noreferrer" class="btn btn-success w-100 py-3" style="display: flex; align-items: center; justify-content: center; background-color: #25D366; border: none; font-weight: 700; border-radius: 8px; color: #fff;">
                     <i class="fab fa-whatsapp me-2"></i> WhatsApp
                 </a>
             `;
@@ -1260,7 +1238,7 @@ window.addEventListener("load", function () {
         </a>
       </div>
       <div class="col-4">
-        <a href="https://wa.me/971565542001" target="_blank" class="btn btn-whatsapp w-100 py-2.5 text-center">
+        <a href="https://wa.me/971565542001" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp w-100 py-2.5 text-center">
           <i class="fab fa-whatsapp me-1"></i> WhatsApp
         </a>
       </div>

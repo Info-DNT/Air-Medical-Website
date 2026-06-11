@@ -57,6 +57,14 @@ async function loadBlog() {
       window.sanitize24X7(data.meta_description || data.excerpt || "")
     );
 
+  // SUGG-07: Update URL to /blogs/{slug} without reload + sync canonical
+  const cleanUrl = `/blogs/${slug}`;
+  history.replaceState({ slug }, sanitizedTitle, cleanUrl);
+  const canonicalEl = document.getElementById("page-canonical");
+  if (canonicalEl) {
+    canonicalEl.setAttribute("href", `https://airmedical24x7.com${cleanUrl}`);
+  }
+
   currentBlogId = data.id;
 
   updateViews(data.id, data.views || 0);

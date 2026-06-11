@@ -1,13 +1,45 @@
-# Air Medical 24X7 - Clean URL Mappings & Performance Routing
+# Air Medical 24X7 - Apache Configuration
 RewriteEngine On
 RewriteBase /
 
-# 1. Enforce clean URLs: Redirect direct requests for .html files to extensionless URLs
+# ============================================================
+# SECURITY HEADERS
+# ============================================================
+<IfModule mod_headers.c>
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), camera=(), microphone=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# ============================================================
+# BLOCK SENSITIVE DIRECTORIES
+# ============================================================
+RewriteRule ^scratch(/.*)?$ - [F,L]
+RewriteRule ^admin\.html$ - [L]
+
+# ============================================================
+# 1. Enforce clean URLs: redirect .html requests to extensionless
+#    (except /admin.html which stays as-is for direct access)
+# ============================================================
 RewriteCond %{THE_REQUEST} \s/+(.+)\.html[\s?] [NC]
 RewriteCond %{REQUEST_URI} !^/admin\.html$ [NC]
 RewriteRule ^ /%1 [R=301,L]
 
-# 2. Redirect legacy root service/country pages to their new clean subdirectory counterparts
+# ============================================================
+# 2. MANDATORY: 301 redirect old /countries/air-ambulance-*
+#    to clean root-level /air-ambulance-* URLs
+# ============================================================
+RewriteRule ^countries/(air-ambulance-.+)$ /$1 [R=301,L,NC]
+
+# Redirect /countries/index to /countries
+RewriteRule ^countries/index$ /countries [R=301,L,NC]
+
+# ============================================================
+# 3. Legacy root service/country redirects (keep existing)
+# ============================================================
 RewriteRule ^airline-stretcher-services$ /services/commercial-flight-stretcher [R=301,L,NC]
 RewriteRule ^commercial-flight-stretcher$ /services/commercial-flight-stretcher [R=301,L,NC]
 RewriteRule ^air-ambulance$ /services/air-ambulance [R=301,L,NC]
@@ -21,10 +53,20 @@ RewriteRule ^ecmo-transfer$ /services/ECMO-transfer [R=301,L,NC]
 RewriteRule ^commercial-airlines-medical-transfer-services$ /services/commercial-airlines-medical-transfer-services [R=301,L,NC]
 RewriteRule ^medical-tourism-services$ /services/medical-tourism-services [R=301,L,NC]
 
-# Redirect root country pages to countries subdirectory clean routes
-RewriteRule ^air-ambulance-(dubai|india|cost-dubai|to-india)$ /countries/air-ambulance-$1 [R=301,L,NC]
+# ============================================================
+# 4. MANDATORY: Internal routing for country pages at root
+#    /air-ambulance-{country} → served from countries/air-ambulance-{country}.html
+#    Condition: only route if the file exists in countries/ (prevents
+#    clashing with service page slugs like air-ambulance-charters)
+# ============================================================
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/countries/%1.html -f
+RewriteRule ^(air-ambulance-[^/]+)$ /countries/$1.html [L,NC]
 
-# 3. Internal Clean URL Routing: Map clean URLs internally to physical .html files
+# ============================================================
+# 5. General extensionless URL routing: /page → /page.html
+# ============================================================
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^([^\.]+)$ $1.html [L]

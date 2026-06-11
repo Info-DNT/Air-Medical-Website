@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /scratch/
+Disallow: /sw.js
 
 Sitemap: https://airmedical24x7.com/sitemap.xml

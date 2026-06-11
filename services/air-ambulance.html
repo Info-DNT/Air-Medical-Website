@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 
@@ -10,7 +10,7 @@
   <script type="application/ld+json">
 {
   "@type": "Organization",
-  "@id": "https://airmedical24x7.com/index#organization",
+  "@id": "https://airmedical24x7.com/#organization",
   "name": "Air Medical 24X7",
   "alternateName": "Air Medical 24X7 Global Air Ambulance",
   "url": "https://airmedical24x7.com/",
@@ -39,11 +39,11 @@
   <script type="application/ld+json">
 {
   "@type": "MedicalOrganization",
-  "@id": "https://airmedical24x7.com/index#medicalorganization",
+  "@id": "https://airmedical24x7.com/#medicalorganization",
   "name": "Air Medical 24X7",
   "url": "https://airmedical24x7.com/",
   "parentOrganization": {
-    "@id": "https://airmedical24x7.com/index#organization"
+    "@id": "https://airmedical24x7.com/#organization"
   },
   "medicalSpecialty": [
     "Emergency Medicine",
@@ -58,7 +58,7 @@
   <script type="application/ld+json">
 {
   "@type": "Physician",
-  "@id": "https://airmedical24x7.com/index#flightmedicalteam",
+  "@id": "https://airmedical24x7.com/#flightmedicalteam",
   "name": "Air Medical 24X7 Flight Medical Team",
   "medicalSpecialty": [
     "Emergency Medicine",
@@ -67,7 +67,7 @@
     "Aviation Medicine"
   ],
   "worksFor": {
-    "@id": "https://airmedical24x7.com/index#medicalorganization"
+    "@id": "https://airmedical24x7.com/#medicalorganization"
   },
   "@context": "https://schema.org"
 }
@@ -101,7 +101,7 @@
   "name": "24X7 Emergency Air Ambulance Services",
   "description": "Worldwide 24X7 emergency air ambulance services including ICU flights, neonatal evacuation, and international medical evacuation.",
   "provider": {
-    "@id": "https://airmedical24x7.com/index#medicalorganization"
+    "@id": "https://airmedical24x7.com/#medicalorganization"
   },
   "availableChannel": {
     "@type": "ServiceChannel",
@@ -132,7 +132,7 @@
   "url": "https://airmedical24x7.com/services/air-ambulance",
   "name": "24X7 Emergency Air Ambulance Worldwide",
   "isPartOf": {
-    "@id": "https://airmedical24x7.com/index#organization"
+    "@id": "https://airmedical24x7.com/#organization"
   },
   "about": {
     "@id": "https://airmedical24x7.com/services/air-ambulance#medicalservice"
@@ -218,7 +218,9 @@
 
 
   <!-- Favicon -->
-  <link href="../img/airmedicallogo.png" rel="icon">
+  <link rel="icon" href="../img/favicon.ico" sizes="any">
+  <link rel="icon" href="../img/airmedicallogo.png" type="image/png">
+  <link rel="apple-touch-icon" href="../img/airmedicallogo.png">
 
   <!-- Google Web Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com/">
@@ -227,19 +229,20 @@
     rel="stylesheet">
 
   <!-- Icon Font Stylesheet -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
   <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet"></noscript>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
   <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet"></noscript>
 
   <!-- Libraries Stylesheet -->
-  <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <noscript><link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet"></noscript>
-  <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
   <noscript><link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet"></noscript>
 
   <!-- Customized Bootstrap Stylesheet -->
   <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <noscript><link href="../css/bootstrap.min.css" rel="stylesheet"></noscript>
 
   <!-- Template Stylesheet -->
   <link href="../css/style.css" rel="stylesheet">
@@ -809,7 +812,7 @@
                 <a href="tel:+971565542001" class="btn btn-primary w-100 mb-3 py-3" style="display: flex; align-items: center; justify-content: center; background-color: #1d2a4d; border: none; font-weight: 700; border-radius: 8px; color: #fff;">
                     <i class="bi bi-telephone me-2"></i> Call Now
                 </a>
-                <a href="https://wa.me/971565542001" target="_blank" class="btn btn-success w-100 py-3" style="display: flex; align-items: center; justify-content: center; background-color: #25D366; border: none; font-weight: 700; border-radius: 8px; color: #fff;">
+                <a href="https://wa.me/971565542001" target="_blank" rel="noopener noreferrer" class="btn btn-success w-100 py-3" style="display: flex; align-items: center; justify-content: center; background-color: #25D366; border: none; font-weight: 700; border-radius: 8px; color: #fff;">
                     <i class="fab fa-whatsapp me-2"></i> WhatsApp
                 </a>
             `;
@@ -855,7 +858,7 @@
         </a>
       </div>
       <div class="col-4">
-        <a href="https://wa.me/971565542001" target="_blank" class="btn btn-whatsapp w-100 py-2.5 text-center">
+        <a href="https://wa.me/971565542001" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp w-100 py-2.5 text-center">
           <i class="fab fa-whatsapp me-1"></i> WhatsApp
         </a>
       </div>

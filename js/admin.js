@@ -8,27 +8,28 @@ let blogsList = [];
 let deleteTargetId = null;
 
 /***************** INITIALIZATION *****************/
-document.addEventListener("DOMContentLoaded", () => {
-  // Check active write key in session storage and rebind
-  const staticKey = window.BLOGS_ADMIN_CONFIG ? window.BLOGS_ADMIN_CONFIG.serviceRoleKey : null;
-  const savedKey = sessionStorage.getItem("blogs_supabase_service_key") || staticKey;
+document.addEventListener("DOMContentLoaded", async () => {
+  // Restore any manually-entered service role key from this session
+  const savedKey = sessionStorage.getItem("blogs_supabase_service_key");
   if (savedKey) {
     window.rebindBlogsSupabaseClient(savedKey);
     document.getElementById("settings-write-key").value = savedKey;
     document.getElementById("write-key-status").classList.remove("d-none");
   }
 
-  // Restore session
-  const savedSession = sessionStorage.getItem("admin_session");
-  if (savedSession) {
-    try {
-      currentSession = JSON.parse(savedSession);
-      showDashboard(currentSession.username);
-    } catch (e) {
+  // Check active Supabase Auth session server-side
+  try {
+    const { data: { session } } = await window.blogsSupabaseClient.auth.getSession();
+    if (session) {
+      currentSession = { username: session.user.email, authType: 'supabase', userId: session.user.id };
+      sessionStorage.setItem("admin_session", JSON.stringify(currentSession));
+      showDashboard(session.user.email);
+    } else {
       sessionStorage.removeItem("admin_session");
       showLogin();
     }
-  } else {
+  } catch (e) {
+    sessionStorage.removeItem("admin_session");
     showLogin();
   }
 
@@ -37,14 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initEditor();
 });
 
-/***************** HELPER: HASH PASSWORD *****************/
-async function sha256(message) {
-  const msgBuffer = new TextEncoder().encode(message);
-  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-  return hashHex;
-}
 
 /***************** AUDIT LOGGING *****************/
 async function logActivity(blogId, blogTitle, action) {
@@ -70,32 +63,38 @@ function initListeners() {
   const loginForm = document.getElementById("login-form");
   const logoutBtn = document.getElementById("logout-btn");
 
-  // Handle Login Submit
+  // Handle Login Submit — uses Supabase Auth (server-side verification)
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const userVal = document.getElementById("login-user").value.trim();
+    const emailVal = document.getElementById("login-user").value.trim();
     const passVal = document.getElementById("login-password").value;
     const alertEl = document.getElementById("login-alert");
+    const submitBtn = loginForm.querySelector('button[type="submit"]');
 
     alertEl.classList.add("d-none");
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Signing in..."; }
 
-    // Local check against config
-    const config = window.BLOGS_ADMIN_CONFIG;
-    const inputHash = await sha256(passVal);
-    if (userVal === config.username && inputHash === config.passwordHash) {
-      // Authenticated!
-      currentSession = { username: userVal, authType: 'local' };
+    try {
+      const { data, error } = await window.blogsSupabaseClient.auth.signInWithPassword({
+        email: emailVal,
+        password: passVal
+      });
+      if (error) throw error;
+      currentSession = { username: data.user.email, authType: 'supabase', userId: data.user.id };
       sessionStorage.setItem("admin_session", JSON.stringify(currentSession));
-      showDashboard(userVal);
-    } else {
-      alertEl.innerText = "Invalid administrator username or password.";
+      showDashboard(data.user.email);
+    } catch (err) {
+      alertEl.innerText = "Invalid credentials. Please check your email and password.";
       alertEl.classList.remove("d-none");
+    } finally {
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "Sign In"; }
     }
   });
 
   // Logout Click
-  logoutBtn.addEventListener("click", () => {
+  logoutBtn.addEventListener("click", async () => {
     if (confirm("Are you sure you want to sign out of the editor dashboard?")) {
+      await window.blogsSupabaseClient.auth.signOut();
       sessionStorage.removeItem("admin_session");
       currentSession = null;
       showLogin();

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 
@@ -33,7 +33,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <script type="application/ld+json">
 {
   "@type": "Organization",
-  "@id": "https://airmedical24x7.com/index#organization",
+  "@id": "https://airmedical24x7.com/#organization",
   "name": "Air Medical 24X7",
   "url": "https://airmedical24x7.com/",
   "logo": "https://airmedical24x7.com/img/air-medical-logo.png",
@@ -50,7 +50,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   <script type="application/ld+json">
 {
   "@type": "LocalBusiness",
-  "@id": "https://airmedical24x7.com/index#dubai",
+  "@id": "https://airmedical24x7.com/#dubai",
   "name": "Air Medical 24X7 Dubai",
   "address": {
     "@type": "PostalAddress",
@@ -62,7 +62,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   "telephone": "+971565542001",
   "email": "info@airmedical24x7.com",
   "parentOrganization": {
-    "@id": "https://airmedical24x7.com/index#organization"
+    "@id": "https://airmedical24x7.com/#organization"
   },
   "@context": "https://schema.org"
 }
@@ -70,7 +70,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   <script type="application/ld+json">
 {
   "@type": "LocalBusiness",
-  "@id": "https://airmedical24x7.com/index#india",
+  "@id": "https://airmedical24x7.com/#india",
   "name": "Air Medical 24X7 India",
   "address": {
     "@type": "PostalAddress",
@@ -79,10 +79,10 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     "postalCode": "110008",
     "addressCountry": "IN"
   },
-  "telephone": "+911171859928", "telephone2": "+919217710155",
+  "telephone": ["+911171859928", "+919217710155"],
   "email": "info@airmedical24x7.com",
   "parentOrganization": {
-    "@id": "https://airmedical24x7.com/index#organization"
+    "@id": "https://airmedical24x7.com/#organization"
   },
   "@context": "https://schema.org"
 }
@@ -96,10 +96,10 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   "description": "Contact page for Air Medical 24X7 \u2013 Commercial flight stretcher, air ambulance, and medical escort services. Fill out the form or reach us via phone, WhatsApp, or email.",
   "address": [
     {
-      "@id": "https://airmedical24x7.com/index#dubai"
+      "@id": "https://airmedical24x7.com/#dubai"
     },
     {
-      "@id": "https://airmedical24x7.com/index#india"
+      "@id": "https://airmedical24x7.com/#india"
     }
   ],
   "contactPoint": [
@@ -144,11 +144,11 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   "url": "https://airmedical24x7.com/contact",
   "name": "Contact Air Medical 24X7",
   "about": {
-    "@id": "https://airmedical24x7.com/index#organization"
+    "@id": "https://airmedical24x7.com/#organization"
   },
   "description": "Get in touch with Air Medical 24X7 for air ambulance, commercial flight stretcher, ICU-trained medical escort, and patient transfer services.",
   "isPartOf": {
-    "@id": "https://airmedical24x7.com/index#organization"
+    "@id": "https://airmedical24x7.com/#organization"
   },
   "speakable": {
     "@type": "SpeakableSpecification",
@@ -197,7 +197,9 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
 
     <!-- Favicon -->
-    <link href="img/airmedicallogo.png" rel="icon">
+    <link rel="icon" href="img/favicon.ico" sizes="any">
+  <link rel="icon" href="img/airmedicallogo.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/airmedicallogo.png">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com/">
@@ -206,19 +208,20 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
   <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet"></noscript>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
   <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet"></noscript>
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <noscript><link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet"></noscript>
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
   <noscript><link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet"></noscript>
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+  <noscript><link href="css/bootstrap.min.css" rel="stylesheet"></noscript>
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
@@ -752,7 +755,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                 <a href="tel:+971565542001" class="btn btn-primary w-100 mb-3 py-3" style="display: flex; align-items: center; justify-content: center; background-color: #1d2a4d; border: none; font-weight: 700; border-radius: 8px; color: #fff;">
                     <i class="bi bi-telephone me-2"></i> Call Now
                 </a>
-                <a href="https://wa.me/971565542001" target="_blank" class="btn btn-success w-100 py-3" style="display: flex; align-items: center; justify-content: center; background-color: #25D366; border: none; font-weight: 700; border-radius: 8px; color: #fff;">
+                <a href="https://wa.me/971565542001" target="_blank" rel="noopener noreferrer" class="btn btn-success w-100 py-3" style="display: flex; align-items: center; justify-content: center; background-color: #25D366; border: none; font-weight: 700; border-radius: 8px; color: #fff;">
                     <i class="fab fa-whatsapp me-2"></i> WhatsApp
                 </a>
             `;
@@ -798,7 +801,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         </a>
       </div>
       <div class="col-4">
-        <a href="https://wa.me/971565542001" target="_blank" class="btn btn-whatsapp w-100 py-2.5 text-center">
+        <a href="https://wa.me/971565542001" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp w-100 py-2.5 text-center">
           <i class="fab fa-whatsapp me-1"></i> WhatsApp
         </a>
       </div>

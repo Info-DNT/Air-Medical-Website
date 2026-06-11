@@ -48,7 +48,7 @@ window.onloadTurnstileCallback = function () {
       const widgetId = turnstile.render(container, {
         sitekey: activeSiteKey,
         theme: "light",
-        callback: function (token) {
+        callback: function (_token) {
           console.log(`[Turnstile] Challenge solved for ${form.id}`);
         },
         "error-callback": function (code) {
@@ -67,6 +67,20 @@ window.onloadTurnstileCallback = function () {
     }
   });
 };
+
+// HIGH-11 / BUG-02: Inline form notification — replaces alert() calls
+function showFormMessage(form, message, type) {
+  const existing = form.querySelector(".form-submit-msg");
+  if (existing) existing.remove();
+  const div = document.createElement("div");
+  div.className = `alert alert-${type} mt-3 form-submit-msg`;
+  div.style.cssText = "border-radius:8px;font-size:14px;padding:12px 16px;";
+  div.textContent = message;
+  const btn = form.querySelector('button[type="submit"]');
+  if (btn) btn.parentNode.insertBefore(div, btn);
+  else form.appendChild(div);
+  if (type === "success") setTimeout(() => div.remove(), 8000);
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   const forms = [
@@ -107,10 +121,10 @@ document.addEventListener("DOMContentLoaded", () => {
           response = widgetId ? turnstile.getResponse(widgetId) : turnstile.getResponse();
         }
 
-        // If no token, check if we are on localhost (bypass it) or prod (alert)
+        // If no token, check if we are on localhost (bypass it) or prod (show inline message)
         const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
         if (!response && !isLocal) {
-          alert("Please complete the Cloudflare Turnstile verification.");
+          showFormMessage(form, "Please complete the security verification above.", "warning");
           if (btn) {
             btn.disabled = false;
             btn.textContent = btn.getAttribute("data-orig-text") || "Get a Free Quotation";
@@ -126,9 +140,11 @@ document.addEventListener("DOMContentLoaded", () => {
           const phoneId = isPopup ? "popupPhone" : "phone";
           const serviceId = isPopup ? "popupService" : "service";
 
-          const codeVal = document.getElementById(codeId)?.value || "";
-          const phoneVal = document.getElementById(phoneId)?.value || "";
-          // Send empty full_phone if phone number itself is empty
+          const rawCode = document.getElementById(codeId)?.value?.trim() || "";
+          const phoneVal = document.getElementById(phoneId)?.value?.trim() || "";
+          // BUG-09 FIX: Normalize country code to always include + prefix
+          const codeVal = rawCode && !rawCode.startsWith("+") ? "+" + rawCode : rawCode;
+          // BUG-02: Warn user if phone is empty (soft validation — field is optional per design)
           const fullPhone = phoneVal ? (codeVal + phoneVal) : "";
 
           // Combine transport radio option and service dropdown value
@@ -183,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const result = await res.json();
 
           if (result.success) {
-            alert("✅ Thank you! Our team will contact you soon.");
+            showFormMessage(form, "✅ Thank you! Our team will contact you within 30 minutes.", "success");
             form.reset();
             if (btn) {
               btn.disabled = false;
@@ -193,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
               window.closeQuoteModal();
             }
           } else {
-            alert("Error: " + (result.error || "Submission failed."));
+            showFormMessage(form, "Submission failed. Please try again or contact us directly.", "danger");
             if (btn) {
               btn.disabled = false;
               btn.textContent = btn.getAttribute("data-orig-text") || "Get a Free Quotation";
@@ -201,17 +217,22 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         } catch (err) {
           console.error("Submission error:", err);
-          alert("Something went wrong. Please try again.");
+          showFormMessage(form, "Something went wrong. Please try again or WhatsApp us directly.", "danger");
           if (btn) {
             btn.disabled = false;
             btn.textContent = btn.getAttribute("data-orig-text") || "Get a Free Quotation";
           }
         } finally {
-          if (typeof turnstile !== "undefined" && widgetId) {
-            turnstile.reset(widgetId);
-          } else if (window.turnstile) {
-            window.turnstile.reset();
-          }
+          // BUG-03 FIX: Always reset Turnstile — fall back to global reset if widgetId is null
+          try {
+            if (typeof turnstile !== "undefined") {
+              if (widgetId != null) {
+                turnstile.reset(widgetId);
+              } else {
+                turnstile.reset();
+              }
+            }
+          } catch (e) { /* Turnstile may not have loaded — safe to ignore */ }
         }
       }
     }, true);
@@ -240,16 +261,8 @@ window.sanitize24X7 = function (text) {
   }
 };
 
-// Admin Configuration for Blog Editor
-window.BLOGS_ADMIN_CONFIG = {
-  username: "Nitin@admin@24X7@",
-  // SHA-256 hash of "@admin@24X7@Global@" (lowercase sha256 hex)
-  passwordHash: "a2bf3a92c6e4c20febc5b11f542fd5af1e10997dd65f29a4ea4627cb7642d39b",
-  // Optional: Paste your Supabase Service Role Key here to bypass database RLS write restrictions
-  serviceRoleKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0aWlyZGltdGJta3ZyeXZxdGVuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NjE0NDQzOSwiZXhwIjoyMDkxNzIwNDM5fQ.NCnB3zI0ESnhCzM19y1UOlu7Qn07Lm3LujSbAh2IzZU"
-};
-
-// Rebind blogsSupabaseClient with custom/service key if provided
+// Rebind blogsSupabaseClient with a service key entered at runtime via the admin settings panel.
+// The service role key must NEVER be hardcoded here — paste it in the admin Settings tab after login.
 window.rebindBlogsSupabaseClient = function (serviceKey) {
   if (serviceKey) {
     window.blogsSupabaseClient = supabase.createClient(blogsSupabaseUrl, serviceKey);
