@@ -28,6 +28,10 @@ RewriteCond %{THE_REQUEST} \s/+(.+)\.html[\s?] [NC]
 RewriteCond %{REQUEST_URI} !^/admin\.html$ [NC]
 RewriteRule ^ /%1 [R=301,L]
 
+# Redirect old /services/ paths to clean root-level URLs
+RewriteCond %{THE_REQUEST} \s/services/([^\s\?]+) [NC]
+RewriteRule ^ /%1 [R=301,L]
+
 # ============================================================
 # 2. MANDATORY: 301 redirect old /countries/air-ambulance-*
 #    to clean root-level /air-ambulance-* URLs
@@ -40,18 +44,18 @@ RewriteRule ^countries/index$ /countries [R=301,L,NC]
 # ============================================================
 # 3. Legacy root service/country redirects (keep existing)
 # ============================================================
-RewriteRule ^airline-stretcher-services$ /services/commercial-flight-stretcher [R=301,L,NC]
-RewriteRule ^commercial-flight-stretcher$ /services/commercial-flight-stretcher [R=301,L,NC]
-RewriteRule ^air-ambulance$ /services/air-ambulance [R=301,L,NC]
-RewriteRule ^air-ambulance-charters$ /services/air-ambulance-charters [R=301,L,NC]
-RewriteRule ^flight-medical-escort-services$ /services/flight-medical-escort-services [R=301,L,NC]
-RewriteRule ^hospital-acceptance$ /services/hospital-acceptance [R=301,L,NC]
-RewriteRule ^doctor-appointment$ /services/doctor-appointment [R=301,L,NC]
-RewriteRule ^second-opinion-services$ /services/second-opinion-services [R=301,L,NC]
-RewriteRule ^custom-medical-packages$ /services/custom-medical-packages [R=301,L,NC]
-RewriteRule ^ecmo-transfer$ /services/ECMO-transfer [R=301,L,NC]
-RewriteRule ^commercial-airlines-medical-transfer-services$ /services/commercial-airlines-medical-transfer-services [R=301,L,NC]
-RewriteRule ^medical-tourism-services$ /services/medical-tourism-services [R=301,L,NC]
+RewriteRule ^airline-stretcher-services$ /commercial-flight-stretcher [R=301,L,NC]
+RewriteRule ^commercial-flight-stretcher$ /commercial-flight-stretcher [R=301,L,NC]
+RewriteRule ^air-ambulance$ /air-ambulance [R=301,L,NC]
+RewriteRule ^air-ambulance-charters$ /air-ambulance-charters [R=301,L,NC]
+RewriteRule ^flight-medical-escort-services$ /flight-medical-escort-services [R=301,L,NC]
+RewriteRule ^hospital-acceptance$ /hospital-acceptance [R=301,L,NC]
+RewriteRule ^doctor-appointment$ /doctor-appointment [R=301,L,NC]
+RewriteRule ^second-opinion-services$ /second-opinion-services [R=301,L,NC]
+RewriteRule ^custom-medical-packages$ /medical-tourism [R=301,L,NC]
+RewriteRule ^ecmo-transfer$ /ECMO-transfer [R=301,L,NC]
+RewriteRule ^commercial-airlines-medical-transfer-services$ /commercial-airlines-medical-transfer-services [R=301,L,NC]
+RewriteRule ^medical-tourism-services$ /medical-tourism [R=301,L,NC]
 
 # ============================================================
 # 4. MANDATORY: Internal routing for country pages at root
@@ -63,6 +67,15 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{DOCUMENT_ROOT}/countries/%1.html -f
 RewriteRule ^(air-ambulance-[^/]+)$ /countries/$1.html [L,NC]
+
+# ============================================================
+# 4b. Internal routing for service pages at root
+#    /service-name → served from services/service-name.html
+# ============================================================
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/services/$1.html -f
+RewriteRule ^([^/]+)$ /services/$1.html [L,NC]
 
 # ============================================================
 # 5. General extensionless URL routing: /page → /page.html

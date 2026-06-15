@@ -19,16 +19,34 @@ self.addEventListener('fetch', event => {
 
       let targetUrl;
 
+      const services = [
+        "air-ambulance",
+        "commercial-flight-stretcher",
+        "flight-medical-escort-services",
+        "hospital-acceptance",
+        "doctor-appointment",
+        "second-opinion-services",
+        "ECMO-transfer",
+        "commercial-airlines-medical-transfer-services",
+        "air-ambulance-charters",
+        "organ-transplant-assistance",
+        "medical-tourism",
+        "medical-travel-assistance",
+        "home-health-care"
+      ];
+
       if (cleanPath === '/countries') {
         // /countries → /countries.html
         targetUrl = '/countries.html' + url.search;
+      } else if (services.includes(slug)) {
+        // Service pages live in /services/ directory — NOT at root
+        targetUrl = '/services/' + slug + '.html' + url.search;
       } else if (slug.startsWith('air-ambulance-') && slug !== 'air-ambulance-charters') {
         // Country pages live in /countries/ directory — NOT at root
         // e.g. /air-ambulance-india → /countries/air-ambulance-india.html
         targetUrl = '/countries/' + slug + '.html' + url.search;
       } else {
-        // Services, root pages, etc. — append .html in place
-        // e.g. /services/air-ambulance → /services/air-ambulance.html
+        // Root pages, etc. — append .html in place
         // e.g. /about-us → /about-us.html
         targetUrl = cleanPath + '.html' + url.search;
       }

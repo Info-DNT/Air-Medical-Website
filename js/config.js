@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
           showFormMessage(form, "Please complete the security verification above.", "warning");
           if (btn) {
             btn.disabled = false;
-            btn.textContent = btn.getAttribute("data-orig-text") || "Get a Free Quotation";
+            btn.textContent = btn.getAttribute("data-orig-text") || "REQUEST CALLBACK";
           }
           return;
         }
@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
             form.reset();
             if (btn) {
               btn.disabled = false;
-              btn.textContent = btn.getAttribute("data-orig-text") || "Get a Free Quotation";
+              btn.textContent = btn.getAttribute("data-orig-text") || "REQUEST CALLBACK";
             }
             if (isPopup && typeof window.closeQuoteModal === "function") {
               window.closeQuoteModal();
@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
             showFormMessage(form, "Submission failed. Please try again or contact us directly.", "danger");
             if (btn) {
               btn.disabled = false;
-              btn.textContent = btn.getAttribute("data-orig-text") || "Get a Free Quotation";
+              btn.textContent = btn.getAttribute("data-orig-text") || "REQUEST CALLBACK";
             }
           }
         } catch (err) {
@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
           showFormMessage(form, "Something went wrong. Please try again or WhatsApp us directly.", "danger");
           if (btn) {
             btn.disabled = false;
-            btn.textContent = btn.getAttribute("data-orig-text") || "Get a Free Quotation";
+            btn.textContent = btn.getAttribute("data-orig-text") || "REQUEST CALLBACK";
           }
         } finally {
           // BUG-03 FIX: Always reset Turnstile — fall back to global reset if widgetId is null

@@ -45,57 +45,67 @@
 
   <!-- ===== SERVICE PAGES ===== -->
   <url>
-    <loc>https://airmedical24x7.com/services/air-ambulance</loc>
+    <loc>https://airmedical24x7.com/air-ambulance</loc>
     <lastmod>2026-06-11</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://airmedical24x7.com/services/air-ambulance-charters</loc>
+    <loc>https://airmedical24x7.com/air-ambulance-charters</loc>
     <lastmod>2026-06-11</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://airmedical24x7.com/services/commercial-flight-stretcher</loc>
+    <loc>https://airmedical24x7.com/commercial-flight-stretcher</loc>
     <lastmod>2026-06-11</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://airmedical24x7.com/services/commercial-airlines-medical-transfer-services</loc>
+    <loc>https://airmedical24x7.com/commercial-airlines-medical-transfer-services</loc>
     <lastmod>2026-06-11</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://airmedical24x7.com/services/flight-medical-escort-services</loc>
+    <loc>https://airmedical24x7.com/flight-medical-escort-services</loc>
     <lastmod>2026-06-11</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://airmedical24x7.com/services/ECMO-transfer</loc>
+    <loc>https://airmedical24x7.com/ECMO-transfer</loc>
     <lastmod>2026-06-11</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://airmedical24x7.com/services/hospital-acceptance</loc>
+    <loc>https://airmedical24x7.com/organ-transplant-assistance</loc>
     <lastmod>2026-06-11</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://airmedical24x7.com/services/doctor-appointment</loc>
+    <loc>https://airmedical24x7.com/medical-tourism</loc>
     <lastmod>2026-06-11</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://airmedical24x7.com/services/second-opinion-services</loc>
+    <loc>https://airmedical24x7.com/medical-travel-assistance</loc>
     <lastmod>2026-06-11</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://airmedical24x7.com/services/custom-medical-packages</loc>
+    <loc>https://airmedical24x7.com/home-health-care</loc>
     <lastmod>2026-06-11</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://airmedical24x7.com/services/medical-tourism-services</loc>
+    <loc>https://airmedical24x7.com/hospital-acceptance</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://airmedical24x7.com/doctor-appointment</loc>
+    <lastmod>2026-06-11</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://airmedical24x7.com/second-opinion-services</loc>
     <lastmod>2026-06-11</lastmod>
     <priority>0.9</priority>
   </url>

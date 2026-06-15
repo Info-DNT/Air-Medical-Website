@@ -333,14 +333,18 @@ function gtag_report_conversion(url) {
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Our Services</a>
                         <div class="dropdown-menu m-0">
-                            <a href="../services/air-ambulance" class="dropdown-item">Air Ambulance</a>
-                            <a href="../services/commercial-flight-stretcher" class="dropdown-item">Airline Stretcher Services</a>
-                            <a href="../services/flight-medical-escort-services" class="dropdown-item">Flight Medical Escort Services</a>
-                            <a href="../services/hospital-acceptance" class="dropdown-item">Hospital Acceptance</a>
-                            <a href="../services/doctor-appointment" class="dropdown-item">Doctor Appointment</a>
-                            <a href="../services/second-opinion-services" class="dropdown-item">Second Opinion Services</a>
-                            <a href="../services/custom-medical-packages" class="dropdown-item">Custom Medical Packages</a>
-                        </div>
+                <a href="../air-ambulance" class="dropdown-item">Air Ambulance</a>
+                <a href="../commercial-flight-stretcher" class="dropdown-item">Airline Stretcher Services</a>
+                <a href="../flight-medical-escort-services" class="dropdown-item">Flight Medical Escort Services</a>
+                <a href="../ECMO-transfer" class="dropdown-item">ECMO Transfer Services</a>
+                <a href="../organ-transplant-assistance" class="dropdown-item">Organ Transplant Assistance</a>
+                <a href="../medical-tourism" class="dropdown-item">Medical Tourism</a>
+                <a href="../medical-travel-assistance" class="dropdown-item">Medical Travel Assistance</a>
+                <a href="../home-health-care" class="dropdown-item">Home Health Care</a>
+                <a href="../hospital-acceptance" class="dropdown-item">Hospital Acceptance</a>
+                <a href="../doctor-appointment" class="dropdown-item">Doctor Appointment</a>
+                <a href="../second-opinion-services" class="dropdown-item">Second Opinion Services</a>
+              </div>
                     </div>
           
 
@@ -465,7 +469,7 @@ function gtag_report_conversion(url) {
                         <div class="col-12 col-sm-12">
                           <label class="fw-bold mb-1">Full Name</label>
                           <input type="text" id="name" name="name" class="form-control bg-light border-0"
-                            placeholder="Enter your name"  pattern="[A-Za-z ]+" style="height:55px">
+                            placeholder="Enter your name"  pattern="[A-Za-z ]+" style="height:55px" required>
                         </div>
 
                         <!-- Phone -->
@@ -475,7 +479,7 @@ function gtag_report_conversion(url) {
                             <input type="text" id="countryCode" class="form-control bg-light border-0"
                               style="max-width:90px; height:55px;">
                             <input type="tel" id="phone" name="phone" class="form-control bg-light border-0"
-                              placeholder="Enter your phone number"  style="height:55px">
+                              placeholder="Enter your phone number"  style="height:55px" required>
                           </div>
                         </div>
 
@@ -493,32 +497,36 @@ function gtag_report_conversion(url) {
                         <div class="col-12 col-sm-6">
                           <label class="fw-bold mb-1">Patient Location</label>
                           <input type="text" id="patientLocation" name="patientLocation" class="form-control bg-light border-0"
-                            placeholder="City / Country"  style="height:55px">
+                            placeholder="City / Country"  style="height:55px" required>
                         </div>
 
                         <!-- Destination -->
                         <div class="col-12 col-sm-6">
                           <label class="fw-bold mb-1">Destination</label>
                           <input type="text" id="destination" name="destination" class="form-control bg-light border-0"
-                            placeholder="City / Country"  style="height:55px">
+                            placeholder="City / Country"  style="height:55px" required>
                         </div>
 
                         <!-- Services -->
                         <div class="col-12 col-sm-12">
                           <label class="fw-bold mb-1">Select Service</label>
-                          <select id="service" name="service" class="form-select bg-light border-0"  style="height:55px">
-                            <option value="Air Ambulance">Air Ambulance</option>
-                            <option value="Flight Medical escort">Flight Medical escort</option>
-                            <option value="Airline Stretcher Services">Airline Stretcher Services</option>
-                            <option value="Medical Tourism">Medical Tourism</option>
-                            <option value="ECMO Transfer Services">ECMO Transfer Services</option>
-                          </select>
+                          <select id="service" name="service" class="form-select bg-light border-0"  style="height:55px" required>
+                    <option value="">Select a Service</option>
+                    <option value="Air Ambulance">Air Ambulance</option>
+                    <option value="Airline Stretcher Services">Airline Stretcher Services</option>
+                    <option value="Flight Medical Escort Services">Flight Medical Escort Services</option>
+                    <option value="ECMO Transfer Services">ECMO Transfer Services</option>
+                    <option value="Organ Transplant Assistance">Organ Transplant Assistance</option>
+                    <option value="Medical Tourism">Medical Tourism</option>
+                    <option value="Medical Travel Assistance">Medical Travel Assistance</option>
+                    <option value="Home Health Care">Home Health Care</option>
+                  </select>
                         </div>
 
                         <div class="col-12">
                           <button class="btn btn-primary w-100 py-3" type="submit">
-                            Get a Free Quotation
-                          </button>
+                  REQUEST CALLBACK
+                </button>
                         </div>
                       </div>
                     </form>
@@ -588,14 +596,18 @@ function gtag_report_conversion(url) {
                     <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
                         Popular Links</h4>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-light mb-2" href="../services/air-ambulance"><i class="fa fa-angle-right me-2"></i>Air Ambulance</a>
-                        <a class="text-light mb-2" href="../services/commercial-flight-stretcher"><i class="fa fa-angle-right me-2"></i>Airline Stretcher Services</a>
-                        <a class="text-light mb-2" href="../services/flight-medical-escort-services"><i class="fa fa-angle-right me-2"></i>Flight Medical Escort Services</a>
-                        <a class="text-light mb-2" href="../services/hospital-acceptance"><i class="fa fa-angle-right me-2"></i>Hospital Acceptance</a>
-                        <a class="text-light mb-2" href="../services/doctor-appointment"><i class="fa fa-angle-right me-2"></i>Doctor Appointment</a>
-                        <a class="text-light mb-2" href="../services/second-opinion-services"><i class="fa fa-angle-right me-2"></i>Second Opinion Services</a>
-                        <a class="text-light mb-2" href="../services/custom-medical-packages"><i class="fa fa-angle-right me-2"></i>Custom Medical Packages</a>
-                    </div>
+            <a class="text-light mb-2" href="../air-ambulance"><i class="fa fa-angle-right me-2"></i>Air Ambulance</a>
+            <a class="text-light mb-2" href="../commercial-flight-stretcher"><i class="fa fa-angle-right me-2"></i>Airline Stretcher Services</a>
+            <a class="text-light mb-2" href="../flight-medical-escort-services"><i class="fa fa-angle-right me-2"></i>Flight Medical Escort Services</a>
+            <a class="text-light mb-2" href="../ECMO-transfer"><i class="fa fa-angle-right me-2"></i>ECMO Transfer Services</a>
+            <a class="text-light mb-2" href="../organ-transplant-assistance"><i class="fa fa-angle-right me-2"></i>Organ Transplant Assistance</a>
+            <a class="text-light mb-2" href="../medical-tourism"><i class="fa fa-angle-right me-2"></i>Medical Tourism</a>
+            <a class="text-light mb-2" href="../medical-travel-assistance"><i class="fa fa-angle-right me-2"></i>Medical Travel Assistance</a>
+            <a class="text-light mb-2" href="../home-health-care"><i class="fa fa-angle-right me-2"></i>Home Health Care</a>
+            <a class="text-light mb-2" href="../hospital-acceptance"><i class="fa fa-angle-right me-2"></i>Hospital Acceptance</a>
+            <a class="text-light mb-2" href="../doctor-appointment"><i class="fa fa-angle-right me-2"></i>Doctor Appointment</a>
+            <a class="text-light mb-2" href="../second-opinion-services"><i class="fa fa-angle-right me-2"></i>Second Opinion Services</a>
+          </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
