@@ -66,12 +66,16 @@
           if (cleanSegment === 'airline-stretcher-services') {
             cleanSegment = 'commercial-flight-stretcher';
           }
+          if (cleanSegment === 'custom-medical-packages' || cleanSegment === 'medical-tourism-services') {
+            cleanSegment = 'medical-tourism';
+          }
 
           var services = [
             'air-ambulance', 'air-ambulance-charters', 'ECMO-transfer',
             'commercial-airlines-medical-transfer-services', 'commercial-flight-stretcher',
-            'custom-medical-packages', 'doctor-appointment', 'flight-medical-escort-services',
-            'hospital-acceptance', 'medical-tourism-services', 'second-opinion-services'
+            'doctor-appointment', 'flight-medical-escort-services', 'hospital-acceptance',
+            'second-opinion-services', 'organ-transplant-assistance', 'medical-tourism',
+            'medical-travel-assistance', 'home-health-care'
           ];
 
           var serviceMatch = services.find(function(s) {
