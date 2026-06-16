@@ -13,33 +13,36 @@ let reviewDeleteTargetId = null;
 
 /***************** INITIALIZATION *****************/
 document.addEventListener("DOMContentLoaded", async () => {
-  // Restore any manually-entered service role key from this session
-  const savedKey = sessionStorage.getItem("blogs_supabase_service_key");
-  if (savedKey) {
-    window.rebindBlogsSupabaseClient(savedKey);
-    document.getElementById("settings-write-key").value = savedKey;
-    document.getElementById("write-key-status").classList.remove("d-none");
-  }
+  // Setup DOM Listeners and editor immediately to prevent race conditions
+  initListeners();
+  initEditor();
 
-  // Check active Supabase Auth session server-side
+  // Check active Supabase Auth session server-side using a clean anon client
   try {
-    const { data: { session } } = await window.blogsSupabaseClient.auth.getSession();
+    const authClient = supabase.createClient(blogsSupabaseUrl, blogsSupabaseKey);
+    const { data: { session } } = await authClient.auth.getSession();
     if (session) {
       currentSession = { username: session.user.email, authType: 'supabase', userId: session.user.id };
       sessionStorage.setItem("admin_session", JSON.stringify(currentSession));
+      
+      // Restore any manually-entered service role key from this session after verifying auth
+      const savedKey = sessionStorage.getItem("blogs_supabase_service_key");
+      if (savedKey) {
+        window.rebindBlogsSupabaseClient(savedKey);
+        document.getElementById("settings-write-key").value = savedKey;
+        document.getElementById("write-key-status").classList.remove("d-none");
+      }
+      
       showDashboard(session.user.email);
     } else {
       sessionStorage.removeItem("admin_session");
       showLogin();
     }
   } catch (e) {
+    console.error("Auth check failed:", e);
     sessionStorage.removeItem("admin_session");
     showLogin();
   }
-
-  // Setup DOM Listeners
-  initListeners();
-  initEditor();
 });
 
 
@@ -849,8 +852,9 @@ async function executeDelete(blogId) {
 /***************** QUICK STATS WIDGET *****************/
 async function updateQuickStats() {
   const client = getSupabaseClient();
+
+  // Blog stats — isolated so a reviews table error cannot suppress blog counts
   try {
-    // 1. Blogs Stats
     const { data: blogsData, error: blogsError } = await client
       .from("blogs")
       .select("status");
@@ -864,8 +868,12 @@ async function updateQuickStats() {
       document.getElementById("stat-published").innerText = published;
       document.getElementById("stat-drafts").innerText = drafts;
     }
+  } catch (e) {
+    console.warn("Blog stats update failed:", e);
+  }
 
-    // 2. Reviews Stats
+  // Reviews stats — isolated so a missing reviews table cannot affect blog stats
+  try {
     const { data: reviewsData, error: reviewsError } = await client
       .from("reviews")
       .select("status");
@@ -880,7 +888,7 @@ async function updateQuickStats() {
       document.getElementById("stat-reviews-drafts").innerText = draftsReviews;
     }
   } catch (e) {
-    // Silently ignore stats update failures
+    console.warn("Reviews stats update failed:", e);
   }
 }
 
@@ -1071,10 +1079,14 @@ async function loadReviewsTable() {
     renderReviewsTable(reviewsList);
   } catch (err) {
     console.error("Failed to load reviews:", err);
+    const isTableMissing = err.message && (err.message.includes("does not exist") || err.code === "PGRST200");
+    const displayMsg = isTableMissing
+      ? `The <strong>reviews</strong> table has not been created yet. Run the SQL migration in your Supabase dashboard first.`
+      : `Failed to retrieve reviews: ${err.message || "Check your DB settings and write key."}`;
     tbody.innerHTML = `
       <tr>
         <td colspan="7" class="text-center text-danger py-5">
-          <i class="fas fa-exclamation-circle me-1"></i> Failed to retrieve reviews list: ${err.message || "Unauthorized"}
+          <i class="fas fa-exclamation-circle me-1"></i> ${displayMsg}
         </td>
       </tr>
     `;
