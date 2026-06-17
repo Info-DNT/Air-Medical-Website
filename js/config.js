@@ -265,7 +265,12 @@ window.sanitize24X7 = function (text) {
 // The service role key must NEVER be hardcoded here — paste it in the admin Settings tab after login.
 window.rebindBlogsSupabaseClient = function (serviceKey) {
   if (serviceKey) {
-    window.blogsSupabaseClient = supabase.createClient(blogsSupabaseUrl, serviceKey);
+    window.blogsSupabaseClient = supabase.createClient(blogsSupabaseUrl, serviceKey, {
+      auth: {
+        persistSession: false,
+        autoRefreshToken: false
+      }
+    });
   } else {
     window.blogsSupabaseClient = supabase.createClient(blogsSupabaseUrl, blogsSupabaseKey);
   }

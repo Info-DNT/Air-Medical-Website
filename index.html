@@ -466,7 +466,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         <div class="col-md-4 col-sm-6">
           <div class="trust-badge-large">
             <i class="fas fa-globe me-2"></i>
-            <span><strong>173+</strong> Countries Covered</span>
+            <span><strong>193+</strong> Countries Covered</span>
           </div>
         </div>
         <div class="col-md-4 col-sm-12">
@@ -501,7 +501,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
               </div>
               <h4 class="cert-title">FAA-APPROVED MEDICAL EQUIPMENT</h4>
             </div>
-            <p class="cert-desc">All onboard medical equipment is approved for in-flight use-ensuring safety,
+            <p class="cert-desc">All onboard medical equipment is approved for in-flight use, ensuring safety,
               reliability, and performance even at high altitudes.</p>
           </div>
         </div>
@@ -567,7 +567,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   <div class="container-fluid py-4 py-lg-5">
     <div class="container">
       <div class="text-center mx-auto mb-5">
-        <h2 class="about-heading">Medical Evacuation Services</h2>
+        <h2 class="about-heading">Medical Evacuation & Treatment Services </h2>
         <div class="testimonial-underline"></div>
       </div>
 
@@ -625,7 +625,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
               <i class="fa fa-2x fa-globe text-white"></i>
             </div>
             <h4 class="mb-3">Medical Tourism</h4>
-            <p class="m-0">Seamless medical travel assistance, hospital acceptance support, and coordinated transport for patients traveling abroad for treatment.</p>
+            <p class="m-0">Seamless medical travel assistance, hospital acceptance support, and coordinated transport
+              for patients traveling abroad for treatment.</p>
             <a class="btn btn-lg btn-primary rounded-pill" href="medical-tourism-services">
               <i class="bi bi-arrow-right"></i>
             </a>
@@ -679,8 +680,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   <!-- How It Works Start -->
   <div class="container-fluid py-4 py-lg-5 bg-light">
     <div class="container">
-      <div class="text-center mx-auto mb-5" style="max-width: 700px;">
-        <h2 class="about-heading">How We Transfer Your Loved Ones</h2>
+      <div class="text-center mx-auto mb-5" style="max-width: 1000px;">
+        <h2 class="about-heading" style="white-space: nowrap;">How We Transfer Your Loved Ones</h2>
         <p class="text-muted mt-2">A simple, transparent, and clinical-first process to reduce anxiety and ensure a
           safe, bed-to-bed journey.</p>
         <div class="testimonial-underline"></div>
@@ -756,7 +757,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             evacuation, our dedicated team ensures
             safe and seamless transfers across the world. We operate a modern fleet of Air Ambulances equipped with
             FAA-approved ICU-level medical equipment, enabling continuous monitoring and life-saving care throughout the
-            journey. Every mission is supported by highly trained doctors, paramedics ensuring patients receive
+            journey. Every mission is supported by highly trained doctors and paramedics, ensuring patients receive
             hospital-level care from initial hospital bed to the destination facility.</p>
 
 
@@ -831,7 +832,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                   <div class="transport-options">
                     <label class="transport-card">
                       <input type="radio" name="transport" value="Air Ambulance">
-                      <img src="img/air-ambulance-.jpg" alt="Air Ambulance" loading="lazy">
+                      <img src="img/air-ambulance-charter.jpg" alt="Air Ambulance" loading="lazy">
                       <span>Air Ambulance</span>
                     </label>
 
@@ -844,7 +845,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
                     <label class="transport-card">
                       <input type="radio" name="transport" value="Flight Medical Escort Services">
-                      <img src="img/flight-medical-escort-services.jpg" alt="Flight Medical Escort Services" loading="lazy">
+                      <img src="img/flight-medical-escort-services.jpg" alt="Flight Medical Escort Services"
+                        loading="lazy">
                       <span>Flight Medical Escort Services</span>
                     </label>
                   </div>
@@ -854,8 +856,9 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
                 <!-- Services -->
                 <div class="col-12 col-sm-12">
-                  <label class="fw-bold mb-1">Services</label>
-                  <select id="service" name="service" class="form-select bg-light border-0" style="height:55px" required>
+                  <label class="fw-bold mb-1">More Services</label>
+                  <select id="service" name="service" class="form-select bg-light border-0" style="height:55px"
+                    required>
                     <option value="">Select a Service</option>
                     <option value="Air Ambulance">Air Ambulance</option>
                     <option value="Airline Stretcher Services">Airline Stretcher Services</option>
@@ -870,8 +873,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
                 <div class="col-12">
                   <button class="btn btn-primary w-100 py-3" type="submit">
-                  REQUEST CALLBACK
-                </button>
+                    REQUEST CALLBACK
+                  </button>
                 </div>
 
               </div>
@@ -995,7 +998,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             // Generate initials
             const parts = name.trim().split(/\s+/);
             const initials = parts.map(p => p[0]).join("").substring(0, 2).toUpperCase() || "AM";
-            
+
             // Choose background color based on hash of name
             const colors = ["#0d1b2a", "#fb0f0c", "#354f8e", "#1d2a4d", "#1A346B", "#112246"];
             let hash = 0;
@@ -1020,7 +1023,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             const route = r.route ? window.sanitize24X7(r.route) : "";
             const serviceInfo = r.service_info ? window.sanitize24X7(r.service_info) : "Patient Transfer";
             const dateStr = r.review_date ? window.sanitize24X7(r.review_date) : "";
-            
+
             const routeHtml = route ? `<div class="testimonial-route">${route}</div>` : "";
             const subtitle = serviceInfo && dateStr ? `${serviceInfo} | ${dateStr}` : (serviceInfo || dateStr);
 
@@ -1682,7 +1685,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <a class="text-light mb-2" href="countries"><i class="fa fa-angle-right me-2"></i>Global
               Pages</a>
             <a class="text-light mb-2" href="terms-and-conditions"><i class="fa fa-angle-right me-2"></i>Terms &
-              Condition</a>
+              Conditions</a>
             <a class="text-light mb-2" href="privacy-policy"><i class="fa fa-angle-right me-2"></i>Privacy
               Policy</a>
           </div>
@@ -1693,16 +1696,25 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             Popular Links</h4>
           <div class="d-flex flex-column justify-content-start">
             <a class="text-light mb-2" href="air-ambulance"><i class="fa fa-angle-right me-2"></i>Air Ambulance</a>
-            <a class="text-light mb-2" href="commercial-flight-stretcher"><i class="fa fa-angle-right me-2"></i>Airline Stretcher Services</a>
-            <a class="text-light mb-2" href="flight-medical-escort-services"><i class="fa fa-angle-right me-2"></i>Flight Medical Escort Services</a>
-            <a class="text-light mb-2" href="ECMO-transfer"><i class="fa fa-angle-right me-2"></i>ECMO Transfer Services</a>
-            <a class="text-light mb-2" href="organ-transplant-assistance"><i class="fa fa-angle-right me-2"></i>Organ Transplant Assistance</a>
+            <a class="text-light mb-2" href="commercial-flight-stretcher"><i class="fa fa-angle-right me-2"></i>Airline
+              Stretcher Services</a>
+            <a class="text-light mb-2" href="flight-medical-escort-services"><i
+                class="fa fa-angle-right me-2"></i>Flight Medical Escort Services</a>
+            <a class="text-light mb-2" href="ECMO-transfer"><i class="fa fa-angle-right me-2"></i>ECMO Transfer
+              Services</a>
+            <a class="text-light mb-2" href="organ-transplant-assistance"><i class="fa fa-angle-right me-2"></i>Organ
+              Transplant Assistance</a>
             <a class="text-light mb-2" href="medical-tourism"><i class="fa fa-angle-right me-2"></i>Medical Tourism</a>
-            <a class="text-light mb-2" href="medical-travel-assistance"><i class="fa fa-angle-right me-2"></i>Medical Travel Assistance</a>
-            <a class="text-light mb-2" href="home-health-care"><i class="fa fa-angle-right me-2"></i>Home Health Care</a>
-            <a class="text-light mb-2" href="hospital-acceptance"><i class="fa fa-angle-right me-2"></i>Hospital Acceptance</a>
-            <a class="text-light mb-2" href="doctor-appointment"><i class="fa fa-angle-right me-2"></i>Doctor Appointment</a>
-            <a class="text-light mb-2" href="second-opinion-services"><i class="fa fa-angle-right me-2"></i>Second Opinion Services</a>
+            <a class="text-light mb-2" href="medical-travel-assistance"><i class="fa fa-angle-right me-2"></i>Medical
+              Travel Assistance</a>
+            <a class="text-light mb-2" href="home-health-care"><i class="fa fa-angle-right me-2"></i>Home Health
+              Care</a>
+            <a class="text-light mb-2" href="hospital-acceptance"><i class="fa fa-angle-right me-2"></i>Hospital
+              Acceptance</a>
+            <a class="text-light mb-2" href="doctor-appointment"><i class="fa fa-angle-right me-2"></i>Doctor
+              Appointment</a>
+            <a class="text-light mb-2" href="second-opinion-services"><i class="fa fa-angle-right me-2"></i>Second
+              Opinion Services</a>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
@@ -1823,7 +1835,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         });
 
         // Close on link click
-        const navLinks = navbarCollapse.querySelectorAll('.nav-link');
+        const navLinks = navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)');
         navLinks.forEach(link => {
           link.addEventListener('click', () => {
             navbarCollapse.classList.remove('show');

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 
@@ -432,7 +432,7 @@
           <p class="mb-0">
             <i class="fa fa-phone-alt text-primary me-3"></i>
             <a href="tel:+919217710155" style="text-decoration: none; color: inherit;">
-              +91 9217710155
+              +91 92177 10155
             </a>
           </p>
 
@@ -447,8 +447,7 @@
             <a class="text-light mb-2" href="blogs"><i class="fa fa-angle-right me-2"></i>Latest Blogs</a>
             <a class="text-light mb-2" href="countries"><i class="fa fa-angle-right me-2"></i>Global
               Pages</a>
-            <a class="text-light mb-2" href="terms-and-conditions"><i class="fa fa-angle-right me-2"></i>Terms &
-              Condition</a>
+            <a class="text-light mb-2" href="terms-and-conditions"><i class="fa fa-angle-right me-2"></i>Terms & Conditions</a>
             <a class="text-light mb-2" href="privacy-policy"><i class="fa fa-angle-right me-2"></i>Privacy
               Policy</a>
           </div>
@@ -596,7 +595,7 @@
         });
 
         // Close on link click
-        const navLinks = navbarCollapse.querySelectorAll('.nav-link');
+        const navLinks = navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navbarCollapse.classList.remove('show');

@@ -427,8 +427,7 @@
             <a class="text-light mb-2" href="career"><i class="fa fa-angle-right me-2"></i>Career</a>
             <a class="text-light mb-2" href="blogs"><i class="fa fa-angle-right me-2"></i>Latest Blogs</a>
             <a class="text-light mb-2" href="countries"><i class="fa fa-angle-right me-2"></i>Global Pages</a>
-            <a class="text-light mb-2" href="terms-and-conditions"><i class="fa fa-angle-right me-2"></i>Terms &
-              Condition</a>
+            <a class="text-light mb-2" href="terms-and-conditions"><i class="fa fa-angle-right me-2"></i>Terms & Conditions</a>
             <a class="text-light mb-2" href="privacy-policy"><i class="fa fa-angle-right me-2"></i>Privacy Policy</a>
           </div>
         </div>
@@ -572,7 +571,7 @@
         });
 
         // Close on link click
-        const navLinks = navbarCollapse.querySelectorAll('.nav-link');
+        const navLinks = navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)');
         navLinks.forEach(link => {
           link.addEventListener('click', () => {
             navbarCollapse.classList.remove('show');
