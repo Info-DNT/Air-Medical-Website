@@ -90,7 +90,7 @@ function showQuoteSuccessModal() {
 
   const isRoot = !window.location.pathname.includes("/services/") &&
                  !window.location.pathname.includes("/countries/");
-  const logoPath = isRoot ? "img/logo.png" : "../img/logo.png";
+  const logoPath = isRoot ? "img/air-medical-logo.png" : "../img/air-medical-logo.png";
 
   const overlay = document.createElement("div");
   overlay.id = "quoteSuccessModal";
