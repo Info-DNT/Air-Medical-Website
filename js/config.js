@@ -82,6 +82,62 @@ function showFormMessage(form, message, type) {
   if (type === "success") setTimeout(() => div.remove(), 8000);
 }
 
+// Thank-you popup shown after successful quotation form submission
+function showQuoteSuccessModal() {
+  // Remove any existing instance
+  const existing = document.getElementById("quoteSuccessModal");
+  if (existing) existing.remove();
+
+  const isRoot = !window.location.pathname.includes("/services/") &&
+                 !window.location.pathname.includes("/countries/");
+  const logoPath = isRoot ? "img/logo.png" : "../img/logo.png";
+
+  const overlay = document.createElement("div");
+  overlay.id = "quoteSuccessModal";
+  overlay.style.cssText = [
+    "position:fixed","inset:0","z-index:99999",
+    "display:flex","align-items:center","justify-content:center",
+    "background:rgba(0,0,0,0.55)","padding:16px"
+  ].join(";");
+
+  overlay.innerHTML = `
+    <div style="background:#fff;border-radius:20px;max-width:360px;width:100%;
+                padding:40px 32px 36px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.25);
+                animation:quoteModalIn 0.35s cubic-bezier(0.34,1.56,0.64,1) both;">
+      <img src="${logoPath}" alt="Air Medical 24X7" style="height:52px;object-fit:contain;margin-bottom:24px;">
+      <h3 style="color:#1a2e5a;font-size:1.45rem;font-weight:700;margin-bottom:16px;line-height:1.3;">
+        Quotation Request<br>Received
+      </h3>
+      <p style="color:#555;font-size:0.92rem;line-height:1.6;margin-bottom:10px;">
+        Thank you for contacting Air Medical 24X7. We have received your quotation request
+        and our team is currently reviewing the details.
+      </p>
+      <p style="color:#1a2e5a;font-size:0.92rem;font-weight:700;font-style:italic;margin-bottom:28px;">
+        Our expert will get back to you shortly with your customized quote.
+      </p>
+      <a href="${isRoot ? 'index.html' : '../index.html'}"
+         style="display:inline-block;background:#1a2e5a;color:#fff;font-weight:700;
+                font-size:0.82rem;letter-spacing:0.08em;padding:13px 32px;border-radius:50px;
+                text-decoration:none;transition:background 0.2s;">
+        BACK TO HOMEPAGE
+      </a>
+    </div>
+    <style>
+      @keyframes quoteModalIn {
+        from { opacity:0; transform:scale(0.8); }
+        to   { opacity:1; transform:scale(1); }
+      }
+    </style>
+  `;
+
+  // Close on backdrop click
+  overlay.addEventListener("click", function (e) {
+    if (e.target === overlay) overlay.remove();
+  });
+
+  document.body.appendChild(overlay);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const forms = [
     document.getElementById("quoteForm"),
@@ -199,7 +255,6 @@ document.addEventListener("DOMContentLoaded", () => {
           const result = await res.json();
 
           if (result.success) {
-            showFormMessage(form, "✅ Thank you! Our team will contact you within 30 minutes.", "success");
             form.reset();
             if (btn) {
               btn.disabled = false;
@@ -208,6 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (isPopup && typeof window.closeQuoteModal === "function") {
               window.closeQuoteModal();
             }
+            showQuoteSuccessModal();
           } else {
             showFormMessage(form, "Submission failed. Please try again or contact us directly.", "danger");
             if (btn) {
