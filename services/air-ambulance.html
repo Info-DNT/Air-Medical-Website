@@ -380,7 +380,7 @@
       <div class="row gx-5">
         <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
           <div class="position-relative h-100">
-            <img class="position-absolute w-100 h-100 rounded" src="../img/ab-new.jpg"
+            <img class="position-absolute w-100 h-100 rounded" src="../img/air-ambulance-uae.jpeg"
               alt="ICU equipped air ambulance aircraft with doctors onboard for emergency medical evacuation"
               style="object-fit: cover;" loading="lazy">
           </div>
@@ -455,7 +455,7 @@
             patient needs.
           </p>
 
-          <h3 class="mt-4">Critical Care Transfer</h3>
+          <h3 class="mt-4">1. Critical Care Transfer</h3>
           <p>
             We provide critical care air ambulance services for patients requiring immediate medical transfer.
             Whether it is trauma, cardiac arrest, stroke, or another life-threatening condition, our aircraft
@@ -463,20 +463,20 @@
             throughout the transfer.
           </p>
 
-          <h3 class="mt-4">Neonatal Air Ambulance Services</h3>
+          <h3 class="mt-4">2. Neonatal Air Ambulance Services</h3>
           <p>
             Our neonatal services are specially designed for premature or critically ill newborns. We deploy
             neonatal nurses and respiratory specialists capable of managing complex cases, including congenital
             conditions and respiratory challenges, during transit.
           </p>
 
-          <h3 class="mt-4">International Air Ambulance Transfer</h3>
+          <h3 class="mt-4">3. International Air Ambulance Transfer</h3>
           <p>
             We arrange immediate global medical transfer regardless of location. With experienced staff and
             international assistance partners, we ensure safe transfer using advanced onboard equipment.
           </p>
 
-          <h3 class="mt-4">Bed-to-Bed Service</h3>
+          <h3 class="mt-4">4. Bed-to-Bed Service</h3>
           <p>Our bed-to-bed medical transfer ensures continuous care. We coordinate:</p>
           <ul>
             <li>Fit-to-fly medical evaluation with hospital doctors.</li>
@@ -830,7 +830,7 @@
         });
 
         // Close on link click
-        const navLinks = navbarCollapse.querySelectorAll('.nav-link');
+        const navLinks = navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)');
         navLinks.forEach(link => {
           link.addEventListener('click', () => {
             navbarCollapse.classList.remove('show');

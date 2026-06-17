@@ -309,7 +309,7 @@
       <div class="row gx-5">
         <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
           <div class="position-relative h-100">
-            <img class="position-absolute w-100 h-100 rounded" src="../img/air-ambulance-services.png"
+            <img class="position-absolute w-100 h-100 rounded" src="../img/air-ambulance-services.jpeg"
               alt="Patient being transferred on airline stretcher with medical escort" style="object-fit: cover;"
               loading="lazy">
           </div>
@@ -742,7 +742,7 @@
         });
 
         // Close on link click
-        const navLinks = navbarCollapse.querySelectorAll('.nav-link');
+        const navLinks = navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle)');
         navLinks.forEach(link => {
           link.addEventListener('click', () => {
             navbarCollapse.classList.remove('show');
