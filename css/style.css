@@ -2190,6 +2190,30 @@ h6 {
 }
 
 
+/* ================= FOOTER SOCIAL ICONS ================= */
+.footer-social-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 15px;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.footer-social-btn:hover {
+    border-color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff !important;
+    transform: translateY(-3px);
+}
+
 /* Form Heading Underline Accent */
 .form-underline {
     width: 80px;
