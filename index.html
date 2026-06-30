@@ -1,8 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KG4BQ6SM');</script>
+  <!-- End Google Tag Manager -->
 
 
   <!-- Event snippet for Click to call (1) conversion page
@@ -296,19 +304,6 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         if (scriptsLoaded) return;
         scriptsLoaded = true;
 
-        // Google Tag Manager
-        (function (w, d, s, l, i) {
-          w[l] = w[l] || []; w[l].push({
-            'gtm.start': new Date().getTime(), event: 'gtm.js'
-          });
-          var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-          var jScript = d.createElement(s);
-          jScript.async = true;
-          jScript.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-          f.parentNode.insertBefore(jScript, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-KG4BQ6SM');
-
         // Google Ads Tag 1
         var g1 = document.createElement('script');
         g1.async = true;
@@ -361,7 +356,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
         <!-- Bootstrap Menu Button -->
         <!-- Mobile Quote Button (ONLY phone view) -->
-        <a href="#quoteForm" class="btn btn-request btn-header-quote ms-auto me-2">GET A QUOTATION IN 30 MINS</a>
+        <a href="#quoteForm" class="btn btn-request btn-header-quote ms-auto me-2">Get a Quotation in 30 minutes</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -572,17 +567,18 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
       </div>
 
       <!-- Primary Emergency Services -->
-      <div class="row g-4 justify-content-center mb-5">
+      <div class="row g-3 justify-content-center mb-5">
         <!-- Air Ambulance -->
         <div class="col-lg-3 col-md-6">
-          <div class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100">
-            <div class="service-icon mb-4">
-              <i class="fa fa-2x fa-plane text-white"></i>
+          <div class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100"
+            style="padding: 20px 16px;">
+            <div class="service-icon mb-3" style="width:52px;height:52px;min-width:52px;">
+              <i class="fa fa-plane text-white"></i>
             </div>
-            <h4 class="mb-3">Air Ambulance</h4>
-            <p class="m-0">ICU-equipped aircraft for high-speed critical care. Safe, bed-to-bed international
-              evacuations with certified doctors and medical crews onboard.</p>
-            <a class="btn btn-lg btn-primary rounded-pill" href="air-ambulance">
+            <h5 class="mb-2" style="font-size:0.95rem;">Air Ambulance</h5>
+            <p class="m-0" style="font-size:0.8rem;">ICU-equipped aircraft for high-speed critical care. Safe,
+              bed-to-bed international evacuations with certified doctors onboard.</p>
+            <a class="btn btn-sm btn-primary rounded-pill mt-3" href="air-ambulance">
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>
@@ -590,14 +586,15 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
         <!-- Airline Stretcher Services -->
         <div class="col-lg-3 col-md-6">
-          <div class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100">
-            <div class="service-icon mb-4">
-              <i class="fa fa-2x fa-procedures text-white"></i>
+          <div class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100"
+            style="padding: 20px 16px;">
+            <div class="service-icon mb-3" style="width:52px;height:52px;min-width:52px;">
+              <i class="fa fa-procedures text-white"></i>
             </div>
-            <h4 class="mb-3" style="font-size: 1.15rem;">Airline Stretcher Services</h4>
-            <p class="m-0">Stretcher installation on commercial flights for patients requiring continuous recumbent
-              travel with full medical supervision at lower costs.</p>
-            <a class="btn btn-lg btn-primary rounded-pill" href="commercial-flight-stretcher">
+            <h5 class="mb-2" style="font-size:0.95rem;">Airline Stretcher Services</h5>
+            <p class="m-0" style="font-size:0.8rem;">Stretcher installation on commercial flights for patients requiring
+              continuous recumbent travel with full medical supervision.</p>
+            <a class="btn btn-sm btn-primary rounded-pill mt-3" href="commercial-flight-stretcher">
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>
@@ -605,14 +602,15 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
         <!-- Flight Medical Escort -->
         <div class="col-lg-3 col-md-6">
-          <div class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100">
-            <div class="service-icon mb-4">
-              <i class="fa fa-2x fa-user-md text-white"></i>
+          <div class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100"
+            style="padding: 20px 16px;">
+            <div class="service-icon mb-3" style="width:52px;height:52px;min-width:52px;">
+              <i class="fa fa-user-md text-white"></i>
             </div>
-            <h4 class="mb-3">Flight Medical Escort</h4>
-            <p class="m-0">Experienced medical doctors or flight nurses accompanying patients on commercial airlines,
-              providing clinical support throughout the flight.</p>
-            <a class="btn btn-lg btn-primary rounded-pill" href="flight-medical-escort-services">
+            <h5 class="mb-2" style="font-size:0.95rem;">Flight Medical Escort</h5>
+            <p class="m-0" style="font-size:0.8rem;">Experienced medical doctors or flight nurses accompanying patients
+              on commercial airlines with clinical support throughout.</p>
+            <a class="btn btn-sm btn-primary rounded-pill mt-3" href="flight-medical-escort-services">
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>
@@ -620,14 +618,15 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
         <!-- Medical Tourism -->
         <div class="col-lg-3 col-md-6">
-          <div class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100">
-            <div class="service-icon mb-4">
-              <i class="fa fa-2x fa-globe text-white"></i>
+          <div class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100"
+            style="padding: 20px 16px;">
+            <div class="service-icon mb-3" style="width:52px;height:52px;min-width:52px;">
+              <i class="fa fa-globe text-white"></i>
             </div>
-            <h4 class="mb-3">Medical Tourism</h4>
-            <p class="m-0">Seamless medical travel assistance, hospital acceptance support, and coordinated transport
-              for patients traveling abroad for treatment.</p>
-            <a class="btn btn-lg btn-primary rounded-pill" href="medical-tourism">
+            <h5 class="mb-2" style="font-size:0.95rem;">Medical Tourism</h5>
+            <p class="m-0" style="font-size:0.8rem;">Seamless medical travel assistance, hospital acceptance support,
+              and coordinated transport for patients traveling abroad.</p>
+            <a class="btn btn-sm btn-primary rounded-pill mt-3" href="medical-tourism">
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>
@@ -636,39 +635,95 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
       <!-- Corporate Aviation & Specialty Care Sub-Section -->
       <div class="corporate-specialty-section">
-        <h3 class="corporate-specialty-title">Corporate & Specialty Aviation Services</h3>
-        <div class="row g-4 justify-content-center">
-          <!-- Executive Charter -->
-          <div class="col-md-6 col-lg-5">
+        <h3 class="corporate-specialty-title">Specialty Aviation Services</h3>
+        <div class="row g-2 row-cols-1 row-cols-md-3 row-cols-lg-6">
+
+          <!-- Government & Embassy Repatriation -->
+          <div class="col">
             <div
-              class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100 bg-white">
-              <div class="service-icon mb-4">
-                <i class="fa fa-2x fa-user-tie text-white"></i>
+              class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100 bg-white"
+              style="padding:14px 10px;">
+              <div class="service-icon mb-2" style="width:42px;height:42px;min-width:42px;">
+                <i class="fa fa-flag text-white" style="font-size:16px;"></i>
               </div>
-              <h4 class="mb-3">Executive Charter Service</h4>
-              <p class="m-0">Private charter aircraft specifically configured for corporate executives, government
-                officials, or VIPs requiring highly private, scheduled travel.</p>
-              <a class="btn btn-lg btn-primary rounded-pill mt-3" href="air-ambulance-charters">
-                <i class="bi bi-arrow-right"></i>
-              </a>
+              <h5 class="mb-1" style="font-size:0.82rem;line-height:1.3;">Government & Embassy Repatriation</h5>
+              <p class="m-0" style="font-size:0.72rem;color:#666;">Official repatriation coordinated with embassies for
+                compliant patient returns.</p>
             </div>
           </div>
 
           <!-- ECMO Transfer -->
-          <div class="col-md-6 col-lg-5">
-            <div
-              class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100 bg-white">
-              <div class="service-icon mb-4">
-                <i class="fa fa-2x fa-heartbeat text-white"></i>
+          <div class="col">
+            <a href="ECMO-transfer" style="text-decoration:none;color:inherit;display:block;height:100%;">
+              <div
+                class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100 bg-white"
+                style="padding:14px 10px;">
+                <div class="service-icon mb-2" style="width:42px;height:42px;min-width:42px;">
+                  <i class="fa fa-heartbeat text-white" style="font-size:16px;"></i>
+                </div>
+                <h5 class="mb-1" style="font-size:0.82rem;line-height:1.3;">ECMO Transfer</h5>
+                <p class="m-0" style="font-size:0.72rem;color:#666;">Life-saving ECMO transport for critically ill
+                  patients needing heart & lung support.</p>
               </div>
-              <h4 class="mb-3">ECMO Transfer</h4>
-              <p class="m-0">Life-saving Extracorporeal Membrane Oxygenation (ECMO) transportation for critically ill
-                patients requiring specialist heart and lung support.</p>
-              <a class="btn btn-lg btn-primary rounded-pill mt-3" href="ECMO-transfer">
-                <i class="bi bi-arrow-right"></i>
-              </a>
+            </a>
+          </div>
+
+          <!-- Medical & Non-Medical Repatriation -->
+          <div class="col">
+            <div
+              class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100 bg-white"
+              style="padding:14px 10px;">
+              <div class="service-icon mb-2" style="width:42px;height:42px;min-width:42px;">
+                <i class="fa fa-plane-arrival text-white" style="font-size:16px;"></i>
+              </div>
+              <h5 class="mb-1" style="font-size:0.82rem;line-height:1.3;">Medical & Non-Medical Repatriation</h5>
+              <p class="m-0" style="font-size:0.72rem;color:#666;">Safe return of patients and deceased to their home
+                country.</p>
             </div>
           </div>
+
+          <!-- Consular Coordination -->
+          <div class="col">
+            <div
+              class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100 bg-white"
+              style="padding:14px 10px;">
+              <div class="service-icon mb-2" style="width:42px;height:42px;min-width:42px;">
+                <i class="fa fa-landmark text-white" style="font-size:16px;"></i>
+              </div>
+              <h5 class="mb-1" style="font-size:0.82rem;line-height:1.3;">Consular Coordination</h5>
+              <p class="m-0" style="font-size:0.72rem;color:#666;">Embassy liaison for travel clearances, emergency
+                documents & approvals.</p>
+            </div>
+          </div>
+
+          <!-- Immigration & Documentation Support -->
+          <div class="col">
+            <div
+              class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100 bg-white"
+              style="padding:14px 10px;">
+              <div class="service-icon mb-2" style="width:42px;height:42px;min-width:42px;">
+                <i class="fa fa-file-alt text-white" style="font-size:16px;"></i>
+              </div>
+              <h5 class="mb-1" style="font-size:0.82rem;line-height:1.3;">Immigration & Documentation Support</h5>
+              <p class="m-0" style="font-size:0.72rem;color:#666;">Visas, permits, customs clearances & international
+                transfer documents.</p>
+            </div>
+          </div>
+
+          <!-- Humanitarian Evacuation Missions -->
+          <div class="col">
+            <div
+              class="premium-card d-flex flex-column align-items-center justify-content-center text-center h-100 bg-white"
+              style="padding:14px 10px;">
+              <div class="service-icon mb-2" style="width:42px;height:42px;min-width:42px;">
+                <i class="fa fa-hands-helping text-white" style="font-size:16px;"></i>
+              </div>
+              <h5 class="mb-1" style="font-size:0.82rem;line-height:1.3;">Humanitarian Evacuation Missions</h5>
+              <p class="m-0" style="font-size:0.72rem;color:#666;">Rapid evacuation in conflict zones & disaster areas
+                with medical care.</p>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -693,7 +748,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
           <div class="col-lg col-md-6 col-sm-6 col-12">
             <div class="journey-step-card">
               <div class="journey-step-number">1</div>
-              <h5 class="fw-bold mt-2">Emergency Call</h5>
+              <h5 class="fw-bold mt-2">Make a Call</h5>
               <p class="text-muted small mb-0">Contact our 24X7 hotline. Speak directly to a medical coordinator.</p>
             </div>
           </div>
@@ -776,7 +831,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         <!-- Right Section - New Form -->
         <div class="col-lg-6">
           <div class="bg-white text-center rounded p-4 p-lg-5">
-            <h2 class="mb-2">Get a quotation in 30 minutes</h2>
+            <h2 class="mb-2">Get a Quotation in 30 minutes</h2>
             <div class="form-underline"></div>
             <form id="quoteForm">
 
@@ -1077,7 +1132,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <div class="container text-center mb-4">
       <div class="d-inline-flex align-items-center justify-content-center bg-light px-4 py-2 rounded-pill mb-3">
         <i class="fab fa-google text-primary me-2"></i>
-        <span class="fw-bold text-dark">4.9/5 Rating (Based on 850+ Google Reviews)</span>
+        <span class="fw-bold text-dark">5/5 Rating (Based on 90+ Google Reviews)</span>
         <div class="ms-2 text-red" style="font-size: 11px; letter-spacing: 2px;">
           <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
             class="fas fa-star"></i>

@@ -5,6 +5,13 @@
 
 <head>
   <meta charset="utf-8">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KG4BQ6SM');</script>
+  <!-- End Google Tag Manager -->
     <!-- Event snippet for Click to call (1) conversion page
 In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
 <script>
@@ -242,18 +249,7 @@ function gtag_report_conversion(url) {
         if (scriptsLoaded) return;
         scriptsLoaded = true;
 
-        // Google Tag Manager
-        (function (w, d, s, l, i) {
-          w[l] = w[l] || []; w[l].push({
-            'gtm.start': new Date().getTime(), event: 'gtm.js'
-          });
-          var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-          var jScript = d.createElement(s);
-          jScript.async = true;
-          jScript.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-          f.parentNode.insertBefore(jScript, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-KG4BQ6SM');
+
 
         // Google Ads Tag 1
         var g1 = document.createElement('script');
@@ -283,6 +279,10 @@ function gtag_report_conversion(url) {
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KG4BQ6SM"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
         
 
 
@@ -303,7 +303,7 @@ function gtag_report_conversion(url) {
 
             <!-- Bootstrap Menu Button -->
             <!-- Mobile Quote Button (ONLY phone view) -->
-            <a href="#quoteForm" class="btn btn-request btn-header-quote ms-auto me-2">GET A QUOTATION IN 30 MINS</a>
+            <a href="#quoteForm" class="btn btn-request btn-header-quote ms-auto me-2">Get a Quotation in 30 minutes</a>
             <button class="navbar-toggler" type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse">
@@ -426,7 +426,7 @@ function gtag_report_conversion(url) {
             <!-- RIGHT FORM (REPLACES IMAGE) -->
             <div class="col-lg-5">
                 <div class="bg-light rounded p-4 p-lg-5 shadow-sm">
-                    <h4 class="text-primary mb-2 text-center">Get a quotation in 30 minutes</h4>
+                    <h4 class="text-primary mb-2 text-center">Get a Quotation in 30 minutes</h4>
             <div class="form-underline"></div>
                     <!-- FORM CODE START -->
 

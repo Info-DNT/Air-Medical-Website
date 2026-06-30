@@ -1,3 +1,10 @@
+/********** Custom Scrollbar **********/
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f4f8; }
+::-webkit-scrollbar-thumb { background: #1a2e5a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #FB0F0C; }
+* { scrollbar-width: thin; scrollbar-color: #1a2e5a #f1f4f8; }
+
 /********** Template CSS **********/
 :root {
     --primary: #1A346B;
@@ -2118,6 +2125,38 @@ h6 {
 /* Mobile-only header quote button and SOS hide */
 .btn-header-quote {
     display: none !important;
+}
+
+@media (min-width: 992px) {
+    .btn-header-quote {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-grow: 1 !important;
+        margin-left: 24px !important;
+        margin-right: 24px !important;
+        background-color: #FB0F0C !important;
+        color: #ffffff !important;
+        font-size: 14px !important;
+        font-weight: 700 !important;
+        padding: 6px 20px !important;
+        border-radius: 4px !important;
+        text-transform: uppercase !important;
+        border: none !important;
+        white-space: nowrap !important;
+        box-shadow: 0 2px 8px rgba(251, 15, 12, 0.35) !important;
+        transition: background-color 0.3s !important;
+        letter-spacing: 0.04em !important;
+    }
+    .btn-header-quote:hover {
+        background-color: #d40d0a !important;
+        color: #ffffff !important;
+        text-decoration: none !important;
+    }
+    /* Stop navbar-collapse from competing for space — give all spare width to the button */
+    .navbar-expand-lg .navbar-collapse {
+        flex: 0 0 auto !important;
+    }
 }
 
 @media (max-width: 768px) {
