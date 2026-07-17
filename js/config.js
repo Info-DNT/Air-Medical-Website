@@ -21,6 +21,7 @@ window.onloadTurnstileCallback = function () {
   const forms = [
     document.getElementById("quoteForm"),
     document.getElementById("quoteFormPopup"),
+    document.getElementById("quoteFormHeader"),
     document.getElementById("careerForm")
   ].filter(Boolean);
 
@@ -142,6 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const forms = [
     document.getElementById("quoteForm"),
     document.getElementById("quoteFormPopup"),
+    document.getElementById("quoteFormHeader"),
     document.getElementById("careerForm")
   ].filter(Boolean);
 
@@ -190,11 +192,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
           const isPopup = form.id === "quoteFormPopup";
-          const nameId = isPopup ? "popupName" : "name";
-          const emailId = isPopup ? "popupEmail" : "email";
-          const codeId = isPopup ? "popupCountryCode" : "countryCode";
-          const phoneId = isPopup ? "popupPhone" : "phone";
-          const serviceId = isPopup ? "popupService" : "service";
+          const isHeader = form.id === "quoteFormHeader";
+          const nameId = isPopup ? "popupName" : (isHeader ? "headerName" : "name");
+          const emailId = isPopup ? "popupEmail" : (isHeader ? "headerEmail" : "email");
+          const codeId = isPopup ? "popupCountryCode" : (isHeader ? "headerCountryCode" : "countryCode");
+          const phoneId = isPopup ? "popupPhone" : (isHeader ? "headerPhone" : "phone");
+          const serviceId = isPopup ? "popupService" : (isHeader ? "headerService" : "service");
 
           const rawCode = document.getElementById(codeId)?.value?.trim() || "";
           const phoneVal = document.getElementById(phoneId)?.value?.trim() || "";
@@ -224,8 +227,8 @@ document.addEventListener("DOMContentLoaded", () => {
           };
 
           // Capture new patient location and destination fields
-          const patientLocEl = form.querySelector('[name="patientLocation"]') || document.getElementById("patientLocation");
-          const destEl = form.querySelector('[name="destination"]') || document.getElementById("destination");
+          const patientLocEl = form.querySelector('[name="patientLocation"]') || document.getElementById(isHeader ? "headerPatientLocation" : "patientLocation");
+          const destEl = form.querySelector('[name="destination"]') || document.getElementById(isHeader ? "headerDestination" : "destination");
 
           if (patientLocEl) {
             payload.patient_location = patientLocEl.value;

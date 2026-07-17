@@ -201,7 +201,7 @@ h6 {
 }
 
 .hero-header {
-    background: url(../img/home-banner-hq.png) center right no-repeat;
+    background: url(../img/home-page-header.jfif) 5% center no-repeat;
     background-size: cover;
     min-height: 600px;
     /* Added to give image more vertical space */
@@ -226,9 +226,45 @@ h6 {
 
 @media (min-width: 992px) {
     .hero-header h1 {
-        font-size: 4.5rem !important;
+        font-size: clamp(2.5rem, 4.2vw, 4.5rem) !important;
         font-weight: 900 !important;
         line-height: 1.0 !important;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1400px) {
+    .hero-header {
+        background-position: left center !important;
+    }
+}
+
+.hero-btns {
+    display: flex;
+    flex-direction: row;
+    gap: clamp(6px, 0.8vw, 12px);
+    max-width: 600px;
+    align-items: center;
+}
+
+.hero-btns .btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important; /* Reset margins */
+    white-space: nowrap;
+    font-size: clamp(0.7rem, 0.9vw, 0.95rem) !important;
+    padding: clamp(6px, 0.8vw, 12px) clamp(10px, 1.2vw, 24px) !important;
+}
+
+@media (max-width: 576px) {
+    .hero-btns {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .hero-btns .btn {
+        width: 100% !important;
+        font-size: 13.5px !important;
+        padding: 12px 20px !important;
     }
 }
 
@@ -1308,11 +1344,11 @@ h6 {
 /* ===============================
    MOBILE HERO BANNER FIX
 ================================ */
-@media (max-width: 767px) {
+@media (max-width: 991.98px) {
     .hero-header {
         min-height: 400px !important;
         /* Sensible mobile height */
-        background-position: right center !important;
+        background-position: left center !important;
         background-size: cover !important;
         padding: 60px 0 !important;
         display: flex;
@@ -1330,7 +1366,9 @@ h6 {
 
     /* Show hero text on mobile */
     .hero-header .col-lg-9,
-    .hero-header .col-lg-8 {
+    .hero-header .col-lg-8,
+    .hero-header .col-lg-7,
+    .hero-header .col-lg-5 {
         display: block !important;
     }
 }
@@ -1563,6 +1601,8 @@ h6 {
     border-top: 5px solid transparent;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .cert-card:hover {
@@ -1588,25 +1628,29 @@ h6 {
 
 .cert-header {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .cert-icon-container {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     background: #f8f9fa;
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 15px;
+    margin-right: 0;
+    margin-bottom: 15px;
     flex-shrink: 0;
 }
 
 .cert-icon-img {
-    max-width: 45px;
-    max-height: 45px;
+    max-width: 60px;
+    max-height: 60px;
     object-fit: contain;
 }
 
@@ -1623,6 +1667,7 @@ h6 {
     color: #666;
     line-height: 1.6;
     margin: 0;
+    text-align: center;
 }
 
 /* CTA Button Group */
@@ -1720,14 +1765,14 @@ h6 {
 }
 
 /* Hero Section Mobile Readability Revamp */
-@media (max-width: 768px) {
+@media (max-width: 991.98px) {
     .hero-header {
         position: relative !important;
         overflow: hidden !important;
         min-height: 450px !important;
         height: auto !important;
-        background-position: 75% center !important;
-        /* Slide tarmac crew to the right on mobile */
+        background-position: left center !important;
+        /* Slide tarmac crew to the left/center on mobile */
         background-size: cover !important;
         padding: 60px 0 !important;
         display: flex !important;

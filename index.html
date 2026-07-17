@@ -291,7 +291,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   </noscript>
 
   <!-- Template Stylesheet -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style.css?v=1.9" rel="stylesheet">
   <!-- Optimized Google Analytics and GTM Lazy Loader -->
   <script>
     (function () {
@@ -346,7 +346,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
       <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
 
         <!-- Logo -->
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="./">
           <img src="img/air-medical-logo.png" alt="Air Medical 24X7" class="logo-img" loading="eager">
         </a>
 
@@ -364,7 +364,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         <!-- Menu -->
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <div class="navbar-nav ms-auto py-0">
-            <a href="/" class="nav-item nav-link">Home</a>
+            <a href="./" class="nav-item nav-link">Home</a>
             <a href="about-us" class="nav-item nav-link">About Us</a>
 
             <div class="nav-item dropdown">
@@ -412,11 +412,11 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
 
   <!-- Hero Start -->
-  <div class="container-fluid bg-primary py-5 mb-5 hero-header" role="img"
+  <div class="container-fluid bg-primary py-5 mb-5 hero-header home-hero" role="img"
     aria-label="Air Ambulance Service and Medical Evacuation worldwide with ICU-equipped aircraft">
     <div class="container py-4 py-lg-5">
-      <div class="row justify-content-start">
-        <div class="col-lg-9 text-center text-lg-start">
+      <div class="row justify-content-end">
+        <div class="col-lg-5 text-center text-lg-start">
           <div class="hero-badge">
             <i class="fas fa-circle"></i> AIR AMBULANCE SERVICE AVAILABLE 24X7
           </div>
@@ -434,13 +434,90 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
               <li class="mb-2"><i class="fas fa-check text-red me-2"></i>Available 24X7</li>
             </ul>
           </div>
-          <div class="pt-2">
-            <a href="#quoteForm" class="btn btn-request me-3">
+          <div class="hero-btns pt-2">
+            <a href="#quoteForm" class="btn btn-request">
               Get Emergency Assistance Now
             </a>
             <a href="https://wa.me/971565542001" target="_blank" rel="noopener noreferrer" class="btn btn-ghost"><i
                 class="fab fa-whatsapp me-2" aria-hidden="true"></i>Get Quote via WhatsApp</a>
           </div>
+
+          <!-- Mobile/Tablet Only Form (Shown at the bottom of Hero section) -->
+          <div class="d-block d-lg-none mt-4">
+            <div class="bg-white text-start rounded p-4 shadow text-dark">
+              <h3 class="h5 fw-bold text-center mb-1 text-dark" style="font-family: 'Roboto Condensed', sans-serif;">
+                Get a Quotation in 30 minutes
+              </h3>
+              <div class="mx-auto mb-3" style="width: 50px; height: 3px; background-color: #fb0f0c;"></div>
+              
+              <form id="quoteFormHeader">
+                <div class="row g-3">
+                  <!-- Full Name -->
+                  <div class="col-12">
+                    <label class="fw-bold mb-1 text-muted" style="font-size: 0.85rem;">Full Name</label>
+                    <input type="text" id="headerName" name="name" class="form-control bg-light border-0"
+                      placeholder="Enter your name" pattern="[A-Za-z ]+" style="height:48px; font-size:0.9rem;" required>
+                  </div>
+
+                  <!-- Phone Number -->
+                  <div class="col-12">
+                    <label class="fw-bold mb-1 text-muted" style="font-size: 0.85rem;">Phone Number</label>
+                    <div class="input-group">
+                      <input type="text" id="headerCountryCode" class="form-control bg-light border-0" placeholder="+1"
+                        style="max-width:80px; height:48px; font-size:0.9rem;">
+                      <input type="tel" id="headerPhone" name="phone" class="form-control bg-light border-0"
+                        placeholder="Enter phone number" style="height:48px; font-size:0.9rem;" required>
+                    </div>
+                  </div>
+
+                  <!-- Email -->
+                  <div class="col-12">
+                    <label class="fw-bold mb-1 text-muted" style="font-size: 0.85rem;">Email (Optional)</label>
+                    <input type="email" id="headerEmail" name="email" class="form-control bg-light border-0"
+                      placeholder="Enter your email" style="height:48px; font-size:0.9rem;">
+                  </div>
+
+                  <!-- Patient Location -->
+                  <div class="col-6">
+                    <label class="fw-bold mb-1 text-muted" style="font-size: 0.85rem;">Patient Location</label>
+                    <input type="text" id="headerPatientLocation" name="patientLocation" class="form-control bg-light border-0"
+                      placeholder="City / Country" style="height:48px; font-size:0.9rem;" required>
+                  </div>
+
+                  <!-- Destination -->
+                  <div class="col-6">
+                    <label class="fw-bold mb-1 text-muted" style="font-size: 0.85rem;">Destination</label>
+                    <input type="text" id="headerDestination" name="destination" class="form-control bg-light border-0"
+                      placeholder="City / Country" style="height:48px; font-size:0.9rem;" required>
+                  </div>
+
+                  <!-- Services Selection -->
+                  <div class="col-12">
+                    <label class="fw-bold mb-1 text-muted" style="font-size: 0.85rem;">Services</label>
+                    <select id="headerService" name="service" class="form-select bg-light border-0" style="height:48px; font-size:0.9rem;" required>
+                      <option value="">Select a Service</option>
+                      <option value="Air Ambulance">Air Ambulance</option>
+                      <option value="Airline Stretcher Services">Airline Stretcher Services</option>
+                      <option value="Flight Medical Escort Services">Flight Medical Escort Services</option>
+                      <option value="ECMO Transfer Services">ECMO Transfer Services</option>
+                      <option value="Organ Transplant Assistance">Organ Transplant Assistance</option>
+                      <option value="Medical Tourism">Medical Tourism</option>
+                      <option value="Medical Travel Assistance">Medical Travel Assistance</option>
+                      <option value="Home Health Care">Home Health Care</option>
+                    </select>
+                  </div>
+
+                  <!-- Submit Button -->
+                  <div class="col-12 mt-4">
+                    <button class="btn btn-primary w-100 py-3 fw-bold" type="submit" style="background:#fb0f0c; border:none; font-size:0.95rem;">
+                      REQUEST CALLBACK
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -479,7 +556,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
           <div class="cert-card iso">
             <div class="cert-header">
               <div class="cert-icon-container">
-                <img src="img/issso.png" alt="ISO" class="cert-icon-img" loading="eager">
+                <img src="img/ISO logo.jpg" alt="ISO" class="cert-icon-img" loading="eager">
               </div>
               <h4 class="cert-title">ISO 9001:2015 CERTIFIED</h4>
             </div>
@@ -947,11 +1024,17 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
       fetch("https://ipapi.co/json/")
         .then(res => res.json())
         .then(data => {
-          document.getElementById("countryCode").value =
-            data.country_calling_code || "+1";
+          const code = data.country_calling_code || "+1";
+          const cc1 = document.getElementById("countryCode");
+          if (cc1) cc1.value = code;
+          const cc2 = document.getElementById("headerCountryCode");
+          if (cc2) cc2.value = code;
         })
         .catch(() => {
-          document.getElementById("countryCode").value = "+1";
+          const cc1 = document.getElementById("countryCode");
+          if (cc1) cc1.value = "+1";
+          const cc2 = document.getElementById("headerCountryCode");
+          if (cc2) cc2.value = "+1";
         });
     });
   </script>
@@ -1701,31 +1784,41 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
           <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>1111, 11th Floor, Padma Tower 1,
             Rajendra Place, New Delhi - 110008, (INDIA)</p>
           <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>info@airmedical24x7.com</p>
-          <p class="mb-0">
-            <i class="fa fa-phone-alt text-primary me-3"></i>
-            <a href="tel:+971565542001" style="text-decoration: none; color: inherit;">
-              +971 56 554 2001
-            </a>
+                              <h6 class="text-primary text-uppercase mt-4 mb-3">Global Helpline Numbers</h6>
+          <p class="mb-1">
+            <i class="fa fa-phone-alt text-primary me-2"></i>
+            <small class="text-uppercase fw-bold text-muted" style="font-size: 0.75rem; letter-spacing: 0.5px;">UAE:</small> 
+            <a href="tel:+971565542001" style="text-decoration: none; color: inherit;">+971 56 554 2001</a>
           </p>
-
-          <p class="mb-0">
-            <i class="fa fa-phone-alt text-primary me-3"></i>
-            <a href="tel:+97143230261" style="text-decoration: none; color: inherit;">
-              +971 4 323 0261
-            </a>
+          <p class="mb-1">
+            <i class="fa fa-phone-alt text-primary me-2"></i>
+            <small class="text-uppercase fw-bold text-muted" style="font-size: 0.75rem; letter-spacing: 0.5px;">India:</small> 
+            <a href="tel:+918000504740" style="text-decoration: none; color: inherit;">+91 80005 04740</a>
           </p>
-
-          <p class="mb-0">
-            <i class="fa fa-phone-alt text-primary me-3"></i>
-            <a href="tel:+911171859928" style="text-decoration: none; color: inherit;">
-              +91 11 7185 9928
-            </a>
+          <p class="mb-1">
+            <i class="fa fa-phone-alt text-primary me-2"></i>
+            <small class="text-uppercase fw-bold text-muted" style="font-size: 0.75rem; letter-spacing: 0.5px;">USA:</small> 
+            <a href="tel:+18335186535" style="text-decoration: none; color: inherit;">+1 833-518-6535</a>
+          </p>
+          <p class="mb-1">
+            <i class="fa fa-phone-alt text-primary me-2"></i>
+            <small class="text-uppercase fw-bold text-muted" style="font-size: 0.75rem; letter-spacing: 0.5px;">UK:</small> 
+            <a href="tel:+448002294751" style="text-decoration: none; color: inherit;">+44 800 229 4751</a>
+          </p>
+          <p class="mb-1">
+            <i class="fa fa-phone-alt text-primary me-2"></i>
+            <small class="text-uppercase fw-bold text-muted" style="font-size: 0.75rem; letter-spacing: 0.5px;">Canada:</small> 
+            <a href="tel:+18337257598" style="text-decoration: none; color: inherit;">+1 833-725-7598</a>
+          </p>
+          <p class="mb-1">
+            <i class="fa fa-phone-alt text-primary me-2"></i>
+            <small class="text-uppercase fw-bold text-muted" style="font-size: 0.75rem; letter-spacing: 0.5px;">Vietnam:</small> 
+            <a href="tel:+8412032123" style="text-decoration: none; color: inherit;">+84 1203 2123</a>
           </p>
           <p class="mb-0">
-            <i class="fa fa-phone-alt text-primary me-3"></i>
-            <a href="tel:+919217710155" style="text-decoration: none; color: inherit;">
-              +91 92177 10155
-            </a>
+            <i class="fa fa-phone-alt text-primary me-2"></i>
+            <small class="text-uppercase fw-bold text-muted" style="font-size: 0.75rem; letter-spacing: 0.5px;">Seychelles:</small> 
+            <a href="tel:+2484632054" style="text-decoration: none; color: inherit;">+248 4 632 054</a>
           </p>
 
         </div>
