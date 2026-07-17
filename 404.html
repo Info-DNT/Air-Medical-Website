@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+    (function () {
+      var hostname = window.location.hostname;
+      var pathname = window.location.pathname;
+      var search = window.location.search;
+      var hash = window.location.hash;
+      
+      var basePath = '';
+      if (hostname.indexOf('.github.io') !== -1) {
+        var segments = pathname.split('/');
+        if (segments.length > 1 && segments[1]) {
+          basePath = '/' + segments[1];
+        }
+      }
+      
+      var relPath = pathname;
+      if (basePath && relPath.startsWith(basePath)) {
+        relPath = relPath.substring(basePath.length);
+      }
+      
+      // Handle legacy /about redirect
+      if (relPath === '/about' || relPath === '/about.html' || relPath === '/about/') {
+        window.location.replace(basePath + '/about-us.html' + search + hash);
+        return;
+      }
+      
+      // Handle legacy singular redirects
+      var cleanRelPath = relPath;
+      if (cleanRelPath.endsWith('/') && cleanRelPath !== '/') {
+        cleanRelPath = cleanRelPath.slice(0, -1);
+      }
+      if (cleanRelPath === '/country' || cleanRelPath === '/country.html') {
+        window.location.replace(basePath + '/countries.html' + search + hash);
+        return;
+      }
+      if (cleanRelPath === '/blog' || cleanRelPath === '/blog.html') {
+        window.location.replace(basePath + '/blogs.html' + search + hash);
+        return;
+      }
+      if (cleanRelPath === '/blog-detail' || cleanRelPath === '/blog-detail.html') {
+        window.location.replace(basePath + '/blogs-detail.html' + search + hash);
+        return;
+      }
+      if (cleanRelPath === '/flight-medical-escort-services' || cleanRelPath === '/flight-medical-escort-services.html') {
+        window.location.replace(basePath + '/services/flight-medical-escort-services.html' + search + hash);
+        return;
+      }
+      
+      var lastSegment = cleanRelPath.substring(cleanRelPath.lastIndexOf('/') + 1);
+      if (cleanRelPath !== '/' && cleanRelPath !== '' && !lastSegment.includes('.')) {
+        var targetUrl;
+        if (cleanRelPath === '/countries') {
+          targetUrl = basePath + '/countries.html' + search + hash;
+        } else if (lastSegment.indexOf('air-ambulance-') === 0 && lastSegment !== 'air-ambulance-charters') {
+          // NEW: country pages now live at /countries/{slug}.html (root URL handled by .htaccess on Apache)
+          targetUrl = basePath + '/countries/' + lastSegment + '.html' + search + hash;
+        } else if (cleanRelPath.indexOf('/countries/air-ambulance-') === 0) {
+          // Legacy /countries/air-ambulance-* → /air-ambulance-* (already redirected by .htaccess on Apache)
+          var slug = lastSegment;
+          targetUrl = basePath + '/' + slug + search + hash;
+        } else {
+          var cleanSegment = lastSegment;
+          if (cleanSegment === 'airline-stretcher-services') {
+            cleanSegment = 'commercial-flight-stretcher';
+          }
+          if (cleanSegment === 'custom-medical-packages' || cleanSegment === 'medical-tourism-services') {
+            cleanSegment = 'medical-tourism';
+          }
+
+          var services = [
+            'air-ambulance', 'air-ambulance-charters', 'ECMO-transfer',
+            'commercial-airlines-medical-transfer-services', 'commercial-flight-stretcher',
+            'doctor-appointment', 'flight-medical-escort-services', 'hospital-acceptance',
+            'second-opinion-services', 'organ-transplant-assistance', 'medical-tourism',
+            'medical-travel-assistance', 'home-health-care'
+          ];
+
+          var serviceMatch = services.find(function(s) {
+            return s.toLowerCase() === cleanSegment.toLowerCase();
+          });
+
+          if (serviceMatch) {
+            targetUrl = basePath + '/services/' + serviceMatch + '.html' + search + hash;
+          } else {
+            // Only redirect if we expect a real page — prevent redirect loops
+            var knownRootPages = [
+              'about-us', 'contact-us', 'blogs', 'blogs-detail', 'career',
+              'countries', 'privacy-policy', 'terms-and-conditions',
+              'ecmo-air-transfer', 'medical-escort-dubai', 'medical-tourism-india',
+              'repatriation-services-dubai', 'commercial-stretcher-service'
+            ];
+            if (knownRootPages.indexOf(cleanSegment) !== -1) {
+              targetUrl = basePath + cleanRelPath + '.html' + search + hash;
+            } else {
+              targetUrl = null;
+            }
+          }
+        }
+        if (targetUrl) {
+          window.location.replace(targetUrl);
+        }
+      }
+    })();
+  </script>
+    <meta charset="utf-8">
+  <!-- Preconnect to CDNs -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://code.jquery.com" crossorigin>
+    <title>404 - Page Not Found | Air Medical 24X7</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f1f8ff;
+            color: #1d2a4d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            padding: 40px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        h1 {
+            color: #FB0F0C;
+            margin-top: 0;
+        }
+        a {
+            color: #1A346B;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+  <!-- Optimized Google Analytics and GTM Lazy Loader -->
+  <script>
+    (function() {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function() { dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+
+      var scriptsLoaded = false;
+      function loadAnalyticsScripts() {
+        if (scriptsLoaded) return;
+        scriptsLoaded = true;
+
+        // Google Tag Manager
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || []; w[l].push({
+            'gtm.start': new Date().getTime(), event: 'gtm.js'
+          });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+          var jScript = d.createElement(s);
+          jScript.async = true;
+          jScript.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(jScript, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KG4BQ6SM');
+
+        // Google Ads Tag 1
+        var g1 = document.createElement('script');
+        g1.async = true;
+        g1.src = 'https://www.googletagmanager.com/gtag/js?id=AW-16644189187';
+        document.head.appendChild(g1);
+        window.gtag('config', 'AW-16644189187');
+
+        // Google Ads Tag 2
+        var g2 = document.createElement('script');
+        g2.async = true;
+        g2.src = 'https://www.googletagmanager.com/gtag/js?id=AW-10787559741';
+        document.head.appendChild(g2);
+        window.gtag('config', 'AW-10787559741');
+      }
+
+      var interactionEvents = ['mouseover', 'keydown', 'touchstart', 'scroll', 'click'];
+      interactionEvents.forEach(function(evt) {
+        window.addEventListener(evt, loadAnalyticsScripts, { once: true, passive: true });
+      });
+
+      // Safety fallback (3.5 seconds)
+      setTimeout(loadAnalyticsScripts, 3500);
+    })();
+  </script>
+
+</head>
+<body>
+    <div class="container">
+        <h1>404 - Page Not Found</h1>
+        <p>The requested page does not exist or has been moved.</p>
+        <p><a href="./">Go to Homepage</a></p>
+    </div>
+</body>
+</html>

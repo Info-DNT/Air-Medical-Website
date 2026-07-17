@@ -1,0 +1,85 @@
+# Air Medical 24X7 - Apache Configuration
+RewriteEngine On
+RewriteBase /
+
+# ============================================================
+# SECURITY HEADERS
+# ============================================================
+<IfModule mod_headers.c>
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), camera=(), microphone=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# ============================================================
+# BLOCK SENSITIVE DIRECTORIES
+# ============================================================
+RewriteRule ^scratch(/.*)?$ - [F,L]
+RewriteRule ^admin\.html$ - [L]
+
+# ============================================================
+# 1. Enforce clean URLs: redirect .html requests to extensionless
+#    (except /admin.html which stays as-is for direct access)
+# ============================================================
+RewriteCond %{THE_REQUEST} \s/+(.+)\.html[\s?] [NC]
+RewriteCond %{REQUEST_URI} !^/admin\.html$ [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Redirect old /services/ paths to clean root-level URLs
+RewriteCond %{THE_REQUEST} \s/services/([^\s\?]+) [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# ============================================================
+# 2. MANDATORY: 301 redirect old /countries/air-ambulance-*
+#    to clean root-level /air-ambulance-* URLs
+# ============================================================
+RewriteRule ^countries/(air-ambulance-.+)$ /$1 [R=301,L,NC]
+
+# Redirect /countries/index to /countries
+RewriteRule ^countries/index$ /countries [R=301,L,NC]
+
+# ============================================================
+# 3. Legacy root service/country redirects (keep existing)
+# ============================================================
+RewriteRule ^airline-stretcher-services$ /commercial-flight-stretcher [R=301,L,NC]
+RewriteRule ^commercial-flight-stretcher$ /commercial-flight-stretcher [R=301,L,NC]
+RewriteRule ^air-ambulance$ /air-ambulance [R=301,L,NC]
+RewriteRule ^air-ambulance-charters$ /air-ambulance-charters [R=301,L,NC]
+RewriteRule ^flight-medical-escort-services$ /flight-medical-escort-services [R=301,L,NC]
+RewriteRule ^hospital-acceptance$ /hospital-acceptance [R=301,L,NC]
+RewriteRule ^doctor-appointment$ /doctor-appointment [R=301,L,NC]
+RewriteRule ^second-opinion-services$ /second-opinion-services [R=301,L,NC]
+RewriteRule ^custom-medical-packages$ /medical-tourism [R=301,L,NC]
+RewriteRule ^ecmo-transfer$ /ECMO-transfer [R=301,L,NC]
+RewriteRule ^commercial-airlines-medical-transfer-services$ /commercial-airlines-medical-transfer-services [R=301,L,NC]
+RewriteRule ^medical-tourism-services$ /medical-tourism [R=301,L,NC]
+
+# ============================================================
+# 4. MANDATORY: Internal routing for country pages at root
+#    /air-ambulance-{country} → served from countries/air-ambulance-{country}.html
+#    Condition: only route if the file exists in countries/ (prevents
+#    clashing with service page slugs like air-ambulance-charters)
+# ============================================================
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/countries/%1.html -f
+RewriteRule ^(air-ambulance-[^/]+)$ /countries/$1.html [L,NC]
+
+# ============================================================
+# 4b. Internal routing for service pages at root
+#    /service-name → served from services/service-name.html
+# ============================================================
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/services/$1.html -f
+RewriteRule ^([^/]+)$ /services/$1.html [L,NC]
+
+# ============================================================
+# 5. General extensionless URL routing: /page → /page.html
+# ============================================================
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^\.]+)$ $1.html [L]
