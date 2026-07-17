@@ -21,6 +21,30 @@
         }
         toggleNavbarMethod();
         $(window).resize(toggleNavbarMethod);
+
+        // Move form above the image on mobile in service pages
+        const quoteForm = document.getElementById("quoteForm");
+        const target = document.querySelector(".services-mobile-form-target");
+        if (quoteForm && target) {
+            const formCol = quoteForm.closest('.col-lg-5');
+            const originalParent = formCol ? formCol.parentElement : null;
+
+            function moveServicesForm() {
+                if (formCol && originalParent) {
+                    if ($(window).width() < 768) {
+                        if (!target.contains(formCol)) {
+                            target.appendChild(formCol);
+                        }
+                    } else {
+                        if (!originalParent.contains(formCol)) {
+                            originalParent.appendChild(formCol);
+                        }
+                    }
+                }
+            }
+            moveServicesForm();
+            $(window).resize(moveServicesForm);
+        }
     });
 
 
