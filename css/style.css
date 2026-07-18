@@ -2464,6 +2464,12 @@ h2.mt-5 {
     line-height: 1.25;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
+    white-space: nowrap !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 14px;
 }
 
 .btn-emergency:hover {
@@ -2482,6 +2488,12 @@ h2.mt-5 {
     line-height: 1.25;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
+    white-space: nowrap !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 14px;
 }
 
 .btn-whatsapp-dark:hover {
@@ -2492,7 +2504,7 @@ h2.mt-5 {
 }
 
 .btn-request-callback {
-    background-color: #A80C0B;
+    background-color: #FB0F0C;
     color: #ffffff;
     border: none;
     border-radius: 6px;
@@ -2501,14 +2513,18 @@ h2.mt-5 {
     letter-spacing: 0.5px;
     text-transform: uppercase;
     transition: all 0.3s ease;
-    height: 36px !important; /* Compact button height */
+    height: 42px !important; /* Premium vertical height */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .btn-request-callback:hover {
-    background-color: #8c0a09;
+    background-color: #d40d0a;
     color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(168, 12, 11, 0.25);
+    box-shadow: 0 4px 10px rgba(251, 15, 12, 0.25);
 }
 
 /* Footer mobile toggles */
@@ -2554,9 +2570,6 @@ h2.mt-5 {
 
 /* Home Hero Banner Mobile cleanup */
 @media (max-width: 767px) {
-    .home-hero .glass-card {
-        display: none !important;
-    }
     .home-hero {
         padding-top: 1.5rem !important;
         padding-bottom: 1.5rem !important;
@@ -2569,6 +2582,26 @@ h2.mt-5 {
     }
     .services-mobile-form-target {
         margin-bottom: 2rem !important;
+    }
+    .glass-card {
+        padding: 20px !important;
+        margin-top: 1.5rem !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .glass-card {
+        margin-top: 1.5rem !important;
+    }
+}
+
+/* Prevent sticky bottom CTA bar from overlapping footer content */
+body {
+    padding-bottom: 75px !important;
+}
+@media (min-width: 992px) {
+    body {
+        padding-bottom: 85px !important;
     }
 }
 
