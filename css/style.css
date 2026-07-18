@@ -1817,7 +1817,7 @@ h6 {
     .hero-header h1 .text-red {
         display: inline !important;
         font-size: 1.8rem !important;
-        color: #ff4d4d !important;
+        color: #FB0F0C !important;
     }
 
     .hero-header p {
@@ -2244,13 +2244,18 @@ h6 {
 
 @media (max-width: 768px) {
     .mobile-sticky-cta {
-        padding: 8px 12px !important;
+        padding: 5px 8px !important;
+    }
+    .mobile-sticky-cta .row {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
     }
     .mobile-sticky-cta .btn-call,
     .mobile-sticky-cta .btn-whatsapp,
     .mobile-sticky-cta .btn-imessage {
-        height: 38px !important;
+        height: 36px !important;
         font-size: 12px !important;
+        margin: 0 !important;
     }
 }
 
