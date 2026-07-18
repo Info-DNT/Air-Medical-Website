@@ -1796,9 +1796,9 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         <div class="row g-5">
           <div class="col-lg-3 col-md-6">
             <div class="mb-3">
-              <img src="img/air-medical-logo.png" alt="Air Medical 24X7" style="max-height: 45px;" loading="lazy">
+              <img src="img/air-medical-logo.png" alt="Air Medical 24X7" class="footer-logo" loading="lazy">
             </div>
-            <p class="mb-4" style="font-size: 0.9rem; line-height: 1.5; color: #a0aec0;">
+            <p class="mb-4 text-white" style="font-size: 0.9rem; line-height: 1.5;">
               Bed-to-bed air ambulance and evacuation care, coordinated door-to-door across 193+ countries.
             </p>
             
@@ -1810,19 +1810,17 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
               </div>
             </a>
 
-            <p class="mb-3" style="font-size: 0.85rem;">
+            <p class="mb-3 text-white" style="font-size: 0.85rem; line-height: 1.45;">
               <i class="fa fa-map-marker-alt text-primary me-2"></i>
-              <strong>DUBAI, U.A.E.</strong><br>
-              <span class="ms-4 text-muted">310, Garhoud Community, Near DXB Airport T1</span>
+              <strong>DUBAI, U.A.E.</strong> <span class="text-white opacity-75 ms-1">310, Garhoud Community, Near DXB Airport T1</span>
             </p>
-            <p class="mb-3" style="font-size: 0.85rem;">
+            <p class="mb-3 text-white" style="font-size: 0.85rem; line-height: 1.45;">
               <i class="fa fa-map-marker-alt text-primary me-2"></i>
-              <strong>NEW DELHI, INDIA</strong><br>
-              <span class="ms-4 text-muted">Padma Tower 1, Rajendra Place – 110008</span>
+              <strong>NEW DELHI, INDIA</strong> <span class="text-white opacity-75 ms-1">Padma Tower 1, Rajendra Place – 110008</span>
             </p>
-            <p class="mb-3" style="font-size: 0.85rem;">
+            <p class="mb-3 text-white" style="font-size: 0.85rem;">
               <i class="fa fa-envelope text-primary me-2"></i>
-              <a href="mailto:info@airmedical24x7.com" class="text-white text-decoration-none">info@airmedical24x7.com</a>
+              <a href="mailto:info@airmedical24x7.com" class="text-white text-decoration-none opacity-75">info@airmedical24x7.com</a>
             </p>
             
             <div class="mt-4">
@@ -1862,7 +1860,18 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
               <a class="text-light mb-2 text-decoration-none" href="flight-medical-escort-services"><i class="fa fa-angle-right me-2 text-red"></i>Flight Medical Escort</a>
               <a class="text-light mb-2 text-decoration-none" href="commercial-flight-stretcher"><i class="fa fa-angle-right me-2 text-red"></i>Airline Stretcher</a>
               <a class="text-light mb-2 text-decoration-none" href="medical-tourism"><i class="fa fa-angle-right me-2 text-red"></i>Medical Tourism</a>
-              <a class="text-light mt-3 fw-bold text-decoration-none" href="services" style="color: #a0aec0 !important; font-size: 0.88rem;">
+              
+              <!-- Collapsed services, revealed on click -->
+              <div id="footerMoreServices" class="collapse flex-column">
+                <a class="text-light mb-2 text-decoration-none" href="organ-transplant-assistance"><i class="fa fa-angle-right me-2 text-red"></i>Organ Transplant</a>
+                <a class="text-light mb-2 text-decoration-none" href="medical-travel-assistance"><i class="fa fa-angle-right me-2 text-red"></i>Medical Travel</a>
+                <a class="text-light mb-2 text-decoration-none" href="home-health-care"><i class="fa fa-angle-right me-2 text-red"></i>Home Care</a>
+                <a class="text-light mb-2 text-decoration-none" href="hospital-acceptance"><i class="fa fa-angle-right me-2 text-red"></i>Hospital Acceptance</a>
+                <a class="text-light mb-2 text-decoration-none" href="doctor-appointment"><i class="fa fa-angle-right me-2 text-red"></i>Doctor Appointment</a>
+                <a class="text-light mb-2 text-decoration-none" href="second-opinion-services"><i class="fa fa-angle-right me-2 text-red"></i>Second Opinion</a>
+              </div>
+
+              <a class="text-light mt-3 fw-bold text-decoration-none" href="#!" data-bs-toggle="collapse" data-bs-target="#footerMoreServices" id="btnViewAllServices" style="color: #a0aec0 !important; font-size: 0.88rem;">
                 View all 11 services <i class="fas fa-play ms-1" style="font-size: 0.65rem; color: #FB0F0C;"></i>
               </a>
             </div>
@@ -2188,8 +2197,10 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   </script>
 
   <!-- Homepage Footer Country Selector Interaction Script -->
+  <!-- Homepage Footer Interaction Scripts -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      // Country Selector helpline numbers
       const countrySelect = document.getElementById('footerCountrySelect');
       const helplineResult = document.getElementById('footerHelplineResult');
 
@@ -2230,6 +2241,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
           }
         });
       }
+
+
     });
   </script>
 
