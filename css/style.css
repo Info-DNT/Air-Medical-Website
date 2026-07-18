@@ -2028,12 +2028,7 @@ h6 {
     margin-right: 6px;
 }
 
-/* Add padding to body to prevent sticky bar overlapping footer info on mobile */
-@media (max-width: 991.98px) {
-    body {
-        padding-bottom: 70px !important;
-    }
-}
+
 
 /* 3. Journey Steps (How It Works) */
 .journey-container {
