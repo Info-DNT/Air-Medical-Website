@@ -137,6 +137,33 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- ===== ADS / LANDING PAGES ===== -->
+  <url>
+    <loc>https://airmedical24x7.com/ads/air-ambulance-uk</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airmedical24x7.com/ads/air-ambulance-uae</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airmedical24x7.com/ads/air-ambulance-canada</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airmedical24x7.com/ads/air-ambulance-usa</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airmedical24x7.com/ads/air-ambulance-india</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+
   <!-- ===== COUNTRY PAGES — clean root-level URLs ===== -->
   <url>
     <loc>https://airmedical24x7.com/air-ambulance-india</loc>
