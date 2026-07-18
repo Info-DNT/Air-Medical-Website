@@ -2594,11 +2594,11 @@ h2.mt-5 {
 
 /* Prevent sticky bottom CTA bar from overlapping footer content */
 .container-fluid.bg-dark.text-light {
-    padding-bottom: 5.5rem !important; /* Pushes content up inside the dark blue footer */
+    padding-bottom: 3.5rem !important; /* Pushes content up inside the dark blue footer */
 }
 @media (min-width: 992px) {
     .container-fluid.bg-dark.text-light {
-        padding-bottom: 6.5rem !important;
+        padding-bottom: 4.2rem !important;
     }
 }
 
