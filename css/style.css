@@ -2746,5 +2746,13 @@ h2.mt-5 {
     display: none !important;
 }
 
+/* Mobile Footer Services collapse styling */
+#footerMoreServicesMobile.show {
+    display: flex !important;
+}
+#footerMoreServicesMobile.show ~ #btnViewAllServicesMobile {
+    display: none !important;
+}
+
 
 
